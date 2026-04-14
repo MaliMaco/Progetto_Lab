@@ -2,9 +2,10 @@ import asyncio
 from crawl4ai import AsyncWebCrawler
 from crawl4ai.async_configs import BrowserConfig, CrawlerRunConfig
 import os
+from parser_cleaner import ParseCleaner
 
 md_path = os.path.join(os.path.dirname(__file__),"markdown_ecb.md")
-html_path = os.path.join(os.path.dirname(__file__),"html_ecb.txt")
+html_path = os.path.join(os.path.dirname(__file__),"gs1/gs1.html")
 
 async def main():
     markdown_file = open(md_path, 'w')
@@ -24,7 +25,10 @@ async def main():
         html_file.write(result.html)
         html_file.flush()
         html_file.close()
-        
+
+    ParseCleaner.parsed_clean(md_path,os.path.join(os.path.dirname(__file__),"gs1/gs1_GS.txt"), "UTF-8")
+    
+
 
 if __name__ == "__main__":
     asyncio.run(main())

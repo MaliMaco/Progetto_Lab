@@ -1,13 +1,18 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Dict, Any
-import asyncio
-from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig
 
 app = FastAPI(title="Backend API")
 
+class ParseOutput(BaseModel):
+    url: str
+    domain: str
+    title: str
+    html_text: str
+    parsed_text: str
+
 @app.get("/parse")
-def parse():
+def parse(url: str) -> ParseOutput:
     pass
 
 @app.get("/domains")

@@ -1,0 +1,287 @@
+<div class='crawl4ai-result'>
+<main>
+			<!-- block-conversion -->
+    
+        
+ 
+          
+      <div class="title">
+        <h1>Cosa sarebbe l’euro digitale?</h1>
+      </div> 
+          
+        <div class="section">
+           
+          
+        
+                                                                             <p>L’euro digitale sarebbe una forma digitale di contante: un mezzo di pagamento elettronico al dettaglio emesso da noi, la Banca centrale europea. Pertanto, sarebbe disponibile gratuitamente a tutti nell’area dell’euro, per qualsiasi pagamento digitale.&nbsp;L’euro digitale è pensato per essere inclusivo e facile da usare, senza lasciare indietro nessuno.</p><p>Oggi i cittadini non hanno accesso alla moneta emessa dalla banca centrale in forma digitale. In una società sempre più digitalizzata, l’euro digitale rappresenterebbe un’evoluzione naturale della moneta unica.</p>                                             
+        
+         
+          
+        </div>
+       
+          
+      <div class="teasers -three-columns -upper-blue -lower-light-grey -small -top-arrow -no-space-below">
+        <div class="upper loaded" data-image="index/Digital Euro_Website_Splitter1_2560x800 copy.png" data-image-webp="index/Digital Euro_Website_Splitter1_2560x800 copy.webp" style="background-image: url(&quot;index/Digital Euro_Website_Splitter1_2560x800 copy.webp&quot;);">
+          
+          <h2>Caratteristiche principali</h2>
+          
+        </div>
+        <div class="lower">
+          
+          <div class="container">
+              
+               
+              
+              
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            <div class="title">Contante digitale</div>
+            <div class="icon -three-banknotes"></div>
+          </div>
+          <div class="content-box">
+              
+                                                  <p>Con l’euro digitale potresti effettuare qualsiasi pagamento digitale, come fai con il contante per i pagamenti fisici. Avresti un’opzione in più per pagare nei negozi fisici oppure online, o per inviare denaro ad amici e familiari.<br></p>                              
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            <div class="title">Accettato in tutta Europa</div>
+            <div class="icon -www"></div>
+          </div>
+          <div class="content-box">
+              
+                <p>Potresti utilizzare l’euro digitale presso tutti i negozi e gli esercizi dell’area dell’euro che accettano pagamenti digitali.</p>
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            <div class="title">Gratuito</div>
+            <div class="icon -hands"></div>
+          </div>
+          <div class="content-box">
+              
+                                                                   <p>Chiunque nell’area dell’euro potrebbe effettuare pagamenti in euro digitali gratuitamente, come con le banconote e le monete.<br></p>                                             
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            <div class="title">Disponibile offline</div>
+            <div class="icon -wi-fi"></div>
+          </div>
+          <div class="content-box">
+              
+                                                                   <p>Non servirebbe una connessione a Internet. Potresti pagare sempre e ovunque.<br></p>                                             
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            <div class="title">Sicuro e privato</div>
+            <div class="icon -shield"></div>
+          </div>
+          <div class="content-box">
+              
+                                                                                                                                                        <p>La BCE e l’Eurosistema non sarebbero in grado di risalire alla tua identità o ai tuoi acquisti dai dati sui pagamenti. Inoltre, la funzionalità offline dell’euro digitale garantirebbe un livello di privacy paragonabile a quello del contante.<br></p>                                                                                                                        
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            <div class="title">Valore garantito</div>
+            <div class="icon -euro"></div>
+          </div>
+          <div class="content-box">
+              
+                <p>Un euro sarà sempre un euro. Un euro digitale avrebbe sempre esattamente lo stesso valore di una moneta da un euro.<br></p>
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            <div class="title">Inclusivo</div>
+            <div class="icon -five-people"></div>
+          </div>
+          <div class="content-box">
+              
+                <p>L’euro digitale sarà concepito in modo da soddisfare le esigenze di tutti. Attraverso le nostre ricerche sugli utenti ascoltiamo i cittadini europei, raccogliendo dati e informazioni che ci aiuteranno a modellare un euro digitale inclusivo che non lasci indietro nessuno.</p>
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            <div class="title">Innovativo</div>
+            <div class="icon -bulb"></div>
+          </div>
+          <div class="content-box">
+              
+                
+                
+                <p>Collaboriamo con i settori pubblico e privato per sperimentare nuove idee, sviluppare caratteristiche innovative e fornire soluzioni pratiche per i pagamenti della vita reale. L’euro digitale può offrire ai cittadini una scelta più ampia e maggiore convenienza, contribuendo al successo delle imprese e promuovendo nel contempo l’innovazione in tutta Europa.</p>
+              
+              
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+               
+              
+          </div>
+          
+        </div>
+      </div>
+     
+          
+<div class="splitter -dark-blue -no-space-below" data-image="index/Digital Euro_Website_Splitter1_2560x800 copy.png" data-image-webp="index/Digital Euro_Website_Splitter1_2560x800 copy.webp"> 
+    <div class="content-box">
+        <h3>Non un’altra criptoattività</h3>
+         
+    </div>
+</div>
+ 
+          
+        <div class="section connector -gradient-upper -dark-grey">
+           
+          
+        
+            
+                                                                <p>L’euro digitale non sarebbe una criptoattività. Le criptoattività sono rischiose e instabili perché non sono garantite né gestite da un’istituzione centrale. Chi detiene criptoattività non ha alcuna garanzia che le potrà cambiare in contante all’occorrenza.</p><p>L’euro digitale, invece, sarebbe garantito dalla stessa istituzione che garantisce il tuo contante, cioè da noi, la Banca centrale europea. E proprio come il contante, l’euro digitale manterrebbe sempre il suo valore nominale.&nbsp;</p>                                    
+        
+        
+         
+          
+        </div><div class="upper-connection -gradient-upper"></div> <div class="lower-connection -dark-grey"></div>
+       
+          
+      <div class="see-also-boxes -three-columns -align-center">
+        <div class="headline">CONSULTA ANCHE</div>
+        <h2>Materiale informativo sull’euro digitale</h2>
+            
+          <div class="container">
+              
+               
+              
+              
+          <div class="content-box">
+              
+              
+           
+          <h3 style="cursor: pointer;">A colpo d’occhio:</h3>
+          
+          <a href="/euro/digital_euro/timeline/profuse/shared/pdf//ecb.dedocs231018_2.it.pdf" data-label="inglese">Tutto in una pagina</a>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="content-box">
+              
+              
+           
+          <h3 style="cursor: pointer;">In sintesi:</h3>
+          
+          <a href="/euro/digital_euro/timeline/profuse/shared/pdf/ecb.deprep250519_trifold_brochure_updated.it.pdf" data-label="inglese">Brochure</a>
+       
+              
+              
+               
+              
+          </div>
+          
+               
+              
+          </div>
+          
+      </div>
+       
+          
+			
+			<div class="in-this-section -active -small" id="pages-in-section-holder">
+    <h3>Tutte le pagine di questa sezione</h3>
+    <div class="content-box"><ul><li><a href="/euro/digital_euro/features/privacy/html/index.it.html">Digital euro and privacy</a></li></ul></div>
+</div>
+		</main>
+</div>

@@ -2,9 +2,9 @@ import asyncio
 from crawl4ai import AsyncWebCrawler
 from crawl4ai.async_configs import BrowserConfig, CrawlerRunConfig
 import os
-from parser_cleaner import ParseCleaner
+import re
 
-md_path = os.path.join(os.path.dirname(__file__),"markdown_ecb.md")
+md_path = os.path.join(os.path.dirname(__file__),"gs5/gs5_GS.txt")
 html_path = os.path.join(os.path.dirname(__file__),"gs5/gs5.html")
 
 async def main():
@@ -19,14 +19,16 @@ async def main():
             url="https://www.ecb.europa.eu/paym/cyber-resilience/fmi/html/index.en.html",
             config=run_config
         )
-        markdown_file.write(result.markdown)
+        md_text = result.markdown
+        md_text = re.sub(r'\(\s*https?://[^)]*\)', ' ', md_text)
+        md_text = re.sub(r'\[\d+\]', ' ', md_text)
+        md_text = re.sub(r'[^a-zA-Z0-9]', ' ', md_text)
+        markdown_file.write(md_text)
         markdown_file.flush()
         markdown_file.close()
         html_file.write(result.html)
         html_file.flush()
         html_file.close()
-
-    ParseCleaner.parsed_clean(md_path,os.path.join(os.path.dirname(__file__),"gs5/gs5_GS.txt"), "UTF-8")
     
 
 

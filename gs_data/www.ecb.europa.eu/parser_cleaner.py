@@ -8,8 +8,8 @@ class ParseCleaner(BaseModel):
             Scrive in dest_file il testo markdown preso in input pulito
             Argomenti:
                 src_file: path del file markdown da pulire
-                dest_file: path del file markdown da pulire
-                enc: enoding del file, UTF-8 è raccomandato
+                dest_file: path del file markdown pulito
+                enc: encoding del file, UTF-8 è raccomandato
         '''
 
         md_file = open(src_file, 'r', encoding=enc)
@@ -18,7 +18,7 @@ class ParseCleaner(BaseModel):
             line = re.sub(r'\(\s*https?://[^)]*\)', ' ', line)
             line = re.sub(r'\[\d+\]', ' ', line)
             line = re.sub(r'[^a-zA-Z0-9]', ' ', line)
-            line = re.split(" ")
+            line = re.split(" ", line)
             for w in line:
                 if w:
                     cleaned_md.write(w+',')

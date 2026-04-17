@@ -1,6 +1,11 @@
 import json
 import os
 
+'''
+Creatore del GS.json, il gold standard dell'intero dominio.
+Facilmente espandibile con altri url se si vuole arricchire ulteriormente il test-set.
+'''
+
 lista = []
 
 sito1_json = open(os.path.join(os.path.dirname(__file__),"ECB/gs1/gs1.json"), "r", encoding="UTF-8")

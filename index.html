@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parser UI</title>
+</head>
+<body>
+
+<h1>Parser UI</h1>
+
+<!-- INPUT URL -->
+<form action="/parse_ui" method="get">
+    <input type="text" name="url" placeholder="Inserisci URL">
+    <button type="submit">Parse</button>
+</form>
+
+<hr>
+
+<!-- DROPDOWN GS -->
+{% if gs_list %}
+<form action="/parse_ui" method="get">
+    <select name="url">
+        {% for item in gs_list %}
+            <option value="{{ item.url }}">{{ item.url }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Usa GS</button>
+</form>
+{% endif %}
+
+<hr>
+
+{% if parsed %}
+    <h2>{{ parsed.title }}</h2>
+
+    <h3>Parsed Text</h3>
+    <pre>{{ parsed.parsed_text }}</pre>
+
+    <h3>HTML Text</h3>
+    <pre>{{ parsed.html_text }}</pre>
+{% endif %}
+
+{% if gold %}
+    <h3>Gold Text</h3>
+    <pre>{{ gold.gold_text }}</pre>
+{% endif %}
+
+</body>
+</html>

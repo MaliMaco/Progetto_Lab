@@ -1,5 +1,6 @@
 import json
 import re
+from typing import Dict
 
 class TokenEvaluator:
 
@@ -9,6 +10,7 @@ class TokenEvaluator:
         parsed_tokens = set()
         for token in tokens:
             parsed_tokens.add(token)
+        return parsed_tokens
 
     @staticmethod
     def token_gold_text(gold_text: str) -> set[str]:
@@ -16,5 +18,8 @@ class TokenEvaluator:
         parsed_tokens = set()
         for token in tokens:
             parsed_tokens.add(token)
+        return parsed_tokens
 
-    
+    @staticmethod
+    def evaluate(parsed_text: str, gold_text: str) -> Dict[str,Dict[int]]:
+        pass

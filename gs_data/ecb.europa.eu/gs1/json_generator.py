@@ -18,7 +18,7 @@ gs_text = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u20AC\u00e8]', '', gs_text)
 gs_text = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', gs_text)
 gs_text = re.sub(r'\s+', ' ', gs_text).strip()
 
-pattern_title = r'<title>(.*?)</title>'
+pattern_title = r'<(?:title|(?:div\s+class=["\'](?:title|header)["\'][^>]*>\s*<h[1-6]))[^>]*>\s*(?:<[^>]+>)?\s*(.*?)\s*(?:</[^>]+>)?\s*</(?:title|h[1-6])>'
 match = re.search(pattern_title, html_text)
 title = match.group(1)
 title = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", title)

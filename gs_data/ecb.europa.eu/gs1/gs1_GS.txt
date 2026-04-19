@@ -1,21 +1,32 @@
-Benefits of price stability
-Our economy works best when there is price stability. That means we need to guard against an inflation rate – the rate at which the overall prices for goods and services change over time – that is either too low or too high. Price increases should be small enough not to create the problems that come with high inflation for people and businesses. But they should be large enough to avoid bad scenarios that may unfold if inflation falls too low. When inflation is low, stable and predictable, it helps people and businesses to better plan their savings, spending and investment. That helps the economy to grow, in turn creating jobs and prosperity.
+Euro digitale: piattaforma per l’innovazione
+La piattaforma per l’innovazione creata per l’euro digitale è un’iniziativa concepita per promuovere la collaborazione con il mercato al fine di stimolare la riflessione e sondare come l’euro digitale possa funzionare in concreto, esplorare il potenziale innovativo dell’euro digitale e ideare nuovi servizi e opportunità commerciali.
+Come potrebbe funzionare l’euro digitale nella vita di ogni giorno
+Abbiamo chiesto ai partecipanti alla piattaforma per l’innovazione di indicare possibili utilizzi quotidiani dell’euro digitale. Ecco cosa è emerso.
+Cosa potrebbe apportare l’euro digitale?
+Secondo i partecipanti alla piattaforma per l’innovazione
+Cos’è la piattaforma per l’innovazione creata per l’euro digitale?
+La piattaforma per l’innovazione rappresenta uno spazio di collaborazione e sperimentazione con gli attori dei settori pubblico e privato. Consente loro di mettere alla prova nuove idee e sviluppare caratteristiche innovative e soluzioni pratiche per i pagamenti della vita reale. Questa iniziativa dischiude il potenziale dell’euro digitale per stimolare l’innovazione, promuovere la creazione di nuove opportunità commerciali e contribuire a definire la visione a lungo termine dell’euro digitale.
 
-Price stability has the following benefits.
+Da febbraio a maggio 2025 la BCE ha coordinato due gruppi di lavoro attraverso la piattaforma per l’innovazione
+Pionieri
+Hanno testato scenari di pagamento condizionato utilizzando una simulazione di interfaccia per l’euro digitale fornita dall’Eurosistema.
 
-It allows us to avoid the inefficiency costs arising from the presence of nominal rigidities.
-It reduces the inefficiency costs created by inflation being a tax on money balances.
-It avoids adverse redistributive effects of inflation. The adverse effect of inflation on income and wealth differs across different cohorts of society, with higher inflation especially detrimental for low-income households with limited investment options.
-It avoids adverse interactions of inflation with taxation. The presence of inflation creates distortions because taxes are levied in nominal terms and there is no full indexation. For instance, if your nominal income grows in line with inflation but the tax brackets are not updated in line with inflation, you end up paying more taxes even if your inflation-adjusted income has not changed. By keeping inflation low and stable this effect is reduced.
-It reduces unexpected changes in inflation, which create distortions. For example, if there is an unanticipated increase in inflation, the value of savings goes down and the value of debt goes down, which transfers wealth from savers to borrowers.
-It decreases the volatility of inflation, which in turn lowers uncertainty and market interest rates and this motivates people to invest.
-It contributes to a more stable financial system.
-It helps to maintain social cohesion and stability. History has shown that episodes of high inflation as well as episodes of deflation, or persistently falling prices, tend to be associated with social unrest. Unstable inflation particularly affects low-income households because they have fewer resources to protect themselves. When prices are stable, everyone is better off: price stability supports economic growth and employment, and allows people to make more reliable plans when taking decisions about borrowing, saving, and expanding businesses.
-Why is our inflation target 2%?
-The primary objective of price stability
-The ECB’s primary objective is to maintain price stability. This task is set out for us in the Treaty on the Functioning of the European Union.
-Price stability in our strategy review
-We want to ensure that our price stability objective remains clear, predictable and easily understood in this changing economic landscape.
+Visionari
+Hanno guardato all’euro digitale in modo creativo, elaborando idee che potrebbero andare a beneficio di cittadini e imprese.
+Chi sono i pionieri e i visionari?
+In seguito alla pubblicazione di un invito a manifestare interesse nell’ottobre 2024, la BCE ha ricevuto oltre 100 richieste e ha selezionato circa 70 operatori di mercato provenienti da tutta Europa per aderire a uno o a entrambi i filoni di lavoro, in modo da assicurare un’ampia gamma di prospettive e competenze.
+Cosa abbiamo imparato?
+Il resoconto dei risultati contiene i principali spunti emersi dai gruppi di lavoro “pionieri” e “visionari” della piattaforma per l’innovazione, con una descrizione degli scenari testati, degli esiti delle prove tecniche e delle idee per plasmare l’euro digitale.
+Perché è importante
+Attraverso la piattaforma per l’innovazione si configura un euro digitale sicuro, facile da utilizzare e accessibile a tutti. L’euro digitale è pensato per:
 
+gettare solide basi per l’innovazione in tutta Europa
 
+aiutare le imprese a creare servizi incentrati sull’utente
 
+sostenere soluzioni di pagamento private indipendentemente dalla connettività
+
+offrire più possibilità di scelta, maggiore convenienza e un’esperienza di pagamento digitale unificata
+Materiale informativo sull’euro digitale
+A colpo d’occhio
+L’essenziale

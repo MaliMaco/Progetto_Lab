@@ -1,10 +1,13 @@
-FROM python:3.14-slim
+FROM python:3.13.12-slim
 
 WORKDIR /app
 
-COPY src /app
-
+COPY backend/requirements.txt .
 RUN pip install -r requirements.txt
+
+COPY gs_data .
+COPY backend/src ./backend/src
+COPY domains.json .
 
 EXPOSE 8003
 

@@ -18,11 +18,11 @@
 
         
     
-        <title>Benefits of price stability</title>
-                 <meta name="citation_title" content="Benefits of price stability">
-<meta name="citation_online_date" content="10 November 2021">
-<meta property="article:published_time" content="2021-11-10">
-<link rel="canonical" href="https://www.ecb.europa.eu/mopo/intro/benefits/html/index.en.html">
+        <title>Euro digitale: piattaforma per l’innovazione</title>
+                 <meta name="citation_title" content="Digital euro innovation platform">
+<meta name="citation_online_date" content="26/09/2025">
+<meta property="article:published_time" content="2025-09-26">
+<link rel="canonical" href="https://www.ecb.europa.eu/euro/digital_euro/innovation-platform/html/index.it.html">
     
         <meta name="author" content="European Central Bank">
         <meta name="description" content="La Banca centrale europea (BCE) è la banca centrale degli Stati membri dell’Unione europea che hanno adottato l’euro. Il nostro obiettivo principale è mantenere la stabilità dei prezzi nell’area dell’euro e preservare così il potere di acquisto della moneta unica.">
@@ -36,26 +36,26 @@
             ECB.isLive = true;
             ECB.version = '4743138';
             ECB.navigationVersion = '1776244022';
-            ECB.clientTimeError = 1776447456 - (new Date().getTime());
+            ECB.clientTimeError = 1776549121 - (new Date().getTime());
 
             
 
-            ECB.availableLanguages = [{"en": "English"}];            
+            ECB.availableLanguages = [{"bg": "Български"},{"cs": "Čeština"},{"da": "Dansk"},{"de": "Deutsch"},{"el": "Eλληνικά"},{"en": "English"},{"es": "Español"},{"et": "Eesti keel"},{"fi": "Suomi"},{"fr": "Français"},{"ga": "Gaeilge"},{"hr": "Hrvatski"},{"hu": "Magyar"},{"it": "Italiano"},{"lt": "Lietuvių"},{"lv": "Latviešu"},{"mt": "Malti"},{"nl": "Nederlands"},{"pl": "Polski"},{"pt": "Português"},{"ro": "Română"},{"sk": "Slovenčina"},{"sl": "Slovenščina"},{"sv": "Svenska"}];            
            
 
         </script>
             
-        <link rel="stylesheet" href="/shared/dist/css/main-ecb.min.css?4743138" media="all">         
+        <link rel="stylesheet" type="text/css" href="/shared/dist/css/require/flickity.min.css?v=4743138" media="screen"><link rel="stylesheet" href="/shared/dist/css/main-ecb.min.css?4743138" media="all">         
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@ecb">
    
             <meta name="explainerDate" content="01/01/1970">
         	    	<meta property="og:type" content="article">
 	            <meta property="og:type" content="website">
-        <meta property="og:title" content="Benefits of price stability">
-        <meta property="og:url" content="https://www.ecb.europa.eu/mopo/intro/benefits/html/index.it.html">
-        <meta property="og:image:secure_url" content="https://www.ecb.europa.eu/mopo/intro/benefits/html">
-        <meta property="og:image" content="https://www.ecb.europa.eu/mopo/intro/benefits/html">
+        <meta property="og:title" content="Digital euro innovation platform">
+        <meta property="og:url" content="https://www.ecb.europa.eu/euro/digital_euro/innovation-platform/html/index.it.html">
+        <meta property="og:image:secure_url" content="https://www.ecb.europa.eu/euro/digital_euro/shared/img/socialmedia/social-default.jpg?e644be0ef6a98e27f7475335e123c2a4">
+        <meta property="og:image" content="https://www.ecb.europa.eu/euro/digital_euro/shared/img/socialmedia/social-default.jpg?e644be0ef6a98e27f7475335e123c2a4">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="600">
         <meta property="og:site_name" content="European Central Bank">
@@ -72,9 +72,9 @@
 var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=ECB.supports||{},ECB.fast.annexSwap=function(){var t,e,n=document.querySelector(".section-press .address-box + .definition-list");n&&(t=(e=(t=(e=(t=n.previousElementSibling).previousElementSibling)&&e.classList.contains("related-topics")?e:t).previousElementSibling)&&e.classList.contains("footnotes")?e:t).parentNode.insertBefore(n,t)},ECB.fast.attribution=function(n){var t,e,a=n.style.backgroundImage||n.src;a=(a=a.replace('url("',"")).replace('")',""),n.src&&(n=n.closest("picture"));a&&(t=(t=a).replace('url("',""),e=document.location.protocol+"//"+document.location.hostname,-1===t.indexOf("http")&&-1===t.indexOf('url("//')||t.startsWith(e))&&ECB.fast.exif.getArtist(a,function(t){var e;0<(t=t?.exif||t?.xmp||"").length&&!n.classList.contains("-attribution")&&(n.classList.add("-attribution"),t='<span class="attribution"><span class="attribution-details">'+(t.startsWith("©")?"":"© ")+t+'</span> <button aria-label="Photographer"></button></span>',n.classList.contains("slider_image")&&n.parentElement?.classList.contains("-bottom")&&((e=n.parentElement?.querySelector(".slider_content_container .slider_text")).insertAdjacentHTML("beforeend",t),e=e.querySelector(".attribution button")),n.insertAdjacentHTML("beforeend",t),[n.querySelector(".attribution button"),e].forEach(e=>{e&&e.addEventListener("click",function(t){return e.parentElement.classList.toggle("-active"),t.preventDefault(),t.stopPropagation(),!1})}))})},ECB.fast.authorMove=function(){var t,e=document.getElementById("side-authors");e&&(t=Array.from(document.querySelectorAll("aside > *")).reduce(function(t,e){return t+e.clientHeight},0),e.style.marginTop=Math.max(110,t)+50+"px")},ECB.fast.connector=function(t){function e(t){t.classList.contains("-gradient-upper")&&(i="-gradient-upper"),t.classList.contains("-dark-grey")&&(o="-dark-grey"),t.classList.contains("-light-grey-blue")&&(i="-transparent-light-grey",o="-transparent-blue");var e="<div class='upper-connection "+i+"'></div> <div class='lower-connection "+o+"'></div>";t.insertAdjacentHTML("afterend",e)}function a(t,e){return t.classList.contains(e)}function n(t,e){for(var n=0;n<e.length;n++)if(a(t,e[n]))return 1}var r=(t=t||document).querySelectorAll(".connector"),i="-transparent-blue",o="-light-blue";if(0<r.length)e(r[r.length-1]);else{var s=Array.from(t.querySelectorAll(".contact-box, .see-also-boxes, .carousel, .promo-box, .contact-box, .explainer-box"));if(s.length){var l=s[0],c=l.previousElementSibling;if(c&&"DIV"==c.tagName&&!a(c,"title")){for(var u=l.nextElementSibling,g=!1;null!=u;)a(u,"in-this-section")||"SCRIPT"==u.tagName||"STYLE"==u.tagName||(-1==s.indexOf(u)?g=!0:g&&(c=(l=u).previousElementSibling,g=!1)),u=u.nextElementSibling;g||(c.classList.add("connector"),n(c,["section","intro","boxes","accordion","definition-list","tags"])&&c.classList.add("-gradient-upper"),n(c,["jumbo-box"])&&a(c,"-dark-blue")&&c.classList.add("-light-grey-blue"),a(l,".carousel")||c.classList.add("-dark-grey"),e(c))}}}},ECB.fast.exif=(()=>{var i=function(t,e,n){var a,r,i,o=t,s=e,l=n,c="";for(l=s+n;s<l;)switch((a=o.getUint8(s++))>>4){case 0:case 1:case 2:case 3:case 4:case 5:case 6:case 7:c+=String.fromCharCode(a);break;case 12:case 13:r=o.getUint8(s++),c+=String.fromCharCode((31&a)<<6|63&r);break;case 14:r=o.getUint8(s++),i=o.getUint8(s++),c+=String.fromCharCode((15&a)<<12|(63&r)<<6|(63&i)<<0)}return c},r=function(t,e,n,a){for(var r,i=t.getUint16(n,!a),o=0;o<i;o++)if(315===t.getUint16(r=n+12*o+2,!a))return s(t,r,e,a);return""},s=function(t,e,n,a){var r=t.getUint32(e+4,!a),a=t.getUint32(e+8,!a)+n;return i(t,4<r?a:e+8,r-1)},o=function(t,e,n){if("exif"!=i(t,e,4).toLowerCase())return!1;var a,e=e+(n?8:6);if(18761==t.getUint16(e))a=!1;else{if(19789!=t.getUint16(e))return!1;a=!0}return 42==t.getUint16(e+2,!a)&&!((n=t.getUint32(e+4,!a))<8)&&r(t,e,e+n,a)},l=function(t,e){return!!(t&1<<e-1)};return{getArtist:function(t,a){let e=t=>{new DataView(t);var e,n,t={exif:(t=>{var e=new DataView(t),n=!1;if(1380533830==e.getUint32(0)&&1464156752==e.getUint32(8)&&1448097880==e.getUint32(12)){if(!l(e.getUint8(20),4))return!1;n=!0}else if(255!=e.getUint8(0)||216!=e.getUint8(1))return!1;var a=2,r=t.byteLength;if(n)for(a=16;a<r;){if(a+=e.getUint32(a,!0)+4,"EXIF"==i(e,a,4))return o(e,a,!0,e.getUint32(a,!0));a+=4}else for(;a<r;){if(255!=e.getUint8(a))return!1;if(225==e.getUint8(a+1))return o(e,a+4,!1,e.getUint16(a+2)-2);a+=2+e.getUint16(a+2)}})(t),xmp:(t=t,e=new TextDecoder("utf-8"),t=new Uint8Array(t),t=(e=e.decode(t)).indexOf("<x:xmpmeta"),n=e.indexOf("</x:xmpmeta>"),-1!==t&&-1!==n&&(e=e.slice(t,n+12),(new DOMParser).parseFromString(e,"application/xml").querySelector("dc\\:creator, creator")?.textContent?.trim())||"")};a(t)},n=new XMLHttpRequest;n.onload=function(){200!==this.status&&0!==this.status||e(n.response)},n.open("GET",t,!0),n.responseType="arraybuffer",n.send(null)}}})(),ECB.fast.isLoading=function(){for(var t=document.querySelectorAll(".-is-loading"),e=0;e<t.length;e++)t[e].insertAdjacentHTML("afterbegin","<div class='is-busy'> Loading ... </div>")},ECB.fast.langLinks=function(){if(ECB.fast.isEuLanguage=!!document.querySelector("#language-values a[lang="+ECB.currentLanguage+"]:not([specialLang])"),ECB.fast.isEuLanguage&&"en"!=ECB.currentLanguage){var e=document.querySelectorAll("a:not([lang]"),n=/\.[a-z]{2,3}(\.(html|pdf)([\?#].*)?)$/;let t=["www.ecb.europa.eu","www.bankingsupervision.europa.eu","www.esrb.europa.eu"];for(var a=0;a<e.length;a++){var r=e[a];r.hasAttribute("href")&&!!(i=(i=r).getAttribute("href"))&&(-1===i.indexOf(":")||(i=i.match(/^https?:\/\/([^/]+)/))&&i[1]&&t.includes(i[1]))&&(t=>!!((t=t.getAttribute("href").match(n))&&0<t.length)&&"en"==t[0].substr(1,2))(r)&&r.setAttribute("href",r.getAttribute("href").replace(n,"."+ECB.currentLanguage+"$1"))}}var i},ECB.fast.langSwitch=function(){var e,n;ECB.isLive&&(e=localStorage.getItem("lastLanguage"),(n=function(t){return!(!t||ECB.currentLanguage==t||((t=document.querySelector("#language-values>a[lang="+t+"]"))&&(document.location.href=t.href),0))})(e)||window.addEventListener("storage",function(t){"lastLanguage"==t.key&&t.newValue!=e&&n(t.newValue)}))},ECB.fast.loadImages=function(t){for(var n,e=t,a=(t||(e=document),function(t){var e=ECB.supports.webp&&t.getAttribute("data-image-webp")?t.getAttribute("data-image-webp"):t.getAttribute("data-image"),n=t;n.style.backgroundImage="url('"+e+"')",t.classList.contains("-inner")||ECB.fast.attribution(n),n.classList.add("loaded")}),r=(window.IntersectionObserver&&(n=new IntersectionObserver(function(t){for(var e=0;e<t.length;e++)t[e].isIntersecting&&(a(t[e].target),n.unobserve(t[e].target))},{rootMargin:"50%"})),e.querySelectorAll("[data-image]")),i=0;i<r.length;i++)r[i].classList.contains("fast")||r[i].classList.contains("coin-cropper")||!n?a(r[i]):n.observe(r[i]);for(var o=e.querySelectorAll("picture img"),i=0;i<o.length;i++)ECB.fast.attribution(o[i])},ECB.fast.pageTitle=function(){var t=document.querySelector("main>.title h1");t&&0<t.innerText.length&&(document.title=t.innerText)},ECB.fast.random=function(t){Element.prototype.matches||(Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector);for(var e=(t?t:document).querySelectorAll(".random"),n=0;n<e.length;n++){e[n].querySelectorAll(".random-item");var a=[],r=(Array.prototype.slice.call(e[n].children).map(function(t){t.matches(".random-item")&&a.push(t)}),Math.floor(Math.random()*a.length));e[n].classList.contains("-daily")&&(r=(new Date).getDate()%a.length),a[r].classList.add("active");for(var i=0;i<a.length;i++)i!=r&&e[n].removeChild(a[i])}},ECB.fast.supportCheck=function(e){var n=new Image;n.onload=function(t){"load"==t.type&&1==n.width&&(document.documentElement.classList.add("webp"),ECB.supports.webp=!0),e&&e()},n.onerror=function(){e&&e()},n.src="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="},ECB.fast.tempFixes=function(){for(var t=".table .wrapper h3",e=function(t){var e=t.parentElement.parentElement,n=document.createElement("div");n.classList.add("header"),n.innerHTML='<div class="title">'+t.innerHTML+"</div>",t.parentElement.removeChild(t),e.prepend(n)},n=document.querySelectorAll(t),a=0;a<n.length;a++)e(n[a])},ECB.fast.supportCheck(function(){function t(){ECB.jsForContentOnly||ECB.fast.pageTitle(),ECB.fast.tempFixes(),ECB.fast.random(),ECB.fast.loadImages(),ECB.fast.langLinks(),ECB.fast.connector(),ECB.fast.annexSwap(),ECB.fast.isLoading(),ECB.fast.authorMove()}"loading"!==document.readyState?t():window.addEventListener("DOMContentLoaded",t)});    </script>
     <script type="text/javascript" async="" src="/shared/dist/js/slow.min.js?v=4743138"></script>
 
-<script type="text/javascript" src="/shared/dist/js/require/addsearch-js-client.min.js" async=""></script><style type="text/css">.texthighlight{background:yellow;color:#000!important;}[hidden]{display:none!important;}</style></head>
+<script type="text/javascript" src="/shared/dist/js/require/addsearch-js-client.min.js" async=""></script><style type="text/css">.texthighlight{background:yellow;color:#000!important;}[hidden]{display:none!important;}</style><script type="text/javascript" src="/shared/dist/js/require/flickity.pkgd.min.js?v=4743138" async=""></script></head>
 
-<body class="project-ecb section-mopo sub-intro sub-benefits	" style="padding-bottom: 294px;">
+<body class="project-ecb section-euro sub-digital_euro sub-innovation-platform	" style="padding-bottom: 294px;">
 
 	
 <div id="skip-links">
@@ -101,7 +101,7 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
 			<div id="language-selector"></div>
 			<div id="language-selected" aria-haspopup="true"><i></i><span class="ecb-full">IT</span></div>			
 			<div id="language-values">				
-				<a href="index.bg.html" lang="bg" title="Български"><span class="ecb-full">Български</span></a><a href="index.cs.html" lang="cs" title="Čeština"><span class="ecb-full">Čeština</span></a><a href="index.da.html" lang="da" title="Dansk"><span class="ecb-full">Dansk</span></a><a href="index.de.html" lang="de" title="Deutsch"><span class="ecb-full">Deutsch</span></a><a href="index.el.html" lang="el" title="Eλληνικά"><span class="ecb-full">Eλληνικά</span></a><a href="index.en.html" class="available" lang="en" title="English"><span class="ecb-full">English</span></a><a href="index.es.html" lang="es" title="Español"><span class="ecb-full">Español</span></a><a href="index.et.html" lang="et" title="Eesti keel"><span class="ecb-full">Eesti keel</span></a><a href="index.fi.html" lang="fi" title="Suomi"><span class="ecb-full">Suomi</span></a><a href="index.fr.html" lang="fr" title="Français"><span class="ecb-full">Français</span></a><a href="index.ga.html" lang="ga" title="Gaeilge"><span class="ecb-full">Gaeilge</span></a><a href="index.hr.html" lang="hr" title="Hrvatski"><span class="ecb-full">Hrvatski</span></a><a href="index.hu.html" lang="hu" title="Magyar"><span class="ecb-full">Magyar</span></a><a href="index.it.html" class="selected" lang="it" title="Italiano"><span class="ecb-full">Italiano</span></a><a href="index.lt.html" lang="lt" title="Lietuvių"><span class="ecb-full">Lietuvių</span></a><a href="index.lv.html" lang="lv" title="Latviešu"><span class="ecb-full">Latviešu</span></a><a href="index.mt.html" lang="mt" title="Malti"><span class="ecb-full">Malti</span></a><a href="index.nl.html" lang="nl" title="Nederlands"><span class="ecb-full">Nederlands</span></a><a href="index.pl.html" lang="pl" title="Polski"><span class="ecb-full">Polski</span></a><a href="index.pt.html" lang="pt" title="Português"><span class="ecb-full">Português</span></a><a href="index.ro.html" lang="ro" title="Română"><span class="ecb-full">Română</span></a><a href="index.sk.html" lang="sk" title="Slovenčina"><span class="ecb-full">Slovenčina</span></a><a href="index.sl.html" lang="sl" title="Slovenščina"><span class="ecb-full">Slovenščina</span></a><a href="index.sv.html" lang="sv" title="Svenska"><span class="ecb-full">Svenska</span></a>			</div>
+				<a href="index.bg.html" class="available" lang="bg" title="Български"><span class="ecb-full">Български</span></a><a href="index.cs.html" class="available" lang="cs" title="Čeština"><span class="ecb-full">Čeština</span></a><a href="index.da.html" class="available" lang="da" title="Dansk"><span class="ecb-full">Dansk</span></a><a href="index.de.html" class="available" lang="de" title="Deutsch"><span class="ecb-full">Deutsch</span></a><a href="index.el.html" class="available" lang="el" title="Eλληνικά"><span class="ecb-full">Eλληνικά</span></a><a href="index.en.html" class="available" lang="en" title="English"><span class="ecb-full">English</span></a><a href="index.es.html" class="available" lang="es" title="Español"><span class="ecb-full">Español</span></a><a href="index.et.html" class="available" lang="et" title="Eesti keel"><span class="ecb-full">Eesti keel</span></a><a href="index.fi.html" class="available" lang="fi" title="Suomi"><span class="ecb-full">Suomi</span></a><a href="index.fr.html" class="available" lang="fr" title="Français"><span class="ecb-full">Français</span></a><a href="index.ga.html" class="available" lang="ga" title="Gaeilge"><span class="ecb-full">Gaeilge</span></a><a href="index.hr.html" class="available" lang="hr" title="Hrvatski"><span class="ecb-full">Hrvatski</span></a><a href="index.hu.html" class="available" lang="hu" title="Magyar"><span class="ecb-full">Magyar</span></a><a href="index.it.html" class="selected available" lang="it" title="Italiano"><span class="ecb-full">Italiano</span></a><a href="index.lt.html" class="available" lang="lt" title="Lietuvių"><span class="ecb-full">Lietuvių</span></a><a href="index.lv.html" class="available" lang="lv" title="Latviešu"><span class="ecb-full">Latviešu</span></a><a href="index.mt.html" class="available" lang="mt" title="Malti"><span class="ecb-full">Malti</span></a><a href="index.nl.html" class="available" lang="nl" title="Nederlands"><span class="ecb-full">Nederlands</span></a><a href="index.pl.html" class="available" lang="pl" title="Polski"><span class="ecb-full">Polski</span></a><a href="index.pt.html" class="available" lang="pt" title="Português"><span class="ecb-full">Português</span></a><a href="index.ro.html" class="available" lang="ro" title="Română"><span class="ecb-full">Română</span></a><a href="index.sk.html" class="available" lang="sk" title="Slovenčina"><span class="ecb-full">Slovenčina</span></a><a href="index.sl.html" class="available" lang="sl" title="Slovenščina"><span class="ecb-full">Slovenščina</span></a><a href="index.sv.html" class="available" lang="sv" title="Svenska"><span class="ecb-full">Svenska</span></a>			</div>
 		</div>
 		
 		<button id="hamburger" aria-haspopup="true">
@@ -123,7 +123,7 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
 				<img src="/shared/img/logo/logo_only.svg" alt="our logo, a yellow Euro sign surrounded by yellow stars centered in a dark blue circle resting on a dark blue base">			
 			</a>
 		</div>	
-		<nav id="navwrapper" role="navigation" aria-label="Main navigation"><div id="mainnav"><ul><li class="has-subpages -section" aria-expanded="false"><a href="/mopo/html/index.it.html">Politica monetaria e mercati</a><a href="#" class="subpages" title="toggle subpages for Politica monetaria e mercati"></a><div class="nav-first-level-wrap"><div class="nav-featured-wrap"><div class="nav-featured"><div class="item">
+		<nav id="navwrapper" role="navigation" aria-label="Main navigation"><div id="mainnav"><ul><li class="has-subpages" aria-expanded="false"><a href="/mopo/html/index.it.html">Politica monetaria e mercati</a><a href="#" class="subpages" title="toggle subpages for Politica monetaria e mercati"></a><div class="nav-first-level-wrap"><div class="nav-featured-wrap"><div class="nav-featured"><div class="item">
     <div class="title">Politica monetaria e mercati</div>
     <p>La nostra strategia di politica monetaria, i nostri strumenti e il loro impatto</p><a href="/mopo/html/index.it.html">Panoramica sulla politica monetaria e sui mercati</a><hr>
     <div class="nav-title">Link rapidi</div>
@@ -133,7 +133,7 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
         <li><a href="/mopo/implement/app/html/index.it.html">Programmi di acquisto di attività</a></li>
     </ul>
 </div><a href="/press/press_conference/html/index.it.html" class="item image"> <img src="/press/tvservices/html/index/ECB press conference place holder new_2560x1440.jpg" width="357" height="179" loading="lazy" style="object-fit:cover"><div class="image-caption">Ultima conferenza stampa di politica monetaria</div>
-    <div class="image-date">19/03/2026</div></a></div></div><ul><li class="mobile-clone"><a href="/mopo/html/index.it.html">Politica monetaria e mercati</a></li><li class="has-subpages -section"><a href="/mopo/intro/html/index.it.html">Introduzione</a><a href="#" class="subpages" title="toggle subpages for Introduzione"></a><ul><li class="mobile-clone"><a href="/mopo/intro/html/index.it.html">Introduzione</a></li><li class="clearfix -current"><a href="/mopo/intro/benefits/html/index.it.html">Vantaggi della stabilità dei prezzi</a></li><li class="clearfix"><a href="/mopo/intro/role/html/index.it.html">Portata della politica monetaria</a></li><li class="clearfix"><a href="/mopo/intro/transmission/html/index.it.html">Meccanismo di trasmissione</a></li></ul></li><li class="clearfix"><a href="/mopo/decisions/html/index.it.html">Decisioni, dichiarazioni e resoconti</a></li><li class="has-subpages"><a href="/mopo/strategy/html/index.it.html">Strategia di politica monetaria</a><a href="#" class="subpages" title="toggle subpages for Strategia di politica monetaria"></a><ul><li class="mobile-clone"><a href="/mopo/strategy/html/index.it.html">Strategia di politica monetaria</a></li><li class="clearfix"><a href="/mopo/strategy/strategy-review/html/index.it.html">Riesame della strategia</a></li><li class="clearfix"><a href="/mopo/strategy/medium-term-orientation/html/index.it.html">Orientamento di medio termine</a></li><li class="clearfix"><a href="/mopo/strategy/pricestab/html/index.it.html">Obiettivo di inflazione del 2%</a></li></ul></li><li class="has-subpages"><a href="/mopo/devel/html/index.it.html">Analisi economica, monetaria e finanziaria</a><a href="#" class="subpages" title="toggle subpages for Analisi economica, monetaria e finanziaria"></a><ul><li class="mobile-clone"><a href="/mopo/devel/html/index.it.html">Analisi economica, monetaria e finanziaria</a></li><li class="clearfix"><a href="/mopo/devel/ecana/html/index.it.html">Analisi economica</a></li><li class="clearfix"><a href="/mopo/devel/monan/html/index.it.html">Analisi monetaria e finanziaria</a></li></ul></li><li class="has-subpages"><a href="/mopo/implement/html/index.it.html">Strumenti</a><a href="#" class="subpages" title="toggle subpages for Strumenti"></a><ul><li class="mobile-clone"><a href="/mopo/implement/html/index.it.html">Strumenti</a></li><li class="has-subpages"><a href="/mopo/implement/omo/html/index.it.html">Operazioni di mercato aperto</a><a href="#" class="subpages" title="toggle subpages for Operazioni di mercato aperto"></a><ul><li class="mobile-clone"><a href="/mopo/implement/omo/html/index.it.html">Operazioni di mercato aperto</a></li><li class="clearfix"><a href="/mopo/implement/omo/tltro/html/index.it.html">OMRLT</a></li></ul></li><li class="has-subpages"><a href="/mopo/implement/app/html/index.it.html">Programmi di acquisto di attività</a><a href="#" class="subpages" title="toggle subpages for Programmi di acquisto di attività"></a><ul><li class="mobile-clone"><a href="/mopo/implement/app/html/index.it.html">Programmi di acquisto di attività</a></li><li class="clearfix"><a href="/mopo/implement/app/lending/html/index.it.html">Attività di prestito titoli</a></li></ul></li><li class="clearfix"><a href="/mopo/implement/pepp/html/index.it.html">Programma di acquisto per l’emergenza pandemica</a></li><li class="clearfix"><a href="/mopo/implement/sf/html/index.it.html">Operazioni attivabili su iniziativa delle controparti</a></li><li class="has-subpages"><a href="/mopo/implement/mr/html/index.it.html">Riserve obbligatorie</a><a href="#" class="subpages" title="toggle subpages for Riserve obbligatorie"></a><ul><li class="mobile-clone"><a href="/mopo/implement/mr/html/index.it.html">Riserve obbligatorie</a></li><li class="clearfix"><a href="/mopo/implement/mr/two-tier/html/index.it.html">Sistema a due livelli</a></li></ul></li></ul></li><li class="has-subpages"><a href="/mopo/international-market-operations/html/index.it.html">Operazioni sui mercati internazionali</a><a href="#" class="subpages" title="toggle subpages for Operazioni sui mercati internazionali"></a><ul><li class="mobile-clone"><a href="/mopo/international-market-operations/html/index.it.html">Operazioni sui mercati internazionali</a></li><li class="clearfix"><a href="/mopo/international-market-operations/liquidity_lines/html/index.it.html">Linee di liquidità con banche centrali</a></li></ul></li><li class="clearfix"><a href="/mopo/ela/html/index.it.html">Liquidità di emergenza (ELA)</a></li><li class="clearfix"><a href="/mopo/liq/html/index.it.html">Analisi della situazione di liquidità</a></li><li class="has-subpages"><a href="/mopo/coll/html/index.it.html">Garanzie</a><a href="#" class="subpages" title="toggle subpages for Garanzie"></a><ul><li class="mobile-clone"><a href="/mopo/coll/html/index.it.html">Garanzie</a></li><li class="has-subpages"><a href="/mopo/coll/standards/html/index.it.html">Criteri e valutazione di idoneità</a><a href="#" class="subpages" title="toggle subpages for Criteri e valutazione di idoneità"></a><ul><li class="mobile-clone"><a href="/mopo/coll/standards/html/index.it.html">Criteri e valutazione di idoneità</a></li><li class="clearfix"><a href="/mopo/coll/standards/marketable/html/index.it.html">Attività negoziabili</a></li><li class="clearfix"><a href="/mopo/coll/standards/nonmarketable/html/index.it.html">Attività non negoziabili</a></li></ul></li><li class="has-subpages"><a href="/mopo/coll/assets/html/index.it.html">Elenco delle attività negoziabili idonee</a><a href="#" class="subpages" title="toggle subpages for Elenco delle attività negoziabili idonee"></a><ul><li class="mobile-clone"><a href="/mopo/coll/assets/html/index.it.html">Elenco delle attività negoziabili idonee</a></li><li class="clearfix"><a href="/mopo/coll/assets/guide/html/index.it.html">Guida per l’utente</a></li></ul></li><li class="has-subpages"><a href="/mopo/coll/coll/html/index.it.html">Gestione delle garanzie</a><a href="#" class="subpages" title="toggle subpages for Gestione delle garanzie"></a><ul><li class="mobile-clone"><a href="/mopo/coll/coll/html/index.it.html">Gestione delle garanzie</a></li><li class="clearfix"><a href="/mopo/coll/coll/eligiblesss/html/index.it.html">SRT idonei</a></li><li class="clearfix"><a href="/mopo/coll/coll/ssslinks/html/index.it.html">Collegamenti idonei</a></li><li class="clearfix"><a href="/mopo/coll/coll/triparty/html/index.it.html">Agenti triparty idonei</a></li></ul></li><li class="has-subpages"><a href="/mopo/coll/risk/html/index.it.html">Attenuazione dei rischi</a><a href="#" class="subpages" title="toggle subpages for Attenuazione dei rischi"></a><ul><li class="mobile-clone"><a href="/mopo/coll/risk/html/index.it.html">Attenuazione dei rischi</a></li><li class="clearfix"><a href="/mopo/coll/risk/ecaf/html/index.it.html">ECAF</a></li><li class="clearfix"><a href="/mopo/coll/risk/riskcontrol/html/index.it.html">Controllo dei rischi</a></li><li class="clearfix"><a href="/mopo/coll/risk/liquidity/html/index.it.html">Categorie degli scarti di garanzia</a></li><li class="clearfix"><a href="/mopo/coll/risk/valuation/html/index.it.html">Valutazione</a></li></ul></li><li class="clearfix"><a href="/mopo/coll/loanlevel/html/index.it.html">Iniziativa sui dati a livello di singolo prestito</a></li><li class="clearfix"><a href="/mopo/coll/contacts/html/index.it.html">Contatti</a></li></ul></li><li class="has-subpages"><a href="/mopo/eaec/html/index.it.html">Struttura dell’economia dell’area dell’euro</a><a href="#" class="subpages" title="toggle subpages for Struttura dell’economia dell’area dell’euro"></a><ul><li class="mobile-clone"><a href="/mopo/eaec/html/index.it.html">Struttura dell’economia dell’area dell’euro</a></li><li class="clearfix"><a href="/mopo/eaec/ecopolicy/html/index.it.html">Politica economica</a></li><li class="clearfix"><a href="/mopo/eaec/fiscal/html/index.it.html">Politiche di bilancio</a></li><li class="clearfix"><a href="/mopo/eaec/trade/html/index.it.html">Commercio con l’estero</a></li><li class="clearfix"><a href="/mopo/eaec/eer/html/index.it.html">Tassi di cambio effettivi</a></li><li class="clearfix"><a href="/mopo/eaec/structure/html/index.it.html">Struttura finanziaria</a></li><li class="clearfix"><a href="/mopo/eaec/markets/html/index.it.html">Mercati finanziari</a></li><li class="clearfix"><a href="/mopo/eaec/intermediaries/html/index.it.html">Intermediari finanziari</a></li><li class="clearfix"><a href="/mopo/eaec/diversity/html/index.it.html">Diversità economica</a></li><li class="clearfix"><a href="/mopo/eaec/labour/html/index.it.html">Mercato del lavoro</a></li></ul></li><li class="has-subpages"><a href="/mopo/market-contact-groups/html/index.it.html">Gruppi di contatto per i mercati</a><a href="#" class="subpages" title="toggle subpages for Gruppi di contatto per i mercati"></a><ul><li class="mobile-clone"><a href="/mopo/market-contact-groups/html/index.it.html">Gruppi di contatto per i mercati</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/bmcg/html/index.it.html">Gruppo di contatto per il mercato obbligazionario (BMCG)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/mmcg/html/index.it.html">Gruppo di contatto per il mercato monetario (MMCG)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/dimcg/html/index.it.html">Gruppo di contatto per il mercato delle emissioni di debito (DIMCG)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/omg/html/index.it.html">Gruppo BCE - Gestori delle operazioni (ECB OMG)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/fxcg/html/index.it.html">Gruppo di contatto per il mercato dei cambi (FXCG)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/iid/html/index.it.html">Dialogo con gli investitori istituzionali (IID)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/macg/html/index.it.html">Gruppo di contatto per l’analisi monetaria</a></li></ul></li></ul></div></li><li class="has-subpages" aria-expanded="false"><a href="/paym/html/index.it.html">Pagamenti e stabilità finanziaria</a><a href="#" class="subpages" title="toggle subpages for Pagamenti e stabilità finanziaria"></a><div class="nav-first-level-wrap"><div class="nav-featured-wrap"><div class="nav-featured"><div class="item">
+    <div class="image-date">19/03/2026</div></a></div></div><ul><li class="mobile-clone"><a href="/mopo/html/index.it.html">Politica monetaria e mercati</a></li><li class="has-subpages"><a href="/mopo/intro/html/index.it.html">Introduzione</a><a href="#" class="subpages" title="toggle subpages for Introduzione"></a><ul><li class="mobile-clone"><a href="/mopo/intro/html/index.it.html">Introduzione</a></li><li class="clearfix"><a href="/mopo/intro/benefits/html/index.it.html">Vantaggi della stabilità dei prezzi</a></li><li class="clearfix"><a href="/mopo/intro/role/html/index.it.html">Portata della politica monetaria</a></li><li class="clearfix"><a href="/mopo/intro/transmission/html/index.it.html">Meccanismo di trasmissione</a></li></ul></li><li class="clearfix"><a href="/mopo/decisions/html/index.it.html">Decisioni, dichiarazioni e resoconti</a></li><li class="has-subpages"><a href="/mopo/strategy/html/index.it.html">Strategia di politica monetaria</a><a href="#" class="subpages" title="toggle subpages for Strategia di politica monetaria"></a><ul><li class="mobile-clone"><a href="/mopo/strategy/html/index.it.html">Strategia di politica monetaria</a></li><li class="clearfix"><a href="/mopo/strategy/strategy-review/html/index.it.html">Riesame della strategia</a></li><li class="clearfix"><a href="/mopo/strategy/medium-term-orientation/html/index.it.html">Orientamento di medio termine</a></li><li class="clearfix"><a href="/mopo/strategy/pricestab/html/index.it.html">Obiettivo di inflazione del 2%</a></li></ul></li><li class="has-subpages"><a href="/mopo/devel/html/index.it.html">Analisi economica, monetaria e finanziaria</a><a href="#" class="subpages" title="toggle subpages for Analisi economica, monetaria e finanziaria"></a><ul><li class="mobile-clone"><a href="/mopo/devel/html/index.it.html">Analisi economica, monetaria e finanziaria</a></li><li class="clearfix"><a href="/mopo/devel/ecana/html/index.it.html">Analisi economica</a></li><li class="clearfix"><a href="/mopo/devel/monan/html/index.it.html">Analisi monetaria e finanziaria</a></li></ul></li><li class="has-subpages"><a href="/mopo/implement/html/index.it.html">Strumenti</a><a href="#" class="subpages" title="toggle subpages for Strumenti"></a><ul><li class="mobile-clone"><a href="/mopo/implement/html/index.it.html">Strumenti</a></li><li class="has-subpages"><a href="/mopo/implement/omo/html/index.it.html">Operazioni di mercato aperto</a><a href="#" class="subpages" title="toggle subpages for Operazioni di mercato aperto"></a><ul><li class="mobile-clone"><a href="/mopo/implement/omo/html/index.it.html">Operazioni di mercato aperto</a></li><li class="clearfix"><a href="/mopo/implement/omo/tltro/html/index.it.html">OMRLT</a></li></ul></li><li class="has-subpages"><a href="/mopo/implement/app/html/index.it.html">Programmi di acquisto di attività</a><a href="#" class="subpages" title="toggle subpages for Programmi di acquisto di attività"></a><ul><li class="mobile-clone"><a href="/mopo/implement/app/html/index.it.html">Programmi di acquisto di attività</a></li><li class="clearfix"><a href="/mopo/implement/app/lending/html/index.it.html">Attività di prestito titoli</a></li></ul></li><li class="clearfix"><a href="/mopo/implement/pepp/html/index.it.html">Programma di acquisto per l’emergenza pandemica</a></li><li class="clearfix"><a href="/mopo/implement/sf/html/index.it.html">Operazioni attivabili su iniziativa delle controparti</a></li><li class="has-subpages"><a href="/mopo/implement/mr/html/index.it.html">Riserve obbligatorie</a><a href="#" class="subpages" title="toggle subpages for Riserve obbligatorie"></a><ul><li class="mobile-clone"><a href="/mopo/implement/mr/html/index.it.html">Riserve obbligatorie</a></li><li class="clearfix"><a href="/mopo/implement/mr/two-tier/html/index.it.html">Sistema a due livelli</a></li></ul></li></ul></li><li class="has-subpages"><a href="/mopo/international-market-operations/html/index.it.html">Operazioni sui mercati internazionali</a><a href="#" class="subpages" title="toggle subpages for Operazioni sui mercati internazionali"></a><ul><li class="mobile-clone"><a href="/mopo/international-market-operations/html/index.it.html">Operazioni sui mercati internazionali</a></li><li class="clearfix"><a href="/mopo/international-market-operations/liquidity_lines/html/index.it.html">Linee di liquidità con banche centrali</a></li></ul></li><li class="clearfix"><a href="/mopo/ela/html/index.it.html">Liquidità di emergenza (ELA)</a></li><li class="clearfix"><a href="/mopo/liq/html/index.it.html">Analisi della situazione di liquidità</a></li><li class="has-subpages"><a href="/mopo/coll/html/index.it.html">Garanzie</a><a href="#" class="subpages" title="toggle subpages for Garanzie"></a><ul><li class="mobile-clone"><a href="/mopo/coll/html/index.it.html">Garanzie</a></li><li class="has-subpages"><a href="/mopo/coll/standards/html/index.it.html">Criteri e valutazione di idoneità</a><a href="#" class="subpages" title="toggle subpages for Criteri e valutazione di idoneità"></a><ul><li class="mobile-clone"><a href="/mopo/coll/standards/html/index.it.html">Criteri e valutazione di idoneità</a></li><li class="clearfix"><a href="/mopo/coll/standards/marketable/html/index.it.html">Attività negoziabili</a></li><li class="clearfix"><a href="/mopo/coll/standards/nonmarketable/html/index.it.html">Attività non negoziabili</a></li></ul></li><li class="has-subpages"><a href="/mopo/coll/assets/html/index.it.html">Elenco delle attività negoziabili idonee</a><a href="#" class="subpages" title="toggle subpages for Elenco delle attività negoziabili idonee"></a><ul><li class="mobile-clone"><a href="/mopo/coll/assets/html/index.it.html">Elenco delle attività negoziabili idonee</a></li><li class="clearfix"><a href="/mopo/coll/assets/guide/html/index.it.html">Guida per l’utente</a></li></ul></li><li class="has-subpages"><a href="/mopo/coll/coll/html/index.it.html">Gestione delle garanzie</a><a href="#" class="subpages" title="toggle subpages for Gestione delle garanzie"></a><ul><li class="mobile-clone"><a href="/mopo/coll/coll/html/index.it.html">Gestione delle garanzie</a></li><li class="clearfix"><a href="/mopo/coll/coll/eligiblesss/html/index.it.html">SRT idonei</a></li><li class="clearfix"><a href="/mopo/coll/coll/ssslinks/html/index.it.html">Collegamenti idonei</a></li><li class="clearfix"><a href="/mopo/coll/coll/triparty/html/index.it.html">Agenti triparty idonei</a></li></ul></li><li class="has-subpages"><a href="/mopo/coll/risk/html/index.it.html">Attenuazione dei rischi</a><a href="#" class="subpages" title="toggle subpages for Attenuazione dei rischi"></a><ul><li class="mobile-clone"><a href="/mopo/coll/risk/html/index.it.html">Attenuazione dei rischi</a></li><li class="clearfix"><a href="/mopo/coll/risk/ecaf/html/index.it.html">ECAF</a></li><li class="clearfix"><a href="/mopo/coll/risk/riskcontrol/html/index.it.html">Controllo dei rischi</a></li><li class="clearfix"><a href="/mopo/coll/risk/liquidity/html/index.it.html">Categorie degli scarti di garanzia</a></li><li class="clearfix"><a href="/mopo/coll/risk/valuation/html/index.it.html">Valutazione</a></li></ul></li><li class="clearfix"><a href="/mopo/coll/loanlevel/html/index.it.html">Iniziativa sui dati a livello di singolo prestito</a></li><li class="clearfix"><a href="/mopo/coll/contacts/html/index.it.html">Contatti</a></li></ul></li><li class="has-subpages"><a href="/mopo/eaec/html/index.it.html">Struttura dell’economia dell’area dell’euro</a><a href="#" class="subpages" title="toggle subpages for Struttura dell’economia dell’area dell’euro"></a><ul><li class="mobile-clone"><a href="/mopo/eaec/html/index.it.html">Struttura dell’economia dell’area dell’euro</a></li><li class="clearfix"><a href="/mopo/eaec/ecopolicy/html/index.it.html">Politica economica</a></li><li class="clearfix"><a href="/mopo/eaec/fiscal/html/index.it.html">Politiche di bilancio</a></li><li class="clearfix"><a href="/mopo/eaec/trade/html/index.it.html">Commercio con l’estero</a></li><li class="clearfix"><a href="/mopo/eaec/eer/html/index.it.html">Tassi di cambio effettivi</a></li><li class="clearfix"><a href="/mopo/eaec/structure/html/index.it.html">Struttura finanziaria</a></li><li class="clearfix"><a href="/mopo/eaec/markets/html/index.it.html">Mercati finanziari</a></li><li class="clearfix"><a href="/mopo/eaec/intermediaries/html/index.it.html">Intermediari finanziari</a></li><li class="clearfix"><a href="/mopo/eaec/diversity/html/index.it.html">Diversità economica</a></li><li class="clearfix"><a href="/mopo/eaec/labour/html/index.it.html">Mercato del lavoro</a></li></ul></li><li class="has-subpages"><a href="/mopo/market-contact-groups/html/index.it.html">Gruppi di contatto per i mercati</a><a href="#" class="subpages" title="toggle subpages for Gruppi di contatto per i mercati"></a><ul><li class="mobile-clone"><a href="/mopo/market-contact-groups/html/index.it.html">Gruppi di contatto per i mercati</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/bmcg/html/index.it.html">Gruppo di contatto per il mercato obbligazionario (BMCG)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/mmcg/html/index.it.html">Gruppo di contatto per il mercato monetario (MMCG)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/dimcg/html/index.it.html">Gruppo di contatto per il mercato delle emissioni di debito (DIMCG)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/omg/html/index.it.html">Gruppo BCE - Gestori delle operazioni (ECB OMG)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/fxcg/html/index.it.html">Gruppo di contatto per il mercato dei cambi (FXCG)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/iid/html/index.it.html">Dialogo con gli investitori istituzionali (IID)</a></li><li class="clearfix"><a href="/mopo/market-contact-groups/macg/html/index.it.html">Gruppo di contatto per l’analisi monetaria</a></li></ul></li></ul></div></li><li class="has-subpages" aria-expanded="false"><a href="/paym/html/index.it.html">Pagamenti e stabilità finanziaria</a><a href="#" class="subpages" title="toggle subpages for Pagamenti e stabilità finanziaria"></a><div class="nav-first-level-wrap"><div class="nav-featured-wrap"><div class="nav-featured"><div class="item">
     <div class="title">Pagamenti e stabilità finanziaria</div>
     <p>Il nostro lavoro sulla stabilità finanziaria, sui pagamenti e sulle infrastrutture di mercato</p><a href="/paym/html/index.it.html">Panoramica sui pagamenti e sulla stabilità finanziaria</a><hr>
     <div class="nav-title">Link rapidi</div>
@@ -156,7 +156,7 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
     </ul>
 </div><!-- <a href="/press/blog/date/2024/html/ecb.blog20240418~2240ea1850.en.html"  class="item image"> <img src="/press/blog/date/2024/html//ecb.blog20240418~2240ea1850/ecb.blog20240418~2240ea1850.jpg" width="357" height="179" loading="lazy" style="object-fit:cover"><div class="image-caption">IL BLOG DELLA BCE - Dati pi&ugrave; precisi: impatto del cambiamento climatico sulle banche</div>
     <div class="image-date">18/04/2024</div></a> --> <a href="/press/pr/date/2025/html/ecb.pr250313~9d160bc6e2.it.html" class="item image"> <img src="/stats/html/index/ECB_Website_StatisticsMegaMenu_95044094-01.png" width="357" height="179" loading="lazy" style="object-fit:cover"><div class="image-caption">COMUNICATO STAMPA - La BCE avvia il progetto pilota per l’accesso a fini di ricerca a dati statistici riservati</div>
-        <div class="image-date">13/03/2025</div></a></div></div><ul><li class="mobile-clone"><a href="/stats/html/index.it.html">Statistiche</a></li><li class="clearfix"><span>Pagine più visitate</span></li><li class="clearfix"><a href="/stats/euro-exchange-rates/html/index.it.html">Tassi di cambio dell’euro</a></li><li class="clearfix"><a href="/stats/key-ecb-interest-rates/html/index.it.html">Tassi di interesse di riferimento della BCE</a></li><li class="has-subpages"><a href="/stats/euro-short-term-rates/html/index.it.html">Euro short-term rate (€STR)</a><a href="#" class="subpages" title="toggle subpages for Euro short-term rate (€STR)"></a><ul><li class="mobile-clone"><a href="/stats/euro-short-term-rates/html/index.it.html">Euro short-term rate (€STR)</a></li><li class="has-subpages"><a href="/stats/euro-short-term-rates/interest_rate_benchmarks/html/index.it.html">Tassi di interesse benchmark</a><a href="#" class="subpages" title="toggle subpages for Tassi di interesse benchmark"></a><ul><li class="mobile-clone"><a href="/stats/euro-short-term-rates/interest_rate_benchmarks/html/index.it.html">Tassi di interesse benchmark</a></li><li class="clearfix"><a href="/stats/euro-short-term-rates/interest_rate_benchmarks/WG_euro_risk-free_rates/html/index.it.html">Gruppo di lavoro per i tassi sui prestiti privi di rischio in euro</a></li></ul></li></ul></li><li class="clearfix"><a href="/stats/inflation/html/index.it.html">Inflazione</a></li><li class="clearfix"><a href="/stats/euro-area-yield-curves/html/index.it.html">Curve dei rendimenti nell’area dell’euro</a></li><li class="clearfix"><span>Statistiche e informazioni di base</span></li><li class="clearfix"><a href="/stats/all-key-statistics/html/index.it.html">Tutte le statistiche principali</a></li><li class="clearfix"><a href="/stats/accessing-our-data/html/index.it.html">Tutti i servizi di accesso ai dati</a></li><li class="has-subpages"><a href="/stats/ecb_statistics/html/index.it.html">Segnalazioni e standard dei dati</a><a href="#" class="subpages" title="toggle subpages for Segnalazioni e standard dei dati"></a><ul><li class="mobile-clone"><a href="/stats/ecb_statistics/html/index.it.html">Segnalazioni e standard dei dati</a></li><li class="clearfix"><a href="/stats/ecb_statistics/governance_and_quality_framework/html/index.it.html">Governance e qualità delle statistiche</a></li><li class="clearfix"><a href="/stats/ecb_statistics/co-operation_and_standards/html/index.it.html">Cooperazione e standard</a></li><li class="clearfix"><a href="/stats/ecb_statistics/reporting/html/index.it.html">Segnalazioni statistiche delle banche</a></li><li class="has-subpages"><a href="/stats/ecb_statistics/anacredit/html/index.it.html">AnaCredit</a><a href="#" class="subpages" title="toggle subpages for AnaCredit"></a><ul><li class="mobile-clone"><a href="/stats/ecb_statistics/anacredit/html/index.it.html">AnaCredit</a></li><li class="clearfix"><a href="/stats/ecb_statistics/anacredit/questions/html/index.it.html">Risposte alle domande più frequenti su AnaCredit</a></li></ul></li><li class="clearfix"><a href="/stats/ecb_statistics/consultations/html/index.it.html">Consultazioni pubbliche</a></li><li class="clearfix"><a href="/stats/ecb_statistics/dialogue/html/index.it.html">Dialogo con il settore bancario sulle statistiche del SEBC e segnalazioni integrate</a></li><li class="clearfix"><a href="/stats/ecb_statistics/sdmx/html/index.it.html">SDMX: modello per lo scambio di dati statistici</a></li><li class="clearfix"><a href="/stats/ecb_statistics/inexda/html/index.it.html">INEXDA: rete per la gestione di dati granulari</a></li></ul></li></ul></div></li><li class="has-subpages" aria-expanded="false"><a href="/euro/html/index.it.html">L’euro</a><a href="#" class="subpages" title="toggle subpages for L’euro"></a><div class="nav-first-level-wrap"><div class="nav-featured-wrap"><div class="nav-featured"><div class="item">
+        <div class="image-date">13/03/2025</div></a></div></div><ul><li class="mobile-clone"><a href="/stats/html/index.it.html">Statistiche</a></li><li class="clearfix"><span>Pagine più visitate</span></li><li class="clearfix"><a href="/stats/euro-exchange-rates/html/index.it.html">Tassi di cambio dell’euro</a></li><li class="clearfix"><a href="/stats/key-ecb-interest-rates/html/index.it.html">Tassi di interesse di riferimento della BCE</a></li><li class="has-subpages"><a href="/stats/euro-short-term-rates/html/index.it.html">Euro short-term rate (€STR)</a><a href="#" class="subpages" title="toggle subpages for Euro short-term rate (€STR)"></a><ul><li class="mobile-clone"><a href="/stats/euro-short-term-rates/html/index.it.html">Euro short-term rate (€STR)</a></li><li class="has-subpages"><a href="/stats/euro-short-term-rates/interest_rate_benchmarks/html/index.it.html">Tassi di interesse benchmark</a><a href="#" class="subpages" title="toggle subpages for Tassi di interesse benchmark"></a><ul><li class="mobile-clone"><a href="/stats/euro-short-term-rates/interest_rate_benchmarks/html/index.it.html">Tassi di interesse benchmark</a></li><li class="clearfix"><a href="/stats/euro-short-term-rates/interest_rate_benchmarks/WG_euro_risk-free_rates/html/index.it.html">Gruppo di lavoro per i tassi sui prestiti privi di rischio in euro</a></li></ul></li></ul></li><li class="clearfix"><a href="/stats/inflation/html/index.it.html">Inflazione</a></li><li class="clearfix"><a href="/stats/euro-area-yield-curves/html/index.it.html">Curve dei rendimenti nell’area dell’euro</a></li><li class="clearfix"><span>Statistiche e informazioni di base</span></li><li class="clearfix"><a href="/stats/all-key-statistics/html/index.it.html">Tutte le statistiche principali</a></li><li class="clearfix"><a href="/stats/accessing-our-data/html/index.it.html">Tutti i servizi di accesso ai dati</a></li><li class="has-subpages"><a href="/stats/ecb_statistics/html/index.it.html">Segnalazioni e standard dei dati</a><a href="#" class="subpages" title="toggle subpages for Segnalazioni e standard dei dati"></a><ul><li class="mobile-clone"><a href="/stats/ecb_statistics/html/index.it.html">Segnalazioni e standard dei dati</a></li><li class="clearfix"><a href="/stats/ecb_statistics/governance_and_quality_framework/html/index.it.html">Governance e qualità delle statistiche</a></li><li class="clearfix"><a href="/stats/ecb_statistics/co-operation_and_standards/html/index.it.html">Cooperazione e standard</a></li><li class="clearfix"><a href="/stats/ecb_statistics/reporting/html/index.it.html">Segnalazioni statistiche delle banche</a></li><li class="has-subpages"><a href="/stats/ecb_statistics/anacredit/html/index.it.html">AnaCredit</a><a href="#" class="subpages" title="toggle subpages for AnaCredit"></a><ul><li class="mobile-clone"><a href="/stats/ecb_statistics/anacredit/html/index.it.html">AnaCredit</a></li><li class="clearfix"><a href="/stats/ecb_statistics/anacredit/questions/html/index.it.html">Risposte alle domande più frequenti su AnaCredit</a></li></ul></li><li class="clearfix"><a href="/stats/ecb_statistics/consultations/html/index.it.html">Consultazioni pubbliche</a></li><li class="clearfix"><a href="/stats/ecb_statistics/dialogue/html/index.it.html">Dialogo con il settore bancario sulle statistiche del SEBC e segnalazioni integrate</a></li><li class="clearfix"><a href="/stats/ecb_statistics/sdmx/html/index.it.html">SDMX: modello per lo scambio di dati statistici</a></li><li class="clearfix"><a href="/stats/ecb_statistics/inexda/html/index.it.html">INEXDA: rete per la gestione di dati granulari</a></li></ul></li></ul></div></li><li class="has-subpages -section" aria-expanded="false"><a href="/euro/html/index.it.html">L’euro</a><a href="#" class="subpages" title="toggle subpages for L’euro"></a><div class="nav-first-level-wrap"><div class="nav-featured-wrap"><div class="nav-featured"><div class="item">
     <div class="title">L’euro</div>
     <p>Tutto sulla nostra moneta comune</p><a href="/euro/html/index.it.html">Panoramica sull’euro</a><hr>
     <div class="nav-title">Link rapidi</div>
@@ -165,7 +165,7 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
         <li><a href="/stats/policy_and_exchange_rates/banknotes+coins/html/index.it.html">Statistiche sulle banconote e monete</a></li>
         <li><a href="/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.it.html">Tassi di cambio dell’euro</a></li>
     </ul>
-</div><a href="/euro/banknotes/future_banknotes/html/index.it.html" class="item image"> <img src="/home/shared/img/callToAction/Design_future_banknotes_box_1000x750.jpg" width="357" height="179" loading="lazy" style="object-fit:cover"><div class="image-caption">Progettazione delle nostre future banconote</div><!--<div class="image-date">01/01/2026</div>--> </a></div></div><ul><li class="mobile-clone"><a href="/euro/html/index.it.html">L’euro</a></li><li class="has-subpages"><a href="/euro/digital_euro/html/index.it.html">Euro digitale</a><a href="#" class="subpages" title="toggle subpages for Euro digitale"></a><ul><li class="mobile-clone"><a href="/euro/digital_euro/html/index.it.html">Euro digitale</a></li><li class="has-subpages"><a href="/euro/digital_euro/features/html/index.it.html">Caratteristiche</a><a href="#" class="subpages" title="toggle subpages for Caratteristiche"></a><ul><li class="mobile-clone"><a href="/euro/digital_euro/features/html/index.it.html">Caratteristiche</a></li><li class="clearfix"><a href="/euro/digital_euro/features/privacy/html/index.it.html">Digital euro and privacy</a></li></ul></li><li class="clearfix"><a href="/euro/digital_euro/how-it-works/html/index.it.html">Come funziona</a></li><li class="clearfix"><a href="/euro/digital_euro/why-we-need-it/html/index.it.html">Perché serve</a></li><li class="clearfix"><a href="/euro/digital_euro/innovation-platform/html/index.it.html">Piattaforma per l’innovazione</a></li><li class="clearfix"><a href="/euro/digital_euro/pilot/html/index.it.html">Progetto pilota</a></li><li class="clearfix"><a href="/euro/digital_euro/progress/html/index.it.html">Tempistica e progressi</a></li><li class="has-subpages"><a href="/euro/digital_euro/timeline/html/index.it.html">Informazioni approfondite</a><a href="#" class="subpages" title="toggle subpages for Informazioni approfondite"></a><ul><li class="mobile-clone"><a href="/euro/digital_euro/timeline/html/index.it.html">Informazioni approfondite</a></li><li class="clearfix"><a href="/euro/digital_euro/timeline/stakeholder/html/index.it.html">Governance e parti interessate</a></li><li class="clearfix"><a href="/euro/digital_euro/timeline/profuse/html/index.it.html">Documentazione tecnica e indagini</a></li><li class="clearfix"><a href="/euro/digital_euro/timeline/rulebook/html/index.it.html">Manuale di norme</a></li></ul></li><li class="clearfix"><a href="/euro/digital_euro/faqs/html/index.it.html">Risposte alle domande più frequenti</a></li></ul></li><li class="clearfix"><span>Contante</span></li><li class="has-subpages"><a href="/euro/cash_strategy/html/index.it.html">La strategia dell’Eurosistema per il contante</a><a href="#" class="subpages" title="toggle subpages for La strategia dell’Eurosistema per il contante"></a><ul><li class="mobile-clone"><a href="/euro/cash_strategy/html/index.it.html">La strategia dell’Eurosistema per il contante</a></li><li class="clearfix"><a href="/euro/cash_strategy/cash_role/html/index.it.html">Il ruolo del contante</a></li><li class="clearfix"><a href="/euro/cash_strategy/issuance/html/index.it.html">Emissione e circolazione</a></li><li class="clearfix"><a href="/euro/cash_strategy/acceptance-cash/html/index.it.html">Accessibilità e accettazione del contante</a></li><li class="clearfix"><a href="/euro/cash_strategy/faqs/html/index.it.html">Risposte alle domande più frequenti</a></li></ul></li><li class="has-subpages"><a href="/euro/banknotes/html/index.it.html">Banconote</a><a href="#" class="subpages" title="toggle subpages for Banconote"></a><ul><li class="mobile-clone"><a href="/euro/banknotes/html/index.it.html">Banconote</a></li><li class="has-subpages"><a href="/euro/banknotes/future_banknotes/html/index.it.html">Le future banconote</a><a href="#" class="subpages" title="toggle subpages for Le future banconote"></a><ul><li class="mobile-clone"><a href="/euro/banknotes/future_banknotes/html/index.it.html">Le future banconote</a></li><li class="clearfix"><a href="/euro/banknotes/future_banknotes/redesign/html/index.it.html">Processo di progettazione</a></li></ul></li><li class="has-subpages"><a href="/euro/banknotes/current/html/index.it.html">Le attuali banconote</a><a href="#" class="subpages" title="toggle subpages for Le attuali banconote"></a><ul><li class="mobile-clone"><a href="/euro/banknotes/current/html/index.it.html">Le attuali banconote</a></li><li class="clearfix"><a href="/euro/banknotes/current/denominations/html/index.it.html">Tagli</a></li><li class="clearfix"><a href="/euro/banknotes/current/design/html/index.it.html">Elementi grafici</a></li><li class="clearfix"><a href="/euro/banknotes/current/security/html/index.it.html">Caratteristiche di sicurezza</a></li></ul></li><li class="clearfix"><a href="/euro/banknotes/ac/html/index.it.html">Misure antifalsificazione</a></li><li class="clearfix"><a href="/euro/banknotes/production/html/index.it.html">Produzione e scorte di banconote</a></li><li class="clearfix"><a href="/euro/banknotes/damaged/html/index.it.html">Banconote danneggiate o macchiate di inchiostro</a></li><li class="has-subpages"><a href="/euro/banknotes/environmental/html/index.it.html">Ambiente, salute e sicurezza</a><a href="#" class="subpages" title="toggle subpages for Ambiente, salute e sicurezza"></a><ul><li class="mobile-clone"><a href="/euro/banknotes/environmental/html/index.it.html">Ambiente, salute e sicurezza</a></li><li class="clearfix"><a href="/euro/banknotes/environmental/pef/html/index.it.html">Impronta ambientale di prodotto</a></li></ul></li><li class="clearfix"><a href="/euro/banknotes/research/html/index.it.html">Ricerca e sviluppo</a></li><li class="clearfix"><a href="/euro/banknotes/images/html/index.it.html">Immagini e norme sulla riproduzione</a></li><li class="clearfix"><a href="/euro/banknotes/info/html/index.it.html">Materiale divulgativo e formativo</a></li></ul></li><li class="has-subpages"><a href="/euro/coins/html/index.it.html">Monete</a><a href="#" class="subpages" title="toggle subpages for Monete"></a><ul><li class="mobile-clone"><a href="/euro/coins/html/index.it.html">Monete</a></li><li class="clearfix"><a href="/euro/coins/2euro/html/index.it.html">€2</a></li><li class="clearfix"><a href="/euro/coins/1euro/html/index.it.html">€1</a></li><li class="clearfix"><a href="/euro/coins/50cents/html/index.it.html">50 cent</a></li><li class="clearfix"><a href="/euro/coins/20cents/html/index.it.html">20 cent</a></li><li class="clearfix"><a href="/euro/coins/10cents/html/index.it.html">10 cent</a></li><li class="clearfix"><a href="/euro/coins/5cents/html/index.it.html">5 cent</a></li><li class="clearfix"><a href="/euro/coins/2cents/html/index.it.html">2 cent</a></li><li class="clearfix"><a href="/euro/coins/1cent/html/index.it.html">1 cent</a></li><li class="clearfix"><a href="/euro/coins/common/html/index.it.html">Facce comuni</a></li><li class="clearfix"><a href="/euro/coins/comm/html/index.it.html">Monete celebrative o commemorative da €2</a></li><li class="clearfix"><a href="/euro/coins/security/html/index.it.html">Caratteristiche di sicurezza</a></li><li class="clearfix"><a href="/euro/coins/collect/html/index.it.html">Monete da collezione</a></li></ul></li><li class="has-subpages"><a href="/euro/changeover/html/index.it.html">Transizione all’euro</a><a href="#" class="subpages" title="toggle subpages for Transizione all’euro"></a><ul><li class="mobile-clone"><a href="/euro/changeover/html/index.it.html">Transizione all’euro</a></li><li class="clearfix"><a href="/euro/changeover/bulgaria/html/index.it.html">Bulgaria (2026)</a></li><li class="clearfix"><a href="/euro/changeover/croatia/html/index.it.html">Croazia (2023)</a></li><li class="clearfix"><a href="/euro/changeover/lithuania/html/index.it.html">Lituania (2015)</a></li><li class="clearfix"><a href="/euro/changeover/latvia/html/index.it.html">Lettonia (2014)</a></li><li class="clearfix"><a href="/euro/changeover/estonia/html/index.it.html">Estonia (2011)</a></li><li class="clearfix"><a href="/euro/changeover/slovakia/html/index.it.html">Slovacchia (2009)</a></li><li class="clearfix"><a href="/euro/changeover/cyprus/html/index.it.html">Cipro (2008)</a></li><li class="clearfix"><a href="/euro/changeover/malta/html/index.it.html">Malta (2008)</a></li><li class="clearfix"><a href="/euro/changeover/slovenia/html/index.it.html">Slovenia (2007)</a></li><li class="clearfix"><a href="/euro/changeover/2002/html/index.it.html">Sostituzione iniziale del contante (2002)</a></li></ul></li><li class="has-subpages"><a href="/euro/exchange/html/index.it.html">Dove cambiare le vecchie valute</a><a href="#" class="subpages" title="toggle subpages for Dove cambiare le vecchie valute"></a><ul><li class="mobile-clone"><a href="/euro/exchange/html/index.it.html">Dove cambiare le vecchie valute</a></li><li class="clearfix"><a href="/euro/exchange/au/html/index.it.html">Austria</a></li><li class="clearfix"><a href="/euro/exchange/be/html/index.it.html">Belgio</a></li><li class="clearfix"><a href="/euro/exchange/bg/html/index.it.html">Bulgaria</a></li><li class="clearfix"><a href="/euro/exchange/hr/html/index.it.html">Croazia</a></li><li class="clearfix"><a href="/euro/exchange/cy/html/index.it.html">Cipro</a></li><li class="clearfix"><a href="/euro/exchange/et/html/index.it.html">Estonia</a></li><li class="clearfix"><a href="/euro/exchange/fi/html/index.it.html">Finlandia</a></li><li class="clearfix"><a href="/euro/exchange/fr/html/index.it.html">Francia</a></li><li class="clearfix"><a href="/euro/exchange/de/html/index.it.html">Germania</a></li><li class="clearfix"><a href="/euro/exchange/gr/html/index.it.html">Grecia</a></li><li class="clearfix"><a href="/euro/exchange/ir/html/index.it.html">Irlanda</a></li><li class="clearfix"><a href="/euro/exchange/lv/html/index.it.html">Lettonia</a></li><li class="clearfix"><a href="/euro/exchange/it/html/index.it.html">Italia</a></li><li class="clearfix"><a href="/euro/exchange/lt/html/index.it.html">Lituania</a></li><li class="clearfix"><a href="/euro/exchange/lu/html/index.it.html">Lussemburgo</a></li><li class="clearfix"><a href="/euro/exchange/mt/html/index.it.html">Malta</a></li><li class="clearfix"><a href="/euro/exchange/nl/html/index.it.html">Paesi Bassi</a></li><li class="clearfix"><a href="/euro/exchange/pt/html/index.it.html">Portogallo</a></li><li class="clearfix"><a href="/euro/exchange/slovakia/html/index.it.html">Slovacchia</a></li><li class="clearfix"><a href="/euro/exchange/sl/html/index.it.html">Slovenia</a></li><li class="clearfix"><a href="/euro/exchange/es/html/index.it.html">Spagna</a></li></ul></li><li class="clearfix"><a href="/euro/visually/html/index.it.html">In aiuto delle persone con disabilità visive</a></li></ul></div></li><li class="has-subpages" aria-expanded="false"><a href="/pub/html/index.it.html">Studi</a><a href="#" class="subpages" title="toggle subpages for Studi"></a><div class="nav-first-level-wrap"><div class="nav-featured-wrap"><div class="nav-featured"><div class="item">
+</div><a href="/euro/banknotes/future_banknotes/html/index.it.html" class="item image"> <img src="/home/shared/img/callToAction/Design_future_banknotes_box_1000x750.jpg" width="357" height="179" loading="lazy" style="object-fit:cover"><div class="image-caption">Progettazione delle nostre future banconote</div><!--<div class="image-date">01/01/2026</div>--> </a></div></div><ul><li class="mobile-clone"><a href="/euro/html/index.it.html">L’euro</a></li><li class="has-subpages -section"><a href="/euro/digital_euro/html/index.it.html">Euro digitale</a><a href="#" class="subpages" title="toggle subpages for Euro digitale"></a><ul><li class="mobile-clone"><a href="/euro/digital_euro/html/index.it.html">Euro digitale</a></li><li class="has-subpages"><a href="/euro/digital_euro/features/html/index.it.html">Caratteristiche</a><a href="#" class="subpages" title="toggle subpages for Caratteristiche"></a><ul><li class="mobile-clone"><a href="/euro/digital_euro/features/html/index.it.html">Caratteristiche</a></li><li class="clearfix"><a href="/euro/digital_euro/features/privacy/html/index.it.html">Digital euro and privacy</a></li></ul></li><li class="clearfix"><a href="/euro/digital_euro/how-it-works/html/index.it.html">Come funziona</a></li><li class="clearfix"><a href="/euro/digital_euro/why-we-need-it/html/index.it.html">Perché serve</a></li><li class="clearfix -current"><a href="/euro/digital_euro/innovation-platform/html/index.it.html">Piattaforma per l’innovazione</a></li><li class="clearfix"><a href="/euro/digital_euro/pilot/html/index.it.html">Progetto pilota</a></li><li class="clearfix"><a href="/euro/digital_euro/progress/html/index.it.html">Tempistica e progressi</a></li><li class="has-subpages"><a href="/euro/digital_euro/timeline/html/index.it.html">Informazioni approfondite</a><a href="#" class="subpages" title="toggle subpages for Informazioni approfondite"></a><ul><li class="mobile-clone"><a href="/euro/digital_euro/timeline/html/index.it.html">Informazioni approfondite</a></li><li class="clearfix"><a href="/euro/digital_euro/timeline/stakeholder/html/index.it.html">Governance e parti interessate</a></li><li class="clearfix"><a href="/euro/digital_euro/timeline/profuse/html/index.it.html">Documentazione tecnica e indagini</a></li><li class="clearfix"><a href="/euro/digital_euro/timeline/rulebook/html/index.it.html">Manuale di norme</a></li></ul></li><li class="clearfix"><a href="/euro/digital_euro/faqs/html/index.it.html">Risposte alle domande più frequenti</a></li></ul></li><li class="clearfix"><span>Contante</span></li><li class="has-subpages"><a href="/euro/cash_strategy/html/index.it.html">La strategia dell’Eurosistema per il contante</a><a href="#" class="subpages" title="toggle subpages for La strategia dell’Eurosistema per il contante"></a><ul><li class="mobile-clone"><a href="/euro/cash_strategy/html/index.it.html">La strategia dell’Eurosistema per il contante</a></li><li class="clearfix"><a href="/euro/cash_strategy/cash_role/html/index.it.html">Il ruolo del contante</a></li><li class="clearfix"><a href="/euro/cash_strategy/issuance/html/index.it.html">Emissione e circolazione</a></li><li class="clearfix"><a href="/euro/cash_strategy/acceptance-cash/html/index.it.html">Accessibilità e accettazione del contante</a></li><li class="clearfix"><a href="/euro/cash_strategy/faqs/html/index.it.html">Risposte alle domande più frequenti</a></li></ul></li><li class="has-subpages"><a href="/euro/banknotes/html/index.it.html">Banconote</a><a href="#" class="subpages" title="toggle subpages for Banconote"></a><ul><li class="mobile-clone"><a href="/euro/banknotes/html/index.it.html">Banconote</a></li><li class="has-subpages"><a href="/euro/banknotes/future_banknotes/html/index.it.html">Le future banconote</a><a href="#" class="subpages" title="toggle subpages for Le future banconote"></a><ul><li class="mobile-clone"><a href="/euro/banknotes/future_banknotes/html/index.it.html">Le future banconote</a></li><li class="clearfix"><a href="/euro/banknotes/future_banknotes/redesign/html/index.it.html">Processo di progettazione</a></li></ul></li><li class="has-subpages"><a href="/euro/banknotes/current/html/index.it.html">Le attuali banconote</a><a href="#" class="subpages" title="toggle subpages for Le attuali banconote"></a><ul><li class="mobile-clone"><a href="/euro/banknotes/current/html/index.it.html">Le attuali banconote</a></li><li class="clearfix"><a href="/euro/banknotes/current/denominations/html/index.it.html">Tagli</a></li><li class="clearfix"><a href="/euro/banknotes/current/design/html/index.it.html">Elementi grafici</a></li><li class="clearfix"><a href="/euro/banknotes/current/security/html/index.it.html">Caratteristiche di sicurezza</a></li></ul></li><li class="clearfix"><a href="/euro/banknotes/ac/html/index.it.html">Misure antifalsificazione</a></li><li class="clearfix"><a href="/euro/banknotes/production/html/index.it.html">Produzione e scorte di banconote</a></li><li class="clearfix"><a href="/euro/banknotes/damaged/html/index.it.html">Banconote danneggiate o macchiate di inchiostro</a></li><li class="has-subpages"><a href="/euro/banknotes/environmental/html/index.it.html">Ambiente, salute e sicurezza</a><a href="#" class="subpages" title="toggle subpages for Ambiente, salute e sicurezza"></a><ul><li class="mobile-clone"><a href="/euro/banknotes/environmental/html/index.it.html">Ambiente, salute e sicurezza</a></li><li class="clearfix"><a href="/euro/banknotes/environmental/pef/html/index.it.html">Impronta ambientale di prodotto</a></li></ul></li><li class="clearfix"><a href="/euro/banknotes/research/html/index.it.html">Ricerca e sviluppo</a></li><li class="clearfix"><a href="/euro/banknotes/images/html/index.it.html">Immagini e norme sulla riproduzione</a></li><li class="clearfix"><a href="/euro/banknotes/info/html/index.it.html">Materiale divulgativo e formativo</a></li></ul></li><li class="has-subpages"><a href="/euro/coins/html/index.it.html">Monete</a><a href="#" class="subpages" title="toggle subpages for Monete"></a><ul><li class="mobile-clone"><a href="/euro/coins/html/index.it.html">Monete</a></li><li class="clearfix"><a href="/euro/coins/2euro/html/index.it.html">€2</a></li><li class="clearfix"><a href="/euro/coins/1euro/html/index.it.html">€1</a></li><li class="clearfix"><a href="/euro/coins/50cents/html/index.it.html">50 cent</a></li><li class="clearfix"><a href="/euro/coins/20cents/html/index.it.html">20 cent</a></li><li class="clearfix"><a href="/euro/coins/10cents/html/index.it.html">10 cent</a></li><li class="clearfix"><a href="/euro/coins/5cents/html/index.it.html">5 cent</a></li><li class="clearfix"><a href="/euro/coins/2cents/html/index.it.html">2 cent</a></li><li class="clearfix"><a href="/euro/coins/1cent/html/index.it.html">1 cent</a></li><li class="clearfix"><a href="/euro/coins/common/html/index.it.html">Facce comuni</a></li><li class="clearfix"><a href="/euro/coins/comm/html/index.it.html">Monete celebrative o commemorative da €2</a></li><li class="clearfix"><a href="/euro/coins/security/html/index.it.html">Caratteristiche di sicurezza</a></li><li class="clearfix"><a href="/euro/coins/collect/html/index.it.html">Monete da collezione</a></li></ul></li><li class="has-subpages"><a href="/euro/changeover/html/index.it.html">Transizione all’euro</a><a href="#" class="subpages" title="toggle subpages for Transizione all’euro"></a><ul><li class="mobile-clone"><a href="/euro/changeover/html/index.it.html">Transizione all’euro</a></li><li class="clearfix"><a href="/euro/changeover/bulgaria/html/index.it.html">Bulgaria (2026)</a></li><li class="clearfix"><a href="/euro/changeover/croatia/html/index.it.html">Croazia (2023)</a></li><li class="clearfix"><a href="/euro/changeover/lithuania/html/index.it.html">Lituania (2015)</a></li><li class="clearfix"><a href="/euro/changeover/latvia/html/index.it.html">Lettonia (2014)</a></li><li class="clearfix"><a href="/euro/changeover/estonia/html/index.it.html">Estonia (2011)</a></li><li class="clearfix"><a href="/euro/changeover/slovakia/html/index.it.html">Slovacchia (2009)</a></li><li class="clearfix"><a href="/euro/changeover/cyprus/html/index.it.html">Cipro (2008)</a></li><li class="clearfix"><a href="/euro/changeover/malta/html/index.it.html">Malta (2008)</a></li><li class="clearfix"><a href="/euro/changeover/slovenia/html/index.it.html">Slovenia (2007)</a></li><li class="clearfix"><a href="/euro/changeover/2002/html/index.it.html">Sostituzione iniziale del contante (2002)</a></li></ul></li><li class="has-subpages"><a href="/euro/exchange/html/index.it.html">Dove cambiare le vecchie valute</a><a href="#" class="subpages" title="toggle subpages for Dove cambiare le vecchie valute"></a><ul><li class="mobile-clone"><a href="/euro/exchange/html/index.it.html">Dove cambiare le vecchie valute</a></li><li class="clearfix"><a href="/euro/exchange/au/html/index.it.html">Austria</a></li><li class="clearfix"><a href="/euro/exchange/be/html/index.it.html">Belgio</a></li><li class="clearfix"><a href="/euro/exchange/bg/html/index.it.html">Bulgaria</a></li><li class="clearfix"><a href="/euro/exchange/hr/html/index.it.html">Croazia</a></li><li class="clearfix"><a href="/euro/exchange/cy/html/index.it.html">Cipro</a></li><li class="clearfix"><a href="/euro/exchange/et/html/index.it.html">Estonia</a></li><li class="clearfix"><a href="/euro/exchange/fi/html/index.it.html">Finlandia</a></li><li class="clearfix"><a href="/euro/exchange/fr/html/index.it.html">Francia</a></li><li class="clearfix"><a href="/euro/exchange/de/html/index.it.html">Germania</a></li><li class="clearfix"><a href="/euro/exchange/gr/html/index.it.html">Grecia</a></li><li class="clearfix"><a href="/euro/exchange/ir/html/index.it.html">Irlanda</a></li><li class="clearfix"><a href="/euro/exchange/lv/html/index.it.html">Lettonia</a></li><li class="clearfix"><a href="/euro/exchange/it/html/index.it.html">Italia</a></li><li class="clearfix"><a href="/euro/exchange/lt/html/index.it.html">Lituania</a></li><li class="clearfix"><a href="/euro/exchange/lu/html/index.it.html">Lussemburgo</a></li><li class="clearfix"><a href="/euro/exchange/mt/html/index.it.html">Malta</a></li><li class="clearfix"><a href="/euro/exchange/nl/html/index.it.html">Paesi Bassi</a></li><li class="clearfix"><a href="/euro/exchange/pt/html/index.it.html">Portogallo</a></li><li class="clearfix"><a href="/euro/exchange/slovakia/html/index.it.html">Slovacchia</a></li><li class="clearfix"><a href="/euro/exchange/sl/html/index.it.html">Slovenia</a></li><li class="clearfix"><a href="/euro/exchange/es/html/index.it.html">Spagna</a></li></ul></li><li class="clearfix"><a href="/euro/visually/html/index.it.html">In aiuto delle persone con disabilità visive</a></li></ul></div></li><li class="has-subpages" aria-expanded="false"><a href="/pub/html/index.it.html">Studi</a><a href="#" class="subpages" title="toggle subpages for Studi"></a><div class="nav-first-level-wrap"><div class="nav-featured-wrap"><div class="nav-featured"><div class="item">
     <div class="title">Studi</div>
     <p>Ricerche approfondite e analisi specialistiche riguardanti temi e campi diversi</p><a href="/pub/html/index.it.html">Panoramica sugli studi della BCE</a>
     <hr>
@@ -215,7 +215,7 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
 		
 		
 	</div>
-			<div id="ecb-breadcrumbscontainer"><div id="ecb-breadcrumbwrapper"><a href="/">Pagina iniziale</a><i></i><a href="/mopo/html/index.it.html">Politica monetaria e mercati</a><i></i><a href="/mopo/intro/html/index.it.html">Introduzione</a><i></i><span>Vantaggi della stabilità dei prezzi</span></div></div>
+			<div id="ecb-breadcrumbscontainer"><div id="ecb-breadcrumbwrapper"><a href="/">Pagina iniziale</a><i></i><a href="/euro/html/index.it.html">L’euro</a><i></i><a href="/euro/digital_euro/html/index.it.html">Euro digitale</a><i></i><span>Piattaforma per l’innovazione</span></div></div>
 		
 </header>
 
@@ -297,8 +297,8 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
     </div>
 </div>
 	<div id="main-wrapper">
-				<div class="header fast image-attribution -small loaded -attribution" data-image-webp="/mopo/shared/img/header.webp" data-image="/mopo/shared/img/header.jpg" style="background-image: url(&quot;/mopo/shared/img/header.webp&quot;);">
-			<div data-image="/mopo/shared/img/header.jpg" data-image-webp="/mopo/shared/img/header.webp" class="loaded -attribution" style="background-image: url(&quot;/mopo/shared/img/header.webp&quot;);"><span class="attribution"><span class="attribution-details">© Maria Rita Quitadamo/ECB</span> <button aria-label="Photographer"></button></span></div>		<span class="attribution"><span class="attribution-details">© Maria Rita Quitadamo/ECB</span> <button aria-label="Photographer"></button></span></div>
+				<div class="header fast image-attribution -small loaded" data-image="/euro/digital_euro/shared/img/header.jpg" style="background-image: url(&quot;/euro/digital_euro/shared/img/header.jpg&quot;);">
+			<div data-image="/euro/digital_euro/shared/img/header.jpg" class="loaded" style="background-image: url(&quot;/euro/digital_euro/shared/img/header.jpg&quot;);"></div>		</div>
 		
 				<aside aria-label="Social media sharing and related content (if available)">
 					
@@ -322,45 +322,410 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
 																		</aside>
 						
 						<main>
-			<div class="toBeUpdated" id="language-not-available">Non disponibile in italiano</div><!-- block-conversion -->    
+			<!-- block-conversion -->
     
         
- <div class="title">
-     <h1>Benefits of price stability</h1>
- </div>
- <div class="section connector -gradient-upper -dark-grey">
-     <p>Our economy works best when there is price stability. That means we need to guard against an inflation rate – the rate at which the overall prices for goods and services change over time – that is either too low or too high. Price increases should be small enough not to create the problems that come with high inflation for people and businesses. But they should be large enough to avoid bad scenarios that may unfold if inflation falls too low. When inflation is low, stable and predictable, it helps people and businesses to better plan their savings, spending and investment. That helps the economy to grow, in turn creating jobs and prosperity.</p>
-     <p>Price stability has the following benefits.</p>
-     <ul>
-         <li>It allows us to avoid the inefficiency costs arising from the presence of nominal rigidities.</li>
-         <li>It reduces the inefficiency costs created by inflation being a tax on money balances.</li>
-         <li>It avoids adverse redistributive effects of inflation. The adverse effect of inflation on income and wealth differs across different cohorts of society, with higher inflation especially detrimental for low-income households with limited investment options.</li>
-         <li>It avoids adverse interactions of inflation with taxation. The presence of inflation creates distortions because taxes are levied in nominal terms and there is no full indexation. For instance, if your nominal income grows in line with inflation but the tax brackets are not updated in line with inflation, you end up paying more taxes even if your inflation-adjusted income has not changed. By keeping inflation low and stable this effect is reduced. </li>
-         <li>It reduces unexpected changes in inflation, which create distortions. For example, if there is an unanticipated increase in inflation, the value of savings goes down and the value of debt goes down, which transfers wealth from savers to borrowers.</li>
-         <li>It decreases the volatility of inflation, which in turn lowers uncertainty and market interest rates and this motivates people to invest. </li>
-         <li>It contributes to a more stable financial system.</li>
-         <li>It helps to maintain social cohesion and stability. History has shown that episodes of high inflation as well as episodes of deflation, or persistently falling prices, tend to be associated with social unrest. Unstable inflation particularly affects low-income households because they have fewer resources to protect themselves. When prices are stable, everyone is better off: price stability supports economic growth and employment, and allows people to make more reliable plans when taking decisions about borrowing, saving, and expanding businesses.</li>
-     </ul>
-     <a href="/mopo/strategy/pricestab/html/index.it.html" data-label="inglese">Why is our inflation target 2%?</a>
- </div><div class="upper-connection -gradient-upper"></div> <div class="lower-connection -dark-grey"></div>
- <div class="see-also-boxes -two-columns">
-     <div class="headline">
-         <p>SEE ALSO</p>
-     </div>
-     <h2>Find out more about price stability</h2>
-     <div class="container">
-         <div class="content-box">
-             <h3 style="cursor: pointer;">The primary objective of price stability</h3>
-             <p>The ECB’s primary objective is to maintain price stability. This task is set out for us in the Treaty on the Functioning of the European Union. </p>
-             <a href="/mopo/strategy/pricestab/html/index.it.html" data-label="inglese">Price stability</a>
-         </div>
-         <div class="content-box">
-             <h3 style="cursor: pointer;">Price stability in our strategy review</h3>
-             <p>We want to ensure that our price stability objective remains clear, predictable and easily understood in this changing economic landscape. </p>
-             <a href="/mopo/strategy/strategy-review/html/price-stability-objective.it.html">Our price stability objective and the strategy review</a>
-         </div>
-     </div>
- </div>
+ 
+          
+      <div class="title">
+        <h1>Euro digitale: piattaforma per l’innovazione</h1>
+      </div> 
+          
+        <div class="section">
+           
+          
+    
+    <div class="quote -aside">
+        <blockquote>
+            <p>La moneta della banca centrale può favorire l’innovazione.</p>
+            <footer ="footertext"="">Piero Cipollone, Membro del Comitato esecutivo della BCE</footer>
+        </blockquote>
+        <p>La piattaforma per l’innovazione creata per l’euro digitale è un’iniziativa concepita per promuovere la collaborazione con il mercato al fine di stimolare la riflessione e sondare come l’euro digitale possa funzionare in concreto, esplorare il potenziale innovativo dell’euro digitale e ideare nuovi servizi e opportunità commerciali.</p>
+    </div>
+ 
+          
+        </div>
+       
+          <div class="jumbo-box">
+            <div class="upper">
+                <div class="content-box">
+                    <h3>Come potrebbe funzionare l’euro digitale nella vita di ogni giorno</h3> 
+                    <p>Abbiamo chiesto ai partecipanti alla piattaforma per l’innovazione di indicare possibili utilizzi quotidiani dell’euro digitale. Ecco cosa è emerso.</p>
+                    
+                </div>
+            </div>
+            <div class="lower">
+                
+                <div data-video="SV91ElKMW9k" title="" class="refusedCookieBlocked video" id="SV91ElKMW9k---00" starttime="undefined">
+                     
+                <div class="cookieBlockedMessage template hidden innerCookieBlockedMessage">
+	<div class="cookieBlockedContentHolder">
+		<div class="mainCookieBlockedMessage">Questo elemento richiede l’utilizzo di cookie.</div><a class="button modify-cookies">Modifica</a></div>
+</div><a class="overlay play icon -video" tabindex="0"></a><div class="video-container"><div id="containerId-SV91ElKMW9k---00"></div></div></div>
+
+                
+                
+                
+            </div>
+        </div>
+        
+ 
+          
+      <div class="carousel">
+        <h3>Cosa potrebbe apportare l’euro digitale?</h3>
+        <p>Secondo i partecipanti alla piattaforma per l’innovazione</p>
+        <div class="arrow-left"></div>
+        
+          <div class="items">
+              
+               
+              
+              
+          <div class="item">
+              
+              
+        <a>
+           
+          
+          
+          
+          <p class="title">Muoversi in scioltezza</p>
+          <p>Pagamenti istantanei per tutti i fornitori di biciclette elettriche, scooter e car sharing, senza bisogno di applicazioni o account vari.</p>
+        </a>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="item">
+              
+              
+        <a>
+           
+          
+          
+          
+          <p class="title">Acquisti online più sicuri</p>
+          <p>Con i pagamenti condizionati, il denaro verrebbe trasferito soltanto una volta confermata la consegna del prodotto acquistato, contribuendo ad arginare le frodi e a semplificare il processo di rimborso.</p>
+        </a>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="item">
+              
+              
+        <a>
+           
+          
+          
+          
+          <p class="title">Ricevute digitali</p>
+          <p>I pagamenti in euro digitali potrebbero includere l’emissione di ricevute elettroniche, consentendo agli utilizzatori di tenere traccia delle spese, di gestire le garanzie e di ridurre lo spreco di carta.</p>
+        </a>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="item">
+              
+              
+        <a>
+           
+          
+          
+          
+          <p class="title">Inclusione finanziaria</p>
+          <p>Speciali borsellini elettronici per bambini e studenti, con caratteristiche come limiti di spesa e contenuti istruttivi, potrebbero sostenere l’alfabetizzazione finanziaria.</p>
+        </a>
+       
+              
+              
+               
+              
+          </div>
+          
+               
+              
+          </div>
+          
+        <div class="arrow-right"></div>
+        
+      </div>
+     
+          
+<div class="splitter" data-image="index/Digital Euro_Website_Splitter1_2560x800.png" data-image-webp="index/Digital Euro_Website_Splitter1_2560x800.webp"> 
+    <div class="content-box">
+        <h3>Cos’è la piattaforma per l’innovazione creata per l’euro digitale?</h3>
+        <p>La piattaforma per l’innovazione rappresenta uno spazio di collaborazione e sperimentazione con gli attori dei settori pubblico e privato. Consente loro di mettere alla prova nuove idee e sviluppare caratteristiche innovative e soluzioni pratiche per i pagamenti della vita reale. Questa iniziativa dischiude il potenziale dell’euro digitale per stimolare l’innovazione, promuovere la creazione di nuove opportunità commerciali e contribuire a definire la visione a lungo termine dell’euro digitale.</p> 
+    </div>
+</div>
+ 
+          
+      <div class="teasers -two-columns -gradient -lower-light-grey -top-arrow">
+        <div class="upper" data-image="index/Digital Euro_Website_Splitter1_2560x800.png" data-image-webp="index/Digital Euro_Website_Splitter1_2560x800.webp">
+          
+          <h2>Da febbraio a maggio 2025 la BCE ha coordinato due gruppi di lavoro attraverso la piattaforma per l’innovazione</h2>
+          
+        </div>
+        <div class="lower">
+          
+          <div class="container">
+              
+               
+              
+              
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            <div class="title">Pionieri</div>
+            <div class="icon -tools"></div>
+          </div>
+          <div class="content-box">
+              
+                <p>Hanno testato scenari di pagamento condizionato utilizzando una simulazione di interfaccia per l’euro digitale fornita dall’Eurosistema.</p>
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            <div class="title">Visionari</div>
+            <div class="icon -bulb"></div>
+          </div>
+          <div class="content-box">
+              
+                <p>Hanno guardato all’euro digitale in modo creativo, elaborando idee che potrebbero andare a beneficio di cittadini e imprese.</p>
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+               
+              
+          </div>
+          
+        </div>
+      </div>
+     
+          <div class="boxes"> 
+          
+          <div class="box">
+              
+              
+        
+        <div data-image="index/Who_took_part_BOX.jpg" title="" data-image-webp="index/Who_took_part_BOX.webp">
+           
+        </div> 
+        <div class="content-box">
+          <h3>Chi sono i pionieri e i visionari?</h3>
+          <p>In seguito alla pubblicazione di un invito a manifestare interesse nell’ottobre 2024, la BCE ha ricevuto oltre 100 richieste e ha selezionato circa 70 operatori di mercato provenienti da tutta Europa per aderire a uno o a entrambi i filoni di lavoro, in modo da assicurare un’ampia gamma di prospettive e competenze.</p>
+          
+        </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+        
+        <div data-image="index/What_did_we_learn_BOX.jpg" title="" data-image-webp="index/What_did_we_learn_BOX.webp" class="-hover-image" style="cursor: pointer;">
+           
+        <div class="-outer"><div class="-inner" data-image="index/What_did_we_learn_BOX.jpg" data-image-webp="index/What_did_we_learn_BOX.webp"></div></div></div> 
+        <div class="content-box">
+          <h3 style="cursor: pointer;">Cosa abbiamo imparato?</h3>
+          <p>Il resoconto dei risultati contiene i principali spunti emersi dai gruppi di lavoro “pionieri” e “visionari” della piattaforma per l’innovazione, con una descrizione degli scenari testati, degli esiti delle prove tecniche e delle idee per plasmare l’euro digitale.</p>
+          <a href="/euro/digital_euro/timeline/profuse/shared/pdf/ecb.deprep250926_innovationplatform.it.pdf" data-label="inglese">Leggi il resoconto dei risultati</a>
+        </div>
+       
+              
+              
+               
+              
+          </div>
+          </div> 
+          
+      <div class="teasers -four-columns -upper-blue">
+        <div class="upper" data-image="index/Digital_Euro_Website_Splitter1_2560x800.png" data-image-webp="index/Digital_Euro_Website_Splitter1_2560x800.webp">
+          
+          <h2>Perché è importante</h2>
+          <div class="content-box">
+                         <p>Attraverso la piattaforma per l’innovazione si configura un euro digitale sicuro, facile da utilizzare e accessibile a tutti. L’euro digitale è pensato per:<br></p>           
+          </div>
+        </div>
+        <div class="lower">
+          
+          <div class="container">
+              
+               
+              
+              
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            
+            <div class="icon -bulb"></div>
+          </div>
+          <div class="content-box">
+              
+                                 <p>gettare solide basi per l’innovazione in tutta Europa</p>               
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            
+            <div class="icon -five-people"></div>
+          </div>
+          <div class="content-box">
+              
+                <p>aiutare le imprese a creare servizi incentrati sull’utente</p>
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            
+            <div class="icon -lock"></div>
+          </div>
+          <div class="content-box">
+              
+                <p>sostenere soluzioni di pagamento private indipendentemente dalla connettività</p>
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+          <div class="header">
+            
+            
+            <div class="icon -seal"></div>
+          </div>
+          <div class="content-box">
+              
+                <p>offrire più possibilità di scelta, maggiore convenienza e un’esperienza di pagamento digitale unificata</p>
+               
+              
+          </div>
+       
+              
+              
+               
+              
+          </div>
+          
+               
+              
+          </div>
+          
+        </div>
+      </div>
+     
+          <div class="boxes connector -gradient-upper -dark-grey"> 
+          </div><div class="upper-connection -gradient-upper"></div> <div class="lower-connection -dark-grey"></div> 
+          
+      <div class="see-also-boxes -two-columns -align-center">
+        <div class="headline"><br></div>
+        <h2>Materiale informativo sull’euro digitale</h2>
+            
+          <div class="container">
+              
+               
+              
+              
+          <div class="content-box">
+              
+              
+           
+          <h3 style="cursor: pointer;">A colpo d’occhio</h3>
+          
+          <a href="/euro/digital_euro/timeline/profuse/shared/pdf/ecb.dedocs231018_2.it.pdf" data-label="inglese">Tutto in una pagina</a>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="content-box">
+              
+              
+           
+          <h3 style="cursor: pointer;">L’essenziale</h3>
+          
+          <a href="/euro/digital_euro/timeline/profuse/shared/pdf/ecb.deprep250519_trifold_brochure_updated.it.pdf" data-label="inglese">Brochure</a>
+       
+              
+              
+               
+              
+          </div>
+          
+               
+              
+          </div>
+          
+      </div>
+       
+          
 			
 			
 		</main>

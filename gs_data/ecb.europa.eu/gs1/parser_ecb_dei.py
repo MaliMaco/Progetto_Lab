@@ -4,8 +4,8 @@ from crawl4ai.async_configs import BrowserConfig, CrawlerRunConfig
 import os
 
 
-md_path = os.path.join(os.path.dirname(__file__),"markdown_ecb_ben.md")
-html_path = os.path.join(os.path.dirname(__file__),"html_ecb_ben.txt")
+md_path = os.path.join(os.path.dirname(__file__),"markdown_ecb_dei.md")
+html_path = os.path.join(os.path.dirname(__file__),"html_ecb_dei.txt")
 
 async def main():
     markdown_file = open(md_path, 'w')
@@ -16,7 +16,7 @@ async def main():
 
     async with AsyncWebCrawler(config=browser_config) as crawler:
         result = await crawler.arun(
-            url="https://www.ecb.europa.eu/mopo/intro/benefits/html/index.it.html",
+            url="https://www.ecb.europa.eu/euro/digital_euro/innovation-platform/html/index.it.html",
             config=run_config
         )
         with open(md_path, 'w', encoding='utf-8') as markdown_file:

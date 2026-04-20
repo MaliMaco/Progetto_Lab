@@ -19,7 +19,7 @@ class TokenEvaluator:
         return parsed_tokens
 
     @staticmethod
-    def evaluate(parsed_text: Set[str], gold_text: Set[str]) -> Dict[str,Dict[str,float]]:
+    def evaluate(parsed_text: Set[str], gold_text: Set[str]) -> Dict[str,float]:
         intersect = parsed_text.intersection(gold_text)
         intersection_length = len(intersect)
         parsed_length = len(parsed_text)
@@ -28,9 +28,7 @@ class TokenEvaluator:
         recall = intersection_length/gold_length
         f1 = 2*precision*recall/(precision+recall)
         return {
-            "token_level_eval": {
                 "precision": precision,
                 "recall": recall,
                 "f1": f1
             }
-        }

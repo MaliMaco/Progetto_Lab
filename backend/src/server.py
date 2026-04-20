@@ -44,7 +44,7 @@ class EvaluateRequest(BaseModel):
     gold_text: str
 
 class EvaluateResponse(BaseModel):
-    token_level_eval: Dict[str,Dict[str,float]]
+    token_level_eval: Dict[str,float]
 
 
 @app.get("/parse")
@@ -185,21 +185,19 @@ def get_full_gs_eval(url: str) -> EvaluateResponse:
     for gs in full_gs_response:
         result = parse(gs['url'])
         evaluation = evaluate(EvaluateRequest(md_text=result.md_text, gold_text=gs['gold_text']))
-        sum_precision += evaluation.token_level_eval['token_level_eval'].get("precision")
-        sum_recall += evaluation.token_level_eval['token_level_eval'].get("recall")
-        sum_f1 += evaluation.token_level_eval['token_level_eval'].get("f1")
+        sum_precision += evaluation.token_level_eval.get("precision")
+        sum_recall += evaluation.token_level_eval.get("recall")
+        sum_f1 += evaluation.token_level_eval.get("f1")
         gs_number += 1
 
     precision = sum_precision/gs_number
     recall = sum_recall/gs_number
     f1 = sum_f1/gs_number
 
-    full_gs_token_eval = {
-        "token_level_eval": {
+    payload = {
             "precision": precision,
             "recall": recall,
             "f1": f1
-        }
     }
 
-    return EvaluateResponse(token_level_eval=full_gs_token_eval)
+    return EvaluateResponse(token_level_eval=payload)

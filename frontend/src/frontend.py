@@ -81,13 +81,11 @@ def parse_ui(request: Request, url: str = Form(...)):
     Stampare i valori della evaluate.
     La struttura è:
         {
-        "token_level_eval": {
             "token_level_eval": {
-            "precision": 0.9160714285714285,
-            "recall": 0.9344262295081968,
-            "f1": 0.9251577998196574
+                "precision": 0.9160714285714285,
+                "recall": 0.9344262295081968,
+                "f1": 0.9251577998196574
             }
-        }
         }
     '''
 

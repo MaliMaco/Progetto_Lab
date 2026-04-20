@@ -161,7 +161,7 @@ def get_full_gold_standard(url: str):
 @app.post("/evaluate")
 def evaluate(request: EvaluateRequest) -> EvaluateResponse:
     clean_gold_text = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", request.gold_text)
-    clean_gold_text = re.sub(r"[^\w\s']", ' ', clean_gold_text)
+    clean_gold_text = re.sub(r"[^\w\s'\"]", ' ', clean_gold_text)
     clean_gold_text = re.sub(r'\s+', ' ', clean_gold_text).strip()
     parsed_set = TokenEvaluator.token_parsed_text(request.md_text.lower())
     gold_set = TokenEvaluator.token_gold_text(clean_gold_text.lower())

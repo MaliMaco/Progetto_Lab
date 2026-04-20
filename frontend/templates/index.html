@@ -2,6 +2,44 @@
 <html>
 <head>
     <title>Parser UI</title>
+    <style>
+        .side-by-side {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
+        }
+        .side-by-side > div {
+            flex: 1;
+            min-width: 0;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .metrics {
+            background: #eef6ee;
+            border-left: 4px solid #4caf50;
+            padding: 12px 16px;
+            margin-top: 16px;
+            border-radius: 4px;
+        }
+        .metrics table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .metrics td {
+            padding: 4px 12px;
+        }
+        .metrics td:first-child {
+            font-weight: bold;
+            width: 120px;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,6 +50,10 @@
     <input type="text" name="url" placeholder="Inserisci URL">
     <button type="submit">Parse</button>
 </form>
+
+{% if error %}
+    <p style="color: red;">Error: {{ error }}</p>
+{% endif %}
 
 <hr>
 
@@ -35,13 +77,39 @@
     <h3>Parsed Text</h3>
     <pre>{{ parsed.md_text }}</pre>
 
-    <h3>HTML Text</h3>
-    <pre>{{ parsed.html_text }}</pre>
-{% endif %}
+    <!-- LAYOUT AFFIANCATO: HTML a sinistra, Gold a destra -->
+    <div class="side-by-side">
+        <div>
+            <h3>HTML Text</h3>
+            <pre>{{ parsed.html_text }}</pre>
+        </div>
+        <div>
+            {% if gold %}
+                <h3>Gold Text</h3>
+                <pre>{{ gold.gold_text }}</pre>
 
-{% if gold %}
-    <h3>Gold Text</h3>
-    <pre>{{ gold.gold_text }}</pre>
+                {% if eval %}
+                <div class="metrics">
+                    <h3 style="margin-top:0">Metriche di valutazione</h3>
+                    <table>
+                        <tr>
+                            <td>Precision</td>
+                            <td>{{ "%.4f"|format(eval.token_level_eval.precision) }}</td>
+                        </tr>
+                        <tr>
+                            <td>Recall</td>
+                            <td>{{ "%.4f"|format(eval.token_level_eval.recall) }}</td>
+                        </tr>
+                        <tr>
+                            <td>F1</td>
+                            <td>{{ "%.4f"|format(eval.token_level_eval.f1) }}</td>
+                        </tr>
+                    </table>
+                </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
 {% endif %}
 
 </body>

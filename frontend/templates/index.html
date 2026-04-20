@@ -8,7 +8,7 @@
 <h1>Parser UI</h1>
 
 <!-- INPUT URL -->
-<form action="/parse_ui" method="get">
+<form action="/parse_ui" method="post">
     <input type="text" name="url" placeholder="Inserisci URL">
     <button type="submit">Parse</button>
 </form>
@@ -17,7 +17,7 @@
 
 <!-- DROPDOWN GS -->
 {% if gs_list %}
-<form action="/parse_ui" method="get">
+<form action="/parse_ui" method="post">
     <select name="url">
         {% for item in gs_list %}
             <option value="{{ item.url }}">{{ item.url }}</option>
@@ -33,7 +33,7 @@
     <h2>{{ parsed.title }}</h2>
 
     <h3>Parsed Text</h3>
-    <pre>{{ parsed.parsed_text }}</pre>
+    <pre>{{ parsed.md_text }}</pre>
 
     <h3>HTML Text</h3>
     <pre>{{ parsed.html_text }}</pre>

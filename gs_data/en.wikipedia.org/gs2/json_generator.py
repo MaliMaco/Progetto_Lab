@@ -4,7 +4,7 @@ import re
 import unicodedata
 
 #Cambiare i nomi dei file in cui si trovano l'html ed il gs
-html_file = open(os.path.join(os.path.dirname(__file__),"html_ecb_dec.txt"), "r", encoding="UTF-8")
+html_file = open(os.path.join(os.path.dirname(__file__),"html_wiki_jupiter.txt"), "r", encoding="UTF-8")
 gs_file = open(os.path.join(os.path.dirname(__file__),"gs2_GS.txt"), "r", encoding="UTF-8")
 
 html_text = html_file.read()
@@ -28,12 +28,12 @@ title = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u20AC\u00e8]', '', title)
 title = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', title)
 
 pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
-match = re.search(pattern_domain, "https://www.ecb.europa.eu/euro/digital_euro/features/html/index.it.html")
+match = re.search(pattern_domain, "https://en.wikipedia.org/wiki/Jupiter")
 domain = match.group(1)
 
 
 json_entry = {
-    "url": "https://www.ecb.europa.eu/euro/digital_euro/features/html/index.it.html",
+    "url": "https://en.wikipedia.org/wiki/Jupiter",
     "domain": domain,
     "title": title,
     "html_text":  html_text,

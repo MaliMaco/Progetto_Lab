@@ -4,7 +4,7 @@ import re
 import unicodedata
 
 #Cambiare i nomi dei file in cui si trovano l'html ed il gs
-html_file = open(os.path.join(os.path.dirname(__file__),"html_ecb_ben.txt"), "r", encoding="UTF-8")
+html_file = open(os.path.join(os.path.dirname(__file__),"html_wiki_verilog.txt"), "r", encoding="UTF-8")
 gs_file = open(os.path.join(os.path.dirname(__file__),"gs1_GS.txt"), "r", encoding="UTF-8")
 
 html_text = html_file.read()
@@ -23,11 +23,11 @@ match = re.search(pattern_title, html_text)
 title = match.group(1)
 
 pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
-match = re.search(pattern_domain, "https://www.ecb.europa.eu/mopo/intro/benefits/html/index.it.html")
+match = re.search(pattern_domain, "https://en.wikipedia.org/wiki/Verilog")
 domain = match.group(1)
 
 json_entry = {
-    "url": "https://www.ecb.europa.eu/mopo/intro/benefits/html/index.it.html",
+    "url": "https://en.wikipedia.org/wiki/Verilog",
     "domain": domain,
     "title": title,
     "html_text":  html_text,

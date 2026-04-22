@@ -62,18 +62,10 @@ def parse(url: str) -> ParseOutput:
         if domain not in domains['domains']:
             raise HTTPException(status_code=400, detail="Dominio non supportato.")
     html_text = result.html
+    md_text = result.markdown
     soup = BeautifulSoup(html_text, "html.parser")
     title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
     title = title_tag.get_text(strip=True) if title_tag else ""
-    md_text = remove_markdown(result.markdown)
-    md_text = re.sub(r'\(\s*https?://[^)]*\)', ' ', md_text)
-    md_text = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", md_text)
-    md_text = re.sub(r'[\u201c\u201d\u201e\u201f]', '"', md_text)
-    md_text = re.sub(r'[\u2013\u2014\u2015]', '-', md_text)
-    md_text = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u20AC\u00e8]', '', md_text)
-    md_text = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', md_text)
-    md_text = re.sub(r"[^a-zA-Z0-9\u00C0-\u00FF\s']", ' ', md_text)
-    md_text = re.sub(r'\s+', ' ', md_text).strip()
     return ParseOutput(
         url=url, 
         domain=domain, 
@@ -96,15 +88,7 @@ def post_parse(input: ParseInput) -> ParseOutput:
     soup = BeautifulSoup(html_text, "html.parser")
     title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
     title = title_tag.get_text(strip=True) if title_tag else ""
-    md_text = remove_markdown(result.markdown)
-    md_text = re.sub(r'\(\s*https?://[^)]*\)', ' ', md_text)
-    md_text = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", md_text)
-    md_text = re.sub(r'[\u201c\u201d\u201e\u201f]', '"', md_text)
-    md_text = re.sub(r'[\u2013\u2014\u2015]', '-', md_text)
-    md_text = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u20AC\u00e8]', '', md_text)
-    md_text = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', md_text)
-    md_text = re.sub(r"[^a-zA-Z0-9\u00C0-\u00FF\s']", ' ', md_text)
-    md_text = re.sub(r'\s+', ' ', md_text).strip()
+    md_text = result.markdown
     return ParseOutput(
         url=input.url, 
         domain=domain, 
@@ -162,6 +146,15 @@ def get_full_gold_standard(domain: str) -> FullGSResponse:
 
 @app.post("/evaluate")
 def evaluate(request: EvaluateRequest) -> EvaluateResponse:
+    md_text = remove_markdown(request.parsed_text)
+    md_text = re.sub(r'\(\s*https?://[^)]*\)', ' ', md_text)
+    md_text = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", md_text)
+    md_text = re.sub(r'[\u201c\u201d\u201e\u201f]', '"', md_text)
+    md_text = re.sub(r'[\u2013\u2014\u2015]', '-', md_text)
+    md_text = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u20AC\u00e8]', '', md_text)
+    md_text = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', md_text)
+    md_text = re.sub(r"[^a-zA-Z0-9\u00C0-\u00FF\s']", ' ', md_text)
+    md_text = re.sub(r'\s+', ' ', md_text).strip()
     clean_gold_text = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", request.gold_text)
     clean_gold_text = re.sub(r"[^\w\s'\"]", ' ', clean_gold_text)
     clean_gold_text = re.sub(r'[.,?!:;]', ' ', clean_gold_text)   

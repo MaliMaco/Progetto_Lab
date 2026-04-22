@@ -10,6 +10,12 @@ app = FastAPI(title="Frontend API")
 
 gold = None
 gs_list = []
+domains = [
+        "en.wikipedia.org",
+        "ecb.europa.eu",
+        "apps.apple.com",
+        "tandfonline.com"
+    ]
 
 pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
 
@@ -49,7 +55,9 @@ def parse_ui(request: Request, url: str = Form(None)):
             "error": "Inserisci un URL."
         })
     
-    if not extract_domain(url):
+    domain = extract_domain(url)
+
+    if not domain:
         return templates.TemplateResponse(
         request=request,
         name="index.html", 
@@ -57,6 +65,15 @@ def parse_ui(request: Request, url: str = Form(None)):
             "request": request,
             "error": "URL non valido."
         })
+    
+    if domain not in domains:
+        return templates.TemplateResponse(
+            request=request,
+            name="index.html", 
+            context={
+                "request": request,
+                "error": "Dominio non supportato."
+             })
 
     response = requests.get(f"{BASE_URL}/parse", params={"url":url})
     if (response.raise_for_status()) == 404:

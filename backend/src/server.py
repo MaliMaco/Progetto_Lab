@@ -24,7 +24,7 @@ class ParseOutput(BaseModel):
     domain: str
     title: str
     html_text: str
-    md_text: str
+    parsed_text: str
 
 class GSResponse(BaseModel):
     url: str
@@ -51,7 +51,9 @@ class EvaluateResponse(BaseModel):
 def parse(url: str) -> ParseOutput:
     result = asyncio.run(parser_run(url))
     if result.status_code == 404:
-        return HTTPException(status_code=404, detail="URL irrangiugibile.")
+        raise HTTPException(status_code=404, detail="URL irrangiugibile.")
+    if result.status_code == 500:
+        raise HTTPException(status_code=500, detail="Dominio non supportato.")
     pattern_title = r'<(?:title|(?:div\s+class=["\'](?:title|header)["\'][^>]*>\s*<h[1-6]))[^>]*>\s*(?:<[^>]+>)?\s*(.*?)\s*(?:</[^>]+>)?\s*</(?:title|h[1-6])>'
     match = re.search(pattern_title, result.html)
     title = match.group(1)
@@ -59,8 +61,9 @@ def parse(url: str) -> ParseOutput:
     domain = match.group(1)
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
         domains = json.load(dm_file)
+        print(domains['domains'])
         if domain not in domains['domains']:
-            return HTTPException(status_code=400, detail="Dominio non supportato.")
+            raise HTTPException(status_code=400, detail="Dominio non supportato.")
     html_text = result.html
     md_text = remove_markdown(result.markdown.raw_markdown)
     md_text = re.sub(r'\(\s*https?://[^)]*\)', ' ', md_text)
@@ -76,7 +79,7 @@ def parse(url: str) -> ParseOutput:
         domain=domain, 
         title=title, 
         html_text=html_text, 
-        md_text=md_text
+        parsed_text=md_text
     )
 
 @app.post("/parse")
@@ -86,10 +89,10 @@ def post_parse(input: ParseInput) -> ParseOutput:
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
         domains = json.load(dm_file)
         if domain not in domains['domains']:
-            return HTTPException(status_code=400, detail="Dominio non supportato.")
+            raise HTTPException(status_code=400, detail="Dominio non supportato.")
     
     input.html_text
-    result = asyncio.run(parser_run("raw://"+input.html_text))
+    result = asyncio.run(html_parser_run("raw://"+input.html_text))
     pattern_title = r'<(?:title|(?:div\s+class=["\'](?:title|header)["\'][^>]*>\s*<h[1-6]))[^>]*>\s*(?:<[^>]+>)?\s*(.*?)\s*(?:</[^>]+>)?\s*</(?:title|h[1-6])>'
     match = re.search(pattern_title, result.html)
     title = match.group(1)
@@ -107,7 +110,7 @@ def post_parse(input: ParseInput) -> ParseOutput:
         domain=domain, 
         title=title, 
         html_text=input.html_text, 
-        md_text=md_text
+        parsed_text=md_text
     )
     
 @app.get("/domains")
@@ -120,13 +123,13 @@ def get_domains() -> DomainsResponse:
     
 
 @app.get("/gold_standard")
-def get_gold_standard(url:str):
+def get_gold_standard(url:str) -> GSResponse:
     match = re.search(pattern_domain, url)
     domain = match.group(1)
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
         domains = json.load(dm_file)
         if domain not in domains['domains']:
-            return HTTPException(status_code=400, detail="Dominio non supportato.")
+            raise HTTPException(status_code=400, detail="Dominio non supportato.")
     GS_path = os.path.join(Path(__file__).parent.parent.parent,f"gs_data/{domain}/GS.json")
     with open(GS_path, 'r', encoding="UTF-8") as GS_file:
         gs = json.load(GS_file)
@@ -138,17 +141,15 @@ def get_gold_standard(url:str):
                             html_text=single_gs['html_text'], 
                             gold_text=single_gs['gold_text']
                                 )
-        return HTTPException(status_code=400, detail="URL non presente nel GS.")
+        raise HTTPException(status_code=400, detail="URL non presente nel GS.")
     
 
 @app.get("/full_gold_standard")
-def get_full_gold_standard(url: str):
-    match = re.search(pattern_domain, url)
-    domain = match.group(1)
+def get_full_gold_standard(domain: str) -> FullGSResponse:
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
         domains = json.load(dm_file)
         if domain not in domains['domains']:
-            return HTTPException(status_code=400, detail="Dominio non supportato.")
+            raise HTTPException(status_code=400, detail="Dominio non supportato.")
         
     GS_path = os.path.join(Path(__file__).parent.parent.parent,f"gs_data/{domain}/GS.json")
     full_gs = []
@@ -169,15 +170,13 @@ def evaluate(request: EvaluateRequest) -> EvaluateResponse:
     return EvaluateResponse(token_level_eval=payload)
 
 @app.get("/full_gs_eval")
-def get_full_gs_eval(url: str) -> EvaluateResponse:
-    match = re.search(pattern_domain, url)
-    domain = match.group(1)
+def get_full_gs_eval(domain: str) -> EvaluateResponse:
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
         domains = json.load(dm_file)
         if domain not in domains['domains']:
-            return HTTPException(status_code=400, detail="Dominio non supportato.")
+            raise HTTPException(status_code=400, detail="Dominio non supportato.")
     
-    full_gs_response = get_full_gold_standard(url=url).gold_standard
+    full_gs_response = get_full_gold_standard(domain=domain).gold_standard
     sum_precision = 0.0
     sum_recall = 0.0
     sum_f1 = 0.0

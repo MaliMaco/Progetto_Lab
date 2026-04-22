@@ -87,7 +87,7 @@ def parse_ui(request: Request, url: str = Form(None)):
         try:
             response =  requests.get(
                 f"{BASE_URL}/full_gold_standard",
-                params={"url": url}
+                params={"domain": domain}
             )
 
             response.raise_for_status()
@@ -116,7 +116,7 @@ def parse_ui(request: Request, url: str = Form(None)):
             response = requests.post(
                 f"{BASE_URL}/evaluate",
                 json={
-                    "md_text": parsed["md_text"],
+                    "parsed_text": parsed["parsed_text"],
                     "gold_text": gold["gold_text"]
                 }
             )

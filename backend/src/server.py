@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 from evaluator import TokenEvaluator
 from remove_markdown import remove_markdown
+from bs4 import BeautifulSoup
 
 app = FastAPI(title="Backend API")
 
@@ -40,7 +41,7 @@ class DomainsResponse(BaseModel):
     domains: List[str]
 
 class EvaluateRequest(BaseModel):
-    md_text: str
+    parsed_text: str
     gold_text: str
 
 class EvaluateResponse(BaseModel):
@@ -49,23 +50,22 @@ class EvaluateResponse(BaseModel):
 
 @app.get("/parse")
 def parse(url: str) -> ParseOutput:
+    match = re.search(pattern_domain, url)
+    domain = match.group(1)
     result = asyncio.run(parser_run(url))
     if result.status_code == 404:
         raise HTTPException(status_code=404, detail="URL irrangiugibile.")
     if result.status_code == 500:
         raise HTTPException(status_code=500, detail="Dominio non supportato.")
-    pattern_title = r'<(?:title|(?:div\s+class=["\'](?:title|header)["\'][^>]*>\s*<h[1-6]))[^>]*>\s*(?:<[^>]+>)?\s*(.*?)\s*(?:</[^>]+>)?\s*</(?:title|h[1-6])>'
-    match = re.search(pattern_title, result.html)
-    title = match.group(1)
-    match = re.search(pattern_domain, url)
-    domain = match.group(1)
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
         domains = json.load(dm_file)
-        print(domains['domains'])
         if domain not in domains['domains']:
             raise HTTPException(status_code=400, detail="Dominio non supportato.")
     html_text = result.html
-    md_text = remove_markdown(result.markdown.raw_markdown)
+    soup = BeautifulSoup(html_text, "html.parser")
+    title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
+    title = title_tag.get_text(strip=True) if title_tag else ""
+    md_text = remove_markdown(result.markdown)
     md_text = re.sub(r'\(\s*https?://[^)]*\)', ' ', md_text)
     md_text = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", md_text)
     md_text = re.sub(r'[\u201c\u201d\u201e\u201f]', '"', md_text)
@@ -91,12 +91,12 @@ def post_parse(input: ParseInput) -> ParseOutput:
         if domain not in domains['domains']:
             raise HTTPException(status_code=400, detail="Dominio non supportato.")
     
-    input.html_text
+    html_text = input.html_text
     result = asyncio.run(html_parser_run("raw://"+input.html_text))
-    pattern_title = r'<(?:title|(?:div\s+class=["\'](?:title|header)["\'][^>]*>\s*<h[1-6]))[^>]*>\s*(?:<[^>]+>)?\s*(.*?)\s*(?:</[^>]+>)?\s*</(?:title|h[1-6])>'
-    match = re.search(pattern_title, result.html)
-    title = match.group(1)
-    md_text = remove_markdown(result.markdown.raw_markdown)
+    soup = BeautifulSoup(html_text, "html.parser")
+    title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
+    title = title_tag.get_text(strip=True) if title_tag else ""
+    md_text = remove_markdown(result.markdown)
     md_text = re.sub(r'\(\s*https?://[^)]*\)', ' ', md_text)
     md_text = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", md_text)
     md_text = re.sub(r'[\u201c\u201d\u201e\u201f]', '"', md_text)
@@ -159,12 +159,15 @@ def get_full_gold_standard(domain: str) -> FullGSResponse:
             full_gs.append(gs_elem)
         return FullGSResponse(gold_standard=full_gs)
 
+
 @app.post("/evaluate")
 def evaluate(request: EvaluateRequest) -> EvaluateResponse:
     clean_gold_text = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", request.gold_text)
     clean_gold_text = re.sub(r"[^\w\s'\"]", ' ', clean_gold_text)
+    clean_gold_text = re.sub(r'[.,?!:;]', ' ', clean_gold_text)   
+    clean_gold_text = re.sub(r'\[\d+\]', '', clean_gold_text)
     clean_gold_text = re.sub(r'\s+', ' ', clean_gold_text).strip()
-    parsed_set = TokenEvaluator.token_parsed_text(request.md_text.lower())
+    parsed_set = TokenEvaluator.token_parsed_text(request.parsed_text.lower())
     gold_set = TokenEvaluator.token_gold_text(clean_gold_text.lower())
     payload = TokenEvaluator.evaluate(parsed_text=parsed_set,gold_text=gold_set)
     return EvaluateResponse(token_level_eval=payload)
@@ -183,7 +186,7 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
     gs_number = 0
     for gs in full_gs_response:
         result = parse(gs['url'])
-        evaluation = evaluate(EvaluateRequest(md_text=result.md_text, gold_text=gs['gold_text']))
+        evaluation = evaluate(EvaluateRequest(parsed_text=result.parsed_text, gold_text=gs['gold_text']))
         sum_precision += evaluation.token_level_eval.get("precision")
         sum_recall += evaluation.token_level_eval.get("recall")
         sum_f1 += evaluation.token_level_eval.get("f1")

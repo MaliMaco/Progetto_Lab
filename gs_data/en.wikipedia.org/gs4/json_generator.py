@@ -17,6 +17,7 @@ gs_text = re.sub(r'[\u201c\u201d\u201e\u201f]', '"', gs_text)
 gs_text = re.sub(r'[\u2013\u2014\u2015]', '-', gs_text)
 gs_text = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u20AC\u00e8]', '', gs_text)
 gs_text = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', gs_text)
+gs_text = re.sub(r'\[\d+\]', '', gs_text)
 gs_text = re.sub(r'\s+', ' ', gs_text).strip()
 
 soup = BeautifulSoup(html_text, "html.parser")

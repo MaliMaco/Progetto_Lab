@@ -5,7 +5,7 @@ import unicodedata
 from bs4 import BeautifulSoup
 
 #Cambiare i nomi dei file in cui si trovano l'html ed il gs
-html_file = open(os.path.join(os.path.dirname(__file__),"html_ecb_dec.txt"), "r", encoding="UTF-8")
+html_file = open(os.path.join(os.path.dirname(__file__),"html_ecb_afb.txt"), "r", encoding="UTF-8")
 gs_file = open(os.path.join(os.path.dirname(__file__),"gs2_GS.txt"), "r", encoding="UTF-8")
 
 html_text = html_file.read()
@@ -29,7 +29,7 @@ domain = match.group(1)
 
 
 json_entry = {
-    "url": "https://www.ecb.europa.eu/euro/digital_euro/features/html/index.it.html",
+    "url": "https://www.ecb.europa.eu/paym/cashprof/accreditation/html/index.it.html",
     "domain": domain,
     "title": title,
     "html_text":  html_text,

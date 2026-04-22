@@ -34,7 +34,7 @@
             ECB.isLive = true;
             ECB.version = '4743138';
             ECB.navigationVersion = '1776244022';
-            ECB.clientTimeError = 1776550076 - (new Date().getTime());
+            ECB.clientTimeError = 1776865836 - (new Date().getTime());
 
             
 

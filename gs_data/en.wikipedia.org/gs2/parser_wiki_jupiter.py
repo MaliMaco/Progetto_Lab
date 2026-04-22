@@ -4,11 +4,9 @@ from crawl4ai.async_configs import BrowserConfig, CrawlerRunConfig
 import os
 
 
-md_path = os.path.join(os.path.dirname(__file__),"markdown_wiki_jupiter.md")
 html_path = os.path.join(os.path.dirname(__file__),"html_wiki_jupiter.txt")
 
 async def main():
-    markdown_file = open(md_path, 'w')
     html_file = open(html_path, 'w')
     
     browser_config = BrowserConfig()
@@ -19,16 +17,9 @@ async def main():
             url="https://en.wikipedia.org/wiki/Jupiter",
             config=run_config
         )
-        with open(md_path, 'w', encoding='utf-8') as markdown_file:
-            markdown_file.write(result.markdown)
         
         with open(html_path, 'w', encoding='utf-8') as html_file:
-            html_file.write(result.html)
-        
-        markdown_file.close()
-        
-        
-        html_file.close()
+            html_file.write(result.html)        
         
 
 if __name__ == "__main__":

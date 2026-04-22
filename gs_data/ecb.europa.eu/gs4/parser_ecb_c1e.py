@@ -3,7 +3,6 @@ from crawl4ai import AsyncWebCrawler
 from crawl4ai.async_configs import BrowserConfig, CrawlerRunConfig
 import os
 
-md_path = os.path.join(os.path.dirname(__file__), "markdown_ecb_c1e.md")
 html_path = os.path.join(os.path.dirname(__file__), "html_ecb_c1e.txt")
 
 async def main():
@@ -21,11 +20,6 @@ async def main():
             config=run_config
         )
         
-        # Scrivi markdown
-        with open(md_path, 'w', encoding='utf-8') as markdown_file:
-            markdown_file.write(result.markdown)
-        
-        # Scrivi HTML
         with open(html_path, 'w', encoding='utf-8') as html_file:
             html_file.write(result.html)
 

@@ -2,6 +2,7 @@ import json
 import os
 import re
 import unicodedata
+from bs4 import BeautifulSoup
 
 #Cambiare i nomi dei file in cui si trovano l'html ed il gs
 html_file = open(os.path.join(os.path.dirname(__file__),"html_wiki_verilog.txt"), "r", encoding="UTF-8")
@@ -18,9 +19,11 @@ gs_text = re.sub(r'[\u2013\u2014\u2015]', '-', gs_text)
 gs_text = re.sub(r'[\u00a0\u202f\u2009\u2008\u2007\u2006\u2005\u2004\u2003\u2002]', ' ', gs_text)
 gs_text = re.sub(r'\s+', ' ', gs_text).strip()
 
-pattern_title = r'<(?:h[1-6]|div\s+class=["\']title["\'])[^>]*>\s*(?:<[^>]+>)?(.*?)(?:<\/[^>]+>)?\s*<\/(?:h[1-6]|div)>'
-match = re.search(pattern_title, html_text)
-title = match.group(1)
+soup = BeautifulSoup(html_text, "html.parser")
+
+soup = BeautifulSoup(html_text, "html.parser")
+title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
+title = title_tag.get_text(strip=True) if title_tag else ""
 
 pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
 match = re.search(pattern_domain, "https://en.wikipedia.org/wiki/Verilog")

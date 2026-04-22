@@ -36,7 +36,7 @@
             ECB.isLive = true;
             ECB.version = '4743138';
             ECB.navigationVersion = '1776244022';
-            ECB.clientTimeError = 1776549121 - (new Date().getTime());
+            ECB.clientTimeError = 1776865591 - (new Date().getTime());
 
             
 
@@ -374,14 +374,24 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
       <div class="carousel">
         <h3>Cosa potrebbe apportare l’euro digitale?</h3>
         <p>Secondo i partecipanti alla piattaforma per l’innovazione</p>
-        <div class="arrow-left"></div>
+        <div class="arrow-left" style="visibility: hidden;"></div>
         
-          <div class="items">
+          <div class="items flickity-enabled is-draggable" tabindex="-1">
               
                
               
               
-          <div class="item">
+          
+          
+          
+          
+          
+          
+          
+          
+               
+              
+          <div class="flickity-viewport" style="height: 340.016px; touch-action: pan-y;"><div class="flickity-slider" style="left: 0px; transform: translateX(-1.03%);"><div class="item is-selected" role="group" aria-roledescription="slide" style="position: absolute; left: 0%;">
               
               
         <a>
@@ -397,9 +407,7 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
               
                
               
-          </div>
-          
-          <div class="item">
+          </div><div class="item is-selected" role="group" aria-roledescription="slide" style="position: absolute; left: 30.67%;">
               
               
         <a>
@@ -415,9 +423,7 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
               
                
               
-          </div>
-          
-          <div class="item">
+          </div><div class="item is-selected" role="group" aria-roledescription="slide" style="position: absolute; left: 61.34%;">
               
               
         <a>
@@ -433,9 +439,7 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
               
                
               
-          </div>
-          
-          <div class="item">
+          </div><div class="item" aria-hidden="true" role="group" aria-roledescription="slide" style="position: absolute; left: 92.01%;">
               
               
         <a>
@@ -451,13 +455,9 @@ var ECB=window.ECB||{};ECB.fast=ECB.fast||{},ECB.slow=ECB.slow||{},ECB.supports=
               
                
               
-          </div>
+          </div></div></div><button class="flickity-button flickity-prev-next-button previous" type="button" disabled="" aria-label="Previous" tabindex="-1"><svg class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg></button><button class="flickity-button flickity-prev-next-button next" type="button" aria-label="Next" tabindex="-1"><svg class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg></button></div>
           
-               
-              
-          </div>
-          
-        <div class="arrow-right"></div>
+        <div class="arrow-right" style="visibility: visible;"></div>
         
       </div>
      

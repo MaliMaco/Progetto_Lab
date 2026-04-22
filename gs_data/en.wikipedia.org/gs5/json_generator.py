@@ -2,6 +2,7 @@ import json
 import os
 import re
 import unicodedata
+from bs4 import BeautifulSoup
 
 #Cambiare i nomi dei file in cui si trovano l'html ed il gs
 html_file = open(os.path.join(os.path.dirname(__file__),"html_wiki_trump.txt"), "r", encoding="UTF-8")
@@ -18,14 +19,9 @@ gs_text = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u20AC\u00e8]', '', gs_text)
 gs_text = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', gs_text)
 gs_text = re.sub(r'\s+', ' ', gs_text).strip()
 
-pattern_title = r'<(?:h[1-6]|div\s+class=["\']title["\'])[^>]*>\s*(?:<[^>]+>)?(.*?)(?:<\/[^>]+>)?\s*<\/(?:h[1-6]|div)>'
-match = re.search(pattern_title, html_text)
-title = match.group(1)
-title = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", title)
-title = re.sub(r'[\u201c\u201d\u201e\u201f]', '"', title)
-title = re.sub(r'[\u2013\u2014\u2015]', '-', title)
-title = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u20AC\u00e8]', '', title)
-title = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', title)
+soup = BeautifulSoup(html_text, "html.parser")
+title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
+title = title_tag.get_text(strip=True) if title_tag else ""
 
 pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
 match = re.search(pattern_domain, "https://en.wikipedia.org/wiki/Donald_Trump")

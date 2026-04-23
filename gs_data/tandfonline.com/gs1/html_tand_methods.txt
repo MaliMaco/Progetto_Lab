@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" class="pb-page" data-request-id="9f0dc5f6eb7d5272-SJC"><head data-pb-dropzone="head">
+<!DOCTYPE html><html lang="en" class="pb-page" data-request-id="9f0fb3c95ec9ed94-SJC"><head data-pb-dropzone="head">
             
 
 
@@ -178,7 +178,7 @@
 -->
 
 <!-- Load airgap.js Asynchronously -->
- <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-JXCM7E84P9&amp;cx=c&amp;gtm=4e64k1" nonce="9f0dc5f6eb7d5272-SJC" data-airgap-id="12"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=DC-15020242&amp;cx=c&amp;gtm=4e64k1" nonce="9f0dc5f6eb7d5272-SJC" data-airgap-id="10"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-16473093908&amp;cx=c&amp;gtm=4e64k1" nonce="9f0dc5f6eb7d5272-SJC" data-airgap-id="9"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-806725569&amp;cx=c&amp;gtm=4e64k1" nonce="9f0dc5f6eb7d5272-SJC" data-airgap-id="8"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5WV5K4GW&amp;gtm=4e64k1" nonce="9f0dc5f6eb7d5272-SJC" data-airgap-id="6"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-598NVWRCSX&amp;cx=c&amp;gtm=4e64k1" nonce="9f0dc5f6eb7d5272-SJC" data-airgap-id="5"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-0HYE8YG0M6&amp;cx=c&amp;gtm=4e64k1" nonce="9f0dc5f6eb7d5272-SJC" data-airgap-id="4"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-W2RHRDH" nonce="9f0dc5f6eb7d5272-SJC" data-airgap-id="1"></script><script async="" src="//rum-static.pingdom.net/prum.min.js" data-airgap-id="0"></script><script nonce="9f0dc5f6eb7d5272-SJC">
+ <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-JXCM7E84P9&amp;cx=c&amp;gtm=4e64m0h1" nonce="9f0fb3c95ec9ed94-SJC" data-airgap-id="12"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=DC-15020242&amp;cx=c&amp;gtm=4e64m0h1" nonce="9f0fb3c95ec9ed94-SJC" data-airgap-id="10"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-16473093908&amp;cx=c&amp;gtm=4e64m0h1" nonce="9f0fb3c95ec9ed94-SJC" data-airgap-id="9"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-806725569&amp;cx=c&amp;gtm=4e64m0h1" nonce="9f0fb3c95ec9ed94-SJC" data-airgap-id="8"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5WV5K4GW&amp;gtm=4e64m0h1" nonce="9f0fb3c95ec9ed94-SJC" data-airgap-id="6"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-598NVWRCSX&amp;cx=c&amp;gtm=4e64m0h1" nonce="9f0fb3c95ec9ed94-SJC" data-airgap-id="5"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-0HYE8YG0M6&amp;cx=c&amp;gtm=4e64m0h1" nonce="9f0fb3c95ec9ed94-SJC" data-airgap-id="4"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-W2RHRDH" nonce="9f0fb3c95ec9ed94-SJC" data-airgap-id="1"></script><script async="" src="//rum-static.pingdom.net/prum.min.js" data-airgap-id="0"></script><script nonce="9f0fb3c95ec9ed94-SJC">
  // Call `await getAirgap()` to load airgap.js
 
 const BUNDLE_ID = 'ef49a3f1-d8c1-47d6-88fc-50e41130631f';
@@ -223,10 +223,10 @@ const getAirgap = () =>
   </script>
 
 <!-- TCF API Stub -->
-<script type="text/javascript" nonce="9f0dc5f6eb7d5272-SJC">"use strict";function _typeof(t){return(_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}!function(){self.airgap?.ready||(self.airgap={readyQueue:[],ready(e){this.readyQueue.push(e)},...self.airgap});const e=()=>{const e="__tcfapiLocator",t=[],a=window;let n,s,o=a;for(;o;){try{if(o.frames[e]){n=o;break}}catch(e){}if(o===a.top)break;o=o.parent}n||(!function t(){const n=a.document,s=!!a.frames[e];if(!s)if(n.body){const t=n.createElement("iframe");t.style.cssText="display:none",t.name=e,n.body.appendChild(t)}else setTimeout(t,5);return!s}(),a.__tcfapi=function(...e){if(!e.length)return t;"setGdprApplies"===e[0]?e.length>3&&2===parseInt(e[1],10)&&"boolean"==typeof e[3]&&(s=e[3],"function"==typeof e[2]&&e[2]("set",!0)):"ping"===e[0]?"function"==typeof e[2]&&e[2]({gdprApplies:s,cmpLoaded:!1,cmpStatus:"stub"}):t.push(e)},a.addEventListener("message",(function(e){const t="string"==typeof e.data;let a={};if(t)try{a=JSON.parse(e.data)}catch(e){}else a=e.data;const n="object"==typeof a&&null!==a?a.__tcfapiCall:null;n&&window.__tcfapi(n.command,n.version,(function(a,s){let o={__tcfapiReturn:{returnValue:a,success:s,callId:n.callId}};e&&e.source&&e.source.postMessage&&e.source.postMessage(t?JSON.stringify(o):o,"*")}),n.parameter)}),!1))};airgap.ready((t=>{"TCF_EU"===t.loadOptions.consentManagerConfig.initialViewStateByPrivacyRegime[t.getRegimes()[0]]&&("undefined"!=typeof module?module.exports=e:e())}))}();</script>
+<script type="text/javascript" nonce="9f0fb3c95ec9ed94-SJC">"use strict";function _typeof(t){return(_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}!function(){self.airgap?.ready||(self.airgap={readyQueue:[],ready(e){this.readyQueue.push(e)},...self.airgap});const e=()=>{const e="__tcfapiLocator",t=[],a=window;let n,s,o=a;for(;o;){try{if(o.frames[e]){n=o;break}}catch(e){}if(o===a.top)break;o=o.parent}n||(!function t(){const n=a.document,s=!!a.frames[e];if(!s)if(n.body){const t=n.createElement("iframe");t.style.cssText="display:none",t.name=e,n.body.appendChild(t)}else setTimeout(t,5);return!s}(),a.__tcfapi=function(...e){if(!e.length)return t;"setGdprApplies"===e[0]?e.length>3&&2===parseInt(e[1],10)&&"boolean"==typeof e[3]&&(s=e[3],"function"==typeof e[2]&&e[2]("set",!0)):"ping"===e[0]?"function"==typeof e[2]&&e[2]({gdprApplies:s,cmpLoaded:!1,cmpStatus:"stub"}):t.push(e)},a.addEventListener("message",(function(e){const t="string"==typeof e.data;let a={};if(t)try{a=JSON.parse(e.data)}catch(e){}else a=e.data;const n="object"==typeof a&&null!==a?a.__tcfapiCall:null;n&&window.__tcfapi(n.command,n.version,(function(a,s){let o={__tcfapiReturn:{returnValue:a,success:s,callId:n.callId}};e&&e.source&&e.source.postMessage&&e.source.postMessage(t?JSON.stringify(o):o,"*")}),n.parameter)}),!1))};airgap.ready((t=>{"TCF_EU"===t.loadOptions.consentManagerConfig.initialViewStateByPrivacyRegime[t.getRegimes()[0]]&&("undefined"!=typeof module?module.exports=e:e())}))}();</script>
 
 <!-- The following snippet should be added to the head of the product, placed before the airgap tag. Advanced Consent Override -->
-<script nonce="9f0dc5f6eb7d5272-SJC">
+<script nonce="9f0fb3c95ec9ed94-SJC">
 self.airgap = {
 overrides: [],
 cookieOverrides: [],
@@ -242,17 +242,17 @@ self.airgap.cookieOverrides.push(allowGcmAdvanced);
 </script>
 
 <!-- AirGap (Banner) Test Script -->
-<script data-cfasync="false" data-local-sync="allow-network-observable" data-prompt="1" data-report-only="off" data-dismissed-view-state="Collapsed" data-tcf-ui-dismissed-view-state="Collapsed" src="https://transcend-cdn.com/cm/ef49a3f1-d8c1-47d6-88fc-50e41130631f/airgap.js" nonce="9f0dc5f6eb7d5272-SJC"></script><script data-csp="off" data-log="warn error" data-telemetry="on" data-backend-sync="off" data-backend-sync-endpoint="https://consent.transcend.io/sync" data-telemetry-sample-rate="0.696" data-unknown-request-policy="allow" data-telemetry-partitioning="origin" data-prompt="1" data-privacy-policy="https://privacy.informa.com/trackers/en/" data-regime-precedence="high-reg;GDPR;US_DNSS;Unknown" data-css="https://transcend-cdn.com/cm/ef49a3f1-d8c1-47d6-88fc-50e41130631f/cm.css" data-messages="https://transcend-cdn.com/cm/ef49a3f1-d8c1-47d6-88fc-50e41130631f/translations" data-sites="informa.com transcend.io transcend-cdn.com informaconnect.com africatechfestival.com furniture-china.cn jiagle.com taylorfrancis.com tahaluf.com aibusiness.com" data-cfasync="false" data-local-sync="allow-network-observable" data-report-only="off" data-dismissed-view-state="Collapsed" data-tcf-ui-dismissed-view-state="Collapsed" data-tcf="on" data-consent-expiry="525600" data-on-consent-expiry="ResetOptIns" crossorigin="anonymous" src="https://transcend-cdn.com/cm/ef49a3f1-d8c1-47d6-88fc-50e41130631f/tcf/ui.js"></script>
+<script data-cfasync="false" data-local-sync="allow-network-observable" data-prompt="1" data-report-only="off" data-dismissed-view-state="Collapsed" data-tcf-ui-dismissed-view-state="Collapsed" src="https://transcend-cdn.com/cm/ef49a3f1-d8c1-47d6-88fc-50e41130631f/airgap.js" nonce="9f0fb3c95ec9ed94-SJC"></script><script data-csp="off" data-log="warn error" data-telemetry="on" data-backend-sync="off" data-backend-sync-endpoint="https://consent.transcend.io/sync" data-telemetry-sample-rate="0.696" data-unknown-request-policy="allow" data-telemetry-partitioning="origin" data-prompt="1" data-privacy-policy="https://privacy.informa.com/trackers/en/" data-regime-precedence="high-reg;GDPR;US_DNSS;Unknown" data-css="https://transcend-cdn.com/cm/ef49a3f1-d8c1-47d6-88fc-50e41130631f/cm.css" data-messages="https://transcend-cdn.com/cm/ef49a3f1-d8c1-47d6-88fc-50e41130631f/translations" data-sites="informa.com transcend.io transcend-cdn.com informaconnect.com africatechfestival.com furniture-china.cn jiagle.com taylorfrancis.com tahaluf.com aibusiness.com" data-cfasync="false" data-local-sync="allow-network-observable" data-report-only="off" data-dismissed-view-state="Collapsed" data-tcf-ui-dismissed-view-state="Collapsed" data-tcf="on" data-consent-expiry="525600" data-on-consent-expiry="ResetOptIns" crossorigin="anonymous" src="https://transcend-cdn.com/cm/ef49a3f1-d8c1-47d6-88fc-50e41130631f/tcf/ui.js"></script>
 
 <!-- Onetrust-head-meta End -->
 
 
 
-<script nonce="9f0dc5f6eb7d5272-SJC">var JQSHIM={$:[]};function $(f){JQSHIM.$.push(f);console.warn("$function added to be executed using the JQUERY shim.\n", f);}</script>
-<script type="text/javascript" src="//cdn.pbgrd.com/core-tandf.js" async="" nonce="9f0dc5f6eb7d5272-SJC"></script>
+<script nonce="9f0fb3c95ec9ed94-SJC">var JQSHIM={$:[]};function $(f){JQSHIM.$.push(f);console.warn("$function added to be executed using the JQUERY shim.\n", f);}</script>
+<script type="text/javascript" src="//cdn.pbgrd.com/core-tandf.js" async="" nonce="9f0fb3c95ec9ed94-SJC"></script>
 
 <!-- Hotjar Tracking Code for https://www.tandfonline.com -->
-<script nonce="9f0dc5f6eb7d5272-SJC">
+<script nonce="9f0fb3c95ec9ed94-SJC">
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:864760,hjsv:6};
@@ -264,22 +264,22 @@ self.airgap.cookieOverrides.push(allowGcmAdvanced);
 </script><script async=""></script>
 
 
-    <script nonce="9f0dc5f6eb7d5272-SJC">var _prum=[['id','54ff88bcabe53dc41d1004a5'],['mark','firstbyte',(new Date()).getTime()]];(function(){var s=document.getElementsByTagName('script')[0],p=document.createElement('script');p.async='async';p.src='//rum-static.pingdom.net/prum.min.js';s.parentNode.insertBefore(p,s);})();</script>
+    <script nonce="9f0fb3c95ec9ed94-SJC">var _prum=[['id','54ff88bcabe53dc41d1004a5'],['mark','firstbyte',(new Date()).getTime()]];(function(){var s=document.getElementsByTagName('script')[0],p=document.createElement('script');p.async='async';p.src='//rum-static.pingdom.net/prum.min.js';s.parentNode.insertBefore(p,s);})();</script>
 
 
 
 
     <link href="//f1-eu.readspeaker.com" rel="preconnect">
-    <script type="text/javascript" nonce="9f0dc5f6eb7d5272-SJC">
+    <script type="text/javascript" nonce="9f0fb3c95ec9ed94-SJC">
         window.rsConf={general:{popupCloseTime:8000,usePost:true},params:'//cdn1.readspeaker.com/script/26/webReader/webReader.js?pids=wr'};
     </script>
-    <script type="application/javascript" src="//f1-eu.readspeaker.com/script/10118/webReader/webReader.js?pids=wr" id="read-speaker" async="" nonce="9f0dc5f6eb7d5272-SJC"></script>
+    <script type="application/javascript" src="//f1-eu.readspeaker.com/script/10118/webReader/webReader.js?pids=wr" id="read-speaker" async="" nonce="9f0fb3c95ec9ed94-SJC"></script>
 
-<script nonce="9f0dc5f6eb7d5272-SJC">var tandf = {}, tandfData ={"search":{"cbRec":0},"seamlessAccess":{"apiUrl":"https://service.seamlessaccess.org/ps/","context":"seamlessaccess.org","enabled":false},"identity":{"isSpv":false,"isAuthenticated":false,"isPSA":false,"isChineseSession":false,"regionCode":"IT"},"exports":{"pdf":{"max":30}},"altmetric":{"key":"be0ef6915d1b2200a248b7195d01ef22"},"pubCount":{"citedCount":0},"actionLog":{"eventGroupKey":"5abc74bf-8423-4dee-bd1b-de6bc5b33b59"}};
+<script nonce="9f0fb3c95ec9ed94-SJC">var tandf = {}, tandfData ={"search":{"cbRec":0},"seamlessAccess":{"apiUrl":"https://service.seamlessaccess.org/ps/","context":"seamlessaccess.org","enabled":false},"identity":{"isSpv":false,"isAuthenticated":false,"isPSA":false,"isChineseSession":false,"regionCode":"IT"},"exports":{"pdf":{"max":30}},"altmetric":{"key":"be0ef6915d1b2200a248b7195d01ef22"},"pubCount":{"citedCount":0},"actionLog":{"eventGroupKey":"2311444b-47e6-443d-9455-56a9d8c35ba3"}};
 tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,null," ");
 </script>
 <!-- Google Tag Manager -->
-    <script nonce="9f0dc5f6eb7d5272-SJC">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;var n=d.querySelector('[nonce]');n&&j.setAttribute('nonce',n.nonce||n.getAttribute('nonce'));f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W2RHRDH');</script>
+    <script nonce="9f0fb3c95ec9ed94-SJC">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;var n=d.querySelector('[nonce]');n&&j.setAttribute('nonce',n.nonce||n.getAttribute('nonce'));f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W2RHRDH');</script>
     <!-- End Google Tag Manager -->
 
 
@@ -384,7 +384,7 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
     <meta name="publication_doi" content="10.1080/00014788.2026.2625716">
 
 
-    <meta name="event_group_key" content="5abc74bf-8423-4dee-bd1b-de6bc5b33b59">
+    <meta name="event_group_key" content="2311444b-47e6-443d-9455-56a9d8c35ba3">
 
 
 
@@ -544,20 +544,20 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
 <!-- head-meta Start Updated 08/01/2026 - Jim Brown -->
  
 <!-- third party advertiser: doceree -->
-<script async="" src="https://servedbydoceree.doceree.com/resources/p/doc_ad/75/248/dc.js" data-siteid="248" data-platid="1" data-pubid="75" nonce="9f0dc5f6eb7d5272-SJC"></script>
+<script async="" src="https://servedbydoceree.doceree.com/resources/p/doc_ad/75/248/dc.js" data-siteid="248" data-platid="1" data-pubid="75" nonce="9f0fb3c95ec9ed94-SJC"></script>
 
 <!-- cloudflare -->
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon="{&quot;rayId&quot;:&quot;7dbec9692ec52506&quot;,&quot;token&quot;:&quot;b6951d00f50a499ab38e94f58955e14d&quot;,&quot;version&quot;:&quot;2023.4.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon="{&quot;rayId&quot;:&quot;7f7ba1d6198c97bd&quot;,&quot;token&quot;:&quot;b6951d00f50a499ab38e94f58955e14d&quot;,&quot;version&quot;:&quot;2023.8.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;833ec1854f7d67a4&quot;,&quot;version&quot;:&quot;2023.10.0&quot;,&quot;token&quot;:&quot;b6951d00f50a499ab38e94f58955e14d&quot;}" crossorigin="anonymous" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;83be15635d25413e&quot;,&quot;version&quot;:&quot;2023.10.0&quot;,&quot;token&quot;:&quot;3bb0add5452d43a2b5d4b3d6c628944c&quot;}" crossorigin="anonymous" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;85878feb3ad8987c&quot;,&quot;version&quot;:&quot;2024.2.0&quot;,&quot;token&quot;:&quot;3bb0add5452d43a2b5d4b3d6c628944c&quot;}" crossorigin="anonymous" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;8598828908bb7ac1&quot;,&quot;version&quot;:&quot;2024.2.1&quot;,&quot;token&quot;:&quot;3bb0add5452d43a2b5d4b3d6c628944c&quot;}" crossorigin="anonymous" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;85c1a364cc8e642f&quot;,&quot;version&quot;:&quot;2024.2.1&quot;,&quot;token&quot;:&quot;3bb0add5452d43a2b5d4b3d6c628944c&quot;}" crossorigin="anonymous" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;85f30909ed1167d0&quot;,&quot;version&quot;:&quot;2024.2.4&quot;,&quot;token&quot;:&quot;3bb0add5452d43a2b5d4b3d6c628944c&quot;}" crossorigin="anonymous" nonce="9f0dc5f6eb7d5272-SJC"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon="{&quot;rayId&quot;:&quot;7dbec9692ec52506&quot;,&quot;token&quot;:&quot;b6951d00f50a499ab38e94f58955e14d&quot;,&quot;version&quot;:&quot;2023.4.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon="{&quot;rayId&quot;:&quot;7f7ba1d6198c97bd&quot;,&quot;token&quot;:&quot;b6951d00f50a499ab38e94f58955e14d&quot;,&quot;version&quot;:&quot;2023.8.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;833ec1854f7d67a4&quot;,&quot;version&quot;:&quot;2023.10.0&quot;,&quot;token&quot;:&quot;b6951d00f50a499ab38e94f58955e14d&quot;}" crossorigin="anonymous" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;83be15635d25413e&quot;,&quot;version&quot;:&quot;2023.10.0&quot;,&quot;token&quot;:&quot;3bb0add5452d43a2b5d4b3d6c628944c&quot;}" crossorigin="anonymous" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;85878feb3ad8987c&quot;,&quot;version&quot;:&quot;2024.2.0&quot;,&quot;token&quot;:&quot;3bb0add5452d43a2b5d4b3d6c628944c&quot;}" crossorigin="anonymous" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;8598828908bb7ac1&quot;,&quot;version&quot;:&quot;2024.2.1&quot;,&quot;token&quot;:&quot;3bb0add5452d43a2b5d4b3d6c628944c&quot;}" crossorigin="anonymous" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;85c1a364cc8e642f&quot;,&quot;version&quot;:&quot;2024.2.1&quot;,&quot;token&quot;:&quot;3bb0add5452d43a2b5d4b3d6c628944c&quot;}" crossorigin="anonymous" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;85f30909ed1167d0&quot;,&quot;version&quot;:&quot;2024.2.4&quot;,&quot;token&quot;:&quot;3bb0add5452d43a2b5d4b3d6c628944c&quot;}" crossorigin="anonymous" nonce="9f0fb3c95ec9ed94-SJC"></script>
 
 <!-- Kameleoon -->
-<script nonce="9f0dc5f6eb7d5272-SJC">
+<script nonce="9f0fb3c95ec9ed94-SJC">
   // Duration in milliseconds to wait while the Kameleoon application file is loaded
   var kameleoonLoadingTimeout = 1000;
 
@@ -588,7 +588,7 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
 
 </script>
 
-<script type="text/javascript" src="//7p6n62phet.kameleoon.io/engine.js" async="true" fetchpriority="high" nonce="9f0dc5f6eb7d5272-SJC"></script>
+<script type="text/javascript" src="//7p6n62phet.kameleoon.io/engine.js" async="true" fetchpriority="high" nonce="9f0fb3c95ec9ed94-SJC"></script>
 
 <!-- head-meta end -->
 
@@ -681,7 +681,7 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
         
         
         
-            <body class="pb-ui website-TFOPB" data-rsevent-id="rs_33134">
+            <body class="pb-ui website-TFOPB" data-rsevent-id="rs_551126">
             
 
 
@@ -692,7 +692,7 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
     
     
         <div class="skipContent off-screen"><a href="#top-content-scroll" class="skipToContent" title="Skip to Main Content" tabindex="0">Skip to Main Content</a></div>
-    <script type="text/javascript" nonce="9f0dc5f6eb7d5272-SJC">(function(e){var t=e.getElementsByClassName("skipToContent");t.length>0&&(t[0].onclick=function(){var t=e.getElementById("top-content-scroll");null==t&&(t=e.getElementsByClassName("top-content-scroll").item(0)),t.setAttribute("tabindex","0"),t.focus()})})(document);</script>
+    <script type="text/javascript" nonce="9f0fb3c95ec9ed94-SJC">(function(e){var t=e.getElementsByClassName("skipToContent");t.length>0&&(t[0].onclick=function(){var t=e.getElementById("top-content-scroll");null==t&&(t=e.getElementsByClassName("top-content-scroll").item(0)),t.setAttribute("tabindex","0"),t.focus()})})(document);</script>
 
 
 
@@ -3950,7 +3950,7 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
             <div class="widget-body body body-none  body-compact-horizontal"><div class="serial-action">
 
 
-<a href="https://rp.tandfonline.com/submission/create?journalCode=RABR" class="green submitAnArticle" target="_blank" kameleoonlistener-wz9o="true"><span>Submit an article</span></a>
+<a href="https://rp.tandfonline.com/submission/create?journalCode=RABR" class="green submitAnArticle" target="_blank" kameleoonlistener-33eo="true"><span>Submit an article</span></a>
 
 
 <a href="/rabr20" class="jHomepage"><span>Journal homepage</span></a>
@@ -4925,7 +4925,7 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
         <div class="wrapped ">
             
             <div class="widget-body body body-none  body-compact-all"><div id="read-speaker-container" style="display: block; height: 40px">
-        <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve mega_toggle"><button class="rsbtn_tooltoggle" data-rsshortcut="menu" data-rslang="title/arialabel:menu" title="webReader menu" aria-label="webReader menu" aria-expanded="false" data-rs-tooltip="." data-rs-direction="u" data-rs-container="readspeaker_button1" data-rsevent-id="rs_616950" style="display: none;"><span class="rsicn rsicn-arrow-down" aria-hidden="true"></span></button>
+        <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve mega_toggle"><button class="rsbtn_tooltoggle" data-rsshortcut="menu" data-rslang="title/arialabel:menu" title="webReader menu" aria-label="webReader menu" aria-expanded="false" data-rs-tooltip="." data-rs-direction="u" data-rs-container="readspeaker_button1" data-rsevent-id="rs_106986" style="display: none;"><span class="rsicn rsicn-arrow-down" aria-hidden="true"></span></button>
             <a href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=10118&amp;lang=en_us&amp;readclass=rs_readArea&amp;url=https%3A%2F%2Fwww.tandfonline.com%2Fdoi%2Ffull%2F10.1080%2F00014788.2026.2625716" rel="nofollow" class="rsbtn_play" title="Listen to this page using ReadSpeaker webReader" style="border-radius: 0 11.4px 11.4px 2px;" role="button" aria-label="Listen" data-rs-tooltip="." data-rs-direction="u" aria-haspopup="menu" data-rsshortcut="play" data-rs-lang="en_us">
                 <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text" aria-hidden="true"><span>Listen</span></span></span>
                 <span class="rsbtn_right rsimg rsplay rspart"></span>
@@ -6318,7 +6318,7 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
             <span class="nav-data" id="reprints-perm">Reprints &amp; Permissions</span>
         </a></li>
 <li class="pdf-tab epub-tab ">
-                    <a href="/doi/epdf/10.1080/00014788.2026.2625716?needAccess=true" class="show-pdf" target="_blank" role="button" doi="10.1080/00014788.2026.2625716" kameleoonlistener-jtg4="true"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                    <a href="/doi/epdf/10.1080/00014788.2026.2625716?needAccess=true" class="show-pdf" target="_blank" role="button" doi="10.1080/00014788.2026.2625716" kameleoonlistener-q1m2="true"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                             <span class="desktop-label">View PDF<span class="off-screen"> (open in a new window)</span></span>
                                     <span class="mobile-label">PDF<span class="off-screen"> (open in a new window)</span></span>
                                 </a><a href="/doi/epub/10.1080/00014788.2026.2625716?needAccess=true" class="show-epub" target="_blank" role="button" doi="10.1080/00014788.2026.2625716"><span class="desktop-label">View EPUB<span class="off-screen"> (open in a new window)</span></span>
@@ -6543,7 +6543,7 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
         <div class="wrapped ">
             
             <div class="widget-body body body-none "><div class="downloadPDFLink">
-            <a href="https://www.tandfonline.com/doi/pdf/10.1080/00014788.2026.2625716" class="show-pdf" target="_blank" kameleoonlistener-4re5="true">Download PDF</a>
+            <a href="https://www.tandfonline.com/doi/pdf/10.1080/00014788.2026.2625716" class="show-pdf" target="_blank" kameleoonlistener-sh9l="true">Download PDF</a>
         </div></div>
         </div>
     </div>
@@ -10331,12 +10331,15 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
                 
             </div>
         </div>
-        <script type="text/javascript" src="/wro/80d541714681354e5968ac8a15139ec210bd2c79~jquery-3.7.1.js" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script nonce="9f0dc5f6eb7d5272-SJC">
+        <script type="text/javascript" src="/wro/80d541714681354e5968ac8a15139ec210bd2c79~jquery-3.7.1.js" nonce="9f0fb3c95ec9ed94-SJC"></script><script type="text/javascript" id="" charset="">window.dataLayer=window.dataLayer||[];var current_consent=window.airgap?window.airgap.getConsent():void 0,current_analytics=current_consent?current_consent.purposes.Analytics:void 0,current_advertising=current_consent?current_consent.purposes.Advertising:void 0,current_functional=current_consent?current_consent.purposes.Functional:void 0;current_analytics==="Auto"&&(current_analytics=!0);current_advertising==="Auto"&&(current_advertising=!0);current_functional==="Auto"&&(current_functional=!0);
+var current_uet_advertising=current_advertising===!0?"granted":"denied";window.dataLayer.push({event:"consent_change",consent_details:JSON.parse(JSON.stringify(current_consent)),consent_prefs_analytics:current_analytics,consent_prefs_advertising:current_advertising,consent_prefs_functional:current_functional,consent_uet_advertising_status:current_uet_advertising});window.uetq=window.uetq||[];window.uetq.push("consent","default",{ad_storage:current_uet_advertising});
+window.airgap.addEventListener("consent-change",function(a){var c=a.detail.consent.purposes.Analytics,b=a.detail.consent.purposes.Advertising,d=a.detail.consent.purposes.Functional;c==="Auto"&&(c=!0);b==="Auto"&&(b=!0);d==="Auto"&&(d=!0);var e=b===!0?"granted":"denied";setTimeout(function(){window.dataLayer.push({event:"consent_change",consent_details:JSON.parse(JSON.stringify(a.detail)),consent_prefs_analytics:c,consent_prefs_advertising:b,consent_prefs_functional:d,consent_uet_advertising_status:e});
+window.uetq=window.uetq||[];window.uetq.push("consent","update",{ad_storage:e})},500)});</script><script type="text/javascript" id="" charset="">sessionStorage.setItem("original_referrer",document.referrer||"");sessionStorage.setItem("original_utm_source",(new URLSearchParams(window.location.search)).get("utm_source")||"");sessionStorage.setItem("original_utm_medium",(new URLSearchParams(window.location.search)).get("utm_medium")||"");sessionStorage.setItem("original_utm_campaign",(new URLSearchParams(window.location.search)).get("utm_campaign")||"");</script><script type="text/javascript" id="" charset="">(function(){var a=2E3;window.setTimeout(function(){window.dataLayer.push({event:"clientid_pageview"})},a)})();</script>
+<script nonce="9f0fb3c95ec9ed94-SJC">
     JQSHIM.$.forEach(function (f){$(f);})
 </script>
 
-<script type="text/javascript" nonce="9f0dc5f6eb7d5272-SJC">
+<script type="text/javascript" nonce="9f0fb3c95ec9ed94-SJC">
         setTimeout(() => {
             let _bnw = window, _bna = atob("bG9jYXRpb24="), _bnb = atob("b3JpZ2lu"), _hn = _bnw[_bna][_bnb],
                 _bnt = btoa(_hn + new Array(5 - _hn.length % 4).join(" "));
@@ -10380,13 +10383,13 @@ tandf.initialHash=location.hash,tandf.initialHash&&history.replaceState(null,nul
 
 
 
-<script type="text/javascript" src="/wro/80d541714681354e5968ac8a15139ec210bd2c79~full-text-analytics.js" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script type="text/javascript" src="/wro/80d541714681354e5968ac8a15139ec210bd2c79~product.js" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script type="text/javascript" src="/wro/80d541714681354e5968ac8a15139ec210bd2c79~body-last.js" nonce="9f0dc5f6eb7d5272-SJC"></script><div id="ref-overlay" tabindex="0" role="dialog" aria-label="reference"><div id="ref-overlay-in" class="rs_skip"><span class="ref-icon"></span><button class="ref-close" tabindex="0" data-behaviour="close-ref" aria-label="close reference popup"><span aria-hidden="true">×</span></button><div class="content"></div><a href="#" class="frontnotes" data-behaviour="scroll" data-behaviour-ref="#inline_frontnotes" data-behaviour-callback="true">View all notes</a></div></div>
+<script type="text/javascript" src="/wro/80d541714681354e5968ac8a15139ec210bd2c79~full-text-analytics.js" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script type="text/javascript" src="/wro/80d541714681354e5968ac8a15139ec210bd2c79~product.js" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script type="text/javascript" src="/wro/80d541714681354e5968ac8a15139ec210bd2c79~body-last.js" nonce="9f0fb3c95ec9ed94-SJC"></script><div id="ref-overlay" tabindex="0" role="dialog" aria-label="reference"><div id="ref-overlay-in" class="rs_skip"><span class="ref-icon"></span><button class="ref-close" tabindex="0" data-behaviour="close-ref" aria-label="close reference popup"><span aria-hidden="true">×</span></button><div class="content"></div><a href="#" class="frontnotes" data-behaviour="scroll" data-behaviour-ref="#inline_frontnotes" data-behaviour-callback="true">View all notes</a></div></div>
 
-<script type="text/javascript" src="/pb-assets/jhp-main-1732698732433.js" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script type="text/javascript" src="https://embed.videodelivery.net/embed/sdk.latest.js" id="cloudFlareScript" async="" nonce="9f0dc5f6eb7d5272-SJC"></script>
-<script nonce="9f0dc5f6eb7d5272-SJC">
+<script type="text/javascript" src="/pb-assets/jhp-main-1732698732433.js" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script type="text/javascript" src="https://embed.videodelivery.net/embed/sdk.latest.js" id="cloudFlareScript" async="" nonce="9f0fb3c95ec9ed94-SJC"></script>
+<script nonce="9f0fb3c95ec9ed94-SJC">
 loadCSS("/wro/80d541714681354e5968ac8a15139ec210bd2c79~body-last.css");
 $(function (){
 TandfUtils.scriptLoader([
@@ -10416,13 +10419,10 @@ TandfUtils.scriptLoader([
     
 
 
-            <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;b6951d00f50a499ab38e94f58955e14d&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0dc5f6eb7d5272',t:'MTc3Njk1Njc5OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+            <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0fb3c95ec9ed94',t:'MTc3Njk3NzAyNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;b6951d00f50a499ab38e94f58955e14d&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
         
         
     
 
-<script type="text/javascript" id="" charset="">window.dataLayer=window.dataLayer||[];var current_consent=window.airgap?window.airgap.getConsent():void 0,current_analytics=current_consent?current_consent.purposes.Analytics:void 0,current_advertising=current_consent?current_consent.purposes.Advertising:void 0,current_functional=current_consent?current_consent.purposes.Functional:void 0;current_analytics==="Auto"&&(current_analytics=!0);current_advertising==="Auto"&&(current_advertising=!0);current_functional==="Auto"&&(current_functional=!0);
-var current_uet_advertising=current_advertising===!0?"granted":"denied";window.dataLayer.push({event:"consent_change",consent_details:JSON.parse(JSON.stringify(current_consent)),consent_prefs_analytics:current_analytics,consent_prefs_advertising:current_advertising,consent_prefs_functional:current_functional,consent_uet_advertising_status:current_uet_advertising});window.uetq=window.uetq||[];window.uetq.push("consent","default",{ad_storage:current_uet_advertising});
-window.airgap.addEventListener("consent-change",function(a){var c=a.detail.consent.purposes.Analytics,b=a.detail.consent.purposes.Advertising,d=a.detail.consent.purposes.Functional;c==="Auto"&&(c=!0);b==="Auto"&&(b=!0);d==="Auto"&&(d=!0);var e=b===!0?"granted":"denied";setTimeout(function(){window.dataLayer.push({event:"consent_change",consent_details:JSON.parse(JSON.stringify(a.detail)),consent_prefs_analytics:c,consent_prefs_advertising:b,consent_prefs_functional:d,consent_uet_advertising_status:e});
-window.uetq=window.uetq||[];window.uetq.push("consent","update",{ad_storage:e})},500)});</script><script type="text/javascript" id="" charset="">sessionStorage.setItem("original_referrer",document.referrer||"");sessionStorage.setItem("original_utm_source",(new URLSearchParams(window.location.search)).get("utm_source")||"");sessionStorage.setItem("original_utm_medium",(new URLSearchParams(window.location.search)).get("utm_medium")||"");sessionStorage.setItem("original_utm_campaign",(new URLSearchParams(window.location.search)).get("utm_campaign")||"");</script><script type="text/javascript" id="" charset="">(function(){var a=2E3;window.setTimeout(function(){window.dataLayer.push({event:"clientid_pageview"})},a)})();</script><div id="adBlockerCheck" class="ad-placement"></div><script id="" text="" charset="" type="text/javascript" nonce="9f0dc5f6eb7d5272-SJC"></script></body><div id="transcend-consent-manager-tcf-ui" style="position: fixed; right: 0px; z-index: 2147483647;"></div></html>
+<div id="adBlockerCheck" class="ad-placement"></div><script id="" text="" charset="" type="text/javascript" nonce="9f0fb3c95ec9ed94-SJC"></script></body><div id="transcend-consent-manager-tcf-ui" style="position: fixed; right: 0px; z-index: 2147483647;"></div></html>

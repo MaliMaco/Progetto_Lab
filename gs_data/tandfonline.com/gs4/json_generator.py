@@ -5,7 +5,7 @@ import unicodedata
 from bs4 import BeautifulSoup
 
 #Cambiare i nomi dei file in cui si trovano l'html ed il gs
-html_file = open(os.path.join(os.path.dirname(__file__),"html_tand_endpoint.txt"), "r", encoding="UTF-8")
+html_file = open(os.path.join(os.path.dirname(__file__),"html_tand_pipeline.txt"), "r", encoding="UTF-8")
 gs_file = open(os.path.join(os.path.dirname(__file__),"gs4_GS.txt"), "r", encoding="UTF-8")
 
 html_text = html_file.read()

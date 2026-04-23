@@ -5,9 +5,8 @@ import re
 
 async def parser_run(url: str) -> any:
 
-    pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
-    match = re.search(pattern_domain, url)
-    domain = match.group(1)
+    url_list = url.split("/")
+    domain = url_list[2]
 
     md_generator = DefaultMarkdownGenerator(
         options={
@@ -32,7 +31,7 @@ async def parser_run(url: str) -> any:
             )
 
 
-    if domain == "en.wikipedia.org":
+    elif domain == "en.wikipedia.org":
         run_config = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "title", "p"],
             markdown_generator=md_generator,
@@ -43,7 +42,22 @@ async def parser_run(url: str) -> any:
             [class*='you-may'], [class*='related']
             '''
             )
-        
+
+    elif domain == "www.tandfonline.com":
+        browser_config = BrowserConfig(
+        headless=True,
+        viewport_width=1280,
+        viewport_height=720,
+        user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    )
+
+        run_config = CrawlerRunConfig(
+        target_elements=["h1", "h2", "h3", "title", "p", 
+                         "main", ".main-content", "article"],
+        wait_until="networkidle",
+        verbose=True,
+        )
+
     else:
         run_config = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "title", "p"],

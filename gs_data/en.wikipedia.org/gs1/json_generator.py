@@ -26,9 +26,8 @@ soup = BeautifulSoup(html_text, "html.parser")
 title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
 title = title_tag.get_text(strip=True) if title_tag else ""
 
-pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
-match = re.search(pattern_domain, "https://en.wikipedia.org/wiki/Verilog")
-domain = match.group(1)
+url_list = "https://en.wikipedia.org/wiki/Verilog".split("/")
+domain = url_list[2]
 
 json_entry = {
     "url": "https://en.wikipedia.org/wiki/Verilog",

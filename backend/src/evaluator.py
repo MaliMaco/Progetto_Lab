@@ -24,9 +24,10 @@ class TokenEvaluator:
         intersection_length = len(intersect)
         parsed_length = len(parsed_text)
         gold_length = len(gold_text)
-        precision = intersection_length/parsed_length
-        recall = intersection_length/gold_length
-        f1 = 2*precision*recall/(precision+recall)
+        precision = intersection_length/parsed_length if parsed_length > 0 else 0.0
+        recall = intersection_length/gold_length if gold_length > 0 else 0.0
+        denom = (precision+recall)
+        f1 = 2*precision*recall/denom if denom > 0 else 0.0
         return {
                 "precision": precision,
                 "recall": recall,

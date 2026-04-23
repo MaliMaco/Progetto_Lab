@@ -5,8 +5,8 @@ import unicodedata
 from bs4 import BeautifulSoup
 
 #Cambiare i nomi dei file in cui si trovano l'html ed il gs
-html_file = open(os.path.join(os.path.dirname(__file__),"html_ecb_stab.txt"), "r", encoding="UTF-8")
-gs_file = open(os.path.join(os.path.dirname(__file__),"gs3_GS.txt"), "r", encoding="UTF-8")
+html_file = open(os.path.join(os.path.dirname(__file__),"html_ecb_fut.txt"), "r", encoding="UTF-8")
+gs_file = open(os.path.join(os.path.dirname(__file__),"gs5_GS.txt"), "r", encoding="UTF-8")
 
 html_text = html_file.read()
 gs_text = gs_file.read()
@@ -23,13 +23,12 @@ soup = BeautifulSoup(html_text, "html.parser")
 title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
 title = title_tag.get_text(strip=True) if title_tag else ""
 
-pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
-match = re.search(pattern_domain, "https://www.ecb.europa.eu/mopo/strategy/strategy-review/html/price-stability-objective.it.html")
-domain = match.group(1)
+url_list = "https://www.ecb.europa.eu/euro/banknotes/future_banknotes/redesign/html/index.it.html".split("/")
+domain = url_list[2]
 
 
 json_entry = {
-    "url": "https://www.ecb.europa.eu/mopo/strategy/strategy-review/html/price-stability-objective.it.html",
+    "url": "https://www.ecb.europa.eu/euro/banknotes/future_banknotes/redesign/html/index.it.html",
     "domain": domain,
     "title": title,
     "html_text":  html_text,
@@ -37,7 +36,7 @@ json_entry = {
 }
 
 #cambiare un nome sensato al file output, cmabiare nome per ogni pagina
-result = open(os.path.join(os.path.dirname(__file__),"gs3.json"), "w", encoding="UTF-8")
+result = open(os.path.join(os.path.dirname(__file__),"gs5.json"), "w", encoding="UTF-8")
 result.write(json.dumps(json_entry, indent=1))
 result.close()
 html_file.close()

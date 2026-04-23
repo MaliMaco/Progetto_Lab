@@ -12,12 +12,10 @@ gold = None
 gs_list = []
 domains = [
         "en.wikipedia.org",
-        "ecb.europa.eu",
+        "www.ecb.europa.eu",
         "apps.apple.com",
-        "tandfonline.com"
+        "www.tandfonline.com"
     ]
-
-pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
 
 BASE_DIR = Path(__file__).parent.parent
 templates = Jinja2Templates(directory=BASE_DIR/"templates")
@@ -26,9 +24,8 @@ BASE_URL = os.getenv("BACKEND_URL", "http://localhost:8003")
 
 
 def extract_domain(url):
-    match = re.search(pattern_domain, url)
-    return match.group(1) if match else None
-
+    url_list = url.split("/")
+    return url_list[2]
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -74,10 +71,30 @@ def parse_ui(request: Request, url: str = Form(None)):
                 "request": request,
                 "error": "Dominio non supportato."
              })
+    
 
-    response = requests.get(f"{BASE_URL}/parse", params={"url":url})
-    if (response.raise_for_status()) == 404:
-        print("Allarme!!! Errore: ", response.raise_for_status())
+    if domain == "www.tandfonline.com":
+
+        response = requests.get(
+        f"{BASE_URL}/gold_standard",
+        params={"url": url}
+        )
+
+        response.raise_for_status()
+        gold = response.json()
+
+        payload = {
+            "url": url,
+            "html_text": gold['html_text']
+        }
+
+        response = requests.post(f"{BASE_URL}/parse", json=payload)
+        response.raise_for_status()
+
+    else:
+        
+        response = requests.get(f"{BASE_URL}/parse", params={"url":url})
+
     parsed = response.json()
 
     domain = extract_domain(url)
@@ -100,8 +117,8 @@ def parse_ui(request: Request, url: str = Form(None)):
 
     try:
         response = requests.get(
-            f"{BASE_URL}/gold_standard",
-            params={"url": url}
+        f"{BASE_URL}/gold_standard",
+        params={"url": url}
         )
 
         response.raise_for_status()

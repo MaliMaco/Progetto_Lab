@@ -1,14 +1,11 @@
 from typing import Dict, Counter
 from collections import Counter
-import re
 
 class TokenEvaluator:
 
     @staticmethod
     def normalize(text: str) -> str:
         text = text.strip()
-        text = re.sub(r"^\s*#+\s*", "", text)
-        text = re.sub(r"\s+", " ", text)
         return text
 
     @staticmethod

@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from typing import Dict, List
 from crawler import parser_run, html_parser_run
 import asyncio
+import html
 import re
 import os
 import json
@@ -63,8 +64,12 @@ def parse(url: str) -> ParseOutput:
     html_text = result.html
     md_text = result.markdown
     soup = BeautifulSoup(html_text, "html.parser")
-    title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
-    title = title_tag.get_text(strip=True) if title_tag else ""
+    title_tag = soup.find('title')
+    if title_tag:
+        title = title_tag.get_text(strip=True)
+    else:
+        div_title = soup.find('div', class_='title')
+        title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
     return ParseOutput(
         url=url, 
         domain=domain, 
@@ -83,10 +88,14 @@ def post_parse(input: ParseInput) -> ParseOutput:
             raise HTTPException(status_code=400, detail="Dominio non supportato.")
     
     html_text = input.html_text
-    result = asyncio.run(html_parser_run(input.html_text))
+    result = asyncio.run(html_parser_run(input.html_text, domain))
     soup = BeautifulSoup(html_text, "html.parser")
-    title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
-    title = title_tag.get_text(strip=True) if title_tag else ""
+    title_tag = soup.find('title')
+    if title_tag:
+        title = title_tag.get_text(strip=True)
+    else:
+        div_title = soup.find('div', class_='title')
+        title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
     md_text = result.markdown
     return ParseOutput(
         url=input.url, 
@@ -152,8 +161,8 @@ def evaluate(request: EvaluateRequest) -> EvaluateResponse:
                 "f1": 0.0
             }
         return EvaluateResponse(token_level_eval=payload)
-    md_text = remove_markdown(request.parsed_text)
-    md_text = re.sub(r'\(\s*https?://[^)]*\)', ' ', md_text)
+    md_text = html.unescape(remove_markdown(request.parsed_text))
+    #md_text = re.sub(r'\(\s*https?://[^)]*\)', ' ', md_text)
     #md_text = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", md_text)
     #md_text = re.sub(r"[^\w\s'\"]", ' ', md_text)
     #md_text = re.sub(r'[.,?!:;]', ' ', md_text)
@@ -163,16 +172,16 @@ def evaluate(request: EvaluateRequest) -> EvaluateResponse:
     #md_text = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u20AC\u00e8]', '', md_text)
     #md_text = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', md_text)
     #md_text = re.sub(r"[^a-zA-Z0-9\u00C0-\u00FF\s']", ' ', md_text)
-    md_text = re.sub(r'\s+', ' ', md_text).strip()
+    #md_text = re.sub(r'\s+', ' ', md_text).strip()
 
     clean_gold_text = request.gold_text
     #clean_gold_text = re.sub(r'[\u2018\u2019\u201a\u201b\u2032]', "'", request.gold_text)
     #clean_gold_text = re.sub(r"[^\w\s'\"]", ' ', clean_gold_text)
     #clean_gold_text = re.sub(r'[.,?!:;]', ' ', clean_gold_text)   
-    clean_gold_text = re.sub(r'\[\d+\]', '', clean_gold_text)
-    clean_gold_text = re.sub(r'\s+', ' ', clean_gold_text).strip()
+    #clean_gold_text = re.sub(r'\[\d+\]', '', clean_gold_text)
+    #clean_gold_text = re.sub(r'\s+', ' ', clean_gold_text).strip()
 
-    parsed_set = TokenEvaluator.token_parsed_text(request.parsed_text.lower())
+    parsed_set = TokenEvaluator.token_parsed_text(md_text.lower())
     gold_set = TokenEvaluator.token_gold_text(clean_gold_text.lower())
     payload = TokenEvaluator.evaluate(parsed_text=parsed_set,gold_text=gold_set)
     return EvaluateResponse(token_level_eval=payload)
@@ -192,12 +201,20 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
 
     for gs in full_gs_response:
         try:
-            result = parse(gs['url'])
-            evaluation = evaluate(EvaluateRequest(parsed_text=result.parsed_text, gold_text=gs['gold_text']))
+            result = parse(
+                gs['url']
+            )
+            evaluation = evaluate(
+                EvaluateRequest(
+                    parsed_text=result.parsed_text, 
+                    gold_text=gs['gold_text']
+                    )
+                )
             sum_precision += evaluation.token_level_eval.get("precision")
             sum_recall += evaluation.token_level_eval.get("recall")
             sum_f1 += evaluation.token_level_eval.get("f1")
             gs_number += 1
+            print("Debugging, stampo valori: ", sum_precision, sum_recall, sum_f1, gs_number)
         except HTTPException:
             #gs_number += 1
             continue
@@ -205,17 +222,9 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
             #gs_number += 1
             continue
 
-        if gs_number == 0:
-            return EvaluateResponse(token_level_eval={
-                "precision": 0.0, 
-                "recall": 0.0, 
-                "f1": 0.0
-                }
-            )
-
-    precision = sum_precision/gs_number
-    recall = sum_recall/gs_number
-    f1 = sum_f1/gs_number
+    precision = sum_precision/gs_number if gs_number > 0 else 0.0
+    recall = sum_recall/gs_number if gs_number > 0 else 0.0
+    f1 = sum_f1/gs_number if gs_number > 0 else 0.0
 
     payload = {
             "precision": precision,

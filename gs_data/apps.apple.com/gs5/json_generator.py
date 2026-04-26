@@ -22,9 +22,12 @@ gs_text = re.sub(r'\s+', ' ', gs_text).strip()
 
 soup = BeautifulSoup(html_text, "html.parser")
 
-soup = BeautifulSoup(html_text, "html.parser")
-title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
-title = title_tag.get_text(strip=True) if title_tag else ""
+title_tag = soup.find('title')
+if title_tag:
+    title = title_tag.get_text(strip=True)
+else:
+    div_title = soup.find('div', class_='title')
+    title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
 
 url_list = "https://apps.apple.com/us/app/youtube/id544007664".split("/")
 domain = url_list[2]

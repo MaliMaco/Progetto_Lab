@@ -5,8 +5,8 @@ import unicodedata
 from bs4 import BeautifulSoup
 
 #Cambiare i nomi dei file in cui si trovano l'html ed il gs
-html_file = open(os.path.join(os.path.dirname(__file__),"html_apple_honkai.txt"), "r", encoding="UTF-8")
-gs_file = open(os.path.join(os.path.dirname(__file__),"gs2_GS.txt"), "r", encoding="UTF-8")
+html_file = open(os.path.join(os.path.dirname(__file__),"html_apple_spotify.txt"), "r", encoding="UTF-8")
+gs_file = open(os.path.join(os.path.dirname(__file__),"gs4_GS.txt"), "r", encoding="UTF-8")
 
 html_text = html_file.read()
 gs_text = gs_file.read()
@@ -22,15 +22,18 @@ gs_text = re.sub(r'\s+', ' ', gs_text).strip()
 
 soup = BeautifulSoup(html_text, "html.parser")
 
-soup = BeautifulSoup(html_text, "html.parser")
-title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
-title = title_tag.get_text(strip=True) if title_tag else ""
+title_tag = soup.find('title')
+if title_tag:
+    title = title_tag.get_text(strip=True)
+else:
+    div_title = soup.find('div', class_='title')
+    title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
 
-url_list = "https://apps.apple.com/us/app/honkai-star-rail/id1599719154#productRatings".split("/")
+url_list = "https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580".split("/")
 domain = url_list[2]
 
 json_entry = {
-    "url": "https://apps.apple.com/us/app/honkai-star-rail/id1599719154#productRatings",
+    "url": "https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580",
     "domain": domain,
     "title": title,
     "html_text":  html_text,
@@ -38,7 +41,7 @@ json_entry = {
 }
 
 #cambiare un nome sensato al file output, cmabiare nome per ogni pagina
-result = open(os.path.join(os.path.dirname(__file__),"gs2.json"), "w", encoding="UTF-8")
+result = open(os.path.join(os.path.dirname(__file__),"gs4.json"), "w", encoding="UTF-8")
 result.write(json.dumps(json_entry, indent=1))
 result.close()
 html_file.close()

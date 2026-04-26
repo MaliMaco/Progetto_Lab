@@ -1,29 +1,36 @@
-from typing import Dict, Set
+from typing import Dict, Counter
+from collections import Counter
+import re
 
 class TokenEvaluator:
 
     @staticmethod
-    def token_parsed_text(parsed_text: str) -> Set[str]:
-        tokens = parsed_text.split(" ")
-        parsed_tokens = set()
-        for token in tokens:
-            parsed_tokens.add(token)
+    def normalize(text: str) -> str:
+        text = text.strip()
+        text = re.sub(r"^\s*#+\s*", "", text)
+        text = re.sub(r"\s+", " ", text)
+        return text
+
+    @staticmethod
+    def token_parsed_text(parsed_text: str) -> Counter[str]:
+        cleaned_tokens = TokenEvaluator.normalize(parsed_text)
+        tokens = cleaned_tokens.strip().split()
+        parsed_tokens = Counter(tokens)
         return parsed_tokens
 
     @staticmethod
-    def token_gold_text(gold_text: str) -> Set[str]:
-        tokens = gold_text.split(" ")
-        parsed_tokens = set()
-        for token in tokens:
-            parsed_tokens.add(token)
+    def token_gold_text(gold_text: str) -> Counter[str]:
+        cleaned_tokens = TokenEvaluator.normalize(gold_text)
+        tokens = cleaned_tokens.strip().split()
+        parsed_tokens = Counter(tokens)
         return parsed_tokens
 
     @staticmethod
-    def evaluate(parsed_text: Set[str], gold_text: Set[str]) -> Dict[str,float]:
-        intersect = parsed_text.intersection(gold_text)
-        intersection_length = len(intersect)
-        parsed_length = len(parsed_text)
-        gold_length = len(gold_text)
+    def evaluate(parsed_text: Counter[str], gold_text: Counter[str]) -> Dict[str,float]:
+        intersect = parsed_text & gold_text
+        intersection_length = sum(intersect.values())
+        parsed_length = sum(parsed_text.values())
+        gold_length = sum(gold_text.values())
         precision = intersection_length/parsed_length if parsed_length > 0 else 0.0
         recall = intersection_length/gold_length if gold_length > 0 else 0.0
         denom = (precision+recall)

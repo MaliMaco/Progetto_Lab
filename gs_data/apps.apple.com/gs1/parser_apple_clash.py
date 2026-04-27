@@ -19,7 +19,7 @@ async def main():
         
         soup = BeautifulSoup(result.html, 'html.parser')
         
-        # Rimuovi elementi di navigazione dall'HTML
+        # rimuovi elementi di navigazione dall'HTML
         for platform_selector in soup.find_all('div', class_='platform-selector-container'):
             platform_selector.decompose()
         
@@ -41,7 +41,7 @@ async def main():
         for nav_container in soup.find_all('div', class_='navigation-container'):
             nav_container.decompose()
 
-        # Header H1 da mantenere
+        # header H1 da mantenere
         allowed_h1_texts = ["Clash Royale", "App Privacy"]
         
         allowed_h2_texts = [

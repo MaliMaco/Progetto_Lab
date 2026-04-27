@@ -19,7 +19,7 @@ async def main():
         
         soup = BeautifulSoup(result.html, 'html.parser')
         
-        # ========== RIMUOVI SOLO LA NAVIGAZIONE (menu, search, footer) ==========
+
         for platform_selector in soup.find_all('div', class_='platform-selector-container'):
             platform_selector.decompose()
         
@@ -50,7 +50,7 @@ async def main():
        
         print("=== MARKDOWN CONTENT (con recensioni) ===")
         if hasattr(result, 'markdown'):
-            # Filtra solo le righe superflue della navigazione
+            # filtra solo le righe superflue della navigazione
             lines = result.markdown.split('\n')
             skip_patterns = [
                 "for iPhone", "Search", "Today", "Games", "Apps", "Arcade",

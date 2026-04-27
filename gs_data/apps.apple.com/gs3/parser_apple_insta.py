@@ -19,7 +19,7 @@ async def main():
         
         soup = BeautifulSoup(result.html, 'html.parser')
         
-        # ========== RIMUOVI SOLO LA NAVIGAZIONE (menu, search, footer) ==========
+      
         for platform_selector in soup.find_all('div', class_='platform-selector-container'):
             platform_selector.decompose()
         
@@ -41,17 +41,16 @@ async def main():
         for nav_container in soup.find_all('div', class_='navigation-container'):
             nav_container.decompose()
         
-        # ========== NON RIMUOVERE LE RECENSIONI ==========
-        # Le sezioni come #allProductReviews rimangono intatte
+    
         
-        # ========== SALVA L'HTML PULITO (CON RECENSIONI) ==========
+        
         with open(html_path, 'w', encoding='utf-8') as html_file:
             html_file.write(str(soup))
         
-        # ========== STAMPA IL MARKDOWN ORIGINALE (CON RECENSIONI) ==========
-        print("=== MARKDOWN CONTENT (con recensioni) ===")
+        # stampa markdown
+        print("MARKDOWN")
         if hasattr(result, 'markdown'):
-            # Filtra solo le righe superflue della navigazione (lasciando le recensioni)
+            # filtra solo le righe superflue della navigazione (lasciando le recensioni)
             lines = result.markdown.split('\n')
             skip_patterns = [
                 "for iPhone", "Search", "Today", "Games", "Apps", "Arcade",

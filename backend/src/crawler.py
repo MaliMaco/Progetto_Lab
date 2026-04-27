@@ -2,10 +2,12 @@ from crawl4ai import AsyncWebCrawler, CacheMode
 from crawl4ai.async_configs import BrowserConfig, CrawlerRunConfig
 from crawl4ai.markdown_generation_strategy import DefaultMarkdownGenerator
 
-# ── Tandfonline ──────────────────────────────────────────────────────────────
-# Esclusi: bibliografie, appendici, figure, tabelle, equazioni, link "Open in
-# new window", metriche, keywords.  Target: solo heading e paragrafi.
-TANDFONLINE_EXCLUDED = """
+'''
+Esclusi: bibliografie, appendici, figure, tabelle, equazioni, link "Open in
+ new window", metriche, keywords.  Target: solo heading e paragrafi.
+ '''
+
+TANDFONLINE_EXCLUDED = '''
     [id^='references'], [id^='appendix'], [id^='appendixes'],
     .references, .bibliography,
     #infos-holder, .summation-section,
@@ -17,7 +19,7 @@ TANDFONLINE_EXCLUDED = """
     nav, header, footer,
     [class*='keyword'],
     .cookie-banner, #cookie-notice, [class*='cookie']
-"""
+'''
 
 
 def _md_generator():
@@ -27,14 +29,15 @@ def _md_generator():
 
 
 '''
-
+Il metodo parser_run esegue il crawler di crawl4ai sull'url dato in input. 
+In base al dominio di appartenenza dell'url verrà utilizzata una CrawlerRunConfig apposita.
 '''
 
 async def parser_run(url: str):
+
     domain = url.split("/")[2]
     md_gen = _md_generator()
 
-    # ── Wikipedia ────────────────────────────────────────────────────────────
     if domain == "en.wikipedia.org":
         browser_cfg = BrowserConfig(headless=True)
         run_cfg = CrawlerRunConfig(
@@ -48,7 +51,6 @@ async def parser_run(url: str):
             """,
         )
 
-    # ── ECB ──────────────────────────────────────────────────────────────────
     elif domain == "ecb.europa.eu":
         browser_cfg = BrowserConfig(headless=True)
         run_cfg = CrawlerRunConfig(
@@ -62,7 +64,6 @@ async def parser_run(url: str):
             """,
         )
 
-    # ── Tandfonline ──────────────────────────────────────────────────────────
     elif domain == "www.tandfonline.com":
         browser_cfg = BrowserConfig(
             headless=True,
@@ -81,7 +82,6 @@ async def parser_run(url: str):
             wait_until="networkidle",
         )
 
-    # ── Apple App Store ──────────────────────────────────────────────────────
     #Non inserito in domains.json, impraticabile.
     elif domain == "apps.apple.com":
         browser_cfg = BrowserConfig(headless=True)
@@ -91,7 +91,6 @@ async def parser_run(url: str):
             cache_mode=CacheMode.BYPASS,
         )
 
-    # ── Default ──────────────────────────────────────────────────────────────
     else:
         browser_cfg = BrowserConfig(headless=True)
         run_cfg = CrawlerRunConfig(
@@ -108,18 +107,17 @@ async def parser_run(url: str):
 
     return result
 
+'''
+Il metodo html_parser_run esegue il crawler di crawl4ai sull'HTML grezzo 
+dato in input, insieme al dominio necessario a scegliere la CrawlerRunConfig corretta.
+'''
+
 
 async def html_parser_run(html: str, domain: str):
-    """
-    Parsing su HTML statico (raw:).
-    Per Apple, l'HTML statico non contiene il contenuto renderizzato via JS
-    (reviews, Editors' Choice), quindi il risultato sarà necessariamente
-    inferiore al gold costruito con browser reale.
-    """
+
     md_gen = _md_generator()
     browser_cfg = BrowserConfig(headless=True)
 
-    # ── Wikipedia ────────────────────────────────────────────────────────────
     if domain == "en.wikipedia.org":
         run_cfg = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "p"],
@@ -132,7 +130,6 @@ async def html_parser_run(html: str, domain: str):
             """,
         )
 
-    # ── ECB ──────────────────────────────────────────────────────────────────
     elif domain == "ecb.europa.eu":
         run_cfg = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "p"],
@@ -145,7 +142,6 @@ async def html_parser_run(html: str, domain: str):
             """,
         )
 
-    # ── Tandfonline ──────────────────────────────────────────────────────────
     elif domain == "www.tandfonline.com":
         run_cfg = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "h4", "p"],
@@ -153,11 +149,7 @@ async def html_parser_run(html: str, domain: str):
             excluded_selector=TANDFONLINE_EXCLUDED,
         )
 
-    # ── Apple App Store ──────────────────────────────────────────────────────
-    # L'HTML statico di Apple non include reviews (caricate via JS).
-    # Usiamo section.shelf come unità di parsing escludendo le sezioni
-    # note per essere rumore puro (More by, You Might Also Like, Events,
-    # Ratings & Reviews header + shelf reviews adiacente).
+    #Non inserito in domains.json
     elif domain == "apps.apple.com":
         run_cfg = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "p"],
@@ -169,7 +161,6 @@ async def html_parser_run(html: str, domain: str):
             """,
         )
 
-    # ── Default ──────────────────────────────────────────────────────────────
     else:
         run_cfg = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "p"],

@@ -39,16 +39,49 @@
             font-weight: bold;
             width: 120px;
         }
+        .url-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .url-row input[type="text"] {
+            flex: 1;
+        }
     </style>
 </head>
 <body>
 
 <h1>Parser UI</h1>
 
-<!-- INPUT URL -->
+<!-- INPUT URL con menu dominio affiancato -->
 <form action="/parse_ui" method="post">
-    <input type="text" name="url" placeholder="Inserisci URL">
-    <button type="submit">Parse</button>
+    <div class="url-row">
+        <input type="text" name="url" placeholder="Inserisci URL" value="{{ prefill_url or '' }}">
+
+        <!--
+            Menu a tendina dei domini disponibili.
+            Quando l'utente seleziona un dominio e clicca "Vai al GS",
+            il form viene inviato all'endpoint /select_domain che aggiorna
+            la lista GS e pre-compila l'URL con il primo GS del dominio.
+        -->
+        <select name="domain_select" id="domain_select">
+            <option value="">-- Scegli dominio --</option>
+            {% for d in domains %}
+                <option value="{{ d }}" {% if d == selected_domain %}selected{% endif %}>
+                    {{ d }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Parse</button>
+
+        <!--
+            Bottone separato che invia il form a /select_domain invece di /parse_ui.
+            In questo modo l'utente può prima sfogliare i GS di un dominio
+            senza dover ancora avviare il parser.
+        -->
+        <button type="submit" formaction="/select_domain">Vai al GS</button>
+    </div>
 </form>
 
 {% if error %}
@@ -57,7 +90,7 @@
 
 <hr>
 
-<!-- DROPDOWN GS -->
+<!-- DROPDOWN GS: mostra gli URL del dominio selezionato/corrente -->
 {% if gs_list %}
 <form action="/parse_ui" method="post">
     <select name="url">

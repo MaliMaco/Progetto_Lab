@@ -35,7 +35,7 @@ json_entry = {
     "gold_text": gs_text
 }
 
-#cambiare un nome sensato al file output, cmabiare nome per ogni pagina
+
 result = open(os.path.join(os.path.dirname(__file__),"gs3.json"), "w", encoding="UTF-8")
 result.write(json.dumps(json_entry, indent=1))
 result.close()

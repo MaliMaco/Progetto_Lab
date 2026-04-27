@@ -7,7 +7,6 @@ html_path = os.path.join(os.path.dirname(__file__), "html_tand_board.txt")
 
 
 async def main():
-    # Configurazione browser REALISTICA per evitare 403
     browser_config = BrowserConfig(
         headless=True,
         viewport_width=1280,
@@ -15,7 +14,7 @@ async def main():
         user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     )
     
-    # Configurazione con header aggiuntivi
+
     run_config = CrawlerRunConfig(
         target_elements=["h1", "h2", "h3", "title", "p", 
                          "main", ".main-content", "article"],
@@ -33,7 +32,6 @@ async def main():
         )
         
         if result.success:
-            # Salva l'HTML
             with open(html_path, 'w', encoding='utf-8') as f:
                 f.write(result.html)
             print(f"✅ HTML salvato in: {html_path}")

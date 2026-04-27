@@ -4,7 +4,6 @@ import re
 import unicodedata
 from bs4 import BeautifulSoup
 
-#Cambiare i nomi dei file in cui si trovano l'html ed il gs
 html_file = open(os.path.join(os.path.dirname(__file__),"html_ecb_c1e.txt"), "r", encoding="UTF-8")
 gs_file = open(os.path.join(os.path.dirname(__file__),"gs4_GS.txt"), "r", encoding="UTF-8")
 
@@ -35,7 +34,7 @@ json_entry = {
     "gold_text": gs_text
 }
 
-#cambiare un nome sensato al file output, cmabiare nome per ogni pagina
+
 result = open(os.path.join(os.path.dirname(__file__),"gs4.json"), "w", encoding="UTF-8")
 result.write(json.dumps(json_entry, indent=1))
 result.close()

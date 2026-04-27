@@ -10,12 +10,12 @@ async def main():
     run_config = CrawlerRunConfig(
       css_selector="main",
     target_elements=[
-        "h1",                                    # Titolo principale
-        ".jumbo-box .content-box p",            # Paragrafo introduttivo
-        ".splitter h3",                         # Domande (splitter)
-        ".section",                             # INTERE section (preserva ordine interno)
-        ".carousel",                            # INTERI carousel
-        ".promo-box"                            # INTERO promo box finale
+        "h1",                                   
+        ".jumbo-box .content-box p",            #paragrafo introduttivo
+        ".splitter h3",                      
+        ".section",                          
+        ".carousel",                     
+        ".promo-box"                        
     ]
     )
 

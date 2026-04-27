@@ -12,10 +12,10 @@ async def main():
     run_config = CrawlerRunConfig(
     css_selector="main",
     target_elements=[
-        "h1",                           # Titolo principale
+        "h1",                           #titolo principale
         "p",                          
         "h2",                           
-        ".box",                         # (titolo + paragrafo insieme)
+        ".box",                         #titolo + paragrafo 
         ".splitter h3",                 
         ".headline",                  
         ".see-also-boxes h3",          

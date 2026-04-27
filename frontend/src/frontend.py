@@ -28,7 +28,8 @@ gs_list = []
 domains = [
     "en.wikipedia.org",
     "www.ecb.europa.eu",
-    "www.tandfonline.com"
+    #"www.tandfonline.com",
+    #"apps.apple.com"
 ]
 
 BASE_DIR = Path(__file__).parent.parent

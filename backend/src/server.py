@@ -242,8 +242,11 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
 
     for gs in full_gs_response:
         try:
-            result = parse(
-                gs['url']
+            result = post_parse(
+                ParseInput(
+                url=gs['url'],
+                html_text=gs["html_text"]
+                )
             )
             evaluation = evaluate(
                 EvaluateRequest(

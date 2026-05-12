@@ -7,6 +7,8 @@ services:
       context: .
     ports:
       - "8003:8003"
+    depends_on:
+      - database
 
   frontend:
     build:
@@ -18,3 +20,19 @@ services:
       - BACKEND_URL=http://backend:8003
     depends_on:
       - backend
+
+  database:
+    image: mariadb:11.7.2-ubi9
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=biar
+      - MYSQL_DATABASE=db_progetto
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=biar
+    volumes:
+      - mariadb_data:var/lib/mysql
+      - init.sql:/docker-entrypoint-initdb.d
+
+volumes:
+  mariadb_data

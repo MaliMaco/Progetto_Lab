@@ -28,9 +28,10 @@ gs_list = []
 domains = [
     "en.wikipedia.org",
     "www.ecb.europa.eu",
-    #"www.tandfonline.com",
-    #"apps.apple.com"
+    "www.tandfonline.com",
+    "apps.apple.com"
 ]
+STUDENTS = ["1805660", "2106747", "2128556"]
 
 BASE_DIR = Path(__file__).parent.parent
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
@@ -89,10 +90,36 @@ def base_context(request: Request, **kwargs) -> dict:
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
+    """
+    Home page: mostra le card di navigazione, le matricole del gruppo,
+    lo stato del sistema (backend / database / ollama) e i domini supportati.
+    Tutte le informazioni vengono recuperate dal backend tramite GET /status
+    e GET /domains.
+    """
+ 
+    try:
+        r = requests.get(f"{BASE_URL}/status", timeout=3)
+        r.raise_for_status()
+        status = r.json()           # {"backend": "ok", "database": "ok", "ollama": "ok"}
+    except Exception:
+        status = {"backend": "error", "database": "error", "ollama": "error"}
+ 
+    try:
+        r = requests.get(f"{BASE_URL}/domains", timeout=3)
+        r.raise_for_status()
+        domain_list = r.json().get("domains", [])
+    except Exception:
+        domain_list = domains
+ 
     return templates.TemplateResponse(
         request=request,
-        name="index.html",
-        context=base_context(request)
+        name="home.html",
+        context={
+            "request": request,
+            "students": STUDENTS,
+            "status": status,
+            "domains": domain_list,
+        }
     )
 
 
@@ -124,6 +151,15 @@ def select_domain(request: Request, domain_select: str = Form("")):
             selected_domain=domain_select,
             prefill_url=first_url,   # pre-compila il campo URL col primo GS
         )
+    )
+
+
+@app.get("/parser", response_class=HTMLResponse)
+def parser_page(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="index.html",
+        context=base_context(request)
     )
 
 

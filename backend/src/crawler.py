@@ -41,7 +41,7 @@ async def parser_run(url: str):
     if domain == "en.wikipedia.org":
         browser_cfg = BrowserConfig(headless=True)
         run_cfg = CrawlerRunConfig(
-            target_elements=["h1", "h2", "h3", "p"],
+            target_elements=["h1", "h2", "h3", "p", "ul", "li"],
             markdown_generator=md_gen,
             excluded_selector="""
                 .infobox, .infobox-full-data, .sidebar, .navbox,
@@ -119,6 +119,7 @@ async def html_parser_run(html: str, domain: str):
     browser_cfg = BrowserConfig(headless=True)
 
     if domain == "en.wikipedia.org":
+        browser_cfg = BrowserConfig(headless=True)
         run_cfg = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "p"],
             markdown_generator=md_gen,
@@ -131,6 +132,7 @@ async def html_parser_run(html: str, domain: str):
         )
 
     elif domain == "ecb.europa.eu":
+        browser_cfg = BrowserConfig(headless=True)
         run_cfg = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "p"],
             markdown_generator=md_gen,
@@ -143,25 +145,34 @@ async def html_parser_run(html: str, domain: str):
         )
 
     elif domain == "www.tandfonline.com":
+        browser_cfg = BrowserConfig(
+            headless=True,
+            viewport_width=1280,
+            viewport_height=720,
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/120.0.0.0 Safari/537.36"
+            ),
+        )
         run_cfg = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "h4", "p"],
             markdown_generator=md_gen,
             excluded_selector=TANDFONLINE_EXCLUDED,
+            wait_until="networkidle",
         )
 
-    #Non inserito in domains.json
+    #Non inserito in domains.json, impraticabile.
     elif domain == "apps.apple.com":
+        browser_cfg = BrowserConfig(headless=True)
         run_cfg = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "p"],
             markdown_generator=md_gen,
-            excluded_selector="""
-                nav, footer, button, script, style,
-                .shelf-grid, .inforibbon-shelf-wrapper,
-                .horizontal-shelf, .header-container
-            """,
+            cache_mode=CacheMode.BYPASS,
         )
 
     else:
+        browser_cfg = BrowserConfig(headless=True)
         run_cfg = CrawlerRunConfig(
             target_elements=["h1", "h2", "h3", "p"],
             markdown_generator=md_gen,

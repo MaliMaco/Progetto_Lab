@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
+from contextlib import asynccontextmanager
 from pydantic import BaseModel
-from typing import Dict, List
+from typing import Dict, List, Optional, Any
 from crawler import parser_run, html_parser_run
 import asyncio
 import html
@@ -10,9 +11,47 @@ from pathlib import Path
 from evaluator import TokenEvaluator
 from remove_markdown import remove_markdown
 from bs4 import BeautifulSoup
+import mariadb
+import datetime
+
+@asynccontextmanager
+async def lifespan():
+
+    global conn
+    conn = mariadb.connect(
+        host="0.0.0.0",
+        port=3306,
+        user="root",
+        password="biar",
+        database="db_progetto"
+    )
+
+    check_stability(conn=conn)
+    
+    dm_file = open(domains_path, 'r', encoding="UTF-8")
+    domains = json.load(dm_file)
+    data = domains["domains"]
+
+    with conn.cursor() as cursor:
+        for domain in data:
+            GS_path = os.path.join(Path(__file__).parent.parent.parent,f"gs_data/{domain}/GS.json")
+            GS_time = os.path.getctime(GS_path)
+            c_datestamp = datetime.datetime.fromtimestamp(GS_time)
+            response = get_full_gold_standard(domain=domain).gold_standard
+            for gs in response:
+                cursor.execute(web_insert_query, 
+                    (gs['url'], gs['domain'], gs['title'],
+                     gs['html_text'], c_datestamp)
+                               )
+                cursor.execute(gold_insert_query, 
+                    (gs['url'], gs['gold_text'],
+                     c_datestamp)
+                               )
+    yield
+    conn.close()
 
 
-app = FastAPI(title="Backend API")
+app = FastAPI(title="Backend API", lifespan=lifespan)
 
 
 '''
@@ -20,12 +59,63 @@ Server di logica implementato con FastAPI che rende disponibili gli endpoint sec
 All'interno dei singoli metodi è presente una descrizione riassiuntiva delle funzionalità implementate.
 '''
 
+def check_stability(conn):
+    is_stable = False
+    try:
+        # Ping the server to check connectivity
+        conn.ping()
+        
+        # Execute a simple query to verify query processing
+        cursor = conn.cursor()
+        cursor.execute("SELECT 1")
+        result = cursor.fetchone()
+        
+        if result and result[0] == 1:
+            is_stable = True
+            return is_stable
+        else:
+            return is_stable
+            
+    except mariadb.Error as e:
+        print(f"Database error: {e}")
+        return is_stable
+    finally:
+        if 'cursor' in locals():
+            cursor.close()
+
+web_insert_query = "INSERT INTO " \
+    "web_resources (url, domain, title, html_text, created_at) "  \
+    "VALUES (?, ?, ?, ?, ?)"
+gold_insert_query = "INSERT INTO " \
+    "gold_standard (url, gold_text, created_at) "  \
+    "VALUES (?, ?, ?)"
+
 
 domains_path = os.path.join(Path(__file__).parent.parent.parent, 'domains.json')
 
+
 class ParseInput(BaseModel):
     url: str
+    local: Optional[bool]
+
+class AddWebInput(BaseModel):
+    url: str
     html_text: str
+
+class AddGoldInput(BaseModel):
+    status: str
+
+class AddWebOutput(BaseModel):
+    status: str
+
+class AddGoldOutput(BaseModel):
+    status: str
+
+class DeleteWebOutput(BaseModel):
+    status: str
+
+class DeleteGoldOutput(BaseModel):
+    status: str
 
 class ParseOutput(BaseModel):
     url: str
@@ -41,6 +131,9 @@ class GSResponse(BaseModel):
     html_text: str
     gold_text: str
 
+class GSURLSResponse(BaseModel):
+    gold_standard_urls: List[str]
+
 class FullGSResponse(BaseModel):
     gold_standard: List[Dict[str,str]]
 
@@ -53,6 +146,17 @@ class EvaluateRequest(BaseModel):
 
 class EvaluateResponse(BaseModel):
     token_level_eval: Dict[str,float]
+
+class DBStatsResponse(BaseModel):
+    db_status: Dict[str,Dict[str,Any]]
+
+class DBSchemaResponse(BaseModel):
+    db_schema: Dict[str,Dict[str,str]]
+
+class StatusResponse(BaseModel):
+    backend: str
+    database: str
+    ollama: str
 
 
 @app.get("/parse")
@@ -104,13 +208,36 @@ def post_parse(input: ParseInput) -> ParseOutput:
 
     url_list = input.url.split("/")
     domain = url_list[2]
+
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
-        domains = json.load(dm_file)
-        if domain not in domains['domains']:
-            raise HTTPException(status_code=400, detail="Dominio non supportato.")
+            domains = json.load(dm_file)
+            if domain not in domains['domains']:
+                raise HTTPException(status_code=400, detail="Dominio non supportato.")
     
-    html_text = input.html_text
-    result = asyncio.run(html_parser_run(input.html_text, domain))
+    if (input.local == False):
+    
+        result = parse(input.url)
+        html_text = result.html_text
+
+    else:
+
+        web_select_query = "SELECT html_text " \
+                    "FROM web_resources " \
+                    "WHERE url = ?"
+
+        with conn.cursor() as cursor:
+            try:
+                cursor.execute(
+                    web_select_query,
+                    (input.url,)
+                )
+                result = cursor.fetchall()
+                html_text = result[0]
+                result = asyncio.run(html_parser_run(html_text, domain))
+            except:
+                raise HTTPException(status_code=400, detail="URL non presente nel DB.")
+
+    
     soup = BeautifulSoup(html_text, "html.parser")
     title_tag = soup.find('title')
     if title_tag:
@@ -119,11 +246,16 @@ def post_parse(input: ParseInput) -> ParseOutput:
         div_title = soup.find('div', class_='title')
         title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
     md_text = result.markdown
+
+    '''
+    Vedi se devi aggiornare html_text in web-resources e parsed_text in parsed_documents
+    '''
+
     return ParseOutput(
         url=input.url, 
         domain=domain, 
         title=title, 
-        html_text=input.html_text, 
+        html_text=html_text, 
         parsed_text=md_text
     )
     
@@ -147,8 +279,8 @@ def get_gold_standard(url: str) -> GSResponse:
 
     '''
     * GET /gold_standard: preso in input un URL cerca la entry associata nel Gold Standard del dominio e 
-        restituisce un oggetto di tipo GSResponse. Se l'URL non ha un entry associata oppure il dominio non 
-        è presente viene lanciato un errore.
+        restituisce un oggetto di tipo GSResponse. Le informazioni vengono caricate dal DB dockerizzato. 
+        Se l'URL non ha un entry associata oppure il dominio non è presente viene lanciato un errore.
     '''
 
     url_list = url.split("/")
@@ -157,6 +289,8 @@ def get_gold_standard(url: str) -> GSResponse:
         domains = json.load(dm_file)
         if domain not in domains['domains']:
             raise HTTPException(status_code=400, detail="Dominio non supportato.")
+    
+    '''
     GS_path = os.path.join(Path(__file__).parent.parent.parent,f"gs_data/{domain}/GS.json")
     with open(GS_path, 'r', encoding="UTF-8") as GS_file:
         gs = json.load(GS_file)
@@ -168,8 +302,63 @@ def get_gold_standard(url: str) -> GSResponse:
                             html_text=single_gs['html_text'], 
                             gold_text=single_gs['gold_text']
                                 )
+    '''
+    try:
+
+        gold_select_query = "SELECT gold_text " \
+                    "FROM web_resources " \
+                    "WHERE url = ?"
+        
+        web_select_query = "SELECT title, domain, html_text " \
+                        "FROM web_resources " \
+                        "WHERE url = ?"
+
+        with conn.cursor() as cursor:
+
+            cursor.execute(gold_select_query, (url, ))
+            result = cursor.fetchall()
+            gold_result = result[0]
+            
+            conn.execute(web_select_query, (url, ))
+            result = cursor.fetchall()
+            title_result = result[0]
+            domain_result = result[1]
+            html_text_result = result[2]
+
+        return GSResponse(url=url,
+                        title=title_result, 
+                        domain=domain_result,
+                        html_text=html_text_result, 
+                        gold_text=gold_result
+                            )
+    except:
         raise HTTPException(status_code=400, detail="URL non presente nel GS.")
     
+
+@app.get("/gold_standard_urls")
+def get_gold_standard_urls(domain: str) -> GSURLSResponse:
+    with open(domains_path, 'r', encoding="UTF-8") as dm_file:
+        domains = json.load(dm_file)
+        if domain not in domains['domains']:
+            raise HTTPException(status_code=400, detail="Dominio non supportato.")
+        
+    select_query = "SELECT url " \
+                    "FROM web_resources join gold_standard " \
+                    "on web_resources.url = gold_standard.url " \
+                    "WHERE web_resources.domain = ?;"
+
+    with conn.cursor() as cursor:
+        cursor.execute(select_query, (domain, ))
+        result = cursor.fetchall()
+        urls_list = list()
+        for url in result:
+            urls_list.append(url)
+
+    return GSURLSResponse(
+        gold_standard_urls=urls_list
+    )
+    
+
 
 @app.get("/full_gold_standard")
 def get_full_gold_standard(domain: str) -> FullGSResponse:
@@ -220,6 +409,7 @@ def evaluate(request: EvaluateRequest) -> EvaluateResponse:
     payload = TokenEvaluator.evaluate(parsed_text=parsed_set,gold_text=gold_set)
     return EvaluateResponse(token_level_eval=payload)
 
+
 @app.get("/full_gs_eval")
 def get_full_gs_eval(domain: str) -> EvaluateResponse:
 
@@ -234,26 +424,33 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
         if domain not in domains['domains']:
             raise HTTPException(status_code=400, detail="Dominio non supportato.")
     
-    full_gs_response = get_full_gold_standard(domain=domain).gold_standard
+    full_gs_response = get_gold_standard_urls(domain=domain).gold_standard_urls
     sum_precision = 0.0
     sum_recall = 0.0
     sum_f1 = 0.0
     gs_number = 0
 
-    for gs in full_gs_response:
+    for elem in full_gs_response:
         try:
+            gs_response = get_gold_standard(elem)
             result = post_parse(
                 ParseInput(
-                url=gs['url'],
-                html_text=gs["html_text"]
+                url=gs_response.url,
+                local=True
                 )
             )
             evaluation = evaluate(
                 EvaluateRequest(
                     parsed_text=result.parsed_text, 
-                    gold_text=gs['gold_text']
+                    gold_text=gs_response.gold_text
                     )
                 )
+            
+            '''
+            Aggiungi qui le query per l'inserimento o aggiornamento 
+            delle evaluate o dei judgments di Ollama.
+            '''
+
             sum_precision += evaluation.token_level_eval.get("precision")
             sum_recall += evaluation.token_level_eval.get("recall")
             sum_f1 += evaluation.token_level_eval.get("f1")
@@ -276,3 +473,235 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
     }
 
     return EvaluateResponse(token_level_eval=payload)
+
+
+app.post("/add_web_resource")
+def add_web_resource(input: AddWebInput) -> AddWebOutput:
+
+    with conn.cursor() as cursor:
+        url_list = input.url.split("/")
+        domain = url_list[2]
+
+        soup = BeautifulSoup(input.html_text, "html.parser")
+        title_tag = soup.find('title')
+        if title_tag:
+            title = title_tag.get_text(strip=True)
+        else:
+            div_title = soup.find('div', class_='title')
+            title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
+
+        data = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        cursor.execute(web_insert_query, (input.url, domain, title, input.html_text, data))
+    
+    return AddWebOutput(status="ok")
+
+
+app.post("/add_gold_standard")
+def add_gold_standard(input: AddGoldInput) -> AddGoldOutput:
+
+    try:
+        with conn.cursor() as cursor:
+            data = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+            cursor.execute(gold_insert_query, (input.url, input.gold_text, data))
+    except mariadb.IntegrityError as e:
+        if e.errno == 1145:
+            raise HTTPException(status_code=400, detail="URL assente in web_resources: PK-ERROR")
+        else:
+            raise HTTPException(status_code=400, detail="Errore nella query")
+    except Exception:
+        raise HTTPException(status_code=400, detail=f"{e}")
+    
+    return AddGoldOutput(status="ok")
+
+
+app.delete("/web_resouce")
+def delete_web_resource(url: str):
+    
+    with conn.cursor() as cursor:
+
+        delete_query = "DELETE FROM web_resources WHERE url = ?"
+        cursor.execute(delete_query, (url, ))
+    
+    conn.commit()
+
+    return DeleteWebOutput(status="ok")
+
+
+
+app.delete("/gold_standard")
+def delete_gold_standard(url: str):
+    with conn.cursor() as cursor:
+
+        delete_query = "DELETE FROM gold_standard WHERE url = ?"
+        cursor.execute(delete_query, (url, ))
+
+        if cursor.rowcount == 0:
+            conn.rollback()
+            raise HTTPException(status_code=400, detail="URL non presente nel GS.")
+    
+    conn.commit()
+
+    return DeleteGoldOutput(status="ok")
+
+
+app.get("/db_stats")
+def get_db_stats() -> DBStatsResponse:
+    web_resources = dict()
+    gold_standard = dict()
+    evaluations = dict()
+    llm_judgments = dict()
+    avg_eval = dict()
+    avg_eval_judge = dict()
+
+    web_count_query = "SELECT domain, count(*) " \
+    "FROM web_resources " \
+    "GROUP BY domain"
+
+    gold_count_query = "SELECT domain, count(*) " \
+    "FROM gold_standard as g JOIN web_resources as w on g.url = w.url " \
+    "GROUP BY domain"
+
+    eval_count_query = "SELECT domain, count(*) " \
+    "FROM evaluations as e JOIN web_resources as w on e.url = w.url " \
+    "GROUP BY domain"
+
+    llm_count_query = "SELECT domain, count(*) " \
+    "FROM llm_judgments as l JOIN web_resources as w on l.url = w.url " \
+    "GROUP BY domain"
+
+    avg_eval_count_query = "SELECT w.domain, sum(e.precision_score), sum(e.recall_score), sum(e.f1_score), count(w.url) " \
+    "FROM evaluations as e JOIN web_resources as w on e.url = w.url " \
+    "GROUP BY w.domain"
+    #aspetta Ollama
+    avg_eval_judge_count_query = "SELECT domain, count(*) " \
+    "FROM llm_judgments as l JOIN web_resources as w on l.url = w.url " \
+    "GROUP BY domain"
+
+    with conn.cursor() as cursor:
+
+        #web_resources
+        cursor.execute(web_count_query)
+        result = cursor.fetchall()
+        for elem in result:
+            web_resources[elem[0]] = elem[1]
+
+        #gold_standard
+        cursor.execute(gold_count_query)
+        result = cursor.fetchall()
+        for elem in result:
+            gold_standard[elem[0]] = elem[1]
+
+        #evaluations
+        cursor.execute(eval_count_query)
+        result = cursor.fetchall()
+        for elem in result:
+            evaluations[elem[0]] = elem[1]
+
+        #llm_judgments
+        cursor.execute(llm_count_query)
+        result = cursor.fetchall()
+        for elem in result:
+            llm_judgments[elem[0]] = elem[1]
+
+        #avg_eval
+        cursor.execute(avg_eval_count_query)
+        result = cursor.fetchall()
+        for elem in result:
+            avg_eval[elem[0]] = {
+                "token_level_eval": {
+                    "precision": elem[1]/elem[4] if elem[4] > 0 else 0.0,
+                    "recall": elem[2]/elem[4] if elem[4] > 0 else 0.0,
+                    "f1": elem[3]/elem[4] if elem[4] > 0 else 0.0
+                }
+                }
+
+        #avg_eval_judge (aspetta per Ollama)
+        cursor.execute(avg_eval_judge_count_query)
+        result = cursor.fetchall()
+        for elem in result:
+            web_resources[elem[0]] = elem[1]
+        
+
+@app.get("/db_schema")
+def get_db_schema() -> DBSchemaResponse:
+    try:
+        """
+        Legge lo schema reale del DB da information_schema e lo restituisce
+        nel formato richiesto.
+        """
+        query = """
+            SELECT
+                c.TABLE_NAME,
+                c.COLUMN_NAME,
+                c.COLUMN_TYPE,
+                c.COLUMN_KEY,
+                k.REFERENCED_TABLE_NAME,
+                k.REFERENCED_COLUMN_NAME
+            FROM information_schema.COLUMNS c
+            LEFT JOIN information_schema.KEY_COLUMN_USAGE k
+                ON  k.TABLE_SCHEMA          = c.TABLE_SCHEMA
+                AND k.TABLE_NAME            = c.TABLE_NAME
+                AND k.COLUMN_NAME           = c.COLUMN_NAME
+                AND k.REFERENCED_TABLE_NAME IS NOT NULL
+            WHERE c.TABLE_SCHEMA = %s
+            ORDER BY c.TABLE_NAME, c.ORDINAL_POSITION
+        """
+
+        cursor = conn.cursor()
+        cursor.execute(query, ("db_progetto",))
+        rows = cursor.fetchall()
+        cursor.close()
+
+        schema: dict = {}
+
+        for table, column, col_type, col_key, ref_table, ref_col in rows:
+            if table not in schema:
+                schema[table] = {}
+
+            parts = [col_type]
+            if col_key == "PRI":
+                parts.append("PK")
+            if ref_table:                                    # è una FK
+                parts.append(f"FK({ref_table}.{ref_col})")
+
+            schema[table][column] = ", ".join(parts)
+
+        return DBSchemaResponse(
+            db_schema=schema
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@app.get("/status")
+def get_status() -> StatusResponse:
+    """
+    Controlla la raggiungibilità di backend, database e ollama.
+    """
+
+    backend_status = "ok"
+
+    database_status = "error"
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT 1")
+            cursor.fetchone()
+        database_status = "ok"
+    except Exception:
+        pass
+
+    ollama_status = "error"
+    try:
+        import requests
+        r = requests.get("http://ollama:11434", timeout=3)
+        if r.status_code < 500:
+            ollama_status = "ok"
+    except Exception:
+        pass
+
+    return StatusResponse(
+        backend=backend_status,
+        database=database_status,
+        ollama=ollama_status
+    )

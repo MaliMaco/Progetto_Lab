@@ -20,12 +20,16 @@ gs_text = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', gs_text)
 gs_text = re.sub(r'\s+', ' ', gs_text).strip()
 
 soup = BeautifulSoup(html_text, "html.parser")
-title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
-title = title_tag.get_text(strip=True) if title_tag else ""
 
-pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
-match = re.search(pattern_domain, "https://www.tandfonline.com/doi/full/10.1080/08839514.2025.2519169#abstract")
-domain = match.group(1)
+title_tag = soup.find('title')
+if title_tag:
+    title = title_tag.get_text(strip=True)
+else:
+    div_title = soup.find('div', class_='title')
+    title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
+
+url_split = "https://www.tandfonline.com/doi/full/10.1080/08839514.2025.2519169#abstract".split("/")
+domain = url_split[2]
 
 
 json_entry = {

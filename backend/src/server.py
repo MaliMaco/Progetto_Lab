@@ -13,26 +13,39 @@ from remove_markdown import remove_markdown
 from bs4 import BeautifulSoup
 import mariadb
 import datetime
+import time
 
 @asynccontextmanager
-async def lifespan():
+async def lifespan(app):
 
-    global conn
-    conn = mariadb.connect(
-        host="0.0.0.0",
-        port=3306,
-        user="root",
-        password="biar",
-        database="db_progetto"
-    )
+    conn = None
 
+    for _ in range(10):
+        try:
+            conn = mariadb.connect(
+            host="database",
+            port=3306,
+            user="user",
+            password="biar",
+            database="db_progetto"
+            )
+            break
+        except mariadb.Error as e:
+            print(f"Connection failed: {e}")
+            time.sleep(2)
+
+    if conn is None:
+        raise RuntimeError("Could not connect to MariaDB")
+    
     check_stability(conn=conn)
     
     dm_file = open(domains_path, 'r', encoding="UTF-8")
     domains = json.load(dm_file)
     data = domains["domains"]
+    dm_file.close()
 
-    with conn.cursor() as cursor:
+    cursor = conn.cursor()
+    try:
         for domain in data:
             GS_path = os.path.join(Path(__file__).parent.parent.parent,f"gs_data/{domain}/GS.json")
             GS_time = os.path.getctime(GS_path)
@@ -47,6 +60,9 @@ async def lifespan():
                     (gs['url'], gs['gold_text'],
                      c_datestamp)
                                )
+                conn.commit()
+    finally:
+        cursor.close()
     yield
     conn.close()
 
@@ -83,13 +99,46 @@ def check_stability(conn):
         if 'cursor' in locals():
             cursor.close()
 
-web_insert_query = "INSERT INTO " \
-    "web_resources (url, domain, title, html_text, created_at) "  \
-    "VALUES (?, ?, ?, ?, ?)"
-gold_insert_query = "INSERT INTO " \
-    "gold_standard (url, gold_text, created_at) "  \
-    "VALUES (?, ?, ?)"
+web_insert_query = (
+    "INSERT INTO "
+    "web_resources (url, domain, title, html_text, created_at) "
+    "VALUES (?, ?, ?, ?, ?) "
+    "ON DUPLICATE KEY UPDATE "
+    "domain = VALUES(domain), "
+    "title = VALUES(title), "
+    "html_text = VALUES(html_text), "
+    "created_at = VALUES(created_at)"
+)
 
+gold_insert_query = (
+    "INSERT INTO "
+    "gold_standard (url, gold_text, created_at) "
+    "VALUES (?, ?, ?) "
+    "ON DUPLICATE KEY UPDATE "
+    "gold_text = VALUES(gold_text), "
+    "created_at = VALUES(created_at)"
+)
+
+eval_insert_query = (
+    "INSERT INTO "
+    "evaluations (url, precision_score, recall_score, f1_score, created_at) "
+    "VALUES (?, ?, ?, ?, ?) "
+    "ON DUPLICATE KEY UPDATE "
+    "precision_score = VALUES(precision_score), "    
+    "recall_score = VALUES(recall_score), "
+    "f1_score = VALUES(f1_score), "
+    "created_at = VALUES(created_at)"
+)
+
+llm_insert_query = (
+    "INSERT INTO "
+    "gold_standard (url, score, verdict, created_at) "
+    "VALUES (?, ?, ?, ?) "
+    "ON DUPLICATE KEY UPDATE "
+    "score = VALUES(score), "
+    "verdict = VALUES(verdict), "
+    "created_at = VALUES(created_at)"
+)
 
 domains_path = os.path.join(Path(__file__).parent.parent.parent, 'domains.json')
 
@@ -103,7 +152,8 @@ class AddWebInput(BaseModel):
     html_text: str
 
 class AddGoldInput(BaseModel):
-    status: str
+    url: str
+    gold_text: str
 
 class AddWebOutput(BaseModel):
     status: str
@@ -225,13 +275,21 @@ def post_parse(input: ParseInput) -> ParseOutput:
                     "FROM web_resources " \
                     "WHERE url = ?"
 
+        conn = mariadb.connect(
+            host="database",
+            port=3306,
+            user="user",
+            password="biar",
+            database="db_progetto"
+            )
+
         with conn.cursor() as cursor:
             try:
                 cursor.execute(
                     web_select_query,
                     (input.url,)
                 )
-                result = cursor.fetchall()
+                result = cursor.fetchone()
                 html_text = result[0]
                 result = asyncio.run(html_parser_run(html_text, domain))
             except:
@@ -247,9 +305,16 @@ def post_parse(input: ParseInput) -> ParseOutput:
         title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
     md_text = result.markdown
 
-    '''
-    Vedi se devi aggiornare html_text in web-resources e parsed_text in parsed_documents
-    '''
+    with conn.cursor() as cursor:
+        cursor.execute(web_insert_query, (
+            input.url,
+            domain,
+            title,
+            html_text,
+            datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            )
+        )
+        conn.commit()
 
     return ParseOutput(
         url=input.url, 
@@ -290,40 +355,39 @@ def get_gold_standard(url: str) -> GSResponse:
         if domain not in domains['domains']:
             raise HTTPException(status_code=400, detail="Dominio non supportato.")
     
-    '''
-    GS_path = os.path.join(Path(__file__).parent.parent.parent,f"gs_data/{domain}/GS.json")
-    with open(GS_path, 'r', encoding="UTF-8") as GS_file:
-        gs = json.load(GS_file)
-        for single_gs in gs:
-            if single_gs['url'] == url:
-                return GSResponse(url=url,
-                            title=single_gs['title'], 
-                            domain=single_gs['domain'],
-                            html_text=single_gs['html_text'], 
-                            gold_text=single_gs['gold_text']
-                                )
-    '''
     try:
 
         gold_select_query = "SELECT gold_text " \
-                    "FROM web_resources " \
+                    "FROM gold_standard " \
                     "WHERE url = ?"
         
         web_select_query = "SELECT title, domain, html_text " \
                         "FROM web_resources " \
                         "WHERE url = ?"
 
+        conn = mariadb.connect(
+            host="database",
+            port=3306,
+            user="user",
+            password="biar",
+            database="db_progetto"
+            )
+
         with conn.cursor() as cursor:
 
             cursor.execute(gold_select_query, (url, ))
-            result = cursor.fetchall()
-            gold_result = result[0]
+            result = cursor.fetchone()
+            if result != None:
+                print("Gold_text present")
+                gold_result = result[0]
             
-            conn.execute(web_select_query, (url, ))
-            result = cursor.fetchall()
-            title_result = result[0]
-            domain_result = result[1]
-            html_text_result = result[2]
+            cursor.execute(web_select_query, (url, ))
+            result = cursor.fetchone()
+            if result != None:
+                print("title, domain and html_text present")
+                title_result = result[0]
+                domain_result = result[1]
+                html_text_result = result[2]
 
         return GSResponse(url=url,
                         title=title_result, 
@@ -342,17 +406,25 @@ def get_gold_standard_urls(domain: str) -> GSURLSResponse:
         if domain not in domains['domains']:
             raise HTTPException(status_code=400, detail="Dominio non supportato.")
         
-    select_query = "SELECT url " \
+    select_query = "SELECT gold_standard.url " \
                     "FROM web_resources join gold_standard " \
                     "on web_resources.url = gold_standard.url " \
                     "WHERE web_resources.domain = ?;"
+
+    conn = mariadb.connect(
+        host="database",
+        port=3306,
+        user="user",
+        password="biar",
+        database="db_progetto"
+        )
 
     with conn.cursor() as cursor:
         cursor.execute(select_query, (domain, ))
         result = cursor.fetchall()
         urls_list = list()
-        for url in result:
-            urls_list.append(url)
+        for elem in result:
+            urls_list.append(elem[0])
 
     return GSURLSResponse(
         gold_standard_urls=urls_list
@@ -419,6 +491,14 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
         Lancia un errore se il dominio in input non è supportato.
     '''
 
+    conn = mariadb.connect(
+        host="database",
+        port=3306,
+        user="user",
+        password="biar",
+        database="db_progetto"
+        )
+
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
         domains = json.load(dm_file)
         if domain not in domains['domains']:
@@ -445,19 +525,28 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
                     gold_text=gs_response.gold_text
                     )
                 )
-            
-            '''
-            Aggiungi qui le query per l'inserimento o aggiornamento 
-            delle evaluate o dei judgments di Ollama.
-            '''
+
+            with conn.cursor() as cursor:
+                cursor.execute(eval_insert_query, (
+                    gs_response.url,
+                    evaluation.token_level_eval["precision"],
+                    evaluation.token_level_eval["recall"],
+                    evaluation.token_level_eval["f1"],
+                    datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    )
+                )
+
+                conn.commit()
 
             sum_precision += evaluation.token_level_eval.get("precision")
             sum_recall += evaluation.token_level_eval.get("recall")
             sum_f1 += evaluation.token_level_eval.get("f1")
             gs_number += 1
+
         except HTTPException:
             #gs_number += 1
             continue
+
         except Exception:
             #gs_number += 1
             continue
@@ -475,8 +564,16 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
     return EvaluateResponse(token_level_eval=payload)
 
 
-app.post("/add_web_resource")
+@app.post("/add_web_resource")
 def add_web_resource(input: AddWebInput) -> AddWebOutput:
+
+    conn = mariadb.connect(
+        host="database",
+        port=3306,
+        user="user",
+        password="biar",
+        database="db_progetto"
+        )
 
     with conn.cursor() as cursor:
         url_list = input.url.split("/")
@@ -494,31 +591,52 @@ def add_web_resource(input: AddWebInput) -> AddWebOutput:
 
         cursor.execute(web_insert_query, (input.url, domain, title, input.html_text, data))
     
+    conn.commit()
+    
     return AddWebOutput(status="ok")
 
 
-app.post("/add_gold_standard")
+@app.post("/add_gold_standard")
 def add_gold_standard(input: AddGoldInput) -> AddGoldOutput:
 
     try:
+        conn = mariadb.connect(
+            host="database",
+            port=3306,
+            user="user",
+            password="biar",
+            database="db_progetto"
+            )
         with conn.cursor() as cursor:
             data = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             cursor.execute(gold_insert_query, (input.url, input.gold_text, data))
+        
+        conn.commit()
+
     except mariadb.IntegrityError as e:
-        if e.errno == 1145:
+        if e.errno == 1452:
             raise HTTPException(status_code=400, detail="URL assente in web_resources: PK-ERROR")
         else:
             raise HTTPException(status_code=400, detail="Errore nella query")
-    except Exception:
-        raise HTTPException(status_code=400, detail=f"{e}")
+        
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
     
     return AddGoldOutput(status="ok")
 
 
-app.delete("/web_resouce")
+@app.delete("/web_resouce")
 def delete_web_resource(url: str):
     
+    conn = mariadb.connect(
+        host="database",
+        port=3306,
+        user="user",
+        password="biar",
+        database="db_progetto"
+        )
+
     with conn.cursor() as cursor:
 
         delete_query = "DELETE FROM web_resources WHERE url = ?"
@@ -530,8 +648,17 @@ def delete_web_resource(url: str):
 
 
 
-app.delete("/gold_standard")
+@app.delete("/gold_standard")
 def delete_gold_standard(url: str):
+
+    conn = mariadb.connect( 
+            host="database",
+            port=3306,
+            user="user",
+            password="biar",
+            database="db_progetto"
+            )
+
     with conn.cursor() as cursor:
 
         delete_query = "DELETE FROM gold_standard WHERE url = ?"
@@ -539,14 +666,14 @@ def delete_gold_standard(url: str):
 
         if cursor.rowcount == 0:
             conn.rollback()
-            raise HTTPException(status_code=400, detail="URL non presente nel GS.")
+            raise HTTPException(status_code=400, detail="DELETE su URL non presente nel GS.")
     
     conn.commit()
 
     return DeleteGoldOutput(status="ok")
 
 
-app.get("/db_stats")
+@app.get("/db_stats")
 def get_db_stats() -> DBStatsResponse:
     web_resources = dict()
     gold_standard = dict()
@@ -571,13 +698,21 @@ def get_db_stats() -> DBStatsResponse:
     "FROM llm_judgments as l JOIN web_resources as w on l.url = w.url " \
     "GROUP BY domain"
 
-    avg_eval_count_query = "SELECT w.domain, sum(e.precision_score), sum(e.recall_score), sum(e.f1_score), count(w.url) " \
+    avg_eval_query = "SELECT w.domain, sum(e.precision_score), sum(e.recall_score), sum(e.f1_score), count(w.url) " \
     "FROM evaluations as e JOIN web_resources as w on e.url = w.url " \
     "GROUP BY w.domain"
     #aspetta Ollama
-    avg_eval_judge_count_query = "SELECT domain, count(*) " \
+    avg_eval_judge_query = "SELECT w.domain, sum(score), count(w.url) " \
     "FROM llm_judgments as l JOIN web_resources as w on l.url = w.url " \
     "GROUP BY domain"
+
+    conn = mariadb.connect(
+        host="database",
+        port=3306,
+        user="user",
+        password="biar",
+        database="db_progetto"
+        )
 
     with conn.cursor() as cursor:
 
@@ -596,32 +731,60 @@ def get_db_stats() -> DBStatsResponse:
         #evaluations
         cursor.execute(eval_count_query)
         result = cursor.fetchall()
-        for elem in result:
-            evaluations[elem[0]] = elem[1]
+        try:
+            for elem in result:
+                llm_judgments[elem[0]] = elem[1]
+        except:
+            print("Tabella evaluations vuota, " \
+            "esegui una full_gs_eval per generare delle valutazioni " \
+            "o farne un aggiornamento")
 
         #llm_judgments
         cursor.execute(llm_count_query)
         result = cursor.fetchall()
-        for elem in result:
-            llm_judgments[elem[0]] = elem[1]
+        try:
+            for elem in result:
+                llm_judgments[elem[0]] = elem[1]
+        except:
+            print("Tabella llm_judgments vuota, " \
+            "esegui una full_gs_eval per generare delle valutazioni " \
+            "o farne un aggiornamento")
 
         #avg_eval
-        cursor.execute(avg_eval_count_query)
+        cursor.execute(avg_eval_query)
         result = cursor.fetchall()
-        for elem in result:
-            avg_eval[elem[0]] = {
-                "token_level_eval": {
-                    "precision": elem[1]/elem[4] if elem[4] > 0 else 0.0,
-                    "recall": elem[2]/elem[4] if elem[4] > 0 else 0.0,
-                    "f1": elem[3]/elem[4] if elem[4] > 0 else 0.0
-                }
-                }
+        try:
+            for elem in result:
+                avg_eval[elem[0]] = {
+                    "token_level_eval": {
+                        "precision": elem[1]/elem[4] if elem[4] > 0 else 0.0,
+                        "recall": elem[2]/elem[4] if elem[4] > 0 else 0.0,
+                        "f1": elem[3]/elem[4] if elem[4] > 0 else 0.0
+                    }
+                    }
+        except:
+            print("Tabella eva vuota, " \
+            "esegui una full_gs_eval per generare delle valutazioni " \
+            "o farne un aggiornamento")
 
         #avg_eval_judge (aspetta per Ollama)
-        cursor.execute(avg_eval_judge_count_query)
+        cursor.execute(avg_eval_judge_query)
         result = cursor.fetchall()
         for elem in result:
-            web_resources[elem[0]] = elem[1]
+            avg_eval_judge[elem[0]] = {
+                "judge_score": elem[1]/elem[2] if elem[2] > 0 else 0.0
+                }
+
+    return DBStatsResponse(
+        db_status={
+            "web_resources": web_resources,
+            "gold_standard": gold_standard,
+            "evaluations": evaluations,
+            "llm_judgments": llm_judgments,
+            "avg_eval": avg_eval,
+            "avg_eval_judge": avg_eval_judge
+        }
+    )
         
 
 @app.get("/db_schema")
@@ -648,6 +811,14 @@ def get_db_schema() -> DBSchemaResponse:
             WHERE c.TABLE_SCHEMA = %s
             ORDER BY c.TABLE_NAME, c.ORDINAL_POSITION
         """
+
+        conn = mariadb.connect(
+            host="database",
+            port=3306,
+            user="user",
+            password="biar",
+            database="db_progetto"
+            )
 
         cursor = conn.cursor()
         cursor.execute(query, ("db_progetto",))
@@ -679,6 +850,14 @@ def get_status() -> StatusResponse:
     """
     Controlla la raggiungibilità di backend, database e ollama.
     """
+
+    conn = mariadb.connect(
+        host="database",
+        port=3306,
+        user="user",
+        password="biar",
+        database="db_progetto"
+        )
 
     backend_status = "ok"
 

@@ -32,12 +32,15 @@ services:
       - MYSQL_PASSWORD=biar
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      - mariadb_data:/var/lib/mysql
+      - ./mariadb_data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect"]
       interval: 5s
       timeout: 5s
       retries: 10
 
+  
+
 volumes:
-  mariadb_data: 
+  mariadb_data:
+  ollama_data:

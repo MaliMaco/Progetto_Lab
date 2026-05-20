@@ -3,10 +3,6 @@ from contextlib import asynccontextmanager
 from pydantic import BaseModel
 from typing import Dict, List, Optional, Any
 from crawler import parser_run, html_parser_run
-import asyncio
-import html
-import os
-import json
 from pathlib import Path
 from evaluator import TokenEvaluator
 from remove_markdown import remove_markdown
@@ -14,6 +10,11 @@ from bs4 import BeautifulSoup
 import mariadb
 import datetime
 import time
+import asyncio
+import html
+import os
+import json
+import requests
 
 @asynccontextmanager
 async def lifespan(app):
@@ -63,9 +64,21 @@ async def lifespan(app):
                 conn.commit()
     finally:
         cursor.close()
+
+    '''
+    ollama_response = requests.post(
+        f"{OLLAMA_URL}/api/pull",
+        json={
+            "model": "qwen3:4b"
+        }
+    )
+    ollama_response.raise_for_status()
+    '''
+
     yield
     conn.close()
 
+OLLAMA_URL = "http://ollama:11434"
 
 app = FastAPI(title="Backend API", lifespan=lifespan)
 
@@ -197,6 +210,15 @@ class EvaluateRequest(BaseModel):
 class EvaluateResponse(BaseModel):
     token_level_eval: Dict[str,float]
 
+class JudgeEvaluateRequest(BaseModel):
+    parsed_text: str
+    gold_text: str
+
+class JudgeEvaluateResponse(BaseModel):
+    model_name: str
+    judge_score: int
+    judge_feedback: str
+
 class DBStatsResponse(BaseModel):
     db_status: Dict[str,Dict[str,Any]]
 
@@ -268,6 +290,7 @@ def post_parse(input: ParseInput) -> ParseOutput:
     
         result = parse(input.url)
         html_text = result.html_text
+        result = asyncio.run(html_parser_run(html_text, domain))
 
     else:
 
@@ -378,7 +401,6 @@ def get_gold_standard(url: str) -> GSResponse:
             cursor.execute(gold_select_query, (url, ))
             result = cursor.fetchone()
             if result != None:
-                print("Gold_text present")
                 gold_result = result[0]
             
             cursor.execute(web_select_query, (url, ))
@@ -482,6 +504,10 @@ def evaluate(request: EvaluateRequest) -> EvaluateResponse:
     return EvaluateResponse(token_level_eval=payload)
 
 
+@app.post("/evaluate_judge")
+def evaluate_judge(request: JudgeEvaluateRequest) -> JudgeEvaluateResponse:
+    pass
+
 @app.get("/full_gs_eval")
 def get_full_gs_eval(domain: str) -> EvaluateResponse:
 
@@ -536,7 +562,7 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
                     )
                 )
 
-                conn.commit()
+            conn.commit()
 
             sum_precision += evaluation.token_level_eval.get("precision")
             sum_recall += evaluation.token_level_eval.get("recall")

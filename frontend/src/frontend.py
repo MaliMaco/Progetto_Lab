@@ -4,7 +4,6 @@ from fastapi.responses import HTMLResponse
 import requests
 from pathlib import Path
 import os
-from typing import Optional
 
 app = FastAPI(title="Frontend API")
 
@@ -98,14 +97,14 @@ def home(request: Request):
     """
  
     try:
-        r = requests.get(f"{BASE_URL}/status", timeout=3)
+        r = requests.get(f"{BASE_URL}/status")
         r.raise_for_status()
         status = r.json()           # {"backend": "ok", "database": "ok", "ollama": "ok"}
     except Exception:
         status = {"backend": "error", "database": "error", "ollama": "error"}
  
     try:
-        r = requests.get(f"{BASE_URL}/domains", timeout=3)
+        r = requests.get(f"{BASE_URL}/domains")
         r.raise_for_status()
         domain_list = r.json().get("domains", [])
     except Exception:
@@ -223,18 +222,7 @@ def parse_ui(
             context=base_context(request, error="Dominio non supportato.")
         )
 
-    '''
-    Per tandfonline usiamo l'HTML nel gold standard nel caso in cui si cada in un blocco di Cloudflare.
-    '''
-    if domain == "www.tandfonline.com":
-        response = requests.get(f"{BASE_URL}/gold_standard", params={"url": url})
-        response.raise_for_status()
-        gold_data = response.json()
-        payload = {"url": url, "html_text": gold_data["html_text"]}
-        response = requests.post(f"{BASE_URL}/parse", json=payload)
-        response.raise_for_status()
-    else:
-        response = requests.get(f"{BASE_URL}/parse", params={"url": url})
+    response = requests.post(f"{BASE_URL}/parse", params={"url": url, "local": True})
 
     parsed = response.json()
 

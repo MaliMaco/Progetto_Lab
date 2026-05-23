@@ -26,7 +26,7 @@ async def lifespan(app):
             conn = mariadb.connect(
             host="database",
             port=3306,
-            user="user",
+            user="root",
             password="biar",
             database="db_progetto"
             )
@@ -65,16 +65,17 @@ async def lifespan(app):
     finally:
         cursor.close()
 
-    '''
-    ollama_response = requests.post(
-        f"{OLLAMA_URL}/api/pull",
-        json={
-            "model": "qwen3:4b"
-        }
-    )
-    ollama_response.raise_for_status()
-    '''
-
+    try:
+        ollama_response = requests.post(
+            f"{OLLAMA_URL}/api/pull",
+            json={
+                "model": "qwen3:4b"
+            }
+        )
+        ollama_response.raise_for_status()
+    except Exception as e:
+        print(f"Ollama error: {e}")
+    
     yield
     conn.close()
 
@@ -145,7 +146,7 @@ eval_insert_query = (
 
 llm_insert_query = (
     "INSERT INTO "
-    "gold_standard (url, score, verdict, created_at) "
+    "llm_judgments (url, score, verdict, created_at) "
     "VALUES (?, ?, ?, ?) "
     "ON DUPLICATE KEY UPDATE "
     "score = VALUES(score), "
@@ -218,6 +219,10 @@ class JudgeEvaluateResponse(BaseModel):
     model_name: str
     judge_score: int
     judge_feedback: str
+
+class FullGSEvaluateResponse(BaseModel):
+    token_level_eval: Dict[str,float]
+    judge_score: float
 
 class DBStatsResponse(BaseModel):
     db_status: Dict[str,Dict[str,Any]]
@@ -301,7 +306,7 @@ def post_parse(input: ParseInput) -> ParseOutput:
         conn = mariadb.connect(
             host="database",
             port=3306,
-            user="user",
+            user="root",
             password="biar",
             database="db_progetto"
             )
@@ -391,7 +396,7 @@ def get_gold_standard(url: str) -> GSResponse:
         conn = mariadb.connect(
             host="database",
             port=3306,
-            user="user",
+            user="root",
             password="biar",
             database="db_progetto"
             )
@@ -436,7 +441,7 @@ def get_gold_standard_urls(domain: str) -> GSURLSResponse:
     conn = mariadb.connect(
         host="database",
         port=3306,
-        user="user",
+        user="root",
         password="biar",
         database="db_progetto"
         )
@@ -506,7 +511,90 @@ def evaluate(request: EvaluateRequest) -> EvaluateResponse:
 
 @app.post("/evaluate_judge")
 def evaluate_judge(request: JudgeEvaluateRequest) -> JudgeEvaluateResponse:
-    pass
+
+    if not request.parsed_text or not request.gold_text:
+        return JudgeEvaluateResponse(
+            model_name="qwen3",
+            judge_score=0,
+            judge_feedback="I testi sono vuoti."
+        )
+    
+    cleaned_md_text = html.unescape(remove_markdown(request.parsed_text))
+
+    cleaned_parsed_text = TokenEvaluator.normalize(cleaned_md_text.lower())
+    cleaned_gold_text = TokenEvaluator.normalize(request.gold_text.lower())
+
+    '''
+    Devi solamente sistemare il prompt per fare uscire bene il voto.
+    '''
+
+    payload = {
+        "model": "qwen3:4b",
+        "prompt": f'''
+        Restituisci SOLO JSON valido. 
+        Sei un esperto nel confronto di testi. 
+        Confronta parsed_text e gold_text considerando SOLO quanti token 
+        hanno in comune. NON considerare grammatica, sintassi o significato. 
+        Scala voto:
+        1 = testi completamente diversi
+        2 = pochi token in comune
+        3 = circa metà token in comune
+        4 = molti token in comune
+        5 = testi quasi identici
+        Restituisci SOLO un JSON con:
+        - voto (intero)
+        - feedback (stringa)
+        parsed_text: {cleaned_parsed_text}
+        gold_text: {cleaned_gold_text}''',
+        "raw": True,
+        "format": {
+            "type": "object",
+            "properties": {
+            "voto": {
+                "type": "integer"
+            },
+            "feedback": {
+                "type": "string"
+            }
+            },
+            "required": ["voto", "feedback"]
+        },
+        "stream": False,
+        "options": {
+            "temperature": 0
+        }
+    }
+
+    response = requests.post(
+        f"{OLLAMA_URL}/api/generate",
+        json=payload
+    )
+    response.raise_for_status()
+
+    raw_response = response.json()
+
+    raw_json_string = raw_response["response"].strip()
+
+    try:
+        parsed_response = json.loads(raw_json_string)
+
+        llm_score = parsed_response["voto"]
+        llm_feedback = parsed_response["feedback"]
+
+    except json.JSONDecodeError:
+
+        llm_score = 0
+        llm_feedback = (
+            f"Errore parsing JSON LLM: {raw_json_string}"
+        )
+
+
+    return JudgeEvaluateResponse(
+        model_name=raw_response['model'],
+        judge_score=llm_score,
+        judge_feedback=llm_feedback
+    )
+
 
 @app.get("/full_gs_eval")
 def get_full_gs_eval(domain: str) -> EvaluateResponse:
@@ -516,14 +604,6 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
         calcolando la media delle metriche di valutazione delle singole entry wrappandole in un oggetto di classe EvaluateResponse.
         Lancia un errore se il dominio in input non è supportato.
     '''
-
-    conn = mariadb.connect(
-        host="database",
-        port=3306,
-        user="user",
-        password="biar",
-        database="db_progetto"
-        )
 
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
         domains = json.load(dm_file)
@@ -551,6 +631,21 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
                     gold_text=gs_response.gold_text
                     )
                 )
+            
+            evaluation_judge = evaluate_judge(
+                JudgeEvaluateRequest(
+                    parsed_text=result.parsed_text, 
+                    gold_text=gs_response.gold_text
+                )
+            )
+
+            conn = mariadb.connect(
+                host="database",
+                port=3306,
+                user="root",
+                password="biar",
+                database="db_progetto"
+                )
 
             with conn.cursor() as cursor:
                 cursor.execute(eval_insert_query, (
@@ -562,11 +657,20 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
                     )
                 )
 
+                cursor.execute(llm_insert_query, (
+                    gs_response.url,
+                    evaluation_judge.judge_score,
+                    evaluation_judge.judge_feedback,
+                    datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    )
+                )
+
             conn.commit()
 
             sum_precision += evaluation.token_level_eval.get("precision")
             sum_recall += evaluation.token_level_eval.get("recall")
             sum_f1 += evaluation.token_level_eval.get("f1")
+            sum_judge_score += evaluation_judge.judge_score
             gs_number += 1
 
         except HTTPException:
@@ -580,6 +684,7 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
     precision = sum_precision/gs_number if gs_number > 0 else 0.0
     recall = sum_recall/gs_number if gs_number > 0 else 0.0
     f1 = sum_f1/gs_number if gs_number > 0 else 0.0
+    judge_score = sum_judge_score/gs_number if gs_number > 0 else 0.0
 
     payload = {
             "precision": precision,
@@ -587,7 +692,10 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
             "f1": f1
     }
 
-    return EvaluateResponse(token_level_eval=payload)
+    return FullGSEvaluateResponse(
+        token_level_eval=payload,
+        judge_score=judge_score
+        )
 
 
 @app.post("/add_web_resource")
@@ -596,7 +704,7 @@ def add_web_resource(input: AddWebInput) -> AddWebOutput:
     conn = mariadb.connect(
         host="database",
         port=3306,
-        user="user",
+        user="root",
         password="biar",
         database="db_progetto"
         )
@@ -629,7 +737,7 @@ def add_gold_standard(input: AddGoldInput) -> AddGoldOutput:
         conn = mariadb.connect(
             host="database",
             port=3306,
-            user="user",
+            user="root",
             password="biar",
             database="db_progetto"
             )
@@ -658,7 +766,7 @@ def delete_web_resource(url: str):
     conn = mariadb.connect(
         host="database",
         port=3306,
-        user="user",
+        user="root",
         password="biar",
         database="db_progetto"
         )
@@ -680,7 +788,7 @@ def delete_gold_standard(url: str):
     conn = mariadb.connect( 
             host="database",
             port=3306,
-            user="user",
+            user="root",
             password="biar",
             database="db_progetto"
             )
@@ -735,7 +843,7 @@ def get_db_stats() -> DBStatsResponse:
     conn = mariadb.connect(
         host="database",
         port=3306,
-        user="user",
+        user="root",
         password="biar",
         database="db_progetto"
         )
@@ -841,7 +949,7 @@ def get_db_schema() -> DBSchemaResponse:
         conn = mariadb.connect(
             host="database",
             port=3306,
-            user="user",
+            user="root",
             password="biar",
             database="db_progetto"
             )
@@ -880,7 +988,7 @@ def get_status() -> StatusResponse:
     conn = mariadb.connect(
         host="database",
         port=3306,
-        user="user",
+        user="root",
         password="biar",
         database="db_progetto"
         )

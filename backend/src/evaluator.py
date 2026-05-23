@@ -15,7 +15,7 @@ class TokenEvaluator:
     def normalize(text: str) -> str:
 
         '''
-        Prima pulizia.
+        Prima pulizia, cancella i caratteri speciali e gli spazi extra.
         '''
 
         text = text.strip()

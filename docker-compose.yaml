@@ -8,7 +8,8 @@ services:
     ports:
       - "8003:8003"
     depends_on:
-      - database
+     - database
+     - ollama
 
   frontend:
     build:
@@ -28,8 +29,6 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=biar
       - MYSQL_DATABASE=db_progetto
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=biar
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./mariadb_data:/var/lib/mysql
@@ -39,7 +38,18 @@ services:
       timeout: 5s
       retries: 10
 
-  
+  ollama:
+    image: ollama/ollama:0.30.0-rc20
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:11434/api/tags"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
 
 volumes:
   mariadb_data:

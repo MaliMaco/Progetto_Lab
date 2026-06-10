@@ -69,7 +69,7 @@ async def lifespan(app):
         ollama_response = requests.post(
             f"{OLLAMA_URL}/api/pull",
             json={
-                "model": "qwen3:4b"
+                "model": "llama3.2:3b"
             }
         )
         ollama_response.raise_for_status()
@@ -506,6 +506,39 @@ def evaluate(request: EvaluateRequest) -> EvaluateResponse:
     parsed_set = TokenEvaluator.token_parsed_text(md_text.lower())
     gold_set = TokenEvaluator.token_gold_text(clean_gold_text.lower())
     payload = TokenEvaluator.evaluate(parsed_text=parsed_set,gold_text=gold_set)
+
+    conn = mariadb.connect(
+                host="database",
+                port=3306,
+                user="root",
+                password="biar",
+                database="db_progetto"
+                )
+
+    with conn.cursor() as cursor:
+
+        cursor.execute("SELECT url FROM gold_standard WHERE gold_text = ?", 
+                       (request.gold_text, )
+                    )
+        row = cursor.fetchone()
+
+        if row is None:
+            raise HTTPException(404, "Gold standard non trovato")
+
+        url = row[0]
+
+        cursor.execute(eval_insert_query, (
+            url,
+            payload["precision"],
+            payload["recall"],
+            payload["f1"],
+            datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        )
+
+    )
+        
+    conn.commit()
+        
     return EvaluateResponse(token_level_eval=payload)
 
 
@@ -529,23 +562,34 @@ def evaluate_judge(request: JudgeEvaluateRequest) -> JudgeEvaluateResponse:
     '''
 
     payload = {
-        "model": "qwen3:4b",
-        "prompt": f'''
-        Restituisci SOLO JSON valido. 
-        Sei un esperto nel confronto di testi. 
-        Confronta parsed_text e gold_text considerando SOLO quanti token 
-        hanno in comune. NON considerare grammatica, sintassi o significato. 
-        Scala voto:
-        1 = testi completamente diversi
-        2 = pochi token in comune
-        3 = circa metà token in comune
-        4 = molti token in comune
-        5 = testi quasi identici
-        Restituisci SOLO un JSON con:
-        - voto (intero)
-        - feedback (stringa)
-        parsed_text: {cleaned_parsed_text}
-        gold_text: {cleaned_gold_text}''',
+        "model": "llama3.2:3b",
+        "messages": [ 
+            {
+            "role": "system", 
+            "content": '''
+            Restituisci SOLO JSON valido.
+            Sei un esperto nel confronto di testi.
+            Confronta parsed_text e gold_text considerando SOLO 
+            quanti token hanno in comune.
+            NON considerare grammatica, sintassi o significato.
+            Scala voto:
+            1 = testi completamente diversi
+            2 = pochi token in comune
+            3 = circa metà token in comune
+            4 = molti token in comune
+            5 = testi quasi identici
+            Restituisci SOLO un JSON con:
+            - voto (intero)
+            - feedback (stringa)
+            '''
+            },
+            {
+            "role": "user", 
+            "content": f'''parsed_text: {cleaned_parsed_text[800:0]}. 
+            gold_text: {cleaned_gold_text[800:0]}.
+            Restituisci un voto ed un feedback.'''
+            } 
+            ],
         "raw": True,
         "format": {
             "type": "object",
@@ -561,19 +605,20 @@ def evaluate_judge(request: JudgeEvaluateRequest) -> JudgeEvaluateResponse:
         },
         "stream": False,
         "options": {
-            "temperature": 0
+            "temperature": 0,
+            "num_predict": 200
         }
-    }
+        }
 
     response = requests.post(
-        f"{OLLAMA_URL}/api/generate",
+        f"{OLLAMA_URL}/api/chat",
         json=payload
     )
     response.raise_for_status()
 
     raw_response = response.json()
 
-    raw_json_string = raw_response["response"].strip()
+    raw_json_string = raw_response["message"]["content"].strip()
 
     try:
         parsed_response = json.loads(raw_json_string)
@@ -588,6 +633,36 @@ def evaluate_judge(request: JudgeEvaluateRequest) -> JudgeEvaluateResponse:
             f"Errore parsing JSON LLM: {raw_json_string}"
         )
 
+    conn = mariadb.connect(
+                host="database",
+                port=3306,
+                user="root",
+                password="biar",
+                database="db_progetto"
+                )
+
+    with conn.cursor() as cursor:
+
+        cursor.execute("SELECT url FROM gold_standard WHERE gold_text = ?", 
+                       (request.gold_text, )
+                    )
+        
+        row = cursor.fetchone()
+
+        if row is None:
+            raise HTTPException(404, "Gold standard non trovato")
+
+        url = row[0]
+
+        cursor.execute(llm_insert_query, (
+            url,
+            llm_score,
+            llm_feedback,
+            datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        )
+    )
+        
+    conn.commit()
 
     return JudgeEvaluateResponse(
         model_name=raw_response['model'],
@@ -618,26 +693,15 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
 
     for elem in full_gs_response:
         try:
-            gs_response = get_gold_standard(elem)
-            result = post_parse(
-                ParseInput(
-                url=gs_response.url,
-                local=True
-                )
-            )
-            evaluation = evaluate(
-                EvaluateRequest(
-                    parsed_text=result.parsed_text, 
-                    gold_text=gs_response.gold_text
-                    )
-                )
             
-            evaluation_judge = evaluate_judge(
-                JudgeEvaluateRequest(
-                    parsed_text=result.parsed_text, 
-                    gold_text=gs_response.gold_text
-                )
-            )
+            gs_response = get_gold_standard(elem)
+
+            result = post_parse(
+                        ParseInput(
+                            url=gs_response.url,
+                            local=True
+                        )
+                    )
 
             conn = mariadb.connect(
                 host="database",
@@ -648,24 +712,75 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
                 )
 
             with conn.cursor() as cursor:
-                cursor.execute(eval_insert_query, (
-                    gs_response.url,
-                    evaluation.token_level_eval["precision"],
-                    evaluation.token_level_eval["recall"],
-                    evaluation.token_level_eval["f1"],
-                    datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    )
+
+                cursor.execute(
+                    "SELECT precision_score, recall_score, f1_score FROM evaluations WHERE url = ?",
+                    (elem, )
                 )
 
-                cursor.execute(llm_insert_query, (
-                    gs_response.url,
-                    evaluation_judge.judge_score,
-                    evaluation_judge.judge_feedback,
-                    datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    )
+                result_evaluations = cursor.fetchone()
+
+                cursor.execute(
+                    "SELECT score, verdict FROM llm_judgments WHERE url = ?",
+                    (elem, )
                 )
 
-            conn.commit()
+                result_llm = cursor.fetchone()
+                
+                if result_evaluations != None:
+
+                    evaluation = EvaluateResponse(
+                        token_level_eval={
+                            "precision": result_evaluations[0],
+                            "recall": result_evaluations[1],
+                            "f1": result_evaluations[2]
+                        }
+                    )
+
+                else:
+
+                    evaluation = evaluate(
+                        EvaluateRequest(
+                            parsed_text=result.parsed_text, 
+                            gold_text=gs_response.gold_text
+                        )
+                    )
+                    
+                    cursor.execute(eval_insert_query, (
+                        gs_response.url,
+                        evaluation.token_level_eval["precision"],
+                        evaluation.token_level_eval["recall"],
+                        evaluation.token_level_eval["f1"],
+                        datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                        )
+                    )
+
+                if result_llm != None:
+
+                    evaluation_judge = JudgeEvaluateResponse(
+                        model_name="llama3.2:3b",
+                        judge_score=result_llm[0],
+                        judge_feedback=result_llm[1]
+                    )
+                
+                else:
+
+                    evaluation_judge = evaluate_judge(
+                        JudgeEvaluateRequest(
+                            parsed_text=result.parsed_text, 
+                            gold_text=gs_response.gold_text
+                        )
+                    )
+
+                    cursor.execute(llm_insert_query, (
+                        gs_response.url,
+                        evaluation_judge.judge_score,
+                        evaluation_judge.judge_feedback,
+                        datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                        )
+                    )
+
+                conn.commit()
 
             sum_precision += evaluation.token_level_eval.get("precision")
             sum_recall += evaluation.token_level_eval.get("recall")
@@ -674,11 +789,9 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
             gs_number += 1
 
         except HTTPException:
-            #gs_number += 1
             continue
 
         except Exception:
-            #gs_number += 1
             continue
 
     precision = sum_precision/gs_number if gs_number > 0 else 0.0
@@ -979,6 +1092,7 @@ def get_db_schema() -> DBSchemaResponse:
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
+
 @app.get("/status")
 def get_status() -> StatusResponse:
     """

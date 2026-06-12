@@ -291,6 +291,14 @@ def post_parse(input: ParseInput) -> ParseOutput:
             if domain not in domains['domains']:
                 raise HTTPException(status_code=400, detail="Dominio non supportato.")
     
+    conn = mariadb.connect(
+            host="database",
+            port=3306,
+            user="root",
+            password="biar",
+            database="db_progetto"
+            )
+
     if (input.local == False):
     
         result = parse(input.url)
@@ -302,14 +310,6 @@ def post_parse(input: ParseInput) -> ParseOutput:
         web_select_query = "SELECT html_text " \
                     "FROM web_resources " \
                     "WHERE url = ?"
-
-        conn = mariadb.connect(
-            host="database",
-            port=3306,
-            user="root",
-            password="biar",
-            database="db_progetto"
-            )
 
         with conn.cursor() as cursor:
             try:
@@ -948,7 +948,7 @@ def get_db_stats() -> DBStatsResponse:
     avg_eval_query = "SELECT w.domain, sum(e.precision_score), sum(e.recall_score), sum(e.f1_score), count(w.url) " \
     "FROM evaluations as e JOIN web_resources as w on e.url = w.url " \
     "GROUP BY w.domain"
-    #aspetta Ollama
+    
     avg_eval_judge_query = "SELECT w.domain, sum(score), count(w.url) " \
     "FROM llm_judgments as l JOIN web_resources as w on l.url = w.url " \
     "GROUP BY domain"

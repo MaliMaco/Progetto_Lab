@@ -73,6 +73,11 @@
             {% endfor %}
         </select>
 
+        <label style="display:flex;align-items:center;gap:6px;white-space:nowrap">
+            <input type="checkbox" name="local_mode" value="true" {% if local_mode %}checked{% endif %}>
+            Local
+        </label>
+
         <button type="submit">Parse</button>
 
         <!--
@@ -91,13 +96,15 @@
 <hr>
 
 <!-- DROPDOWN GS: mostra gli URL del dominio selezionato/corrente -->
-{% if gs_list %}
+{% if gs_urls %}
 <form action="/parse_ui" method="post">
     <select name="url">
-        {% for item in gs_list %}
-            <option value="{{ item.url }}">{{ item.url }}</option>
+        {% for u in gs_urls %}
+            <option value="{{ u }}">{{ u }}</option>
         {% endfor %}
     </select>
+    <input type="hidden" name="domain_select" value="{{ selected_domain or '' }}">
+    <input type="hidden" name="local_mode" value="{{ 'true' if local_mode else 'false' }}">
     <button type="submit">Usa GS</button>
 </form>
 {% endif %}
@@ -140,6 +147,20 @@
                     </table>
                 </div>
                 {% endif %}
+
+                {% if judge %}
+                <div class="metrics" style="background:#eef0ff;border-left-color:#5b6af0;margin-top:12px">
+                    <h3 style="margin-top:0">LLM Judge</h3>
+                    <table>
+                        <tr><td>Modello</td><td>{{ judge.model_name }}</td></tr>
+                        <tr><td>Score</td><td>{{ judge.judge_score }} / 5</td></tr>
+                        <tr><td>Feedback</td><td>{{ judge.judge_feedback }}</td></tr>
+                    </table>
+                </div>
+                {% endif %}
+
+            {% else %}
+                <p style="color:#888"><em>URL non presente nel Gold Standard: metriche e judge non disponibili.</em></p>
             {% endif %}
         </div>
     </div>

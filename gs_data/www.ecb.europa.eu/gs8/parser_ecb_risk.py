@@ -14,7 +14,7 @@ async def main():
 
     async with AsyncWebCrawler(config=browser_config) as crawler:
         result = await crawler.arun(
-            url="https://www.bankingsupervision.europa.eu/framework/priorities/html/geopolitical-risk.it.html",
+            url="https://www.ecb.europa.eu/careers/all-about-careers/html/index.it.html",
             config=run_config
         )
 

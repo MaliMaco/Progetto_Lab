@@ -1,6 +1,15 @@
+import sys
+from pathlib import Path
+
+# Aggiungi la cartella corrente al path
+sys.path.insert(0, str(Path(__file__).parent))
+
 from crawl4ai import AsyncWebCrawler, CacheMode
 from crawl4ai.async_configs import BrowserConfig, CrawlerRunConfig
-from crawl4ai.markdown_generation_strategy import DefaultMarkdownGenerator
+from crawl4ai.markdown_generation_strategy import DefaultMarkdownGenerator  # <--- MANCAVA!
+from types import SimpleNamespace
+from bs4 import BeautifulSoup
+import json as _json
 
 '''
 Esclusi: bibliografie, appendici, figure, tabelle, equazioni, link "Open in
@@ -82,14 +91,23 @@ async def parser_run(url: str):
             wait_until="networkidle",
         )
 
-    #Non inserito in domains.json, impraticabile.
+    
     elif domain == "apps.apple.com":
         browser_cfg = BrowserConfig(headless=True)
         run_cfg = CrawlerRunConfig(
-            target_elements=["h1", "h2", "h3", "p"],
-            markdown_generator=md_gen,
             cache_mode=CacheMode.BYPASS,
         )
+        async with AsyncWebCrawler(config=browser_cfg) as crawler:
+            crawl_result = await crawler.arun(url=url, config=run_cfg)
+
+        html = crawl_result.html
+        parsed = await html_parser_run(html, domain)
+
+        res = SimpleNamespace()
+        res.html = html
+        res.markdown = parsed.markdown
+        res.status_code = getattr(crawl_result, "status_code", 200)
+        return res
 
     else:
         browser_cfg = BrowserConfig(headless=True)
@@ -162,14 +180,26 @@ async def html_parser_run(html: str, domain: str):
             wait_until="networkidle",
         )
 
-    #Non inserito in domains.json, impraticabile.
+    
     elif domain == "apps.apple.com":
-        browser_cfg = BrowserConfig(headless=True)
-        run_cfg = CrawlerRunConfig(
-            target_elements=["h1", "h2", "h3", "p"],
-            markdown_generator=md_gen,
-            cache_mode=CacheMode.BYPASS,
-        )
+    # L'HTML reale di Apple Store contiene i dati nel JSON-LD
+        soup_apple = BeautifulSoup(html, "html.parser")
+        ld_scripts = soup_apple.find_all("script", type="application/ld+json")
+        text_parts = []
+        for s in ld_scripts:
+            try:
+                jld = _json.loads(s.get_text())
+                if jld.get("@type") == "SoftwareApplication":
+                    if jld.get("name"):
+                        text_parts.append(f"## {jld['name']}")
+                    if jld.get("description"):
+                        text_parts.append(jld["description"])
+            except Exception:
+                pass
+        extracted = "\n\n".join(text_parts) if text_parts else ""
+        res = SimpleNamespace()
+        res.markdown = extracted
+        return res
 
     else:
         browser_cfg = BrowserConfig(headless=True)

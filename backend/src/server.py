@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, contextmanager
 from pydantic import BaseModel
 from typing import Dict, List, Optional, Any
 from crawler import parser_run, html_parser_run
@@ -46,6 +46,18 @@ async def lifespan(app):
     dm_file.close()
 
     cursor = conn.cursor()
+
+    try:
+        ollama_response = requests.post(
+            f"{OLLAMA_URL}/api/pull",
+            json={
+                "model": "llama3.2:3b"
+            }
+        )
+        ollama_response.raise_for_status()
+    except Exception as e:
+        print(f"Ollama error: {e}")
+
     try:
         for domain in data:
             GS_path = os.path.join(Path(__file__).parent.parent.parent,f"gs_data/{domain}/GS.json")
@@ -62,22 +74,67 @@ async def lifespan(app):
                      c_datestamp)
                                )
                 conn.commit()
+
+                try:
+                    parsed = await html_parser_run(gs['html_text'], domain)
+                    parsed_text = parsed.markdown
+                except Exception as e:
+                    print(f"Parsing iniziale fallito per {gs['url']}: {e}")
+                    continue
+ 
+                try:
+                    eval_result = evaluate(
+                        EvaluateRequest(
+                            parsed_text=parsed_text,
+                            gold_text=gs['gold_text']
+                        )
+                    )
+                    cursor.execute(eval_insert_query, (
+                        gs['url'],
+                        eval_result.token_level_eval["precision"],
+                        eval_result.token_level_eval["recall"],
+                        eval_result.token_level_eval["f1"],
+                        c_datestamp
+                    ))
+                    conn.commit()
+                except Exception as e:
+                    print(f"Evaluate iniziale fallito per {gs['url']}: {e}")
+ 
+                try:
+                    judge_result = evaluate_judge(
+                        JudgeEvaluateRequest(
+                            parsed_text=parsed_text,
+                            gold_text=gs['gold_text']
+                        )
+                    )
+                    cursor.execute(llm_insert_query, (
+                        gs['url'],
+                        judge_result.judge_score,
+                        judge_result.judge_feedback,
+                        c_datestamp
+                    ))
+                    conn.commit()
+                except Exception as e:
+                    print(f"Evaluate_judge iniziale fallito per {gs['url']}: {e}")
     finally:
         cursor.close()
-
-    try:
-        ollama_response = requests.post(
-            f"{OLLAMA_URL}/api/pull",
-            json={
-                "model": "llama3.2:3b"
-            }
-        )
-        ollama_response.raise_for_status()
-    except Exception as e:
-        print(f"Ollama error: {e}")
     
     yield
     conn.close()
+
+@contextmanager
+def get_db_conn():
+    conn = mariadb.connect(
+        host="database",
+        port=3306,
+        user="root",
+        password="biar",
+        database="db_progetto"
+    )
+    try:
+        yield conn
+    finally:
+        conn.close()
 
 OLLAMA_URL = "http://ollama:11434"
 
@@ -175,6 +232,12 @@ class AddWebOutput(BaseModel):
 class AddGoldOutput(BaseModel):
     status: str
 
+class DeleteWebInput(BaseModel):
+    url: str
+
+class DeleteGoldInput(BaseModel):
+    url: str
+
 class DeleteWebOutput(BaseModel):
     status: str
 
@@ -225,10 +288,16 @@ class FullGSEvaluateResponse(BaseModel):
     judge_score: float
 
 class DBStatsResponse(BaseModel):
-    db_status: Dict[str,Dict[str,Any]]
+    web_resources: Dict[str, int] = {}
+    gold_standard: Dict[str, int] = {}
+    avg_eval: Dict[str, Any] = {}
+    avg_eval_judge: Dict[str, Any] = {}
 
 class DBSchemaResponse(BaseModel):
-    db_schema: Dict[str,Dict[str,str]]
+    web_resources: Dict[str, str] = {}
+    gold_standard: Dict[str, str] = {}
+    evaluations: Dict[str, str] = {}
+    llm_judgments: Dict[str, str] = {}
 
 class StatusResponse(BaseModel):
     backend: str
@@ -290,59 +359,57 @@ def post_parse(input: ParseInput) -> ParseOutput:
             domains = json.load(dm_file)
             if domain not in domains['domains']:
                 raise HTTPException(status_code=400, detail="Dominio non supportato.")
-    
-    conn = mariadb.connect(
-            host="database",
-            port=3306,
-            user="root",
-            password="biar",
-            database="db_progetto"
-            )
+            
+    try:
+        with get_db_conn() as conn:
 
-    if (input.local == False):
-    
-        result = parse(input.url)
-        html_text = result.html_text
-        result = asyncio.run(html_parser_run(html_text, domain))
+            if input.local == False:
 
-    else:
-
-        web_select_query = "SELECT html_text " \
-                    "FROM web_resources " \
-                    "WHERE url = ?"
-
-        with conn.cursor() as cursor:
-            try:
-                cursor.execute(
-                    web_select_query,
-                    (input.url,)
-                )
-                result = cursor.fetchone()
-                html_text = result[0]
+                crawl_result = asyncio.run(parser_run(input.url))
+                html_text = crawl_result.html
                 result = asyncio.run(html_parser_run(html_text, domain))
-            except:
-                raise HTTPException(status_code=400, detail="URL non presente nel DB.")
 
-    
-    soup = BeautifulSoup(html_text, "html.parser")
-    title_tag = soup.find('title')
-    if title_tag:
-        title = title_tag.get_text(strip=True)
-    else:
-        div_title = soup.find('div', class_='title')
-        title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
-    md_text = result.markdown
+            else:
 
-    with conn.cursor() as cursor:
-        cursor.execute(web_insert_query, (
-            input.url,
-            domain,
-            title,
-            html_text,
-            datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            )
-        )
-        conn.commit()
+                web_select_query = "SELECT html_text " \
+                            "FROM web_resources " \
+                            "WHERE url = ?"
+
+                with conn.cursor() as cursor:
+                    try:
+                        cursor.execute(
+                            web_select_query,
+                            (input.url,)
+                        )
+                        result = cursor.fetchone()
+                        html_text = result[0]
+                        result = asyncio.run(html_parser_run(html_text, domain))
+                    except:
+                        raise HTTPException(status_code=400, detail="URL non presente nel DB.")
+
+            
+            soup = BeautifulSoup(html_text, "html.parser")
+            title_tag = soup.find('title')
+            if title_tag:
+                title = title_tag.get_text(strip=True)
+            else:
+                div_title = soup.find('div', class_='title')
+                title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
+            md_text = result.markdown
+
+            with conn.cursor() as cursor:
+                cursor.execute(web_insert_query, (
+                    input.url,
+                    domain,
+                    title,
+                    html_text,
+                    datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    )
+                )
+            conn.commit()
+
+    except mariadb.Error as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
     return ParseOutput(
         url=input.url, 
@@ -378,52 +445,50 @@ def get_gold_standard(url: str) -> GSResponse:
 
     url_list = url.split("/")
     domain = url_list[2]
+    
+    '''
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
         domains = json.load(dm_file)
         if domain not in domains['domains']:
             raise HTTPException(status_code=400, detail="Dominio non supportato.")
+    '''
     
     try:
-
-        gold_select_query = "SELECT gold_text " \
-                    "FROM gold_standard " \
-                    "WHERE url = ?"
-        
-        web_select_query = "SELECT title, domain, html_text " \
-                        "FROM web_resources " \
+        with get_db_conn() as conn:
+            gold_select_query = "SELECT gold_text " \
+                        "FROM gold_standard " \
                         "WHERE url = ?"
-
-        conn = mariadb.connect(
-            host="database",
-            port=3306,
-            user="root",
-            password="biar",
-            database="db_progetto"
-            )
-
-        with conn.cursor() as cursor:
-
-            cursor.execute(gold_select_query, (url, ))
-            result = cursor.fetchone()
-            if result != None:
-                gold_result = result[0]
             
-            cursor.execute(web_select_query, (url, ))
-            result = cursor.fetchone()
-            if result != None:
-                print("title, domain and html_text present")
-                title_result = result[0]
-                domain_result = result[1]
-                html_text_result = result[2]
+            web_select_query = "SELECT title, domain, html_text " \
+                            "FROM web_resources " \
+                            "WHERE url = ?"
 
-        return GSResponse(url=url,
+            with conn.cursor() as cursor:
+
+                cursor.execute(gold_select_query, (url, ))
+                result = cursor.fetchone()
+                if result != None:
+                    gold_result = result[0]
+                
+                cursor.execute(web_select_query, (url, ))
+                result = cursor.fetchone()
+                if result != None:
+                    print("title, domain and html_text present")
+                    title_result = result[0]
+                    domain_result = result[1]
+                    html_text_result = result[2]
+
+    except mariadb.Error as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    except:
+        raise HTTPException(status_code=400, detail="URL non presente nel GS.")
+    
+    return GSResponse(url=url,
                         title=title_result, 
                         domain=domain_result,
                         html_text=html_text_result, 
                         gold_text=gold_result
-                            )
-    except:
-        raise HTTPException(status_code=400, detail="URL non presente nel GS.")
+                    )
     
 
 @app.get("/gold_standard_urls")
@@ -438,25 +503,21 @@ def get_gold_standard_urls(domain: str) -> GSURLSResponse:
                     "on web_resources.url = gold_standard.url " \
                     "WHERE web_resources.domain = ?;"
 
-    conn = mariadb.connect(
-        host="database",
-        port=3306,
-        user="root",
-        password="biar",
-        database="db_progetto"
-        )
+    try:
+        with get_db_conn() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(select_query, (domain, ))
+                result = cursor.fetchall()
+                urls_list = list()
+                for elem in result:
+                    urls_list.append(elem[0])
 
-    with conn.cursor() as cursor:
-        cursor.execute(select_query, (domain, ))
-        result = cursor.fetchall()
-        urls_list = list()
-        for elem in result:
-            urls_list.append(elem[0])
+    except mariadb.Error as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
     return GSURLSResponse(
         gold_standard_urls=urls_list
     )
-    
 
 
 @app.get("/full_gold_standard")
@@ -506,38 +567,6 @@ def evaluate(request: EvaluateRequest) -> EvaluateResponse:
     parsed_set = TokenEvaluator.token_parsed_text(md_text.lower())
     gold_set = TokenEvaluator.token_gold_text(clean_gold_text.lower())
     payload = TokenEvaluator.evaluate(parsed_text=parsed_set,gold_text=gold_set)
-
-    conn = mariadb.connect(
-                host="database",
-                port=3306,
-                user="root",
-                password="biar",
-                database="db_progetto"
-                )
-
-    with conn.cursor() as cursor:
-
-        cursor.execute("SELECT url FROM gold_standard WHERE gold_text = ?", 
-                       (request.gold_text, )
-                    )
-        row = cursor.fetchone()
-
-        if row is None:
-            raise HTTPException(404, "Gold standard non trovato")
-
-        url = row[0]
-
-        cursor.execute(eval_insert_query, (
-            url,
-            payload["precision"],
-            payload["recall"],
-            payload["f1"],
-            datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        )
-
-    )
-        
-    conn.commit()
         
     return EvaluateResponse(token_level_eval=payload)
 
@@ -556,10 +585,6 @@ def evaluate_judge(request: JudgeEvaluateRequest) -> JudgeEvaluateResponse:
 
     cleaned_parsed_text = TokenEvaluator.normalize(cleaned_md_text.lower())
     cleaned_gold_text = TokenEvaluator.normalize(request.gold_text.lower())
-
-    '''
-    Devi solamente sistemare il prompt per fare uscire bene il voto.
-    '''
 
     payload = {
         "model": "llama3.2:3b",
@@ -633,37 +658,6 @@ def evaluate_judge(request: JudgeEvaluateRequest) -> JudgeEvaluateResponse:
             f"Errore parsing JSON LLM: {raw_json_string}"
         )
 
-    conn = mariadb.connect(
-                host="database",
-                port=3306,
-                user="root",
-                password="biar",
-                database="db_progetto"
-                )
-
-    with conn.cursor() as cursor:
-
-        cursor.execute("SELECT url FROM gold_standard WHERE gold_text = ?", 
-                       (request.gold_text, )
-                    )
-        
-        row = cursor.fetchone()
-
-        if row is None:
-            raise HTTPException(404, "Gold standard non trovato")
-
-        url = row[0]
-
-        cursor.execute(llm_insert_query, (
-            url,
-            llm_score,
-            llm_feedback,
-            datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        )
-    )
-        
-    conn.commit()
-
     return JudgeEvaluateResponse(
         model_name=raw_response['model'],
         judge_score=llm_score,
@@ -672,7 +666,7 @@ def evaluate_judge(request: JudgeEvaluateRequest) -> JudgeEvaluateResponse:
 
 
 @app.get("/full_gs_eval")
-def get_full_gs_eval(domain: str) -> EvaluateResponse:
+def get_full_gs_eval(domain: str) -> FullGSEvaluateResponse:
 
     '''
     * GET /full_gs_eval: dato un dominio in input, restituisce la valutazione complessiva del Gold Standard associato a tale dominio
@@ -689,6 +683,7 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
     sum_precision = 0.0
     sum_recall = 0.0
     sum_f1 = 0.0
+    sum_judge_score = 0.0
     gs_number = 0
 
     for elem in full_gs_response:
@@ -703,84 +698,82 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
                         )
                     )
 
-            conn = mariadb.connect(
-                host="database",
-                port=3306,
-                user="root",
-                password="biar",
-                database="db_progetto"
-                )
+            try:
+                with get_db_conn() as conn:
 
-            with conn.cursor() as cursor:
+                    with conn.cursor() as cursor:
 
-                cursor.execute(
-                    "SELECT precision_score, recall_score, f1_score FROM evaluations WHERE url = ?",
-                    (elem, )
-                )
-
-                result_evaluations = cursor.fetchone()
-
-                cursor.execute(
-                    "SELECT score, verdict FROM llm_judgments WHERE url = ?",
-                    (elem, )
-                )
-
-                result_llm = cursor.fetchone()
-                
-                if result_evaluations != None:
-
-                    evaluation = EvaluateResponse(
-                        token_level_eval={
-                            "precision": result_evaluations[0],
-                            "recall": result_evaluations[1],
-                            "f1": result_evaluations[2]
-                        }
-                    )
-
-                else:
-
-                    evaluation = evaluate(
-                        EvaluateRequest(
-                            parsed_text=result.parsed_text, 
-                            gold_text=gs_response.gold_text
+                        cursor.execute(
+                            "SELECT precision_score, recall_score, f1_score FROM evaluations WHERE url = ?",
+                            (elem, )
                         )
-                    )
-                    
-                    cursor.execute(eval_insert_query, (
-                        gs_response.url,
-                        evaluation.token_level_eval["precision"],
-                        evaluation.token_level_eval["recall"],
-                        evaluation.token_level_eval["f1"],
-                        datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+                        result_evaluations = cursor.fetchone()
+
+                        cursor.execute(
+                            "SELECT score, verdict FROM llm_judgments WHERE url = ?",
+                            (elem, )
                         )
-                    )
 
-                if result_llm != None:
+                        result_llm = cursor.fetchone()
+                        
+                        if result_evaluations is not None:
 
-                    evaluation_judge = JudgeEvaluateResponse(
-                        model_name="llama3.2:3b",
-                        judge_score=result_llm[0],
-                        judge_feedback=result_llm[1]
-                    )
-                
-                else:
+                            evaluation = EvaluateResponse(
+                                token_level_eval={
+                                    "precision": result_evaluations[0],
+                                    "recall": result_evaluations[1],
+                                    "f1": result_evaluations[2]
+                                }
+                            )
 
-                    evaluation_judge = evaluate_judge(
-                        JudgeEvaluateRequest(
-                            parsed_text=result.parsed_text, 
-                            gold_text=gs_response.gold_text
-                        )
-                    )
+                        else:
 
-                    cursor.execute(llm_insert_query, (
-                        gs_response.url,
-                        evaluation_judge.judge_score,
-                        evaluation_judge.judge_feedback,
-                        datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                        )
-                    )
+                            evaluation = evaluate(
+                                EvaluateRequest(
+                                    parsed_text=result.parsed_text, 
+                                    gold_text=gs_response.gold_text
+                                )
+                            )
+                            
+                            cursor.execute(eval_insert_query, (
+                                gs_response.url,
+                                evaluation.token_level_eval["precision"],
+                                evaluation.token_level_eval["recall"],
+                                evaluation.token_level_eval["f1"],
+                                datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                )
+                            )
 
-                conn.commit()
+                        if result_llm is not None:
+
+                            evaluation_judge = JudgeEvaluateResponse(
+                                model_name="llama3.2:3b",
+                                judge_score=result_llm[0],
+                                judge_feedback=result_llm[1]
+                            )
+                        
+                        else:
+
+                            evaluation_judge = evaluate_judge(
+                                JudgeEvaluateRequest(
+                                    parsed_text=result.parsed_text, 
+                                    gold_text=gs_response.gold_text
+                                )
+                            )
+
+                            cursor.execute(llm_insert_query, (
+                                gs_response.url,
+                                evaluation_judge.judge_score,
+                                evaluation_judge.judge_feedback,
+                                datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                )
+                            )
+
+                    conn.commit()
+
+            except mariadb.Error as e:
+                raise HTTPException(status_code=500, detail=str(e))
 
             sum_precision += evaluation.token_level_eval.get("precision")
             sum_recall += evaluation.token_level_eval.get("recall")
@@ -788,7 +781,7 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
             sum_judge_score += evaluation_judge.judge_score
             gs_number += 1
 
-        except HTTPException:
+        except HTTPException as e:
             continue
 
         except Exception:
@@ -814,31 +807,30 @@ def get_full_gs_eval(domain: str) -> EvaluateResponse:
 @app.post("/add_web_resource")
 def add_web_resource(input: AddWebInput) -> AddWebOutput:
 
-    conn = mariadb.connect(
-        host="database",
-        port=3306,
-        user="root",
-        password="biar",
-        database="db_progetto"
-        )
+    url_list = input.url.split("/")
+    domain = url_list[2]
 
-    with conn.cursor() as cursor:
-        url_list = input.url.split("/")
-        domain = url_list[2]
+    soup = BeautifulSoup(input.html_text, "html.parser")
+    title_tag = soup.find('title')
+    if title_tag:
+        title = title_tag.get_text(strip=True)
+    else:
+        div_title = soup.find('div', class_='title')
+        title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
 
-        soup = BeautifulSoup(input.html_text, "html.parser")
-        title_tag = soup.find('title')
-        if title_tag:
-            title = title_tag.get_text(strip=True)
-        else:
-            div_title = soup.find('div', class_='title')
-            title = div_title.get_text(strip=True) if div_title else "Nessun titolo"
+    data = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        data = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    try:
+        with get_db_conn() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(web_insert_query, 
+                    (input.url, domain, title, input.html_text, data)
+                    )
+        
+            conn.commit()
 
-        cursor.execute(web_insert_query, (input.url, domain, title, input.html_text, data))
-    
-    conn.commit()
+    except mariadb.Error as e:
+        raise HTTPException(status_code=500, detail=str(e))
     
     return AddWebOutput(status="ok")
 
@@ -847,19 +839,13 @@ def add_web_resource(input: AddWebInput) -> AddWebOutput:
 def add_gold_standard(input: AddGoldInput) -> AddGoldOutput:
 
     try:
-        conn = mariadb.connect(
-            host="database",
-            port=3306,
-            user="root",
-            password="biar",
-            database="db_progetto"
-            )
-        with conn.cursor() as cursor:
-            data = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with get_db_conn() as conn:
+            with conn.cursor() as cursor:
+                data = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            cursor.execute(gold_insert_query, (input.url, input.gold_text, data))
+                cursor.execute(gold_insert_query, (input.url, input.gold_text, data))
         
-        conn.commit()
+            conn.commit()
 
     except mariadb.IntegrityError as e:
         if e.errno == 1452:
@@ -873,49 +859,43 @@ def add_gold_standard(input: AddGoldInput) -> AddGoldOutput:
     return AddGoldOutput(status="ok")
 
 
-@app.delete("/web_resouce")
-def delete_web_resource(url: str):
+@app.delete("/web_resource")
+def delete_web_resource(input: DeleteWebInput) -> DeleteWebOutput:
     
-    conn = mariadb.connect(
-        host="database",
-        port=3306,
-        user="root",
-        password="biar",
-        database="db_progetto"
-        )
+    try:
+        with get_db_conn() as conn:
+            with conn.cursor() as cursor:
 
-    with conn.cursor() as cursor:
+                delete_query = "DELETE FROM web_resources WHERE url = ?"
+                cursor.execute(delete_query, (input.url, ))
+            
+            conn.commit()
 
-        delete_query = "DELETE FROM web_resources WHERE url = ?"
-        cursor.execute(delete_query, (url, ))
-    
-    conn.commit()
+    except mariadb.Error as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
     return DeleteWebOutput(status="ok")
 
 
 
 @app.delete("/gold_standard")
-def delete_gold_standard(url: str):
+def delete_gold_standard(input: DeleteGoldInput) -> DeleteGoldOutput:
 
-    conn = mariadb.connect( 
-            host="database",
-            port=3306,
-            user="root",
-            password="biar",
-            database="db_progetto"
-            )
+    try:
+        with get_db_conn() as conn:
+            with conn.cursor() as cursor:
 
-    with conn.cursor() as cursor:
+                delete_query = "DELETE FROM gold_standard WHERE url = ?"
+                cursor.execute(delete_query, (input.url, ))
 
-        delete_query = "DELETE FROM gold_standard WHERE url = ?"
-        cursor.execute(delete_query, (url, ))
-
-        if cursor.rowcount == 0:
-            conn.rollback()
-            raise HTTPException(status_code=400, detail="DELETE su URL non presente nel GS.")
+                if cursor.rowcount == 0:
+                    conn.rollback()
+                    return DeleteGoldOutput(status="error")
     
-    conn.commit()
+            conn.commit()
+
+    except mariadb.Error as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
     return DeleteGoldOutput(status="ok")
 
@@ -953,84 +933,78 @@ def get_db_stats() -> DBStatsResponse:
     "FROM llm_judgments as l JOIN web_resources as w on l.url = w.url " \
     "GROUP BY domain"
 
-    conn = mariadb.connect(
-        host="database",
-        port=3306,
-        user="root",
-        password="biar",
-        database="db_progetto"
-        )
+    try:
+        with get_db_conn() as conn:
 
-    with conn.cursor() as cursor:
+            with conn.cursor() as cursor:
 
-        #web_resources
-        cursor.execute(web_count_query)
-        result = cursor.fetchall()
-        for elem in result:
-            web_resources[elem[0]] = elem[1]
+                #web_resources
+                cursor.execute(web_count_query)
+                result = cursor.fetchall()
+                for elem in result:
+                    web_resources[elem[0]] = elem[1]
 
-        #gold_standard
-        cursor.execute(gold_count_query)
-        result = cursor.fetchall()
-        for elem in result:
-            gold_standard[elem[0]] = elem[1]
+                #gold_standard
+                cursor.execute(gold_count_query)
+                result = cursor.fetchall()
+                for elem in result:
+                    gold_standard[elem[0]] = elem[1]
+                '''
+                #evaluations
+                cursor.execute(eval_count_query)
+                result = cursor.fetchall()
+                try:
+                    for elem in result:
+                        evaluations[elem[0]] = elem[1]
+                except:
+                    print("Tabella evaluations vuota, " \
+                    "esegui una full_gs_eval per generare delle valutazioni " \
+                    "o farne un aggiornamento")
 
-        #evaluations
-        cursor.execute(eval_count_query)
-        result = cursor.fetchall()
-        try:
-            for elem in result:
-                llm_judgments[elem[0]] = elem[1]
-        except:
-            print("Tabella evaluations vuota, " \
-            "esegui una full_gs_eval per generare delle valutazioni " \
-            "o farne un aggiornamento")
+                #llm_judgments
+                cursor.execute(llm_count_query)
+                result = cursor.fetchall()
+                try:
+                    for elem in result:
+                        llm_judgments[elem[0]] = elem[1]
+                except:
+                    print("Tabella llm_judgments vuota, " \
+                    "esegui una full_gs_eval per generare delle valutazioni " \
+                    "o farne un aggiornamento")
+                '''
+                #avg_eval
+                cursor.execute(avg_eval_query)
+                result = cursor.fetchall()
+                try:
+                    for elem in result:
+                        avg_eval[elem[0]] = {
+                            "token_level_eval": {
+                                "precision": elem[1]/elem[4] if elem[4] > 0 else 0.0,
+                                "recall": elem[2]/elem[4] if elem[4] > 0 else 0.0,
+                                "f1": elem[3]/elem[4] if elem[4] > 0 else 0.0
+                            }
+                            }
+                except:
+                    print("Tabella eva vuota, " \
+                    "esegui una full_gs_eval per generare delle valutazioni " \
+                    "o farne un aggiornamento")
 
-        #llm_judgments
-        cursor.execute(llm_count_query)
-        result = cursor.fetchall()
-        try:
-            for elem in result:
-                llm_judgments[elem[0]] = elem[1]
-        except:
-            print("Tabella llm_judgments vuota, " \
-            "esegui una full_gs_eval per generare delle valutazioni " \
-            "o farne un aggiornamento")
-
-        #avg_eval
-        cursor.execute(avg_eval_query)
-        result = cursor.fetchall()
-        try:
-            for elem in result:
-                avg_eval[elem[0]] = {
-                    "token_level_eval": {
-                        "precision": elem[1]/elem[4] if elem[4] > 0 else 0.0,
-                        "recall": elem[2]/elem[4] if elem[4] > 0 else 0.0,
-                        "f1": elem[3]/elem[4] if elem[4] > 0 else 0.0
-                    }
-                    }
-        except:
-            print("Tabella eva vuota, " \
-            "esegui una full_gs_eval per generare delle valutazioni " \
-            "o farne un aggiornamento")
-
-        #avg_eval_judge (aspetta per Ollama)
-        cursor.execute(avg_eval_judge_query)
-        result = cursor.fetchall()
-        for elem in result:
-            avg_eval_judge[elem[0]] = {
-                "judge_score": elem[1]/elem[2] if elem[2] > 0 else 0.0
-                }
+                #avg_eval_judge (aspetta per Ollama)
+                cursor.execute(avg_eval_judge_query)
+                result = cursor.fetchall()
+                for elem in result:
+                    avg_eval_judge[elem[0]] = {
+                        "judge_score": elem[1]/elem[2] if elem[2] > 0 else 0.0
+                        }
+                    
+    except mariadb.Error as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
     return DBStatsResponse(
-        db_status={
-            "web_resources": web_resources,
-            "gold_standard": gold_standard,
-            "evaluations": evaluations,
-            "llm_judgments": llm_judgments,
-            "avg_eval": avg_eval,
-            "avg_eval_judge": avg_eval_judge
-        }
+        web_resources=web_resources,
+        gold_standard=gold_standard,
+        avg_eval=avg_eval,
+        avg_eval_judge=avg_eval_judge
     )
         
 
@@ -1059,36 +1033,35 @@ def get_db_schema() -> DBSchemaResponse:
             ORDER BY c.TABLE_NAME, c.ORDINAL_POSITION
         """
 
-        conn = mariadb.connect(
-            host="database",
-            port=3306,
-            user="root",
-            password="biar",
-            database="db_progetto"
-            )
+        try:
+            with get_db_conn() as conn:
 
-        cursor = conn.cursor()
-        cursor.execute(query, ("db_progetto",))
-        rows = cursor.fetchall()
-        cursor.close()
+                cursor = conn.cursor()
+                cursor.execute(query, ("db_progetto",))
+                rows = cursor.fetchall()
+                cursor.close()
 
-        schema: dict = {}
+                schema: dict = {}
 
-        for table, column, col_type, col_key, ref_table, ref_col in rows:
-            if table not in schema:
-                schema[table] = {}
+                for table, column, col_type, col_key, ref_table, ref_col in rows:
+                    if table not in schema:
+                        schema[table] = {}
 
-            parts = [col_type]
-            if col_key == "PRI":
-                parts.append("PK")
-            if ref_table:                                    # è una FK
-                parts.append(f"FK({ref_table}.{ref_col})")
+                    parts = [col_type]
+                    if col_key == "PRI":
+                        parts.append("PK")
+                    if ref_table:                                    # è una FK
+                        parts.append(f"FK({ref_table}.{ref_col})")
 
-            schema[table][column] = ", ".join(parts)
+                    schema[table][column] = ", ".join(parts)
 
-        return DBSchemaResponse(
-            db_schema=schema
-        )
+                return DBSchemaResponse(
+                    **schema
+                )
+            
+        except mariadb.Error as e:
+            raise HTTPException(status_code=500, detail=str(e))
+        
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
@@ -1099,33 +1072,31 @@ def get_status() -> StatusResponse:
     Controlla la raggiungibilità di backend, database e ollama.
     """
 
-    conn = mariadb.connect(
-        host="database",
-        port=3306,
-        user="root",
-        password="biar",
-        database="db_progetto"
-        )
-
-    backend_status = "ok"
-
-    database_status = "error"
     try:
-        with conn.cursor() as cursor:
-            cursor.execute("SELECT 1")
-            cursor.fetchone()
-        database_status = "ok"
-    except Exception:
-        pass
+        with get_db_conn() as conn:
 
-    ollama_status = "error"
-    try:
-        import requests
-        r = requests.get("http://ollama:11434", timeout=3)
-        if r.status_code < 500:
-            ollama_status = "ok"
-    except Exception:
-        pass
+            backend_status = "ok"
+
+            database_status = "error"
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT 1")
+                    cursor.fetchone()
+                database_status = "ok"
+            except Exception:
+                pass
+
+            ollama_status = "error"
+            try:
+                import requests
+                r = requests.get("http://ollama:11434", timeout=3)
+                if r.status_code < 500:
+                    ollama_status = "ok"
+            except Exception:
+                pass
+
+    except mariadb.Error as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
     return StatusResponse(
         backend=backend_status,

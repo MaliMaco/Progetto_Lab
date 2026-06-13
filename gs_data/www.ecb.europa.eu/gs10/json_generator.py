@@ -5,7 +5,7 @@ import unicodedata
 from bs4 import BeautifulSoup
 
 
-html_file = open(os.path.join(os.path.dirname(__file__),"html_ecb_coins.txt"), "r", encoding="UTF-8")
+html_file = open(os.path.join(os.path.dirname(__file__),"html_ecb_diversity.txt"), "r", encoding="UTF-8")
 gs_file = open(os.path.join(os.path.dirname(__file__),"gs10_GS.txt"), "r", encoding="UTF-8")
 
 html_text = html_file.read()
@@ -23,12 +23,12 @@ soup = BeautifulSoup(html_text, "html.parser")
 title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
 title = title_tag.get_text(strip=True) if title_tag else ""
 
-url_list = "https://www.ecb.europa.eu/euro/coins/1euro/html/index.it.html".split("/")
+url_list = "https://www.ecb.europa.eu/careers/why-we-value-diversity/html/index.it.html".split("/")
 domain = url_list[2]
 
 
 json_entry = {
-    "url": "https://www.ecb.europa.eu/euro/coins/1euro/html/index.it.html",
+    "url": "https://www.ecb.europa.eu/careers/why-we-value-diversity/html/index.it.html",
     "domain": domain,
     "title": title,
     "html_text":  html_text,

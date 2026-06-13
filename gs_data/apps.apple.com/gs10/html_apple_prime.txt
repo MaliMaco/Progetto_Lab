@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Prime Video – App Store Details</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #f5f5f7;
+            color: #1c1c1e;
+            line-height: 1.5;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .subtitle {
+            color: #6c6c70;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            background: #e5e5ea;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .rating {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+        .stars {
+            color: #ffb800;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+            background: #f9f9fc;
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #8e8e93;
+        }
+        .info-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1.6rem;
+            border-left: 4px solid #007aff;
+            padding-left: 0.75rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+        .whatsnew-meta {
+            color: #8e8e93;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .description {
+            white-space: pre-wrap;
+            background: #fafafc;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1px solid #e5e5ea;
+        }
+        a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul.iap-list {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        
+        .review {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #fafafc;
+            border-radius: 12px;
+        }
+        .review-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .review-stars {
+            color: #ffb800;
+            font-size: 0.9rem;
+        }
+        .review-date {
+            color: #8e8e93;
+            font-size: 0.8rem;
+        }
+        .review-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .review-text {
+            color: #3a3a3c;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+        .review-sep {
+            margin: 1rem 0;
+        }
+    
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Amazon Prime Video</h1>
+    <div class="subtitle">Originals, movies, TV, sports</div>
+    <div class="price">Free · In‑App Purchases</div>
+
+    <div class="rating">
+        <span class="stars">★★★★½</span>
+        <span> 4.8 </span>
+        <span style="color: #6c6c70;">(3.0M ratings)</span>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-item"><span class="info-label">DEVELOPER</span><span class="info-value">AMZN Mobile LLC</span></div>
+        <div class="info-item"><span class="info-label">CATEGORY</span><span class="info-value">Entertainment</span></div>
+        <div class="info-item"><span class="info-label">SIZE</span><span class="info-value">310.2 MB</span></div>
+        <div class="info-item"><span class="info-label">COMPATIBILITY</span><span class="info-value">Requires iOS 17.0 or later. iPhone Requires iOS 17.0 or later. iPad Requires iPadOS 17.0 or later. Mac Requires macOS 14.0 or later. Apple Vision Requires visionOS 1.0 or later. Apple TV Requires tvOS 18.2 or later.</span></div>
+        <div class="info-item"><span class="info-label">LANGUAGES</span><span class="info-value">English, Arabic, Czech + more</span></div>
+        <div class="info-item"><span class="info-label">AGE RATING</span><span class="info-value">13+ 13+ This app has an age rating of 13+ with content restrictions. Some content may be rated higher, but access is managed by the developer through in-app controls. Learn More In-App Controls Parental Controls Infrequent Cartoon or Fantasy Violence Realistic Violence Profanity or Crude Humor Mature or Suggestive Themes Horror/Fear Themes Medical Treatment information Alcohol, Tobacco, Drug Use or References Sexual Content or Nudity Guns or Other Weapons Contains Advertising</span></div>
+        
+        <div class="info-item">
+            <span class="info-label">IN-APP PURCHASES</span>
+            <ul class="iap-list">
+                <li>Ad free – $2.99</li>
+                
+            </ul>
+        </div>
+        
+        <div class="info-item"><span class="info-label">COPYRIGHT</span><span class="info-value">© Copyright 2026 Amazon.com and its affiliates.</span></div>
+    </div>
+
+    <h2>Description</h2>
+    <div class="description">No description available.</div>
+
+    <h2>What's New</h2>
+    <div class="whatsnew-meta">Version 10.35 – 2026-06-12</div>
+    <div>Bug fixes and performance improvements</div>
+
+    <h2>User Reviews</h2>
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">☆☆☆☆☆</span>
+                    <span class="review-date"></span>
+                </div>
+                <div class="review-title"></div>
+                <div class="review-text">Convinced you’ve run out of things to watch? Amazon Prime Video may be able to prove otherwise. The app is brimming with brilliant films, dramas, and comedies, as well as sports and children’s TV, all available to watch on demand. We love the ultra-high-quality 4K streaming and the slick UI. Oh, and the ability to create multiple user profiles and download series to watch later. There are also hundreds of Amazon Originals to check out—great series and films produced by Amazon Studios that you won’t find anywhere else.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★☆</span>
+                    <span class="review-date">2025-01-28</span>
+                </div>
+                <div class="review-title">Good app.</div>
+                <div class="review-text">I use the free version of the service and it is a good app for that. Being able to watch free live channels and free on demand shows is what makes it good. However there’s a couple issues that need to be addressed. Mostly with episode numbers and playback issue. There are some shows that you can’t list as episode 1 for each season. For example the on demand episodes of The Price Is Right the Barker era channel you have it listed as episode 1 for season 11. That’s incorrect. The first 5 episodes of season 11 were skipped and begins with episode 6. 10 episodes are actually missing from that season due to the channel skipping those episodes. Therefore they should be listed as the production numbers. Episodes 4581 through episode 4985. As far as the playback goes episodes 4581 and 4582 are played twice for on demand viewing. Where episodes 4851 and 4852 are supposed to be played it plays episodes 4581 and 4582. Or in the way you have these episodes listed instead of episodes 130 and 131 are supposed to be playing it plays episodes 1 and 2 for the 2nd time. Please look at those episodes and find the 2 episodes that are supposed to be playing on demand and get them corrected. Don’t forget to list them in the right way that I mentioned in this lengthy review. Thank you.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★☆☆</span>
+                    <span class="review-date">2023-04-28</span>
+                </div>
+                <div class="review-title">Fix my subtitles so they stay on!!!</div>
+                <div class="review-text">I could care less about the new format and look, but subtitles are messed up now. It used to be that movies and shows would always play with subtitles because I turned them on. Now every time I watch something, I have to turn subtitles back on, even if it’s the same movie that I just started earlier that day. If you’re going to make it that subtitles are automatically off, then at least make it a setting option to have them automatically on vs automatically off. I’m someone that uses subtitles all the time, and I’ve never had to turn them back on for the same movie every time I re-open the app and press resume. Every other streaming app and previously prime video too, if you turn subtitles on once for one movie or show, they stay on for everything until you turn them back off. That’s how it used to be and that is better. Now I have to hit pause, turn subtitles on, go back 10-30 seconds, then I can resume my movie with subtitles on. At least make an option in settings to have subtitles automatically on or off, plus the ability to change it for an individual movie or show. Also it’s buffering and lagging more than before. In my case, it could be the area I’m in bc I have no wifi and most places have poor cell service, but prime video is still acting up more than any other streaming apps I use. I’ve never had any issues before, and if subtitles worked properly, I would give it a 5 star rating. But I use subtitles all the time and now I’m annoyed and irritated every time I start a movie or tv show. Fix them please, they worked fine before.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★☆</span>
+                    <span class="review-date">2026-04-21</span>
+                </div>
+                <div class="review-title">New, visually impaired member.</div>
+                <div class="review-text">I’m a new member of Prime video app. I like it very much. I don’t agree with people complaining about morality or politics. Shows are all about pushing limits. Shows are like the great American novel. Without freedom of speech, expression and creativity, we would have nothing new, noteworthy or entertaining. The first show i pulled up was Fallout. It was great! I love sexy, quirky and high-energy shows. Like Alien Earth, industry. So, i was immediately onboard. Unfortunately, there is one problem. Figuring out how to activate audio description, for my account is rather difficult. If there could be an easy to find toggle on or off, that would be awesome. Other than that, i don’t have any complaints. I’m down to explore, have fun and enjoy any titles with audio description. I do know the options are available. But, i have to find out how to access them. Also, the interface is a bit slow and clunky, when voiceover, iOS, is active. Fixing that would greatly improve my experience. Again, thank for this inexpensive, fun, creative showcase of entertainment! I’m loving it! You’ll get 5 stars when you fix the AD.</div>
+            </div>
+            <hr class="review-sep">
+            
+
+    <h2>App Privacy</h2>
+    <div>The developer, AMZN Mobile LLC , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy .</div>
+
+    <hr>
+    <div>
+        <p><strong>Developer Website:</strong> <a href="https://www.primevideo.com/help?nodeId=202064900" target="_blank">https://www.primevideo.com/help?nodeId=202064900</a></p>
+        <p><strong>Privacy Policy:</strong> <a href="https://www.primevideo.com/ww-av-legal-home" target="_blank">https://www.primevideo.com/ww-av-legal-home</a></p>
+    </div>
+</div>
+</body>
+</html>

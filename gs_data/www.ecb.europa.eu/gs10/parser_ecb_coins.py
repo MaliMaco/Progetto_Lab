@@ -3,7 +3,7 @@ from crawl4ai import AsyncWebCrawler
 from crawl4ai.async_configs import BrowserConfig, CrawlerRunConfig
 import os
 
-html_path = os.path.join(os.path.dirname(__file__), "html_ecb_coins.txt")
+html_path = os.path.join(os.path.dirname(__file__), "html_ecb_diversity.txt")
 
 async def main():
     browser_config = BrowserConfig()
@@ -14,7 +14,7 @@ async def main():
 
     async with AsyncWebCrawler(config=browser_config) as crawler:
         result = await crawler.arun(
-            url="https://www.ecb.europa.eu/euro/coins/1euro/html/index.it.html",
+            url="https://www.ecb.europa.eu/careers/why-we-value-diversity/html/index.it.html",
             config=run_config
         )
 

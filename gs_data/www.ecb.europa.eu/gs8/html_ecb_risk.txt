@@ -6,497 +6,197 @@
  
           
       <div class="title">
-        <h1>Affrontare l’impatto del rischio geopolitico</h1>
+        <h1>Una carriera alla BCE</h1>
       </div> 
           
-        <div class="section">
-           
+    <div class="intro">
+        <div class="quote -aside -stars-watermark">
+            <blockquote>
+                <p>Lavora per l’Europa, fai la differenza</p>
+            </blockquote>
+            <p>Lavoriamo per l’Europa. Una carriera alla BCE significa contribuire a mantenere i prezzi stabili nell’area dell’euro e i soldi delle persone al sicuro in banca.</p><p>Cerchiamo menti curiose. Diamo valore alla diversità e alle persone con un bagaglio di esperienze eterogeneo che vogliano crescere professionalmente in un ambiente multiculturale e dinamico, basato sui dati. Alla BCE puoi fare la differenza per la vita degli europei.</p>
+        </div>
+    </div>
+ 
           
-        
-                                                                <p>Il rischio geopolitico non è una novità. Si tratta di un fattore di rischio trasversale che può avere un impatto sulle categorie di rischio tradizionali delle banche. Tuttavia i rischi geopolitici si sono acuiti e si ripercuotono sulle imprese, sull’economia e sul settore bancario europeo. Ciò richiede una maggiore attenzione da parte della vigilanza.</p><p>Le banche devono mantenere la propria capacità di tenuta e assicurarsi di essere preparate a gestire l’impatto del rischio geopolitico sulla loro operatività. Per salvaguardare il sistema finanziario, la vigilanza bancaria europea collabora con le banche allo sviluppo di buone prassi per la gestione di tali rischi. Se necessario, si utilizzano strumenti di vigilanza per far sì che le banche migliorino la gestione dei rischi.</p>                                    
-        
-         
+          <div class="combo-box">
+              
+              
+             
           
+        <div class="upper">
+          <div title="" data-image="index/vacancies_1000x750.jpg" data-image-webp="index/vacancies_1000x750.webp" class="-hover-image" style="cursor: pointer;">
+                   
+                <div class="-outer"><div class="-inner" data-image="index/vacancies_1000x750.jpg" data-image-webp="index/vacancies_1000x750.webp"></div></div></div>
+                
+          <div class="content-box">
+              
+              
+              <h3 style="cursor: pointer;">Guarda le opportunità di impiego</h3>
+              <p>Pubblichiamo regolarmente offerte di lavoro per diversi profili: ruoli di supporto, professionali e dirigenziali. Inoltre chi si è laureato di recente può accedere ai tirocini e al nostro Graduate Programme.</p>
+              <a href="https://talent.ecb.europa.eu/careers">Opportunità di impiego</a>
+          </div>
         </div>
        
-           
-    <div class="large-box"> 
+          
+        <div class="lower -hover-image" data-image="index/what-we-offer_2560x750.jpg" data-image-webp="index/what-we-offer_2560x750.webp" style="cursor: pointer;"><div class="-outer"><div class="-inner" data-image="index/what-we-offer_2560x750.jpg" data-image-webp="index/what-we-offer_2560x750.webp"></div></div>
+          
+          <div class="content-box">
+              
+              
+              <h3>Cosa offriamo</h3>
+              <p>Valorizziamo le persone e diamo molte opportunità di sviluppare competenze personali e professionali nel corso della carriera. Scopri cosa possiamo offrirti: lavorare alla BCE è molto più che una retribuzione competitiva.</p>
+              <a href="/careers/what-we-offer/benefits/html/index.it.html" data-label="inglese">Trattamento economico e altre prestazioni</a>
+          </div>
+        </div>
+       
+          
+         
+              
+              
+               
+              
+          </div>
+          <div class="boxes"> 
+          
+          <div class="box">
+              
+              
         
+        <div data-image="index/diversity_1000x750.jpg" title="" data-image-webp="index/diversity_1000x750.webp" class="-hover-image" style="cursor: pointer;">
+           
+        <div class="-outer"><div class="-inner" data-image="index/diversity_1000x750.jpg" data-image-webp="index/diversity_1000x750.webp"></div></div></div> 
+        <div class="content-box">
+          <h3 style="cursor: pointer;">La diversità è un valore</h3>
+          <p>La diversità promuove l’eccellenza. Un contesto lavorativo eterogeneo è un serbatoio di opinioni diverse, che produce risultati più solidi. Vogliamo attrarre i migliori talenti per poter assumere decisioni ottimali nell’interesse di tutti coloro che vivono nell’area dell’euro.</p>
+          <a href="/careers/why-we-value-diversity/html/index.it.html" data-label="inglese">Perché la diversità è un valore</a>
+        </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+        
+        <div data-image="index/graduates_1000x750.jpg" title="" data-image-webp="index/graduates_1000x750.webp" class="-hover-image" style="cursor: pointer;">
+           
+        <div class="-outer"><div class="-inner" data-image="index/graduates_1000x750.jpg" data-image-webp="index/graduates_1000x750.webp"></div></div></div> 
+        <div class="content-box">
+          <h3 style="cursor: pointer;">Graduate Programme</h3>
+          <p>Hai un titolo post-laurea e uno spiccato interesse per le attività di banca centrale? Informati sul nostro Graduate Programme, un programma della durata di due anni che ti offre un’opportunità di crescita unica e un’esperienza lavorativa inestimabile in un’istituzione dell’UE.</p>
+          <a href="/careers/what-we-offer/graduate/html/index.it.html" data-label="inglese">Scopri di più sul nostro Graduate Programme</a>
+        </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+        
+        <div data-image="index/traineeship_1000x750.jpg" title="" data-image-webp="index/traineeship_1000x750.webp" class="-hover-image" style="cursor: pointer;">
+           
+        <div class="-outer"><div class="-inner" data-image="index/traineeship_1000x750.jpg" data-image-webp="index/traineeship_1000x750.webp"></div></div></div> 
+        <div class="content-box">
+          <h3 style="cursor: pointer;">Tirocini</h3>
+          <p>Hai almeno una laurea di primo livello e non più di 12 mesi di esperienza professionale dal conseguimento del titolo? Quale modo migliore di un tirocinio alla BCE per iniziare la tua carriera? Tieni d’occhio i tirocini che offriamo durante tutto l’anno.</p>
+          <a href="/careers/what-we-offer/traineeship/html/index.it.html" data-label="inglese">Informati sui tirocini</a>
+        </div>
+       
+              
+              
+               
+              
+          </div>
+          
+          <div class="box">
+              
+              
+        
+        <div data-image="index/who-we-are_1000x750.jpg" title="" data-image-webp="index/who-we-are_1000x750.webp" class="-hover-image" style="cursor: pointer;">
+           
+        <div class="-outer"><div class="-inner" data-image="index/who-we-are_1000x750.jpg" data-image-webp="index/who-we-are_1000x750.webp"></div></div></div> 
+        <div class="content-box">
+          <h3 style="cursor: pointer;">Chi siamo</h3>
+          <p>Siamo un’istituzione variegata come l’Europa. Proveniamo da ogni parte dell’UE, con un bagaglio di conoscenze ed esperienze molto diverse. Lavoriamo per migliorare il benessere di milioni di persone e siamo orgogliosi di farlo.</p>
+          <a href="/careers/working-at-the-ecb/employee-portraits/html/index.it.html" data-label="inglese">A tu per tu</a>
+        </div>
+       
+              
+              
+               
+              
+          </div>
+          </div> 
+          <div class="jumbo-box connector -dark-grey">
+            <div class="upper">
+                <div class="content-box">
+                    <h3>L’esperienza alla BCE</h3> 
+                    <p>Collaborare con colleghi di altri paesi dell’UE. Condividere diverse prospettive. Sentire di avere un impatto reale. Questi sono solo alcuni aspetti dell’esperienza alla BCE. Ascolta cosa ne dicono i nostri colleghi. </p>
+                    
+                </div>
+            </div>
+            <div class="lower">
+                
+                <div data-video="RNoyAzOOsxg" title="" class="refusedCookieBlocked video" id="RNoyAzOOsxg---00" starttime="undefined">
+                     
+                <div class="cookieBlockedMessage template hidden innerCookieBlockedMessage">
+	<div class="cookieBlockedContentHolder">
+		<div class="mainCookieBlockedMessage">Questo elemento richiede l’utilizzo di cookie.</div><a class="button modify-cookies">Modifica</a></div>
+</div><a class="overlay play icon -video" tabindex="0"></a><div class="video-container"><div id="containerId-RNoyAzOOsxg---00"></div></div></div>
+
+                
+                
+                
+            </div>
+        </div><div class="upper-connection -transparent-blue"></div> <div class="lower-connection -dark-grey"></div>
+        
+ 
+          
+    <div class="promo-box -gradient -inverted" data-image="index/learn-more_2560x750.jpg" data-image-webp="index/learn-more_2560x750.webp">
         <div class="wrapper">
-            <div data-image="geopolitical-risk/What_is_geopolitical_risk_1000x750.jpg" title="" data-image-webp="geopolitical-risk/What_is_geopolitical_risk_1000x750.webp" class="loaded -hover-image" style="background-image: url(&quot;geopolitical-risk/What_is_geopolitical_risk_1000x750.webp&quot;); cursor: pointer;">
-                  
-            <div class="-outer"><div class="-inner loaded" data-image="geopolitical-risk/What_is_geopolitical_risk_1000x750.jpg" data-image-webp="geopolitical-risk/What_is_geopolitical_risk_1000x750.webp" style="background-image: url(&quot;geopolitical-risk/What_is_geopolitical_risk_1000x750.webp&quot;);"></div></div></div>
-            
-            <div class="content-box">
-                <h3 style="cursor: pointer;">Cos’è il rischio geopolitico?</h3>
-                <p>Il rischio geopolitico riguarda la minaccia, realizzazione ed escalation di eventi avversi associati a guerre, terrorismo e qualsiasi tensione tra Stati e attori politici che incida sul corso pacifico delle relazioni internazionali.</p>
-                <a href="https://www.matteoiacoviello.com/gpr_files/GPR_PAPER.pdf">Definizione tratta da: “Measuring Geopolitical Risk”, American Economic Review, 2022</a>
-            </div> 
+            <div class="box">
+                <div class="content-box">
+                    <div class="headline">VIVERE A FRANCOFORTE</div>
+                    <div class="title">Scopri di più sulla città</div>
+                    
+                    
+                    
+                    <div class="button-box">
+                        <a class="button" href="/careers/working-at-the-ecb/life-in-frankfurt/html/index.it.html" data-label="inglese">La vita a Francoforte</a>
+                    </div>
+                </div>
+            </div>
         </div>
+        
     </div>
  
           
-    <div class="image-box" title="" data-image="geopolitical-risk/Economic_political_uncertainty_2560x750.jpg" data-image-webp="geopolitical-risk/Economic_political_uncertainty_2560x750.webp">
-         
-    </div>
- 
-          
-        <div class="section">
-           
-          
-
-    <div class="figure -content-width">
-        <h4>Incertezza sulle politiche economiche</h4>
-        <p class="title">I rischi geopolitici si sono intensificati negli ultimi anni, contribuendo a un significativo aumento dell’incertezza sulle politiche economiche in Europa e a livello mondiale.</p>
-        <figure>
+      <div class="see-also-boxes -two-columns">
+        <div class="headline">INFORMATI</div>
+        <h2>Connettiti con noi</h2>
             
-            
-            <img src="geopolitical-risk/Chart.it.png" alt="" width="1027" height="462">
-            
-            <figcaption><p>Fonte: policyuncertainty.com.</p><p>Note: si tratta di un indice basato sulle notizie, che coglie l’incertezza riguardo alle politiche economiche in base a un conteggio del numero di articoli di giornale contenenti i termini “incerta” o “incertezza”, “economica” o “economia” e uno o più termini afferenti le politiche. I dati si riferiscono al periodo compreso tra gennaio 1997 e agosto 2025 per l’indice di incertezza relativo alle politiche economiche in Europa e al periodo compreso tra gennaio 1997 e luglio 2025 per l’indice di incertezza relativo alle politiche economiche a livello mondiale. L’indice europeo si basa su testate giornalistiche di Francia, Germania, Italia, Spagna e Regno Unito. L’indice globale risulta da una media ponderata per il PIL (a prezzi correnti) degli indici nazionali sull’incertezza delle politiche economiche per: Australia, Brasile, Canada, Cile, Cina, Corea del Sud, Francia, Germania, Giappone, Grecia, India, Irlanda, Italia, Regno Unito, Russia, Spagna, Stati Uniti e Svezia.&nbsp;</p></figcaption>
-        </figure>
-    </div>
- 
-          
-        </div>
-       
-          
-<div class="splitter -no-space-below"> 
-    <div class="content-box">
-        <h3>Come incidono i rischi geopolitici sulle banche?</h3>
-        <p>I rischi geopolitici si possono concretizzare in forma di rischi di credito, di mercato, operativi e di finanziamento. Gli shock geopolitici possono trasmettersi alle banche e al loro contesto operativo attraverso diversi canali.</p><p>Uno shock geopolitico può colpire le banche attraverso:</p> 
-    </div>
-</div>
- 
-          <div class="boxes"> 
-          
-          <div class="box">
-              
-              
-        
-        <div data-image="geopolitical-risk/Financial_market_channels_1000x750.jpg" title="" data-image-webp="geopolitical-risk/Financial_market_channels_1000x750.webp">
-           
-        </div> 
-        <div class="content-box">
-          <h3>Canale del mercato finanziario</h3>
-          <p>La maggiore incertezza e avversione al rischio tra gli investitori e la frammentazione dei mercati finanziari possono innescare oscillazioni dei prezzi delle attività, turbando i flussi di capitali a livello mondiale e accrescendo la volatilità dei mercati. Tali andamenti possono erodere il valore dei portafogli di attività delle banche o causare perdite dirette sui portafogli di negoziazione, aumentando i rischi di mercato e di finanziamento.</p>
-          
-        </div>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="box">
-              
-              
-        
-        <div data-image="geopolitical-risk/Real_Economy_channels_1000x750.jpg" title="" data-image-webp="geopolitical-risk/Real_Economy_channels_1000x750.webp">
-           
-        </div> 
-        <div class="content-box">
-          <h3>Canale dell’economia reale</h3>
-          <p>Le tariffe, le sanzioni e le interruzioni dei flussi commerciali e delle catene di approvvigionamento possono generare pressioni inflazionistiche, modificare il comportamento delle imprese e dei consumatori e indebolire le condizioni economiche generali alla base dei portafogli creditizi delle banche. Ciò può accrescere il rischio di credito e comportare tassi di default più elevati, maggiori accantonamenti a copertura delle perdite su crediti e pressioni sulle posizioni patrimoniali delle banche.</p>
-          
-        </div>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="box">
-              
-              
-        
-        <div data-image="geopolitical-risk/Safety_security_channels_1000x750.jpg" title="" data-image-webp="geopolitical-risk/Safety_security_channels_1000x750.webp">
-           
-        </div> 
-        <div class="content-box">
-          <h3>Canale della sicurezza e della protezione</h3>
-          <p>Conflitti e tensioni si possono ripercuotere sulla resilienza operativa delle banche, così come gli attacchi informatici riusciti. Le banche potrebbero essere esposte a rischi operativi derivanti da attacchi cibernetici e interruzioni dei servizi. Anche la loro infrastruttura fisica o quella di fornitori terzi di servizi essenziali potrebbe venire danneggiata.</p>
-          
-        </div>
-       
-              
-              
-               
-              
-          </div>
-          </div> 
-          
-<div class="splitter -no-space-below"> 
-    <div class="content-box">
-        <h3>La trasmissione delle tensioni geopolitiche alle banche</h3>
-         
-    </div>
-</div>
- 
-          
-    <div class="image-box" title="" data-image="geopolitical-risk/Geopolitical_Shocks_2560x750.jpg" data-image-webp="geopolitical-risk/Geopolitical_Shocks_2560x750.webp">
-         
-    </div>
- 
-          
-        <div class="section -light-grey">
-           
-          
-
-    <div class="figure -content-width">
-        <h4>La trasmissione delle tensioni geopolitiche alle banche</h4>
-        
-        <figure>
-            
-            
-            <img src="geopolitical-risk/BaSu_Infographic_Geopolitical Risk_95051022.it.png" alt="" width="2560" height="750">
-            
-            <figcaption><p>Nota: <a href="/framework/priorities/shared/geopoliticalshock.it.pdf" data-label="inglese">questo grafico</a> mostra in maggiore dettaglio i canali di trasmissione.</p></figcaption>
-        </figure>
-    </div>
- 
-          
-        </div>
-       
-          
-<div class="splitter -no-space-below"> 
-    <div class="content-box">
-        <h3>Come stiamo integrando il rischio geopolitico nella nostra vigilanza?</h3>
-         
-    </div>
-</div>
- 
-          <div class="boxes"> 
-          
-          <div class="box">
-              
-              
-        
-        <div data-image="geopolitical-risk/Supervisory_Priorities_1000x750.jpg" title="" data-image-webp="geopolitical-risk/Supervisory_Priorities_1000x750.webp">
-           
-        </div> 
-        <div class="content-box">
-          <h3>Priorità di vigilanza</h3>
-          <p>Il rischio geopolitico può incidere sulle categorie di rischio tradizionali a cui sono esposte le banche. Pertanto era già stato incluso tra le <a href="/framework/priorities/html/ssm.supervisory_priorities202312~a15d5d36ab.it.html">priorità di vigilanza della BCE per il periodo 2024-2026</a> ed è stato posto in maggiore risalto nell’ambito delle <a href="/framework/priorities/html/ssm.supervisory_priorities202412~6f69ad032f.it.html">priorità di vigilanza per il periodo 2025-2027</a>.</p>
-          
-        </div>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="box">
-              
-              
-        
-        <div data-image="geopolitical-risk/Cyber_resilience_1000x750.jpg" title="" data-image-webp="geopolitical-risk/Cyber_resilience_1000x750.webp" class="-hover-image" style="cursor: pointer;">
-           
-        <div class="-outer"><div class="-inner" data-image="geopolitical-risk/Cyber_resilience_1000x750.jpg" data-image-webp="geopolitical-risk/Cyber_resilience_1000x750.webp"></div></div></div> 
-        <div class="content-box">
-          <h3 style="cursor: pointer;">Prova di stress sulla resilienza cibernetica</h3>
-          <p>Nel 2024 abbiamo condotto una <a href="/press/pr/date/2024/html/ssm.pr240726~06d5776a02.it.html">prova di stress sulla resilienza cibernetica</a> per valutare la capacità di tenuta delle banche a potenziali rischi, dal momento che lo sconvolgimento degli equilibri geopolitici potrebbe essere associato a rischi operativi e attacchi cibernetici. Il rischio geopolitico è stato anche una componente fondamentale della prova di stress a livello di UE 2025 e sarà al centro della prova di stress tematica 2026.</p>
-          
-        </div>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="box">
-              
-              
-        
-        <div data-image="geopolitical-risk/Supervisory_Guidance_1000x750.jpg" title="" data-image-webp="geopolitical-risk/Supervisory_Guidance_1000x750.webp" class="-hover-image" style="cursor: pointer;">
-           
-        <div class="-outer"><div class="-inner" data-image="geopolitical-risk/Supervisory_Guidance_1000x750.jpg" data-image-webp="geopolitical-risk/Supervisory_Guidance_1000x750.webp"></div></div></div> 
-        <div class="content-box">
-          <h3 style="cursor: pointer;">Indicazioni di vigilanza</h3>
-          <p>Data la natura trasversale dei rischi geopolitici, le <a href="/framework/legal-framework/supervisory-policy/html/supervisoryguides.it.html" data-label="inglese">indicazioni di vigilanza</a> esistenti possono svolgere un ruolo importante nell’aiutare le banche a gestirli. Stiamo esaminando i processi di pianificazione complessiva delle banche. Quest’analisi interessa fra l’altro i processi interni di valutazione dell’adeguatezza del capitale e della liquidità, i piani di risanamento e i quadri di riferimento interni per le prove di stress al fine di verificare la loro preparazione a fronteggiare shock geopolitici.</p>
-          
-        </div>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="box">
-              
-              
-        
-        <div data-image="geopolitical-risk/market_intelligence_1000x750.jpg" title="" data-image-webp="geopolitical-risk/market_intelligence_1000x750.webp">
-           
-        </div> 
-        <div class="content-box">
-          <h3>Attività di analisi del mercato</h3>
-          <p>La Vigilanza bancaria della BCE svolge inoltre regolari analisi di mercato e approfondimenti per meglio comprendere, individuare e valutare i rischi connessi all’emergere di shock geopolitici e sensibilizzare le autorità di vigilanza in merito alle sfide che ne derivano. Tale sensibilizzazione è utile ai fini del dialogo con le banche sulla gestione dei rischi geopolitici.</p>
-          
-        </div>
-       
-              
-              
-               
-              
-          </div>
-          </div> 
-          
-<div class="splitter -no-space-below"> 
-    <div class="content-box">
-        <h3>Cosa ci aspettiamo dalle banche?</h3>
-         
-    </div>
-</div>
- 
-          
-        <div class="section">
-           
-          
-        
-            
-            
-            
-                         <p>Ogni banca deve individuare e gestire tutti i rischi a cui è o potrebbe essere esposta  adottando un approccio prudente e commisurato alle dimensioni e alla complessità del suo modello di business e della sua operatività.&nbsp;</p><p>I rischi geopolitici possono trasmettersi alle banche attraverso il canale del rischio di credito, del rischio di liquidità e di finanziamento, del rischio di mercato, del rischio di modello di business, del rischio operativo e della governance. Ci si aspetta pertanto che le banche tengano conto anche del rischio geopolitico nell’individuazione e nella gestione dei rischi a cui sono soggette. Va sottolineato che l’esposizione al rischio geopolitico non è una prerogativa delle banche con una presenza internazionale diretta. Anche le banche di minori dimensioni possono risentirne indirettamente, tramite i clienti aziendali, la dipendenza dai mercati internazionali dei capitali o gli accordi di esternalizzazione, in particolare per quanto riguarda i servizi cloud e i servizi legati alle tecnologie dell’informazione e delle comunicazioni concentrati presso pochi fornitori globali.</p><p>Al tempo stesso, gli effetti degli shock geopolitici possono essere fortemente “idiosincratici”, vale a dire: a seconda delle controparti, dei settori di attività o delle dipendenze operative di ciascuna banca, lo stesso evento geopolitico può avere impatti molto diversi tra le banche.&nbsp;</p>         
-        
-        
-        
-        
-         
-          
-        </div>
-       
-          
-    <div class="image-box" title="" data-image="geopolitical-risk/What_do_we_expect_from_banks_2560X750.jpg" data-image-webp="geopolitical-risk/What_do_we_expect_from_banks_2560X750.webp">
-         
-    </div>
- 
-          
-        <div class="section connector -gradient-upper -dark-grey">
-           
-          
-        <div class="definition-list"> 
-          <div class="header">
-            <div class="title">Per gestire i rischi geopolitici (trasmessi attraverso altre tipologie di rischio), è importante disporre di:</div> 
-          </div>
-          
-          <dl>
+          <div class="container">
               
                
               
               
-        <dt>Solidi sistemi di governance e di gestione dei rischi</dt>
-        <dd>
-          <p>Le banche dovrebbero considerare l’impatto del rischio geopolitico nel processo di definizione della strategia aziendale. Devono poter contare su dispositivi di governance, controlli interni e una gestione dei rischi solidi per monitorare e affrontare efficacemente i rischi, anche di natura geopolitica. Gli organi di amministrazione delle banche devono allineare gli obiettivi aziendali e i quadri di riferimento per la determinazione della propensione al rischio al fine di bilanciare l’assunzione di rischi e il relativo controllo.</p><p>Chiare e affidabili capacità di aggregazione e segnalazione dei dati sui rischi sono fondamentali a sostegno del monitoraggio dei rischi e del processo decisionale delle banche. La <a href="/activities/srep/2024/html/ssm.srep202412_internalgovernanceriskmanagementmethodology.it.html" data-label="inglese">metodologia SREP relativa alla governance interna e alla gestione dei rischi</a>, il <a href="/framework/legal-framework/public-consultations/pdf/ssm.pubcon202407_draftguide.it.pdf" data-label="inglese">progetto di guida sulla governance e sulla cultura del rischio</a> e la <a href="/ecb/pub/pdf/ssm.supervisory_guides240503_riskreporting.it.pdf" data-label="inglese">guida sull’efficace aggregazione e segnalazione dei dati sui rischi </a> espongono buone prassi a cui possono attingere le banche.</p>
+          <div class="content-box">
+              
+              
            
+          <h3 style="cursor: pointer;">Seguici su LinkedIn</h3>
           
-        </dd>
-       
+            <p>Tieniti aggiornato sulle nostre attività e sui profili professionali che ricerchiamo. Postiamo regolarmente su offerte di impiego, fiere del lavoro, notizie del settore bancario e molto altro.</p>
           
-        <dt>Sana gestione dei rischi finanziari</dt>
-        <dd>
-          <p>Se necessario, le banche devono adottare misure adeguate per attenuare i rischi e prevenirne un’eccessiva assunzione. Dovrebbero adeguare i livelli di capitale o, se del caso, effettuare accantonamenti per perdite su crediti.&nbsp;Le banche dovrebbero monitorare costantemente l’impatto del rischio geopolitico e disporre di sistemi di allerta precoce. </p><p>Per assicurare l’adeguatezza patrimoniale in relazione ai profili di rischio delle banche abbiamo pubblicato una <a href="/ecb/pub/pdf/ssm.icaap_guide_201811.it.pdf">guida sul processo interno di valutazione dell’adeguatezza patrimoniale (ICAAP)</a> e una <a href="/ecb/pub/pdf/ssm.ilaap_guide_201811.it.pdf">guida sul processo interno di valutazione dell’adeguatezza della liquidità (ILAAP)</a>. Abbiamo inoltre divulgato una serie di <a href="/ecb/pub/pdf/ssm.IFRS9novelrisks_202407~5e0eb30b5c.it.pdf" data-label="inglese">migliori prassi per individuare i nuovi rischi negli accantonamenti per perdite di valore</a>.</p>
-           
-          
-        </dd>
-       
-          
-        <dt>Pianificazione patrimoniale prudente e prove di stress</dt>
-        <dd>
-          <p>Le banche devono disporre di strumenti per la simulazione del potenziale impatto di eventi geopolitici sulla loro stabilità finanziaria e capacità di tenuta operativa. Una volta che ha chiara la propria esposizione, una banca dovrebbe intraprendere azioni di follow-up a fini di prevenzione o ripresa dall’impatto.</p><p>Il <a href="/ecb/pub/pdf/ssm.reportbanksicaappractices202007~fc93bf05d9.it.pdf" data-label="inglese">rapporto sulle prassi delle banche in materia di ICAAP</a> incoraggia gli intermediari a integrare nella pianificazione patrimoniale un ampio spettro di scenari avversi, inclusi rischi geopolitici. La <a href="/ecb/pub/pdf/ssm.icaap_guide_201811.it.pdf">guida sull’ICAAP</a> delinea inoltre le migliori prassi per le prove di stress interne.</p>
-           
-          
-        </dd>
-       
-          
-        <dt>Capacità di tenuta operativa</dt>
-        <dd>
-          <p>Lo sconvolgimento degli equilibri geopolitici può dare luogo a minacce cibernetiche e causare l’interruzione di servizi esternalizzati a terzi. Può comportare fughe di dati, porre rischi in termini di sicurezza fisica e protezione e scaturire in sanzioni internazionali. Le banche dovrebbero pertanto dotarsi di solidi quadri di conformità e sistemi di monitoraggio.</p><p>Per contrastare tali rischi, le banche dovrebbero intraprendere misure preventive, predisporre piani di emergenza e provvedere alla formazione del personale. Il <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2554">regolamento dell’UE sulla resilienza operativa digitale</a> armonizza le norme relative alla resilienza operativa digitale che si applicano ai diversi tipi di entità finanziarie e ai loro fornitori terzi di servizi, mentre la <a href="/framework/legal-framework/public-consultations/pdf/ssm.pubcon240603_draftguide.it.pdf" data-label="inglese">guida sull’esternalizzazione di servizi cloud a fornitori di servizi cloud</a> espone buone prassi per l’attuazione di misure di resilienza per il cloud.</p>
-           
-          
-        </dd>
-       
-          
-               
-              
-          </dl>
-            
-        </div>
-       
-          
-        </div><div class="upper-connection -gradient-upper"></div> <div class="lower-connection -dark-grey"></div>
-       
-          
-      <div class="carousel -no-space-below">
-        <h3>VUOI SAPERNE DI PIÙ?</h3>
-        <p><br></p>
-        <div class="arrow-left"></div>
-        
-          <div class="items">
-              
-               
-              
-              
-          <div class="item">
-              
-              
-        <a href="/press/pr/date/2025/html/ssm.pr250801~24ec6ae308.it.html">
-           
-          
-          
-          
-          <p class="title">La prova di stress evidenzia la tenuta del settore bancario dell’area dell’euro a fronte di uno scenario di grave recessione economica</p>
-          <p>Comunicato stampa<br>01/08/2025</p>
-        </a>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="item">
-              
-              
-        <a href="/ecb/pub/pdf/ssm.Report_2025_Stress_Test_202508.it.pdf#page=58" data-label="inglese">
-           
-          
-          
-          
-          <p class="title">Gestione dei rischi geopolitici</p>
-          <p>Prova di stress condotta nel 2025 sulle banche dell’area dell’euro - Risultati finali, agosto 2025, riquadro 6</p>
-        </a>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="item">
-              
-              
-        <a href="/press/speeches/date/2025/html/ssm.sp250715.it.html" data-label="inglese">
-           
-          
-          
-          
-          <p class="title">Audizione dinanzi alla Commissione per i problemi economici e monetari del Parlamento europeo</p>
-          <p>Dichiarazione introduttiva di Claudia Buch<br>15/07/2025</p>
-        </a>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="item">
-              
-              
-        <a href="/press/speeches/date/2025/html/ssm.sp250618~d3e4495ae9.it.html" data-label="inglese">
-           
-          
-          
-          
-          <p class="title">Europe at a crossroads: it is high time to complete the Single Market</p>
-          <p>Intervento di Frank Elderson<br>18/06/2025</p>
-        </a>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="item">
-              
-              
-        <a href="/press/speeches/date/2025/html/ssm.sp250612~3f1ed77686.it.html" data-label="inglese">
-           
-          
-          
-          
-          <p class="title">What good supervision looks like</p>
-          <p>Intervento di Frank Elderson<br>12/06/2025</p>
-        </a>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="item">
-              
-              
-        <a href="/press/interviews/date/2025/html/ssm.in250611~29305cda5b.it.html" data-label="inglese">
-           
-          
-          
-          
-          <p class="title">Intervista a Le Monde</p>
-          <p>Intervista a Claudia Buch<br>11/06/2025</p>
-        </a>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="item">
-              
-              
-        <a href="/press/speeches/date/2025/html/ssm.sp250410_1~053f19ec60.it.html" data-label="inglese">
-           
-          
-          
-          
-          <p class="title">Resilience, risk and regulation: anchoring stability in a rules-based international order</p>
-          <p>Intervento di Sharon Donnery<br>10/04/2025</p>
-        </a>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="item">
-              
-              
-        <a href="/press/speeches/date/2024/html/ssm.sp240926_1~ebf2df6685.it.html" data-label="inglese">
-           
-          
-          
-          
-          <p class="title">Global rifts and financial shifts: supervising banks in an era of geopolitical instability</p>
-          <p>Intervento di Claudia Buch<br>26/09/2024</p>
-        </a>
-       
-              
-              
-               
-              
-          </div>
-          
-          <div class="item">
-              
-              
-        <a>
-           
-          
-          
-          
-          <p class="title">Bridges to the future: managing bank risk amid uncertainty</p>
-          <p>Intervento di Claudia Buch<br>12/03/2024</p>
-        </a>
+          <a href="https://www.linkedin.com/company/european-central-bank"><svg class="social-icon social-icon--inline" aria-hidden="true" focusable="false"><use href="#icon-linkedin" xlink:href="#icon-linkedin"></use></svg>Seguici su LinkedIn</a>
        
               
               
@@ -508,10 +208,19 @@
               
           </div>
           
-        <div class="arrow-right"></div>
-        
       </div>
-     
+       
+          
+    <div class="explainer-box -hover-image" data-image="index/what-is-the-ECB_2560x750.jpg" data-image-webp="index/what-is-the-ECB_2560x750.webp" style="cursor: pointer;"><div class="-outer"><div class="-inner" data-image="index/what-is-the-ECB_2560x750.jpg" data-image-webp="index/what-is-the-ECB_2560x750.webp"></div></div>
+        <div class="wrapper">
+            <div class="bubble-box">Non sei un esperto? <strong>Leggi “Facciamo chiarezza”</strong></div>
+            <a href="/ecb-and-you/explainers/tell-me-more/html/anniversary.it.html">
+                <div><span>Approfondisci</span></div>
+                Cos’è la Banca centrale europea? 
+            </a>
+        </div>
+    </div>
+ 
           
 			
 			

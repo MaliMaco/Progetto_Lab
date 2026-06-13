@@ -4,11 +4,7 @@ import re
 import unicodedata
 from bs4 import BeautifulSoup
 
-<<<<<<< HEAD
-#Cambiare i nomi dei file in cui si trovano l'html ed il gs
-=======
 
->>>>>>> 9cfc13d13834b604a2ed1998eb8ddaa769031f27
 html_file = open(os.path.join(os.path.dirname(__file__),"html_wiki_trump.txt"), "r", encoding="UTF-8")
 gs_file = open(os.path.join(os.path.dirname(__file__),"gs5_GS.txt"), "r", encoding="UTF-8")
 
@@ -28,14 +24,8 @@ soup = BeautifulSoup(html_text, "html.parser")
 title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
 title = title_tag.get_text(strip=True) if title_tag else ""
 
-<<<<<<< HEAD
-pattern_domain = r'^(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?::\d+)?'
-match = re.search(pattern_domain, "https://en.wikipedia.org/wiki/Donald_Trump")
-domain = match.group(1)
-=======
 url_list = "https://en.wikipedia.org/wiki/Donald_Trump".split("/")
 domain = url_list[2]
->>>>>>> 9cfc13d13834b604a2ed1998eb8ddaa769031f27
 
 
 json_entry = {
@@ -46,11 +36,7 @@ json_entry = {
     "gold_text": gs_text
 }
 
-<<<<<<< HEAD
-#cambiare un nome sensato al file output, cmabiare nome per ogni pagina
-=======
 
->>>>>>> 9cfc13d13834b604a2ed1998eb8ddaa769031f27
 result = open(os.path.join(os.path.dirname(__file__),"gs5.json"), "w", encoding="UTF-8")
 result.write(json.dumps(json_entry, indent=1))
 result.close()

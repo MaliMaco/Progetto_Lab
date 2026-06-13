@@ -23,12 +23,12 @@ soup = BeautifulSoup(html_text, "html.parser")
 title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
 title = title_tag.get_text(strip=True) if title_tag else ""
 
-url_list = "https://www.bankingsupervision.europa.eu/framework/priorities/html/geopolitical-risk.it.html".split("/")
+url_list = "https://www.ecb.europa.eu/careers/all-about-careers/html/index.it.html".split("/")
 domain = url_list[2]
 
 
 json_entry = {
-    "url": "https://www.bankingsupervision.europa.eu/framework/priorities/html/geopolitical-risk.it.html",
+    "url": "https://www.ecb.europa.eu/careers/all-about-careers/html/index.it.html",
     "domain": domain,
     "title": title,
     "html_text":  html_text,

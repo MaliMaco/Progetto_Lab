@@ -1,0 +1,165 @@
+<div class='crawl4ai-result'>
+<main>
+			<div class="toBeUpdated" id="language-not-available">Non disponibile in italiano</div><!-- block-conversion -->
+    
+        
+ 
+          
+      <div class="title">
+        <h1>Diversity and inclusion</h1>
+      </div> 
+          
+        <div class="section">
+           
+          
+        
+            <p>At the ECB, we believe diversity creates excellence – more diverse teams mean a wider range of opinions,
+        leading to better and more robust results. It is essential that we connect with the best talent so that we
+        can take the best possible decisions for the good of all citizens of the euro area, and our diversity is
+        central to this.</p><p>We aspire to be an organisation in which diversity is welcomed and appreciated in all its facets for the
+        richness that it offers. Enabling diversity is vital to our institution in order to deliver the best
+        possible outcome for our staff and for Europe. The facets of diversity include – but are not limited to –
+        age, disability, ethnicity, gender, gender identity, race, religion, sexual orientation and other
+        characteristics.</p>
+        
+         
+          
+        </div>
+       
+          
+<div class="splitter -top-arrow -dark-blue -no-space-below"> 
+    <div class="content-box">
+        <h3>Our initiatives to fight racism</h3>
+         
+    </div>
+</div>
+ 
+          
+    <div class="image-box -bottom-arrow -tall" data-image="index/elimination_racial_discrimination_box.jpg" data-image-webp="index/elimination_racial_discrimination_box.webp"></div>
+ 
+          
+        <div class="section">
+           
+          
+    
+    <div class="quote -rigt -aside -smaller">
+        <blockquote>
+            <p>There is no place for racism at the ECB, in the EU or anywhere else. We need to nurture mutual
+            understanding, invest in making diversity a success and dismantle the harmful notion of racial
+            superiority. We each have a responsibility to #FightRacism and stand up against intolerant attitudes.
+        </p>
+            
+        </blockquote>
+        
+    </div>
+ 
+          
+        
+            <p>We keep tackling racism in all its forms.</p><p>Our initiatives to promote diversity and inclusion:</p><ul>
+        <li>organising training for staff to raise awareness about diversity and inclusion;</li>
+        <li>running diversity and inclusion surveys that also address race and ethnicity, to better understand
+            the views and needs of our staff;</li>
+        <li>working closely with the ECB Ethnic &amp; Cultural Group to listen to and address the needs of our
+            colleagues;</li>
+        <li>ensuring that ECB communications represent the citizens we serve, including people of diverse ethnic
+            and cultural backgrounds;</li>
+        <li>using inclusive language style guides, highlighting words to be avoided due to racist histories or
+            because they can foster stigmas.</li>
+    </ul><p>
+        Fighting racism is a journey and we continue to strive throughout our institution to ensure that our
+        employees work in an inclusive and diverse environment. </p>
+        
+         
+          
+        </div>
+       
+          
+<div class="splitter -dark-blue"> 
+    <div class="content-box">
+        <h3>Cross-institutional initiatives</h3>
+         
+    </div>
+</div>
+ 
+          
+        <div class="section">
+           
+          
+        
+            
+        
+        
+        
+        <p>The ECB has launched a cross-institutional charter on equality, diversity and inclusion in collaboration with other institutions from the European System of Central Banks (ESCB) and the Single Supervisory Mechanism (SSM).</p><p>Signing the charter means that we commit to a set of shared principles, common goals and concrete actions to embrace a culture based on equality, diversity, respect, dignity and inclusion within and across our institutions, which includes:</p><ul><li>reflecting the diversity of the citizens we serve</li><li>fostering inclusive workplaces free from any form of discrimination</li><li>sharing best practices, knowledge and experience</li></ul><p><a href="/pub/pdf/other/ESCB_SSM_Equality_Diversity_and_Inclusion_Charter~da98cc5c2f.it.pdf" data-label="inglese">Equality, diversity and inclusion charter</a></p>
+    
+    
+    
+    
+        
+         
+          
+        </div>
+       
+          
+<div class="splitter -dark-blue -top-arrow"> 
+    <div class="content-box">
+        <h3>Other initiatives on diversity</h3>
+         
+    </div>
+</div>
+ 
+          
+        <div class="section">
+           
+          
+        
+            <p>Here are some of the initiatives we undertake to support the development of greater diversity and inclusion in
+        our institution:</p><ul>
+        <li>marking days by celebrating a variety of facets, including the International Day of People with
+            Disabilities, International Day of Commemoration in memory of the victims of the Holocaust, International
+            Women’s Day and the International Day against Homophobia, Biphobia, Interphobia and Transphobia (IDAHOBIT);
+        </li>
+        <li>having regular Inspiring Leaders talks (including speeches from World Bank Senior Vice President Sandie
+            Okoro and Central Bank of Ireland Deputy Governor Ed Sibley);</li>
+        <li>participating in Frankfurt’s Christopher Street Day (Pride) parade;</li>
+        <li>making breast-feeding facilities available in all ECB premises; </li>
+        <li>instituting gender targets to increase our share of <a href="/careers/why-we-value-diversity/women/html/index.it.html" data-label="inglese">women at the ECB</a>;</li>
+        <li>pilot on traineeships restricted to candidates on the autism spectrum (eligibility will be checked on the basis of a <a href="/careers/why-we-value-diversity/shared/pdf/Medicalcertificateautismspectrum.it.pdf" data-label="inglese">medical certificate</a> confirming the autism diagnosis).</li>
+    </ul>
+        
+         
+          
+        </div>
+       
+          <div class="jumbo-box -dark-blue">
+            <div class="upper">
+                <div class="content-box">
+                     
+                    
+                    <div class="title">Economic Dividends for Gender Equality (EDGE)</div>
+                </div>
+            </div>
+            <div class="lower">
+                
+                
+                
+                <div class="wrapper">
+                    
+                    <div data-image="index/edge-seal-rgb-plus-move-pos.jpg" data-image-webp="index/edge-seal-rgb-plus-move-pos.webp"></div>
+                    <div class="content-box">
+                        <p>In March 2023 the ECB received EDGEplus certification at the Move level. EDGEplus certification is the leading global assessment methodology and business certification standard for gender and intersectional equity.</p><p>Following an independent assessment and benchmarking of the ECB against both global standards and our peers, EDGE has recognised our progress towards gender equality and our efforts to address intersectional issues in areas such as race/ethnicity, sexual orientation, age, nationality and disability. </p><p>We remain committed to being a gender-diverse and inclusive organisation. In line with our commitment, we regularly conduct gender pay gap analyses to ensure that we provide equal pay for equivalent work regardless of gender.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+ 
+          
+			
+			<div class="in-this-section -active -small" id="pages-in-section-holder">
+    <h3>Tutte le pagine di questa sezione</h3>
+    <div class="content-box"><ul><li><a href="/careers/why-we-value-diversity/women/html/index.it.html">Women@ECB</a></li><li><a href="/careers/why-we-value-diversity/diversity-networks/html/index.it.html">Reti per la diversità</a></li></ul></div>
+</div>
+		</main>
+</div>

@@ -4,8 +4,8 @@ import re
 import unicodedata
 from bs4 import BeautifulSoup
 
-#Cambiare i nomi dei file in cui si trovano l'html ed il gs
-html_file = open(os.path.join(os.path.dirname(__file__),"html_ecb_stab.txt"), "r", encoding="UTF-8")
+
+html_file = open(os.path.join(os.path.dirname(__file__),"html_wiki_ser.txt"), "r", encoding="UTF-8")
 gs_file = open(os.path.join(os.path.dirname(__file__),"gs3_GS.txt"), "r", encoding="UTF-8")
 
 html_text = html_file.read()
@@ -17,25 +17,33 @@ gs_text = re.sub(r'[\u201c\u201d\u201e\u201f]', '"', gs_text)
 gs_text = re.sub(r'[\u2013\u2014\u2015]', '-', gs_text)
 gs_text = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u20AC\u00e8]', '', gs_text)
 gs_text = re.sub(r'(?<=[^\s])\u00f9(?=[A-ZÀÈÉÌÒÙ])', ' ', gs_text)
+gs_text = re.sub(r'\[\d+\]', '', gs_text)
 gs_text = re.sub(r'\s+', ' ', gs_text).strip()
 
 soup = BeautifulSoup(html_text, "html.parser")
 title_tag = soup.find("h1", id="firstHeading") or soup.find("h1")
 title = title_tag.get_text(strip=True) if title_tag else ""
 
+<<<<<<< HEAD:Progetto_Lab-main/gs_data/www.ecb.europa.eu/gs3/json_generator.py
 url_list = "https://www.ecb.europa.eu/mopo/strategy/strategy-review/html/price-stability-objective.it.html".split("/")
+=======
+url_list = "https://en.wikipedia.org/wiki/Serpico".split("/")
+>>>>>>> 9cfc13d13834b604a2ed1998eb8ddaa769031f27:gs_data/en.wikipedia.org/gs3/json_generator.py
 domain = url_list[2]
 
 
 json_entry = {
-    "url": "https://www.ecb.europa.eu/mopo/strategy/strategy-review/html/price-stability-objective.it.html",
+    "url": "https://en.wikipedia.org/wiki/Serpico",
     "domain": domain,
     "title": title,
     "html_text":  html_text,
     "gold_text": gs_text
 }
 
+<<<<<<< HEAD:Progetto_Lab-main/gs_data/www.ecb.europa.eu/gs3/json_generator.py
 
+=======
+>>>>>>> 9cfc13d13834b604a2ed1998eb8ddaa769031f27:gs_data/en.wikipedia.org/gs3/json_generator.py
 result = open(os.path.join(os.path.dirname(__file__),"gs3.json"), "w", encoding="UTF-8")
 result.write(json.dumps(json_entry, indent=1))
 result.close()

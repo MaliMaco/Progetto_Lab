@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notion: Notes, Tasks, AI – App Store Details</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #f5f5f7;
+            color: #1c1c1e;
+            line-height: 1.5;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .subtitle {
+            color: #6c6c70;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            background: #e5e5ea;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .rating {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+        .stars {
+            color: #ffb800;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+            background: #f9f9fc;
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #8e8e93;
+        }
+        .info-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1.6rem;
+            border-left: 4px solid #007aff;
+            padding-left: 0.75rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+        .whatsnew-meta {
+            color: #8e8e93;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .description {
+            white-space: pre-wrap;
+            background: #fafafc;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1px solid #e5e5ea;
+        }
+        a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul.iap-list {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        
+        .review {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #fafafc;
+            border-radius: 12px;
+        }
+        .review-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .review-stars {
+            color: #ffb800;
+            font-size: 0.9rem;
+        }
+        .review-date {
+            color: #8e8e93;
+            font-size: 0.8rem;
+        }
+        .review-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .review-text {
+            color: #3a3a3c;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+        .review-sep {
+            margin: 1rem 0;
+        }
+    
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Notion: Notes, Tasks, AI</h1>
+    <div class="subtitle">Plan, organize, track projects</div>
+    <div class="price">Free · In‑App Purchases</div>
+
+    <div class="rating">
+        <span class="stars">★★★★½</span>
+        <span> 4.8 </span>
+        <span style="color: #6c6c70;">(86.0K ratings)</span>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-item"><span class="info-label">DEVELOPER</span><span class="info-value">Notion Labs, Incorporated</span></div>
+        <div class="info-item"><span class="info-label">CATEGORY</span><span class="info-value">Productivity</span></div>
+        <div class="info-item"><span class="info-label">SIZE</span><span class="info-value">529.7 MB</span></div>
+        <div class="info-item"><span class="info-label">COMPATIBILITY</span><span class="info-value">Requires iOS 17.0 or later. iPhone Requires iOS 17.0 or later. iPad Requires iPadOS 17.0 or later. Apple Vision Requires visionOS 1.0 or later.</span></div>
+        <div class="info-item"><span class="info-label">LANGUAGES</span><span class="info-value">English, Arabic, Danish + more</span></div>
+        <div class="info-item"><span class="info-label">AGE RATING</span><span class="info-value">4+ 4+ Learn More</span></div>
+        
+        <div class="info-item">
+            <span class="info-label">IN-APP PURCHASES</span>
+            <ul class="iap-list">
+                <li>Notion – Plus Monthly – $11.99</li><li>Notion Plus & AI – $21.99</li><li>Notion – Plus Yearly – $119.99</li><li>Notion Plus & AI – $214.99</li>
+                
+            </ul>
+        </div>
+        
+        <div class="info-item"><span class="info-label">COPYRIGHT</span><span class="info-value">©2023 Notion Labs, Incorporated</span></div>
+    </div>
+
+    <h2>Description</h2>
+    <div class="description">No description available.</div>
+
+    <h2>What's New</h2>
+    <div class="whatsnew-meta">Version 1.7.312 – 2026-06-10</div>
+    <div>Bug fixes and performance improvements.</div>
+
+    <h2>User Reviews</h2>
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">☆☆☆☆☆</span>
+                    <span class="review-date"></span>
+                </div>
+                <div class="review-title"></div>
+                <div class="review-text">Is your mind whirring away with all the things you need to do at work, home, and everywhere in between? Give your brain a break by logging your thoughts in Notion. Notion is a digital notepad in which you can jot down all sorts of information. Create private pages for lists, random thoughts and diary entries, or shared ones for documents you’d like to invite friends and colleagues to so you can collaborate.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2024-09-20</span>
+                </div>
+                <div class="review-title">Calendar view is amazing</div>
+                <div class="review-text">I literally only use this app for calendar view and data transfer between Apple and Windows devices (Google Drive works too but you have to click more buttons). Notion's calendar view is so beautiful, customizable and functional, plus you can add MULTIPLE views and filter + sort them all differently! I say functional using a 5th Gen iPad Pro, my less powerful old iPad Air doesn't run anything that well, so beware if you don't have Pro anything. But wow! I love that you can add tags to pages in the calendar, and show the Status of it so you can check it off when the task is complete! Way more fluid and easy on the eye than Google Calendar. My only quibble is the lack of color customizability across all of Notion, but the page icons and tag colors function just fine for color coding purposes.I only use the free version, so the fact that Notion offers all that for free is amazing, but if you pay you get things called automations which I've never been able to try but I'm sure that would be even more convenient. A downside is you can't use Notion offline, which is tough when a place's WiFi disconnects every 5 minutes. My home WiFi has never given me trouble though. I've been using Notion since December 2023. It takes a bit to learn and other apps do some things better, but calendar view really has changed my life and made planning a lot more fluid, fun and aesthetic!</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2021-07-29</span>
+                </div>
+                <div class="review-title">Beautiful, jam-packed Scrivener/Docs alternative</div>
+                <div class="review-text">I tried several dozen new writing and wiki apps in pursuit of an alternative to Scrivener and Google Docs. I wanted the organizational features of Scrivener but the instant sync features of Docs. Notion is all that and so much more! There is a learning curve, but it only took me a few hours to use 85% off the features, and I mastered probably 98% of them within a few weeks. My top tip? Google search for Notion templates! Once I started playing with a creative writing template, I figured Notion out very quickly. I am a P-12 teacher, and I currently use Notion for nearly everything, both personal and professional. I use the web clipper to store links and research. I write collaborative short stories and give feedback. I track CCSS for my students and link standards to their portfolio projects. I created study wikis, to-do lists, and assignment calendars for my teaching classes and Praxis test prep. I even turned my resume into an interactive wiki with relational databases, so now I can link my past jobs to the specific skills and technologies I used in each! The Notion iPad and iOS apps are nearly perfect. I switch seamlessly between them and the MacOS app. My only requests would be 1. Allow offline mode, and 2. Allow full access to workspace settings. I occasionally have brief connection problems or need to enter the workspace settings on my phone or iPad, and it would be 100% perfect if the app met those needs. But really, I am so amazed by this app. I recommend it to everyone I meet. And no, I don’t work for Notion, but I would love to!</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2024-07-26</span>
+                </div>
+                <div class="review-title">For the last three days…</div>
+                <div class="review-text">I’ve had fun using Notion. I thought, “This is my new ultimate database. It does things other apps can’t do. It’s a lifesaver.” Now, I’m thinking of unsubscribing at the end of the month. The inability to support PDF Export in 2024 for just about any page or document I desire AS IS, with no weird formatting changes or outright non-transferring of whole swaths of information is downright unacceptable. I’m on the $10 per month plan, so maybe they have that feature in the $20 per month plan, but no. It’s a feature that should be available in all plans, by default. I feel like all the work I put in over the last three days is near-wasted, because it feels like it’s all held hostage by either an underpowered PDF feature or a locked-out PDF feature. I’ve looked up alternative methods by other users and those didn’t work for me either. Oh, well. It was a fun three days, I guess. Hope there comes a massive overhaul of issues like these in the future, but despite Notion’s popularity and cost the debugging and development sector of their business has historically not been up to snuff. Hope this changes, but for now, I’m leaving. Please be warned of issues like these before you dive head-first into a new app/service like I did. Hindsight’s 20/20.</div>
+            </div>
+            <hr class="review-sep">
+            
+
+    <h2>App Privacy</h2>
+    <div>The developer, Notion Labs, Incorporated , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy .</div>
+
+    <hr>
+    <div>
+        <p><strong>Developer Website:</strong> <a href="https://www.notion.so" target="_blank">https://www.notion.so</a></p>
+        <p><strong>Privacy Policy:</strong> <a href="https://www.notion.so/Terms-and-Privacy-28ffdd083dc3473e9c2da6ec011b58ac" target="_blank">https://www.notion.so/Terms-and-Privacy-28ffdd083dc3473e9c2da6ec011b58ac</a></p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash Royale – App Store Details</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #f5f5f7;
+            color: #1c1c1e;
+            line-height: 1.5;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .subtitle {
+            color: #6c6c70;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            background: #e5e5ea;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .rating {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+        .stars {
+            color: #ffb800;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+            background: #f9f9fc;
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #8e8e93;
+        }
+        .info-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1.6rem;
+            border-left: 4px solid #007aff;
+            padding-left: 0.75rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+        .whatsnew-meta {
+            color: #8e8e93;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .description {
+            white-space: pre-wrap;
+            background: #fafafc;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1px solid #e5e5ea;
+        }
+        a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul.iap-list {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        
+        .review {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #fafafc;
+            border-radius: 12px;
+        }
+        .review-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .review-stars {
+            color: #ffb800;
+            font-size: 0.9rem;
+        }
+        .review-date {
+            color: #8e8e93;
+            font-size: 0.8rem;
+        }
+        .review-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .review-text {
+            color: #3a3a3c;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+        .review-sep {
+            margin: 1rem 0;
+        }
+    
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Clash Royale</h1>
+    <div class="subtitle">PvP Battle in Card Tower Duel</div>
+    <div class="price">Free · In‑App Purchases</div>
+
+    <div class="rating">
+        <span class="stars">★★★★½</span>
+        <span> 4.6 </span>
+        <span style="color: #6c6c70;">(3.8M ratings)</span>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-item"><span class="info-label">DEVELOPER</span><span class="info-value">Supercell Oy</span></div>
+        <div class="info-item"><span class="info-label">CATEGORY</span><span class="info-value">Strategy</span></div>
+        <div class="info-item"><span class="info-label">SIZE</span><span class="info-value">994.9 MB</span></div>
+        <div class="info-item"><span class="info-label">COMPATIBILITY</span><span class="info-value">Requires iOS 14.0 or later. iPhone Requires iOS 14.0 or later. iPad Requires iPadOS 14.0 or later. iPod touch Requires iOS 14.0 or later.</span></div>
+        <div class="info-item"><span class="info-label">LANGUAGES</span><span class="info-value">English, Arabic, Dutch + more</span></div>
+        <div class="info-item"><span class="info-label">AGE RATING</span><span class="info-value">9+ 9+ This app has an age rating of 9+ with content restrictions. Some content may be rated higher, but access is managed by the developer through in-app controls. Learn More In-App Controls Age Assurance Parental Controls Infrequent Cartoon or Fantasy Violence Guns or Other Weapons Contains Messaging and Chat</span></div>
+        
+        <div class="info-item">
+            <span class="info-label">IN-APP PURCHASES</span>
+            <ul class="iap-list">
+                <li>Pouch of Gems – $4.99</li><li>Fistful of Gems – $0.99</li><li>Diamond Pass – $11.99</li><li>Bucket of Gems – $9.99</li><li>Special Offer – $4.99</li>
+                <li>+5 more</li>
+            </ul>
+        </div>
+        
+        <div class="info-item"><span class="info-label">COPYRIGHT</span><span class="info-value">© 2016-2026 Supercell Oy</span></div>
+    </div>
+
+    <h2>Description</h2>
+    <div class="description">No description available.</div>
+
+    <h2>What's New</h2>
+    <div class="whatsnew-meta">Version v15.535.13 – 2026-06-11</div>
+    <div>New update: More Ways to Play! • NEW EVOLUTION: Princess, shoots frost arrows that slow enemies down • NEW HERO: Tombstone, unleashes Tomb Queen • NEW GAME MODE: Princess Gambit – no King Tower, no deck draft • NEW Collection Level, replacing King’s Journey • COMING IN JULY: New Card + C.H.A.O.S 2.0 • Plus bug fixes and improvements</div>
+
+    <h2>User Reviews</h2>
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">☆☆☆☆☆</span>
+                    <span class="review-date"></span>
+                </div>
+                <div class="review-title"></div>
+                <div class="review-text">Colourful chaos awaits in our 2016 iPhone Game of the Year. Supercell’s awesome card battler delivers excellent deck-building mechanics and fast-paced fights in a package that’s easy to understand and undeniably fun. Upgrading, unlocking and experimenting with cards gives the game endless replayability, and deciding just where to drop your heroes makes each battle distinct. But no matter how good your deck is, there’s no substitute for skill and quick thinking.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2025-11-24</span>
+                </div>
+                <div class="review-title">I’m just trying my luck with this and it doesn’t look too great for.</div>
+                <div class="review-text">The first time I heard about it I was so excited for this one because the second episode is the best episode in a series and the third one I have to wait till next week for a while and it’s been like that all year I just don’t get excited because the third season has a whole bunch and the first season was the last season was the third season was so long I just want you guys in a better way I love the new episode but it’s just not good I don’t think I have to do this for the second episode and it’s a good thing that we all get a lot done I just think it will make a great story but I’m really happy about this show because it just happened so I just wanted it just feels so exciting I hope you’re all set up to make a little something else that we have been saying goodbye I just don’t think I don’t want it I love the second season was just in my heart goes into a it’s not a good thing about the last season I don’t want that is it is it is it just doesn’t matter if I just wanted it doesn’t make it just don’t be sorry if I don’t want anything to me is what you know that means so yeah it’s not that you don’t have any sense and I’m not mad I love the show and I’m not like you don’t want anything I love it but I’m like I’m like I’m just trying and you just like I’m like yeah it’s like I’m not really that kind and you just kind and I’m just saying like you just like I’m like oh you just like you just know how much.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2021-01-14</span>
+                </div>
+                <div class="review-title">War is still broken</div>
+                <div class="review-text">I have a love/hate relationship with this game but it is still my single favorite mobile game. However, the matchmaking in War is beyond broken. Probably half the time, I am playing decks with an average level 2-3 higher than mine. I’m not sure that I have ever written a game review but I am hoping Supercell’s developers hear enough reviews like this to actually make a change. It is all but impossible to overcome a deck with all level 13 when you have a mix of 10 and 11. It’s gotten to the point that I usually just quit as soon as it becomes obvious that the person I am playing against isn’t terrible because I just have nearly 0% chance to win otherwise. Not only do they have better cards typically, I will go and check the player profile afterwards and they often have many more trophies than I do. You know a matchmaking system is broken when you are consistently outgunned and compete against players with higher achievements/skill in the game. I really can’t make sense of the matchmaking algorithm. I am sure they put a ton of work into it but it is about as bad as it gets. This is only in reference to war. Single player matchmaking is actually pretty good. As background, I actually play 6 accounts ranging from 4300 trophies on my lowest to a high of 5800 on my best account. The only reason I even play war is to get points for my clan and because I don’t want to let them down. I HATE having to play war and definitely wouldn’t if I wasn’t in a clan. Supercell, PLEASE FIX.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2023-04-04</span>
+                </div>
+                <div class="review-title">Update For Loser’s</div>
+                <div class="review-text">When it comes to clash Royale I have been playing for quite some time now and what I have seen in terms of progression is that it’s very challenging to get level 14 cards, and I understand that you did this on purpose because they are so powerful. But when I think of progressing the one thing that helped me get my cards to higher levels faster and easier was the pass Royale. The pass allowed me to win around 50 matches in each season and I would then earn enough crowns to get pretty far in which then unlocked tons of chests and wildcards and if I decided to play even more it even granted me a few legendary cards. But with the latest update you guys have made the diamond pass. I think that the diamond pass ruins progression for free to play users because it simply made it so you guys had to also nerf the gold pass and the rewards that you unlock for free and you even made it harder to progress to the free rewards by merging the tiers. When I think of a battle pass I think of fortnite or apex legends where they separate the free rewards and the payed rewards so you can see everything you can get and it’s the same to progress the payed and the free versions. This is exactly how you used to do it so who’s to say you couldn’t make a 3rd separation and have 3 lines showcasing each of the rewards for the gold and diamond pass? I believe this would help you make money while also keeping the game fun and less demanding of you to spend money in order to level up your cards.Sincerely, Hunter</div>
+            </div>
+            <hr class="review-sep">
+            
+
+    <h2>App Privacy</h2>
+    <div>The developer, Supercell , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy .</div>
+
+    <hr>
+    <div>
+        <p><strong>Developer Website:</strong> <a href="https://help.supercellsupport.com/clash-royale/en/" target="_blank">https://help.supercellsupport.com/clash-royale/en/</a></p>
+        <p><strong>Privacy Policy:</strong> <a href="http://supercell.com/privacy-policy/" target="_blank">http://supercell.com/privacy-policy/</a></p>
+    </div>
+</div>
+</body>
+</html>

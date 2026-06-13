@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram – App Store Details</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #f5f5f7;
+            color: #1c1c1e;
+            line-height: 1.5;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .subtitle {
+            color: #6c6c70;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            background: #e5e5ea;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .rating {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+        .stars {
+            color: #ffb800;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+            background: #f9f9fc;
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #8e8e93;
+        }
+        .info-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1.6rem;
+            border-left: 4px solid #007aff;
+            padding-left: 0.75rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+        .whatsnew-meta {
+            color: #8e8e93;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .description {
+            white-space: pre-wrap;
+            background: #fafafc;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1px solid #e5e5ea;
+        }
+        a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul.iap-list {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        
+        .review {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #fafafc;
+            border-radius: 12px;
+        }
+        .review-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .review-stars {
+            color: #ffb800;
+            font-size: 0.9rem;
+        }
+        .review-date {
+            color: #8e8e93;
+            font-size: 0.8rem;
+        }
+        .review-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .review-text {
+            color: #3a3a3c;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+        .review-sep {
+            margin: 1rem 0;
+        }
+    
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Instagram</h1>
+    <div class="subtitle">Videos, creators & friends</div>
+    <div class="price">Free · In‑App Purchases</div>
+
+    <div class="rating">
+        <span class="stars">★★★★½</span>
+        <span> 4.7 </span>
+        <span style="color: #6c6c70;">(29.0M ratings)</span>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-item"><span class="info-label">DEVELOPER</span><span class="info-value">Instagram, Inc.</span></div>
+        <div class="info-item"><span class="info-label">CATEGORY</span><span class="info-value">Photo & Video</span></div>
+        <div class="info-item"><span class="info-label">SIZE</span><span class="info-value">579.2 MB</span></div>
+        <div class="info-item"><span class="info-label">COMPATIBILITY</span><span class="info-value">Requires iOS 16.3 or later. iPhone Requires iOS 16.3 or later. iPad Requires iPadOS 16.3 or later.</span></div>
+        <div class="info-item"><span class="info-label">LANGUAGES</span><span class="info-value">English, Croatian, Czech + more</span></div>
+        <div class="info-item"><span class="info-label">AGE RATING</span><span class="info-value">13+ 13+ This app has an age rating of 13+ with content restrictions. Some content may be rated higher, but access is managed by the developer through in-app controls. Learn More In-App Controls Age Assurance Parental Controls Infrequent Profanity or Crude Humor Mature or Suggestive Themes Alcohol, Tobacco, Drug Use or References Sexual Content or Nudity Guns or Other Weapons Contains Advertising Messaging and Chat User-Generated Content</span></div>
+        
+        <div class="info-item">
+            <span class="info-label">IN-APP PURCHASES</span>
+            <ul class="iap-list">
+                <li>Instagram Badge – $4.99</li><li>Meta Verified Standard – $14.99</li><li>Instagram Badge – $0.99</li><li>Meta Verified Standard – $14.99</li><li>Meta Verified Standard – $14.99</li>
+                <li>+5 more</li>
+            </ul>
+        </div>
+        
+        <div class="info-item"><span class="info-label">COPYRIGHT</span><span class="info-value">© 2018 Instagram, LLC.</span></div>
+    </div>
+
+    <h2>Description</h2>
+    <div class="description">No description available.</div>
+
+    <h2>What's New</h2>
+    <div class="whatsnew-meta">Version 433.0.0 – 2026-06-08</div>
+    <div>Performance optimizations and stability improvements for a smoother, more reliable experience.</div>
+
+    <h2>User Reviews</h2>
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2024-07-01</span>
+                </div>
+                <div class="review-title">Creative and User-Enhancing Suggestions</div>
+                <div class="review-text">Dear Instagram Developers, I hope this message finds you well. I am writing to offer a few suggestions that I believe would greatly benefit and enhance the functionality of Instagram. Firstly, I propose the inclusion of a feature that would allow users to add music to their profiles. This addition would undoubtedly add a whole new dimension of creativity and personalization, empowering users to express themselves through their favorite tunes. Secondly, I would like to address a concern regarding the white circle that surrounds the profile photo. In my opinion, this visual element can sometimes disrupt the overall aesthetic and proportion of the photo. I respectfully suggest that the option to remove or customize this circle be made available, allowing users to further curate their profiles in alignment with their personal branding. Last but not least, I would like to express my desire for Instagram to support the option of using GIFs as profile photos. This animated form of self-expression would undoubtedly inject a playful and engaging element into users' profiles, increasing their appeal and individuality. I genuinely believe that these proposals could positively impact the Instagram user experience, fostering increased creativity and allowing for further personalization. I appreciate your time and consideration, and I eagerly look forward to seeing the continued evolution of the platform. Thank you for your attention to these suggestions.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2023-08-21</span>
+                </div>
+                <div class="review-title">My problem</div>
+                <div class="review-text">Instagram is a really good app and I love it but I had a problem recently… Someone made an account pretending to be me they used one my pictures from my page and used my name and middle name as well, at first I thought it was a friend but then I realized it was someone else I reported that account but they didn’t take the account down. I also asked everyone I follow, friends almost everyone on Instagram to report the account which they did and the account was still not taken down! I had people after people after people reporting this account and they still would not take the account down after a while I gave up because I’m not gonna waste my time if you guys aren’t doing anything about it. A couple weeks later I had a message request from that account making a joke about it saying “Hey can you stop pretending to be me!?” And then they said “nah I’m just kidding I don’t wanna be you anymore, here’s the password to this account” and the password to the account actually worked there wasn’t no email or phone number which was odd. I’m glad this person stopped pretending to be me! But that is not the point. That person can be pretending to be someone else as I type this right now and the fact that you guys didn’t do anything to try and help is sickening honestly. Honestly love the app but you guys gotta do better people should not be able to pretend be someone else and then when we ask for you to take there account down you refuse very unhappy with that. Hope this review helped just be careful especially with your children on this app, Thank you.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2019-12-19</span>
+                </div>
+                <div class="review-title">If I could give it zero stars I would</div>
+                <div class="review-text">I had Instagram in the past and then deleted my old account. I made a new one recently and it has been a total nightmare. Worst app ever. I have to blame the new updates that try to catch, shadow ban, and restrict bot accounts because this app seems to have NO efficient way of telling apart a bot account versus a REAL account. That’s probably why I was blocked from doing so many things like following people, unfollowing people, liking photos, captioning my photos, etc. which makes having a profile on this app completely pointless. Definitely overly measured and overly penalized, when all I did was unfollow like 16 people I DIDN’T want to follow any longer. My personal choice. Why should Instagram feel the need to dictate my account? That is extremely unfair and defeats the purpose of free expression. How is me doing such a simple thing many do harming the community in this app? Makes no sense. If I don’t want to follow multiple people, I should be able to do that because it’s suppose to be MY account, therefore, MY choice. Unless you guys thought I was a bot, which again is a poor examination on YOUR part. Terrible experience. For the further reasons that trying to get this issue fixed seems impossible with such an unapproachable help center/establishment. I’ve reached out MULTIPLE times and you guys haven’t fixed squat. You guys have turned this app into pure TRASH. Thanks a lot. So much for a save community for “everyone”. Fix your system.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2019-03-29</span>
+                </div>
+                <div class="review-title">Some things to fix</div>
+                <div class="review-text">So there are MANY nsfw accounts on instagram....if you report it for sexual pornography it will say "we reviewed your report and found that it done not violate our community guidelines". Tf?! A LINE IN YOUR GUIDELINES SAY "no pornographic content" so uncensored yiff (2 animals having s*x and actually showing EVERYTHING) Is considered appropriate? And if you report too much, your acc gets banned for "false" reports. Another problem i have. I have multiple accounts, a fandom account and a regular account. I have my fandom account logged in but i can not log into my main account as it says "error. Something went wrong". On my other device i tried to log in to my main and had the same message. I deleted the app off another device and reinstalled it to see if that was the problem. I tried logging into my main account again and i still received the error message. I tired to make a new account but every time i would click "done", it would say "you can not create a account right now because you have violated our terms and service". AND one of my accounts got disabled for no reason. I filled out the form to request it to be put back up (i filled it out 5 months ago) and i am STILL waiting. I did nothing wrong to deserve this. Instagram has been becoming worse every update. I am about to delete this app and use facebook instead because Facebook is better and gives me no trouble with my account. And they actually LISTEN to the problems people have with FB and actually TRY to help solve them. Do not install app!!! Its a waste!</div>
+            </div>
+            <hr class="review-sep">
+            
+
+    <h2>App Privacy</h2>
+    <div>The developer, Instagram, Inc. , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy .</div>
+
+    <hr>
+    <div>
+        <p><strong>Developer Website:</strong> <a href="http://instagram.com/" target="_blank">http://instagram.com/</a></p>
+        <p><strong>Privacy Policy:</strong> <a href="http://instagram.com/legal/privacy/" target="_blank">http://instagram.com/legal/privacy/</a></p>
+    </div>
+</div>
+</body>
+</html>

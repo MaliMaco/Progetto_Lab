@@ -1,0 +1,70 @@
+Affrontare l’impatto del rischio geopolitico
+Il rischio geopolitico non è una novità. Si tratta di un fattore di rischio trasversale che può avere un impatto sulle categorie di rischio tradizionali delle banche. Tuttavia i rischi geopolitici si sono acuiti e si ripercuotono sulle imprese, sull’economia e sul settore bancario europeo. Ciò richiede una maggiore attenzione da parte della vigilanza.
+
+Le banche devono mantenere la propria capacità di tenuta e assicurarsi di essere preparate a gestire l’impatto del rischio geopolitico sulla loro operatività. Per salvaguardare il sistema finanziario, la vigilanza bancaria europea collabora con le banche allo sviluppo di buone prassi per la gestione di tali rischi. Se necessario, si utilizzano strumenti di vigilanza per far sì che le banche migliorino la gestione dei rischi.
+
+Cos’è il rischio geopolitico?
+Il rischio geopolitico riguarda la minaccia, realizzazione ed escalation di eventi avversi associati a guerre, terrorismo e qualsiasi tensione tra Stati e attori politici che incida sul corso pacifico delle relazioni internazionali.
+
+Incertezza sulle politiche economiche
+I rischi geopolitici si sono intensificati negli ultimi anni, contribuendo a un significativo aumento dell’incertezza sulle politiche economiche in Europa e a livello mondiale.
+
+Note: si tratta di un indice basato sulle notizie, che coglie l’incertezza riguardo alle politiche economiche in base a un conteggio del numero di articoli di giornale contenenti i termini “incerta” o “incertezza”, “economica” o “economia” e uno o più termini afferenti le politiche. I dati si riferiscono al periodo compreso tra gennaio 1997 e agosto 2025 per l’indice di incertezza relativo alle politiche economiche in Europa e al periodo compreso tra gennaio 1997 e luglio 2025 per l’indice di incertezza relativo alle politiche economiche a livello mondiale. L’indice europeo si basa su testate giornalistiche di Francia, Germania, Italia, Spagna e Regno Unito. L’indice globale risulta da una media ponderata per il PIL (a prezzi correnti) degli indici nazionali sull’incertezza delle politiche economiche per: Australia, Brasile, Canada, Cile, Cina, Corea del Sud, Francia, Germania, Giappone, Grecia, India, Irlanda, Italia, Regno Unito, Russia, Spagna, Stati Uniti e Svezia. 
+
+Come incidono i rischi geopolitici sulle banche?
+I rischi geopolitici si possono concretizzare in forma di rischi di credito, di mercato, operativi e di finanziamento. Gli shock geopolitici possono trasmettersi alle banche e al loro contesto operativo attraverso diversi canali.
+
+Uno shock geopolitico può colpire le banche attraverso:
+
+Canale del mercato finanziario
+La maggiore incertezza e avversione al rischio tra gli investitori e la frammentazione dei mercati finanziari possono innescare oscillazioni dei prezzi delle attività, turbando i flussi di capitali a livello mondiale e accrescendo la volatilità dei mercati. Tali andamenti possono erodere il valore dei portafogli di attività delle banche o causare perdite dirette sui portafogli di negoziazione, aumentando i rischi di mercato e di finanziamento.
+
+Canale dell’economia reale
+Le tariffe, le sanzioni e le interruzioni dei flussi commerciali e delle catene di approvvigionamento possono generare pressioni inflazionistiche, modificare il comportamento delle imprese e dei consumatori e indebolire le condizioni economiche generali alla base dei portafogli creditizi delle banche. Ciò può accrescere il rischio di credito e comportare tassi di default più elevati, maggiori accantonamenti a copertura delle perdite su crediti e pressioni sulle posizioni patrimoniali delle banche.
+
+Canale della sicurezza e della protezione
+Conflitti e tensioni si possono ripercuotere sulla resilienza operativa delle banche, così come gli attacchi informatici riusciti. Le banche potrebbero essere esposte a rischi operativi derivanti da attacchi cibernetici e interruzioni dei servizi. Anche la loro infrastruttura fisica o quella di fornitori terzi di servizi essenziali potrebbe venire danneggiata.
+
+La trasmissione delle tensioni geopolitiche alle banche
+
+Come stiamo integrando il rischio geopolitico nella nostra vigilanza?
+
+Priorità di vigilanza
+Il rischio geopolitico può incidere sulle categorie di rischio tradizionali a cui sono esposte le banche. Pertanto era già stato incluso tra le priorità di vigilanza della BCE per il periodo 2024-2026 ed è stato posto in maggiore risalto nell’ambito delle priorità di vigilanza per il periodo 2025-2027.
+
+Prova di stress sulla resilienza cibernetica
+Nel 2024 abbiamo condotto una prova di stress sulla resilienza cibernetica per valutare la capacità di tenuta delle banche a potenziali rischi, dal momento che lo sconvolgimento degli equilibri geopolitici potrebbe essere associato a rischi operativi e attacchi cibernetici. Il rischio geopolitico è stato anche una componente fondamentale della prova di stress a livello di UE 2025 e sarà al centro della prova di stress tematica 2026.
+
+Indicazioni di vigilanza
+Data la natura trasversale dei rischi geopolitici, le indicazioni di vigilanza esistenti possono svolgere un ruolo importante nell’aiutare le banche a gestirli. Stiamo esaminando i processi di pianificazione complessiva delle banche. Quest’analisi interessa fra l’altro i processi interni di valutazione dell’adeguatezza del capitale e della liquidità, i piani di risanamento e i quadri di riferimento interni per le prove di stress al fine di verificare la loro preparazione a fronteggiare shock geopolitici.
+
+Attività di analisi del mercato
+La Vigilanza bancaria della BCE svolge inoltre regolari analisi di mercato e approfondimenti per meglio comprendere, individuare e valutare i rischi connessi all’emergere di shock geopolitici e sensibilizzare le autorità di vigilanza in merito alle sfide che ne derivano. Tale sensibilizzazione è utile ai fini del dialogo con le banche sulla gestione dei rischi geopolitici.
+
+Cosa ci aspettiamo dalle banche?
+Ogni banca deve individuare e gestire tutti i rischi a cui è o potrebbe essere esposta adottando un approccio prudente e commisurato alle dimensioni e alla complessità del suo modello di business e della sua operatività. 
+
+I rischi geopolitici possono trasmettersi alle banche attraverso il canale del rischio di credito, del rischio di liquidità e di finanziamento, del rischio di mercato, del rischio di modello di business, del rischio operativo e della governance. Ci si aspetta pertanto che le banche tengano conto anche del rischio geopolitico nell’individuazione e nella gestione dei rischi a cui sono soggette. Va sottolineato che l’esposizione al rischio geopolitico non è una prerogativa delle banche con una presenza internazionale diretta. Anche le banche di minori dimensioni possono risentirne indirettamente, tramite i clienti aziendali, la dipendenza dai mercati internazionali dei capitali o gli accordi di esternalizzazione, in particolare per quanto riguarda i servizi cloud e i servizi legati alle tecnologie dell’informazione e delle comunicazioni concentrati presso pochi fornitori globali.
+
+Al tempo stesso, gli effetti degli shock geopolitici possono essere fortemente “idiosincratici”, vale a dire: a seconda delle controparti, dei settori di attività o delle dipendenze operative di ciascuna banca, lo stesso evento geopolitico può avere impatti molto diversi tra le banche. 
+
+Per gestire i rischi geopolitici (trasmessi attraverso altre tipologie di rischio), è importante disporre di:
+Solidi sistemi di governance e di gestione dei rischi
+Le banche dovrebbero considerare l’impatto del rischio geopolitico nel processo di definizione della strategia aziendale. Devono poter contare su dispositivi di governance, controlli interni e una gestione dei rischi solidi per monitorare e affrontare efficacemente i rischi, anche di natura geopolitica. Gli organi di amministrazione delle banche devono allineare gli obiettivi aziendali e i quadri di riferimento per la determinazione della propensione al rischio al fine di bilanciare l’assunzione di rischi e il relativo controllo.
+
+Chiare e affidabili capacità di aggregazione e segnalazione dei dati sui rischi sono fondamentali a sostegno del monitoraggio dei rischi e del processo decisionale delle banche. La metodologia SREP relativa alla governance interna e alla gestione dei rischi, il progetto di guida sulla governance e sulla cultura del rischio e la guida sull’efficace aggregazione e segnalazione dei dati sui rischi  espongono buone prassi a cui possono attingere le banche.
+
+Sana gestione dei rischi finanziari
+Se necessario, le banche devono adottare misure adeguate per attenuare i rischi e prevenirne un’eccessiva assunzione. Dovrebbero adeguare i livelli di capitale o, se del caso, effettuare accantonamenti per perdite su crediti. Le banche dovrebbero monitorare costantemente l’impatto del rischio geopolitico e disporre di sistemi di allerta precoce.
+
+Per assicurare l’adeguatezza patrimoniale in relazione ai profili di rischio delle banche abbiamo pubblicato una guida sul processo interno di valutazione dell’adeguatezza patrimoniale (ICAAP) e una guida sul processo interno di valutazione dell’adeguatezza della liquidità (ILAAP). Abbiamo inoltre divulgato una serie di migliori prassi per individuare i nuovi rischi negli accantonamenti per perdite di valore.
+
+Pianificazione patrimoniale prudente e prove di stress
+Le banche devono disporre di strumenti per la simulazione del potenziale impatto di eventi geopolitici sulla loro stabilità finanziaria e capacità di tenuta operativa. Una volta che ha chiara la propria esposizione, una banca dovrebbe intraprendere azioni di follow-up a fini di prevenzione o ripresa dall’impatto.
+
+Il rapporto sulle prassi delle banche in materia di ICAAP incoraggia gli intermediari a integrare nella pianificazione patrimoniale un ampio spettro di scenari avversi, inclusi rischi geopolitici. La guida sull’ICAAP delinea inoltre le migliori prassi per le prove di stress interne.
+
+Capacità di tenuta operativa
+Lo sconvolgimento degli equilibri geopolitici può dare luogo a minacce cibernetiche e causare l’interruzione di servizi esternalizzati a terzi. Può comportare fughe di dati, porre rischi in termini di sicurezza fisica e protezione e scaturire in sanzioni internazionali. Le banche dovrebbero pertanto dotarsi di solidi quadri di conformità e sistemi di monitoraggio.
+
+Per contrastare tali rischi, le banche dovrebbero intraprendere misure preventive, predisporre piani di emergenza e provvedere alla formazione del personale. Il regolamento dell’UE sulla resilienza operativa digitale armonizza le norme relative alla resilienza operativa digitale che si applicano ai diversi tipi di entità finanziarie e ai loro fornitori terzi di servizi, mentre la guida sull’esternalizzazione di servizi cloud a fornitori di servizi cloud espone buone prassi per l’attuazione di misure di resilienza per il cloud.

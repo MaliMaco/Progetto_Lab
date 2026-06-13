@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acrobat Reader: PDF Editor – App Store Details</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #f5f5f7;
+            color: #1c1c1e;
+            line-height: 1.5;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .subtitle {
+            color: #6c6c70;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            background: #e5e5ea;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .rating {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+        .stars {
+            color: #ffb800;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+            background: #f9f9fc;
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #8e8e93;
+        }
+        .info-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1.6rem;
+            border-left: 4px solid #007aff;
+            padding-left: 0.75rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+        .whatsnew-meta {
+            color: #8e8e93;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .description {
+            white-space: pre-wrap;
+            background: #fafafc;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1px solid #e5e5ea;
+        }
+        a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul.iap-list {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        
+        .review {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #fafafc;
+            border-radius: 12px;
+        }
+        .review-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .review-stars {
+            color: #ffb800;
+            font-size: 0.9rem;
+        }
+        .review-date {
+            color: #8e8e93;
+            font-size: 0.8rem;
+        }
+        .review-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .review-text {
+            color: #3a3a3c;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+        .review-sep {
+            margin: 1rem 0;
+        }
+    
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Acrobat Reader: PDF Editor</h1>
+    <div class="subtitle">Documents Editor & Converter</div>
+    <div class="price">Free · In‑App Purchases</div>
+
+    <div class="rating">
+        <span class="stars">★★★★½</span>
+        <span> 4.7 </span>
+        <span style="color: #6c6c70;">(626.0K ratings)</span>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-item"><span class="info-label">DEVELOPER</span><span class="info-value">Adobe Inc.</span></div>
+        <div class="info-item"><span class="info-label">CATEGORY</span><span class="info-value">Business</span></div>
+        <div class="info-item"><span class="info-label">SIZE</span><span class="info-value">521.5 MB</span></div>
+        <div class="info-item"><span class="info-label">COMPATIBILITY</span><span class="info-value">Requires iOS 18.3 or later. iPhone Requires iOS 18.3 or later. iPad Requires iPadOS 18.3 or later. Apple Vision Requires visionOS 2.3 or later.</span></div>
+        <div class="info-item"><span class="info-label">LANGUAGES</span><span class="info-value">English, Czech, Danish, Dutch, Finnish, French, German, Italian, Japanese, Korean, Norwegian Bokmål, Polish, Portuguese, Russian, Simplified Chinese, Spanish, Swedish, Traditional Chinese, Turkish</span></div>
+        <div class="info-item"><span class="info-label">AGE RATING</span><span class="info-value">4+ 4+ Learn More</span></div>
+        
+        <div class="info-item">
+            <span class="info-label">IN-APP PURCHASES</span>
+            <ul class="iap-list">
+                <li>Acrobat Premium - Monthly – $12.99</li><li>PDF Edit and Convert Monthly – $12.99</li><li>Acrobat Premium - Yearly – $69.99</li><li>Acrobat Premium - Yearly – $69.99</li><li>Acrobat Premium - Monthly – $14.99</li>
+                <li>+5 more</li>
+            </ul>
+        </div>
+        
+        <div class="info-item"><span class="info-label">COPYRIGHT</span><span class="info-value">© 2011-2026 Adobe. All rights reserved.</span></div>
+    </div>
+
+    <h2>Description</h2>
+    <div class="description">No description available.</div>
+
+    <h2>What's New</h2>
+    <div class="whatsnew-meta">Version 26.05.00 – 2026-06-10</div>
+    <div>NEW — UPDATES TO PDF SPACES PDF Spaces now features a compact, persistent audio player that stays visible while using the Podcast feature. Continue browsing through documents and listen uninterrupted. Also, users can make an exact duplicate of an existing PDF Space podcast and experiment with edits while not altering the original. * Users can also now add image files to PDF Spaces Overview *Paid subscribers NEW — EXPANDED DICTATE FEATURE Do more without having to type. Search for files, search in text, and make notes and comments with the newly expanded Dictate feature.</div>
+
+    <h2>User Reviews</h2>
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2022-05-12</span>
+                </div>
+                <div class="review-title">Rosetta Randle Unit 5 IP</div>
+                <div class="review-text">These are the document that I had to correct I will be submitted them in unit 5 IP May 12,2022 Unit 1 IP I had to correct my vertical analysis. I did it so now I’m resubmitting it. Instructor Dr. Dunbar ACCT 460 Unit 2 IP I have to correct Analyze the Dara glean information. I perform a horizontal and vertical of the balance sheet and the income statements for Jim’s AutoBody.. I corrected it and and now I’m resubmitting please upgrade great. Instructor Dr. Dunbar AccT460 May 11,2022 Unit 3. IP I have to correct 1065 and my 1065K-1 I submitted them and corrected them. Instructor Dr. Dunbar ACCT 460 May be 11,2022 please update so I can get a better grade Unit 4 discussion board. Everything is good for you I don’t have to do anything thank you. Unit 5 then resubmit it to get a better grade I had the wrong management discussion so I correct it out and I am resubmitting. Instructor Dr. Dunbar ACCT460 May 11,2022 please upgrade to get a better gray so I can graduate.. And after Dumbbar I just want to say that you saw also awesome teacher that you care about your students no matter how tired you was you never let us down you always took the time and give us the information in and posted on your on the discussion board so that we will have a chance in passing this class that shows Care and I just want to thank you for everything that you have done for me I’ll like I said to the students that whoever get you they don’t learn something because you the kind of teacher thanks again and God bless. Rosetta Randle.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2018-03-30</span>
+                </div>
+                <div class="review-title">Adobe 4 people</div>
+                <div class="review-text">I am very excited to finally get a chance to use my adobe, considering I was shafted in my curriculum of multi media @ Moore park College from having three groups of malicious despicable Hollywood losers joining Afghani, and locals to embark on my talent and skills to do for myself using Adobe applications ; even better when a trial is offered to become fluent and match user and developer like or dislike for a better use finding consistency. I did not get to use any of the applications I loaded over and over and over once more over now again; not giving up! Because I am the most geeky girl on the Earth, and using DOS to now IOS has me tearful to know that Adobe too is the forefront of our dreams in true light revealing artist value made easy breezy but definitely ( sssh ; not cover a girl) feel me? I love Adobe and the progress we make effectively by the flow of one in conjunction to another application without delay or any significant issue. The issues are really about low cultured people from Afghanistan who will never amount to a paying customers, therefore by stating that known fact I assume the shame of my revelation will bring closure to Americas dilemma, now they will pay to look the part of smart, and try to avoid being seen s the low life they really are. I know I am not only a victim and survived of Afghans but also a Afghan born American naturalized citizen who has witnessed all I have graciously disclosed. I love American and American spirit . We buy; what we try! We are! We are Americans and American are not low life!</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2018-09-09</span>
+                </div>
+                <div class="review-title">Adobe Acrobat</div>
+                <div class="review-text">Acrobat is indispensable to easily open and view any document type that can be imagined. Everything from any device manual, legal documents, mixed media presentations, service and repair manuals, to Academia or Fortune 100 uses. Fillable medical forms or government applications and many more has greatly saved time and speeded up the process for both parties. When forms are sent backed they can immediately be save digitally or converted to a proprietary file type for security or other reasons. With the ability to sign the document in your own hand it can be immediately legally binding or temporarily until an abridged version signed in ink is mailed back finalizing the agreement. Without Acrobat this world would be a mess of hundreds of different file types most likely involving purchasing or downloading a free viewer. There are apps now that are just for opening 100+ file types which is one you would need to open some files yet you may have had to acquire any number of viewers taking up precious space and risking catching a virus, Trojan, or spyware that could be the start of a despairing road down identity theft. There is much more and one thing is that they always look professional and even when used for mathematical documents or journals, the unusual symbols and structure are beautiful conserving original creation by most likely Tex, or Mathematica and many other Math programs. A must have as you are definitely going to run into a *.pdf file you need to view. This all doesn’t even include the Adobe program that creates all these files easily and quickly.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2025-07-08</span>
+                </div>
+                <div class="review-title">The Indispensable Tool for Navigating the PDF World</div>
+                <div class="review-text">In today's digital age, where documents fly across screens and devices, having a reliable and robust PDF viewer is non-negotiable. And for me, nothing comes close to the sheer brilliance and functionality of Adobe Acrobat Reader. It's not just a PDF viewer; it's the gateway to seamless document interaction, making it truly amazing.From the moment you open a PDF, Acrobat Reader's intuitive and clean interface makes it a pleasure to use. Whether it's a massive report, a complex contract, or a simple instruction manual, it renders documents perfectly, preserving formatting, fonts, and images with unparalleled accuracy. This consistency across platforms is a lifesaver, ensuring that what you see is exactly what was intended by the creator.But Acrobat Reader goes far beyond just viewing. The ability to annotate, highlight, and add comments directly to the PDF is incredibly powerful. For reviewing documents, collaborating with colleagues, or simply jotting down personal notes, these tools are indispensable. The recent addition of an AI Assistant is a game-changer, capable of analyzing content and answering specific questions, which can save hours of time, especially with dense legal or technical documents.</div>
+            </div>
+            <hr class="review-sep">
+            
+
+    <h2>App Privacy</h2>
+    <div>The developer, Adobe Inc. , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy .</div>
+
+    <hr>
+    <div>
+        
+        <p><strong>Privacy Policy:</strong> <a href="https://www.adobe.com/go/privacy_policy_acrobatios_en" target="_blank">https://www.adobe.com/go/privacy_policy_acrobatios_en</a></p>
+    </div>
+</div>
+</body>
+</html>

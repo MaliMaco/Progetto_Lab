@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube – App Store Details</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #f5f5f7;
+            color: #1c1c1e;
+            line-height: 1.5;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .subtitle {
+            color: #6c6c70;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            background: #e5e5ea;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .rating {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+        .stars {
+            color: #ffb800;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+            background: #f9f9fc;
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #8e8e93;
+        }
+        .info-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1.6rem;
+            border-left: 4px solid #007aff;
+            padding-left: 0.75rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+        .whatsnew-meta {
+            color: #8e8e93;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .description {
+            white-space: pre-wrap;
+            background: #fafafc;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1px solid #e5e5ea;
+        }
+        a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul.iap-list {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        
+        .review {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #fafafc;
+            border-radius: 12px;
+        }
+        .review-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .review-stars {
+            color: #ffb800;
+            font-size: 0.9rem;
+        }
+        .review-date {
+            color: #8e8e93;
+            font-size: 0.8rem;
+        }
+        .review-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .review-text {
+            color: #3a3a3c;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+        .review-sep {
+            margin: 1rem 0;
+        }
+    
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>YouTube</h1>
+    <div class="subtitle">Videos, Music and Live Streams</div>
+    <div class="price">Free · In‑App Purchases</div>
+
+    <div class="rating">
+        <span class="stars">★★★★½</span>
+        <span> 4.7 </span>
+        <span style="color: #6c6c70;">(48.0M ratings)</span>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-item"><span class="info-label">DEVELOPER</span><span class="info-value">Google LLC</span></div>
+        <div class="info-item"><span class="info-label">CATEGORY</span><span class="info-value">Photo & Video</span></div>
+        <div class="info-item"><span class="info-label">SIZE</span><span class="info-value">364.9 MB</span></div>
+        <div class="info-item"><span class="info-label">COMPATIBILITY</span><span class="info-value">Requires iOS 16.0 or later. iPhone Requires iOS 16.0 or later. iPad Requires iPadOS 16.0 or later. Apple TV Requires tvOS 13.0 or later.</span></div>
+        <div class="info-item"><span class="info-label">LANGUAGES</span><span class="info-value">English, Afrikaans, Albanian + more</span></div>
+        <div class="info-item"><span class="info-label">AGE RATING</span><span class="info-value">13+ 13+ This app has an age rating of 13+ with content restrictions. Some content may be rated higher, but access is managed by the developer through in-app controls. Learn More In-App Controls Age Assurance Parental Controls Infrequent Cartoon or Fantasy Violence Guns or Other Weapons Contains Advertising Messaging and Chat User-Generated Content</span></div>
+        
+        <div class="info-item">
+            <span class="info-label">IN-APP PURCHASES</span>
+            <ul class="iap-list">
+                <li>YouTube Premium – $20.99</li><li>YouTube Premium – $20.99</li><li>Movies & Shows – $3.99</li><li>YouTube Premium – $20.99</li><li>YouTube Premium – $20.99</li>
+                <li>+5 more</li>
+            </ul>
+        </div>
+        
+        <div class="info-item"><span class="info-label">COPYRIGHT</span><span class="info-value">© 2026 Google LLC</span></div>
+    </div>
+
+    <h2>Description</h2>
+    <div class="description">No description available.</div>
+
+    <h2>What's New</h2>
+    <div class="whatsnew-meta">Version 21.22.04 – 2026-05-29</div>
+    <div>Bug fixes, performance improvements, and more cat videos.</div>
+
+    <h2>User Reviews</h2>
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2026-01-02</span>
+                </div>
+                <div class="review-title">5 stars with a few fixes</div>
+                <div class="review-text">The clarity, the speed of the videos sound qualities are all five star. There are a couple suggestions I would like to make, however number one for on screen performance they used to be the three dots at the end of the title area when you’re looking at the review of the video before you start it those dots are gone and those critically allowed you to save the video to the watch later list and several other functions, but you can no longer do that without having your phone connect it up, which isn’t always practical so please put that that capability back on the screen. It would be appreciated. Secondly, can you give a few more seconds like 10 more when you scroll down when a video is on to see what the other shows are before it automatically shuts off and goes back up to the video that gives me more time to read and research what it is and if I want to see it. Thirdly and I’m not sure anything will happen on this one, but I watch a lot of the world news and events that are occurring and this making. Youtubers, who provide videos and news reporting from the front quit making them cut their videos short because you think viewers are going to be upset. That is not the case. People want to see what’s going on you need. to allow people to know the evils that Russia is doing in regards to Ukraine, the human rights violations in countries like China, North Korea, and quit making it virtually impossible for people to learn the truth of what’s going on in the world.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2025-03-04</span>
+                </div>
+                <div class="review-title">I have patience, and it pays off.</div>
+                <div class="review-text">A while, back friends of mine that I was just being acquainted with some of my stories. They’re very colorful and insane. Have a channel out there cause even my stories are very immersive. So for like happy year I had a video that were not publicly available ones worked little little worse. I watched myself over and over. Then I would allow someone to watch it and tell me their feedback on. I decide January 1 which is horrible idea because it’s so cold and my supposed to be done outside. And I put up some videos and they’re not even really the way I want them done they’re kind of in the middle, but not quite well published but they’re not my other ex extreme, which is one shot edit no edits to accents happen great..I don’t know if it’s a glitch, but like a lot of views the other day and it doubled and it might not be nothing out for me. I think that’s crazy. Don’t listen to me just make me more enthusiastic now put more out there and I discovered that I really do like making music even if it’s through a simple I do enjoy the whole thing. It’s my mental therapy. A lot of people so I talked to the camera as if possibly I could put There gives me that sense of commodity with humanity and I would say about .1% of the video ever deleted over and over and over I’m only doing it for myself but wanna hear a little bit thank you and I want all kinds of feedback positive and whatever. A great day if you see a pair of glasses, I can’t find mine. I’m asking my friend who so I only have them last, but you won’t talk to me.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2022-11-04</span>
+                </div>
+                <div class="review-title">Violent ADA (American disability act) and deaf rights</div>
+                <div class="review-text">I graduated from Colorado school for the Deaf, June 4, 1990. My bad experiences for last over 32 years. Throughout, 5 states, where, I used to live before, Idaho, North Dakota, Illinois, Colorado, and California. Violent my these rights, including department of rehabilitation and deaf services. California is the one top violent my rights, Fresno DHHSC (deaf hard of hearing speech center) refused to listen my violent rights for over 2 decades. For example, 3 hospitals including Clovis hospital, Fresno hospital, and Saint Agnes hospital. My primary doctor referred to those for my health issues, which, those clinic refused provided me an interpreter and or VRI (voice relayed interpreter). My mom Judi have to interpreter for me throughout those state and federal failures to me. It’s against laws for using my mom to interpreter without state provided. I complaining to DHHSC many many times, state of services refused to listen. I been through college 4 times, which not successful for me through lack of interpreter problems. Few years ago, my last hope that DOR (department of rehabilitation) my counselor named Devin Puente, opened my case again. DOR pay to Advance career institute welding program around $13,000 for 36 weeks, guess what? No interpreter showed up for 3 days, I withdrew welding program. I’m very struggling with my Deaf and ADA rights throughout over 32 years. My mom, Judi witness all kinds of issues, why? My mom is hearing and I’m deaf since birth. Thank you</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★☆</span>
+                    <span class="review-date">2022-10-30</span>
+                </div>
+                <div class="review-title">Stop changing things and bring back the old stuff</div>
+                <div class="review-text">I really like it since it has so many options and it’s generally a great thing, and without it would be bad and weird especially on weekends since that’s when I watch it most. But recently it updated and made it so that when you watch a video and click on all the videos made by that channel, it shows the longest videos instead of the most recent ones. And it says “recently uploaded” but I hate it a lot. I cannot see anything new that person has made unless I search up “____ newest videos” and that won’t work either because the search thing is weird though I’m fine with the search. Also, you can’t report videos anymore (even tho I don’t have 2 report videos) and that’s just wrong. The more updates that come means the less I will actually use the app bc I have no idea how to do anything on it anymore. I don’t know why nobody else has talked about this because it’s the closest thing to making me stop using this. I understand if devs want bug fixes and stuff, but this one thing is terrible. Please get rid of this and bring back the line of videos when you click “videos” on someone’s channel, it was infinitely easier to find what vid you want. Ex: I want to watch their recent video. a button for that. I want to watch their oldest video. A button for that. I want to watch their most popular videos. A button for that. And now it’s just the longest videos in the “newest videos” section. Summary: the new update is garbage, please bring back the old page for “videos” on someone channel. Please.</div>
+            </div>
+            <hr class="review-sep">
+            
+
+    <h2>App Privacy</h2>
+    <div>The developer, Google , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy .</div>
+
+    <hr>
+    <div>
+        <p><strong>Developer Website:</strong> <a href="https://www.youtube.com" target="_blank">https://www.youtube.com</a></p>
+        <p><strong>Privacy Policy:</strong> <a href="http://www.google.com/policies/privacy" target="_blank">http://www.google.com/policies/privacy</a></p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Calendar: Get Organized – App Store Details</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #f5f5f7;
+            color: #1c1c1e;
+            line-height: 1.5;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .subtitle {
+            color: #6c6c70;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            background: #e5e5ea;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .rating {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+        .stars {
+            color: #ffb800;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+            background: #f9f9fc;
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #8e8e93;
+        }
+        .info-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1.6rem;
+            border-left: 4px solid #007aff;
+            padding-left: 0.75rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+        .whatsnew-meta {
+            color: #8e8e93;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .description {
+            white-space: pre-wrap;
+            background: #fafafc;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1px solid #e5e5ea;
+        }
+        a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul.iap-list {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        
+        .review {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #fafafc;
+            border-radius: 12px;
+        }
+        .review-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .review-stars {
+            color: #ffb800;
+            font-size: 0.9rem;
+        }
+        .review-date {
+            color: #8e8e93;
+            font-size: 0.8rem;
+        }
+        .review-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .review-text {
+            color: #3a3a3c;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+        .review-sep {
+            margin: 1rem 0;
+        }
+    
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Google Calendar: Get Organized</h1>
+    <div class="subtitle">Easily plan & schedule</div>
+    <div class="price">Free · In‑App Purchases</div>
+
+    <div class="rating">
+        <span class="stars">★★★★½</span>
+        <span> 4.5 </span>
+        <span style="color: #6c6c70;">(130.0K ratings)</span>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-item"><span class="info-label">DEVELOPER</span><span class="info-value">Google LLC</span></div>
+        <div class="info-item"><span class="info-label">CATEGORY</span><span class="info-value">Productivity</span></div>
+        <div class="info-item"><span class="info-label">SIZE</span><span class="info-value">293.5 MB</span></div>
+        <div class="info-item"><span class="info-label">COMPATIBILITY</span><span class="info-value">Requires iOS 17.0 or later. iPhone Requires iOS 17.0 or later. iPad Requires iPadOS 17.0 or later. Apple Watch Requires watchOS 11.0 or later.</span></div>
+        <div class="info-item"><span class="info-label">LANGUAGES</span><span class="info-value">English, Bengali, Bulgarian + more</span></div>
+        <div class="info-item"><span class="info-label">AGE RATING</span><span class="info-value">4+ 4+ This app has an age rating of 4+ with content restrictions. Some content may be rated higher, but access is managed by the developer through in-app controls. Learn More In-App Controls Age Assurance Parental Controls Contains User-Generated Content</span></div>
+        
+        <div class="info-item">
+            <span class="info-label">IN-APP PURCHASES</span>
+            <ul class="iap-list">
+                <li>100 GB – $1.99</li><li>100 GB – $1.99</li><li>200 GB – $2.99</li><li>100 GB – $1.99</li><li>200 GB – $2.99</li>
+                <li>+5 more</li>
+            </ul>
+        </div>
+        
+        <div class="info-item"><span class="info-label">COPYRIGHT</span><span class="info-value">© Google Inc.</span></div>
+    </div>
+
+    <h2>Description</h2>
+    <div class="description">No description available.</div>
+
+    <h2>What's New</h2>
+    <div class="whatsnew-meta">Version 26.21.1 – 2026-06-08</div>
+    <div>• Now on your Apple Watch!</div>
+
+    <h2>User Reviews</h2>
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★★</span>
+                    <span class="review-date">2021-01-28</span>
+                </div>
+                <div class="review-title">Fabulous Calendar Feature! ... For Free!</div>
+                <div class="review-text">I don’t know why I thought that the calendar feature on my IPhone would be too difficult for me to figure out how to use. However, after only a couple of “lessons,” (from the most knowledgeable, excellent IPhone expert I’ve ever known, my son, who’s currently at NCSU completing his degree in Computer Engineering 😉😂) I had gotten up to speed regarding the use of this great calendar feature! Like most people, no matter where I am on the go, I’ve got my cell phone with me. Now, this means that I’ve got my calendar with me, too... so no more making plans/appointments on a little paper calendar that you can fit it in your purse, back pocket, random piece of paper, and then having to write what you scheduled down again several times on your calendar at home, at work, and wherever else you keep a calendar... or I remember the most frustrating thing for me!! ... no more making an appointment for something like a follow up time to see your doctor or planning a lunch date, only to arrive home, check your calendar, and discover that you’d just double booked yourself... Once you were finished sweeping the floor, having gotten up most of your hair that you’d just torn out, and answered four IPhone calls, calmly explaining that the screaming that they’d just heard must have come from her TV and that she’d get that turned down right away...so sorry to have bothered you... yes, you never really do know these days... thank you for your concern... oh, yes. I definitely would do the same for you for sure...yada, yada, yada, yada, blah, blah... blllaaahhh. ...And then I got myself calm and collected and decided which of the two that I’d double booked was going to be the most gracious to me about my need to change the plans we’d just made.Yep! I love the IPhone calendar!</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★☆☆☆☆</span>
+                    <span class="review-date">2025-03-01</span>
+                </div>
+                <div class="review-title">Can No Longer Choose Preferred Daily View!</div>
+                <div class="review-text">Google, if you read this, FIX IT PLEASE!!!I’ve used Google calendar for years and loved it. However, a recent update has removed a core functionality I’ve appreciated and relied on since I started using this app as my primary calendar. You used to be able to choose which view you wanted to see when tapping on an individual day from the month overview: You could make the default either “day” (which is broken down in an hourly time-block format for only the date you select), or “schedule” (which displays a list of your overall events/tasks starting on the day you select, with the ability to scroll continuously to see events for other days). I MUCH prefer the schedule view because it’s more concise and you don’t have to scroll to see everything. You also don’t have to back out to the monthly view or use the month dropdown to see a different day’s events, as you could continuously scroll to it. Viewing the schedule is still an option on its own, however it is no longer possible to make this the default daily view when selecting a date from the monthly overview.This significantly retracts from the ease and appeal of using this app for me. I hate to say it, but I’m seriously considering switching to a different calendar application if this doesn’t get fixed, which frustrates me because I have actual YEARS of events archived in Google calendar. PLEASE FIX THIS!!!</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★☆☆☆☆</span>
+                    <span class="review-date">2018-05-24</span>
+                </div>
+                <div class="review-title">Recent updates have seriously ruined this app</div>
+                <div class="review-text">After a few months of very laggy, unresponsive, disappointing app behavior, I finally have had enough to leave a review in the hopes that it will help someone on the app team realize just how bad things have gotten, at least for me (my wife has the same issues on her iOS devices as well, so it’s not something unique to my account). I was surprised to see how many other reviews I have found with almost exactly the same issues that I have. The fact that the other reviewers have been reporting consistently issues since at least the beginning of 2018 with no improvement is nearly inexcusable.My primary issues in a nutshell - 1) often app opens to random dates at initial launch; 2) after initial app load, it generally takes 60-90 seconds (sometimes much longer) before the UI is responsive; 3) once everything has finally loaded (if I have not given up and force quit it already) there is way too much UI lag and sputtering as I try to navigate through different UI views — full month, daily agenda, etc. These issues combined render the app nearly useless for me in most everyday use cases.As an app developer myself, I can appreciate the complexity of creating a performant, well-functioning app. However, given how awesome this app used to be, and the level of satisfaction I expect from an app by Google, I’m just so frustrated and disappointed. I can’t understand why these issues have not received attention yet.</div>
+            </div>
+            <hr class="review-sep">
+            
+            <div class="review">
+                <div class="review-header">
+                    <strong></strong>
+                    <span class="review-stars">★★★★☆</span>
+                    <span class="review-date">2024-11-18</span>
+                </div>
+                <div class="review-title">I’m haunted by the Europeans.</div>
+                <div class="review-text">Google Calendar is a very convenient tool to use when managing your day to day life, especially with another person. I do recommend it over the default calendar app, but the only dispute I have with it is that there’s a constant bug that sets your time zone to Greenwich Mean Time (GMT), which is located within the UK. I’ve seen that many other people online have dealt with a similar problem and have found no real solution besides changing it manually. Unless you live in this area, you run the risk of finding out last minute that you the app has switched the time of an appointment in your calendar without notifying you. As someone who has health issues and schedules doctor visits constantly, and often times in advance, it’s frustrating to catch these thing last minute and have to battle with the app for it to stay corrected. It seems this bug does not affect all users, as the other person in my calendar does not experience this and all settings within the app and my phone itself are set to the correct time zone. Unfortunately for me it simply becomes aggravating after a while. Google I pray you fix this bug for the sake of my sanity. Thank you.</div>
+            </div>
+            <hr class="review-sep">
+            
+
+    <h2>App Privacy</h2>
+    <div>The developer, Google , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy . Learn how the developer lets you manage your privacy choices .</div>
+
+    <hr>
+    <div>
+        <p><strong>Developer Website:</strong> <a href="http://www.google.com/calendar/about" target="_blank">http://www.google.com/calendar/about</a></p>
+        <p><strong>Privacy Policy:</strong> <a href="http://www.google.com/policies/privacy" target="_blank">http://www.google.com/policies/privacy</a></p>
+    </div>
+</div>
+</body>
+</html>

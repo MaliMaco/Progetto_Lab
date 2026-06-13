@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats</title>
+</head>
+<body>
+
+<h1>Stats aggregate</h1>
+<a href="/">&larr; Home</a>
+<hr>
+
+{% if error %}
+    <p style="color:red"><strong>Errore:</strong> {{ error }}</p>
+{% endif %}
+
+{% if stats %}
+
+<!-- CONTEGGIO WEB RESOURCES -->
+<h2>Web Resources nel DB</h2>
+{% if stats.web_resources %}
+<table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+        <tr><th>Dominio</th><th>N. entry</th></tr>
+    </thead>
+    <tbody>
+        {% for domain, count in stats.web_resources.items() %}
+        <tr><td>{{ domain }}</td><td>{{ count }}</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nessuna web resource nel DB.</p>
+{% endif %}
+
+<h2>Gold Standard nel DB</h2>
+{% if stats.gold_standard %}
+<table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+        <tr><th>Dominio</th><th>N. entry</th></tr>
+    </thead>
+    <tbody>
+        {% for domain, count in stats.gold_standard.items() %}
+        <tr><td>{{ domain }}</td><td>{{ count }}</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nessun Gold Standard nel DB.</p>
+{% endif %}
+
+<!-- METRICHE MEDIE PER DOMINIO -->
+<h2>Metriche medie per dominio (token_level_eval)</h2>
+{% if stats.avg_eval %}
+<table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Dominio</th>
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>F1</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for domain, metrics in stats.avg_eval.items() %}
+        <tr>
+            <td>{{ domain }}</td>
+            {% if metrics.token_level_eval %}
+            <td>{{ "%.4f"|format(metrics.token_level_eval.precision) }}</td>
+            <td>{{ "%.4f"|format(metrics.token_level_eval.recall) }}</td>
+            <td>{{ "%.4f"|format(metrics.token_level_eval.f1) }}</td>
+            {% else %}
+            <td colspan="3">N/D</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nessuna metrica disponibile. Esegui <strong>/full_gs_eval</strong> per generare le valutazioni.</p>
+{% endif %}
+
+<!-- JUDGE SCORE MEDIO PER DOMINIO -->
+<h2>Judge score medio per dominio</h2>
+{% if stats.avg_eval_judge %}
+<table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Dominio</th>
+            <th>Judge Score medio (1-5)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for domain, jdata in stats.avg_eval_judge.items() %}
+        <tr>
+            <td>{{ domain }}</td>
+            <td>
+                {% if jdata.judge_score is not none %}
+                    {{ "%.2f"|format(jdata.judge_score) }}
+                {% else %}
+                    N/D
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nessun giudizio LLM disponibile. Esegui <strong>/full_gs_eval</strong> per generare le valutazioni.</p>
+{% endif %}
+
+{% else %}
+<p>Impossibile caricare le statistiche dal backend.</p>
+{% endif %}
+
+</body>
+</html>

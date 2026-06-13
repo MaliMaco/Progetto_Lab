@@ -1,0 +1,91 @@
+<div class='crawl4ai-result'>
+<main>
+			<!-- block-conversion -->
+    
+        
+ 
+          
+      <div class="title">
+        <h1>Accreditamento dei fabbricanti per le banconote</h1>
+      </div> 
+          
+        <div class="section">
+           
+          
+        
+                         <h2>Assicuriamo che le banconote in euro si conformino agli standard più elevati</h2>         
+        
+         
+          
+        
+                                      <p>La BCE ha il dovere di assicurare l’integrità dell’euro come mezzo di pagamento, applicando i più elevati standard in materia di qualità, salute, sicurezza, etica e protezione ambientale in tutte le fasi del processo di ricerca e sviluppo, progettazione, fabbricazione e approvvigionamento delle banconote in euro.</p>                  
+        
+         
+          
+        
+                         <p>La produzione delle banconote in euro deve quindi avvenire nel rispetto di specifici standard industriali, fra cui ISO 9001, ISO 14001 e ISO 45001, nonché di rigorosi requisiti etici e di sicurezza.</p>         
+        
+         
+          
+        
+            <h2>Accreditamento richiesto per i fabbricanti degli elementi dell’euro</h2>
+        
+         
+          
+        
+                                      <p>La fabbricazione degli elementi dell’euro e degli elementi di sicurezza dell’euro è anche subordinata a una procedura di accreditamento presso la BCE. Soltanto i soggetti accreditati sono ammessi a partecipare alle gare di appalto e a stipulare contratti per un’attività inerente agli elementi dell’euro o agli elementi di sicurezza dell’euro.</p>                  
+        
+         
+          
+        
+                                                                                                                    <p>Le condizioni delle procedure di accreditamento sono stabilite nella <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?qid=1593422304795&amp;uri=CELEX:32020D0637">Decisione BCE/2020/24</a>, in vigore dal 18 maggio 2021 e modificata dalla <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022D2063&amp;qid=1683544716638">Decisione BCE/2022/35,</a> in vigore dal 16 novembre 2022.</p>                                                                        
+        
+         
+          
+        
+            <h2>Ambiti di accreditamento</h2>
+        
+         
+          
+        
+                                                                             <p>La BCE può concedere l’accreditamento nei seguenti ambiti:<br></p><ul>    <li>stampa delle banconote</li>    <li>fabbricazione della carta per le banconote</li>    <li>produzione degli inchiostri di stampa</li>    <li>fabbricazione delle lamine olografiche</li>    <li>fabbricazione del filo di sicurezza delle banconote</li>  <li>fabbricazione di altri elementi di sicurezza</li> </ul>                                             
+        
+         
+          
+        
+            <h2>Ulteriori informazioni sulle procedure di accreditamento previste dalla BCE</h2>
+        
+         
+          
+        
+                                                   <p>Maggiori informazioni sono reperibili nella nostra pagina dedicata alle <a href="/paym/cashprof/accreditation/html/ecb.faq_banknote_manufacturer_accreditation.it.html">domande più frequenti</a>.<br></p>                           
+        
+         
+          
+        
+            <h2>Per chiunque sia interessato all’accreditamento</h2>
+        
+         
+          
+        
+            <p>Si prega di inviare un’e-mail all’indirizzo <a href="mailto:QEHS.accreditation@ecb.europa.eu">QEHS.accreditation@ecb.europa.eu</a> fornendo una breve descrizione in lingua inglese dei propri prodotti (massimo 2 pagine in formato A4). Cercheremo di rispondere entro un mese.</p> <p>Per la sicurezza delle comunicazioni utilizziamo il sistema di crittografia PGP. Vi invitiamo a scaricare la <a href="https://www.ecb.europa.eu/euro/cashprof/accreditation/shared/other/QEHS_accreditation.asc">chiave PGP di QEHS accreditation</a> per la trasmissione di informazioni sensibili.</p>
+        
+         
+          
+        
+            <h2>Altre opportunità di collaborazione con la BCE</h2>
+        
+         
+          
+        
+                                                   <p>Chiunque desideri proporre nuove caratteristiche di sicurezza o tecnologie per la produzione o il trattamento delle banconote è invitato a consultare la nostra pagina dedicata a <a href="https://www.ecb.europa.eu/euro/banknotes/research/html/index.it.html">Ricerca e sviluppo nel settore delle banconote</a>.<br></p>                           
+        
+         
+          
+        </div>
+       
+          
+			
+			
+		</main>
+</div>

@@ -1,0 +1,130 @@
+<div class='crawl4ai-result'>
+<main>
+			<!-- block-conversion -->
+    
+        
+ 
+          
+      <div class="title">
+        <h1>Slovacchia (dal 1° gennaio 2009)</h1>
+      </div> 
+          
+        <div class="section">
+           
+          
+        
+            <h2>Fasi della sostituzione del contante</h2>
+        
+         
+          
+        
+            <p>L’<span class="nowrap">8 luglio 2008</span> il Consiglio dell’Unione europea ha approvato la candidatura della Slovacchia per l’adesione all’area dell’euro il <span class="nowrap"><b>1<sup>o</sup> gennaio 2009</b></span>.</p>
+        
+         
+          
+        
+            <p>L’euro ha corso legale in Slovacchia dal <span class="nowrap">1<sup>o</sup> gennaio 2009</span> avendo sostituito la corona slovacca (SKK) al tasso di cambio irrevocabile di <strong>EUR 1&nbsp;=&nbsp;SKK 30,1260</strong>.</p>
+        
+         
+          
+        
+            <p>La distribuzione (“consegna anticipata”) del contante in euro agli operatori professionali anteriormente al <span class="nowrap">1<sup>o</sup> gennaio 2009</span> ha contribuito ad assicurare l’ordinato passaggio alla nuova moneta, alleviando l’onere logistico e riducendo i costi della doppia circolazione valutaria. La consegna anticipata delle monete alle banche ha avuto inizio nel <span class="nowrap">settembre 2008</span>, mentre quella delle banconote è cominciata un mese più tardi. Parte di questo contante è stato successivamente fornito agli esercizi al dettaglio e alle altre imprese (“consegna anticipata di seconda istanza”). La consegna anticipata delle banconote e monete in euro era stata definita dall’<a href="/ecb/legal/pdf/l_20720060728it00390046.pdf">Indirizzo BCE/2006/9</a> modificato dall’<a href="/ecb/legal/pdf/l_17620080704it00160019.pdf">Indirizzo BCE/2008/4</a>. È disponibile un <a href="/ecb/legal/pdf/02006o0009-20080705-it.pdf">testo consolidato non ufficiale</a> predisposto dall’Ufficio delle pubblicazioni ufficiali delle Comunità europee.</p>
+        
+         
+          
+        
+            <p>Dal <span class="nowrap">17 gennaio 2009</span> soltanto le banconote e monete in euro possono essere utilizzate per i pagamenti in contanti eseguiti in Slovacchia; tuttavia, le banche continueranno a cambiare la vecchia valuta al tasso fisso per un certo periodo: i biglietti fino alla fine del 2009 e le monete fino a tutto il mese di <span class="nowrap">giugno 2009</span>. Le banche possono applicare una commissione a partire dal <span class="nowrap">20 gennaio 2009</span> qualora l’importo per cliente e transazione ecceda 100 banconote e 100 monete. La Národná banka Slovenska effettuerà il cambio delle banconote e delle monete in corone slovacche rispettivamente a tempo indeterminato e fino alla fine del 2013.</p>
+        
+         
+          
+    <a href="/euro/exchange/slovakia/html/index.it.html">Banconote idonee al cambio</a>
+ 
+          
+        </div>
+       
+          
+        <div class="definition-list"> 
+          <div class="header">
+            <div class="title">Cronologia essenziale della sostituzione del contante</div> 
+          </div>
+          
+          <dl class="">
+              
+               
+              
+              
+        <dt>Novembre 2008</dt>
+        <dd>
+          <p>“Consegna anticipata di seconda istanza” di monete alle imprese</p>
+           
+          
+        </dd>
+       
+          
+        <dt>Novembre 2008</dt>
+        <dd>
+          <p>“Consegna anticipata di seconda istanza” di banconote alle imprese</p>
+           
+          
+        </dd>
+       
+          
+        <dt>1<sup>o</sup> gennaio 2009</dt>
+        <dd>
+          <p>Conversione dei conti e introduzione delle banconote e monete in euro</p>
+           
+          
+        </dd>
+       
+          
+        <dt>16 gennaio 2009</dt>
+        <dd>
+          <p>Ultimo giorno di corso legale per le banconote e monete in corone slovacche</p>
+           
+          
+        </dd>
+       
+          
+        <dt>Fino al 31 dicembre 2009</dt>
+        <dd>
+          <p>Cambio gratuito delle banconote in corone slovacche presso le banche</p>
+           
+          
+        </dd>
+       
+          
+        <dt>Fino al 30 giugno 2009</dt>
+        <dd>
+          <p>Cambio gratuito delle monete in corone slovacche presso le banche</p>
+           
+          
+        </dd>
+       
+          
+        <dt>31 dicembre 2013</dt>
+        <dd>
+          <p>Termine ultimo per cambiare le monete in corone slovacche presso la Národná banka Slovenska</p>
+           
+          
+        </dd>
+       
+          
+        <dt>Nessuna scadenza</dt>
+        <dd>
+          <p>Le banconote in corone slovacche possono essere cambiate a tempo indeterminato presso la Národná banka Slovenska</p>
+           
+          
+        </dd>
+       
+          
+               
+              
+          </dl>
+            
+        </div>
+       
+          
+			
+			
+		</main>
+</div>

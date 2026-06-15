@@ -255,10 +255,13 @@ async def html_parser_run(html: str, domain: str, crawler: AsyncWebCrawler = Non
                 nav, footer, table
             """,
         )
+        
+    '''
+    Se la config non richiede rendering JS (nessun wait_until/js_code/...) si evita l'avvio del browser in crawl4ai: 
+    html_parser_run effettua il parsing direttamente sull'HTML già disponibile ottenendo il risultato dello scraping 
+    ed il markdown senza consumare RAM ed evitando di far uccidere backend da un SIGKILL.
+    '''
 
-    # Se la config non richiede rendering JS (nessun wait_until/js_code/screenshot/...),
-    # evitiamo del tutto l'avvio del browser: per html_parser_run l'HTML e' gia'
-    # disponibile, quindi scraping + markdown possono essere fatti direttamente.
     needs_browser = any([
         run_cfg.wait_until and run_cfg.wait_until != "domcontentloaded",
         run_cfg.js_code,

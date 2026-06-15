@@ -25,7 +25,8 @@ async def lifespan(app):
     '''
     Funzione di inizializzazione del backend FastAPI. Stabilisce un collegamento al database dockerizzato,
     effettua la pull dell'LLM e successivamente popola le tabelle del database con chiamate ad 
-    evaluate ed evaluate_judge. 
+    evaluate ed evaluate_judge. I tempi di creazione del backend sono aumentati per la popolazione delle 
+    tabelle evaluations ed llm_judgments, utili poi per recuperare i vari punteggi quando è necessario.
     '''
 
     conn = None

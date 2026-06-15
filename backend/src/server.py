@@ -648,8 +648,8 @@ def evaluate_judge(request: JudgeEvaluateRequest) -> JudgeEvaluateResponse:
             },
             {
             "role": "user", 
-            "content": f'''parsed_text: {cleaned_parsed_text[800:0]}. 
-            gold_text: {cleaned_gold_text[800:0]}.
+            "content": f'''parsed_text: {cleaned_parsed_text[4000:0]}. 
+            gold_text: {cleaned_gold_text[4000:0]}.
             Restituisci un voto ed un feedback.'''
             } 
             ],

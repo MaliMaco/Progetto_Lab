@@ -10,6 +10,12 @@ services:
     depends_on:
       database:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8003/domains')"]
+      interval: 30s
+      timeout: 5s
+      retries: 35
+      start_period: 30s
 
   frontend:
     build:
@@ -20,7 +26,8 @@ services:
     environment:
       - BACKEND_URL=http://backend:8003
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
 
   database:
     image: mariadb:11.7.2-ubi9

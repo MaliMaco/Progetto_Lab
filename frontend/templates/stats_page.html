@@ -4,6 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stats</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:      #0d0f14;
+            --surface: #151820;
+            --border:  #252a36;
+            --accent:  #4af0a0;
+            --accent2: #3db8ff;
+            --warn:    #ff6b6b;
+            --yellow:  #f0c040;
+            --text:    #d8dce8;
+            --muted:   #5a6070;
+            --mono:    'IBM Plex Mono', monospace;
+            --sans:    'IBM Plex Sans', sans-serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 14px;
+            min-height: 100vh;
+            padding: 40px 32px;
+        }
+        h1 {
+            font-family: var(--mono);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--yellow);
+            letter-spacing: -.5px;
+            margin-bottom: 12px;
+        }
+        h2 {
+            font-family: var(--mono);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 24px 0 12px;
+        }
+        a {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            text-decoration: none;
+        }
+        a:hover { color: var(--yellow); }
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+        th {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text);
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(255,255,255,.02); }
+        p.empty { color: var(--muted); font-family: var(--mono); font-size: 13px; }
+        p.error { color: var(--warn); font-family: var(--mono); font-size: 13px; }
+        .val-good { color: var(--accent); }
+        .val-mid  { color: var(--yellow); }
+        .val-bad  { color: var(--warn); }
+        .val-nd   { color: var(--muted); }
+    </style>
 </head>
 <body>
 
@@ -12,18 +90,15 @@
 <hr>
 
 {% if error %}
-    <p style="color:red"><strong>Errore:</strong> {{ error }}</p>
+    <p class="error"><strong>Errore:</strong> {{ error }}</p>
 {% endif %}
 
 {% if stats %}
 
-<!-- CONTEGGIO WEB RESOURCES -->
 <h2>Web Resources nel DB</h2>
 {% if stats.web_resources %}
-<table border="1" cellpadding="6" cellspacing="0">
-    <thead>
-        <tr><th>Dominio</th><th>N. entry</th></tr>
-    </thead>
+<table>
+    <thead><tr><th>Dominio</th><th>N. entry</th></tr></thead>
     <tbody>
         {% for domain, count in stats.web_resources.items() %}
         <tr><td>{{ domain }}</td><td>{{ count }}</td></tr>
@@ -31,15 +106,13 @@
     </tbody>
 </table>
 {% else %}
-<p>Nessuna web resource nel DB.</p>
+<p class="empty">Nessuna web resource nel DB.</p>
 {% endif %}
 
 <h2>Gold Standard nel DB</h2>
 {% if stats.gold_standard %}
-<table border="1" cellpadding="6" cellspacing="0">
-    <thead>
-        <tr><th>Dominio</th><th>N. entry</th></tr>
-    </thead>
+<table>
+    <thead><tr><th>Dominio</th><th>N. entry</th></tr></thead>
     <tbody>
         {% for domain, count in stats.gold_standard.items() %}
         <tr><td>{{ domain }}</td><td>{{ count }}</td></tr>
@@ -47,71 +120,63 @@
     </tbody>
 </table>
 {% else %}
-<p>Nessun Gold Standard nel DB.</p>
+<p class="empty">Nessun Gold Standard nel DB.</p>
 {% endif %}
 
-<!-- METRICHE MEDIE PER DOMINIO -->
 <h2>Metriche medie per dominio (token_level_eval)</h2>
 {% if stats.avg_eval %}
-<table border="1" cellpadding="6" cellspacing="0">
+<table>
     <thead>
-        <tr>
-            <th>Dominio</th>
-            <th>Precision</th>
-            <th>Recall</th>
-            <th>F1</th>
-        </tr>
+        <tr><th>Dominio</th><th>Precision</th><th>Recall</th><th>F1</th></tr>
     </thead>
     <tbody>
         {% for domain, metrics in stats.avg_eval.items() %}
         <tr>
             <td>{{ domain }}</td>
             {% if metrics.token_level_eval %}
-            <td>{{ "%.4f"|format(metrics.token_level_eval.precision) }}</td>
-            <td>{{ "%.4f"|format(metrics.token_level_eval.recall) }}</td>
-            <td>{{ "%.4f"|format(metrics.token_level_eval.f1) }}</td>
+                {% set f1 = metrics.token_level_eval.f1 %}
+                <td>{{ "%.4f"|format(metrics.token_level_eval.precision) }}</td>
+                <td>{{ "%.4f"|format(metrics.token_level_eval.recall) }}</td>
+                <td class="{{ 'val-good' if f1 > 0.80 else ('val-mid' if f1 >= 0.60 else 'val-bad') }}">
+                    {{ "%.4f"|format(f1) }}
+                </td>
             {% else %}
-            <td colspan="3">N/D</td>
+                <td colspan="3" class="val-nd">N/D</td>
             {% endif %}
         </tr>
         {% endfor %}
     </tbody>
 </table>
 {% else %}
-<p>Nessuna metrica disponibile. Esegui <strong>/full_gs_eval</strong> per generare le valutazioni.</p>
+<p class="empty">Nessuna metrica disponibile.</p>
 {% endif %}
 
-<!-- JUDGE SCORE MEDIO PER DOMINIO -->
 <h2>Judge score medio per dominio</h2>
 {% if stats.avg_eval_judge %}
-<table border="1" cellpadding="6" cellspacing="0">
-    <thead>
-        <tr>
-            <th>Dominio</th>
-            <th>Judge Score medio (1-5)</th>
-        </tr>
-    </thead>
+<table>
+    <thead><tr><th>Dominio</th><th>Judge Score (1–5)</th></tr></thead>
     <tbody>
         {% for domain, jdata in stats.avg_eval_judge.items() %}
         <tr>
             <td>{{ domain }}</td>
-            <td>
-                {% if jdata.judge_score is not none %}
-                    {{ "%.2f"|format(jdata.judge_score) }}
-                {% else %}
-                    N/D
-                {% endif %}
-            </td>
+            {% if jdata.judge_score is not none %}
+                {% set js = jdata.judge_score %}
+                <td class="{{ 'val-good' if js >= 4 else ('val-mid' if js >= 3 else 'val-bad') }}">
+                    {{ "%.2f"|format(js) }}
+                </td>
+            {% else %}
+                <td class="val-nd">N/D</td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>
 </table>
 {% else %}
-<p>Nessun giudizio LLM disponibile. Esegui <strong>/full_gs_eval</strong> per generare le valutazioni.</p>
+<p class="empty">Nessun giudizio LLM disponibile.</p>
 {% endif %}
 
 {% else %}
-<p>Impossibile caricare le statistiche dal backend.</p>
+<p class="empty">Impossibile caricare le statistiche dal backend.</p>
 {% endif %}
 
 </body>

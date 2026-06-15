@@ -398,7 +398,7 @@ def gs_delete(
     try:
         del_resp = requests.delete(
             f"{BASE_URL}/gold_standard",
-            params={"url": delete_url}
+            json={"url": delete_url}
         )
         del_resp.raise_for_status()
         success = f"Entry eliminata: {delete_url}"
@@ -464,10 +464,28 @@ def stats_page(request: Request):
         r = requests.get(f"{BASE_URL}/db_stats")
         r.raise_for_status()
         raw = r.json()
-        # db_stats restituisce {"db_status": {...}}
         stats = raw.get("db_status", raw)
     except Exception as e:
         error = f"Impossibile recuperare le statistiche: {e}"
+        return templates.TemplateResponse(
+            request=request,
+            name="stats_page.html",
+            context={"request": request, "stats": None, "domains": domains, "error": error}
+        )
+
+    if stats.get("evaluations") == {} or stats.get("llm_judgments") == {}:
+        for domain in domains:
+            try:
+                requests.get(f"{BASE_URL}/full_gs_eval", params={"domain": domain})
+            except Exception as e:
+                print(f"Errore full_gs_eval per {domain}: {e}")
+
+        try:
+            r = requests.get(f"{BASE_URL}/db_stats")
+            r.raise_for_status()
+            stats = r.json().get("db_status", {})
+        except Exception as e:
+            error = f"Errore secondo fetch db_stats: {e}"
 
     return templates.TemplateResponse(
         request=request,

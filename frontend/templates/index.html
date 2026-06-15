@@ -1,8 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parser UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg:      #0d0f14;
+            --surface: #151820;
+            --border:  #252a36;
+            --accent:  #4af0a0;
+            --accent2: #3db8ff;
+            --warn:    #ff6b6b;
+            --text:    #d8dce8;
+            --muted:   #5a6070;
+            --mono:    'IBM Plex Mono', monospace;
+            --sans:    'IBM Plex Sans', sans-serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 14px;
+            min-height: 100vh;
+            padding: 40px 32px;
+        }
+        h1 {
+            font-family: var(--mono);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: -.5px;
+            margin-bottom: 12px;
+        }
+        h2 {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 24px 0 12px;
+        }
+        h3 {
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        a {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            text-decoration: none;
+        }
+        a:hover { color: var(--accent); }
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+        select, input[type="text"] {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 13px;
+            padding: 8px 12px;
+            outline: none;
+            transition: border-color .2s;
+        }
+        select:focus, input[type="text"]:focus { border-color: var(--accent); }
+        button {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            background: var(--accent);
+            color: #0d0f14;
+            transition: opacity .2s;
+        }
+        button:hover { opacity: .85; }
+        pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 12px;
+            padding: 12px;
+            border-radius: 4px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
         .side-by-side {
             display: flex;
             gap: 24px;
@@ -12,58 +110,46 @@
             flex: 1;
             min-width: 0;
         }
-        pre {
-            white-space: pre-wrap;
-            word-break: break-word;
-            background: #f4f4f4;
-            padding: 10px;
-            border-radius: 4px;
-            max-height: 400px;
-            overflow-y: auto;
-        }
         .metrics {
-            background: #eef6ee;
-            border-left: 4px solid #4caf50;
+            background: rgba(74,240,160,.08);
+            border-left: 4px solid var(--accent);
             padding: 12px 16px;
             margin-top: 16px;
             border-radius: 4px;
         }
-        .metrics table {
-            border-collapse: collapse;
-            width: 100%;
-        }
+        .metrics table { border-collapse: collapse; width: 100%; }
         .metrics td {
             padding: 4px 12px;
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text);
         }
         .metrics td:first-child {
             font-weight: bold;
             width: 120px;
+            color: var(--muted);
         }
         .url-row {
             display: flex;
             gap: 8px;
             align-items: center;
         }
-        .url-row input[type="text"] {
-            flex: 1;
-        }
+        .url-row input[type="text"] { flex: 1; }
+        p.error { color: var(--warn); font-family: var(--mono); font-size: 13px; margin-top: 12px; }
+        p.no-gs { color: var(--muted); font-family: var(--mono); font-size: 13px; font-style: italic; }
     </style>
 </head>
 <body>
 
 <h1>Parser UI</h1>
+<a href="/">&larr; Home</a>
+<hr>
 
 <!-- INPUT URL con menu dominio affiancato -->
 <form action="/parse_ui" method="post">
     <div class="url-row">
         <input type="text" name="url" placeholder="Inserisci URL" value="{{ prefill_url or '' }}">
 
-        <!--
-            Menu a tendina dei domini disponibili.
-            Quando l'utente seleziona un dominio e clicca "Vai al GS",
-            il form viene inviato all'endpoint /select_domain che aggiorna
-            la lista GS e pre-compila l'URL con il primo GS del dominio.
-        -->
         <select name="domain_select" id="domain_select">
             <option value="">-- Scegli dominio --</option>
             {% for d in domains %}
@@ -73,24 +159,13 @@
             {% endfor %}
         </select>
 
-        <label style="display:flex;align-items:center;gap:6px;white-space:nowrap">
-            <input type="checkbox" name="local_mode" value="true" {% if local_mode %}checked{% endif %}>
-            Local
-        </label>
-
         <button type="submit">Parse</button>
-
-        <!--
-            Bottone separato che invia il form a /select_domain invece di /parse_ui.
-            In questo modo l'utente può prima sfogliare i GS di un dominio
-            senza dover ancora avviare il parser.
-        -->
         <button type="submit" formaction="/select_domain">Vai al GS</button>
     </div>
 </form>
 
 {% if error %}
-    <p style="color: red;">Error: {{ error }}</p>
+    <p class="error">Errore: {{ error }}</p>
 {% endif %}
 
 <hr>
@@ -104,7 +179,6 @@
         {% endfor %}
     </select>
     <input type="hidden" name="domain_select" value="{{ selected_domain or '' }}">
-    <input type="hidden" name="local_mode" value="{{ 'true' if local_mode else 'false' }}">
     <button type="submit">Usa GS</button>
 </form>
 {% endif %}
@@ -149,7 +223,7 @@
                 {% endif %}
 
                 {% if judge %}
-                <div class="metrics" style="background:#eef0ff;border-left-color:#5b6af0;margin-top:12px">
+                <div class="metrics" style="background:rgba(61,184,255,.08);border-left-color:var(--accent2);margin-top:12px">
                     <h3 style="margin-top:0">LLM Judge</h3>
                     <table>
                         <tr><td>Modello</td><td>{{ judge.model_name }}</td></tr>
@@ -160,7 +234,7 @@
                 {% endif %}
 
             {% else %}
-                <p style="color:#888"><em>URL non presente nel Gold Standard: metriche e judge non disponibili.</em></p>
+                <p class="no-gs">URL non presente nel Gold Standard: metriche e judge non disponibili.</p>
             {% endif %}
         </div>
     </div>

@@ -3,6 +3,8 @@ from contextlib import asynccontextmanager, contextmanager
 from pydantic import BaseModel
 from typing import Dict, List, Optional, Any
 from crawler import parser_run, html_parser_run
+from crawl4ai import AsyncWebCrawler
+from crawl4ai.async_configs import BrowserConfig
 from pathlib import Path
 from evaluator import TokenEvaluator
 from remove_markdown import remove_markdown
@@ -15,9 +17,16 @@ import html
 import os
 import json
 import requests
+import resource
 
 @asynccontextmanager
 async def lifespan(app):
+
+    '''
+    Funzione di inizializzazione del backend FastAPI. Stabilisce un collegamento al database dockerizzato,
+    effettua la pull dell'LLM e successivamente popola le tabelle del database con chiamate ad 
+    evaluate ed evaluate_judge. 
+    '''
 
     conn = None
 
@@ -59,63 +68,65 @@ async def lifespan(app):
         print(f"Ollama error: {e}")
 
     try:
-        for domain in data:
-            GS_path = os.path.join(Path(__file__).parent.parent.parent,f"gs_data/{domain}/GS.json")
-            GS_time = os.path.getctime(GS_path)
-            c_datestamp = datetime.datetime.fromtimestamp(GS_time)
-            response = get_full_gold_standard(domain=domain).gold_standard
-            for gs in response:
-                cursor.execute(web_insert_query, 
-                    (gs['url'], gs['domain'], gs['title'],
-                     gs['html_text'], c_datestamp)
-                               )
-                cursor.execute(gold_insert_query, 
-                    (gs['url'], gs['gold_text'],
-                     c_datestamp)
-                               )
-                conn.commit()
+        async with AsyncWebCrawler(config=BrowserConfig(headless=True)) as shared_crawler:
+            for domain in data:
+                GS_path = os.path.join(Path(__file__).parent.parent.parent,f"gs_data/{domain}/GS.json")
+                GS_time = os.path.getctime(GS_path)
+                c_datestamp = datetime.datetime.fromtimestamp(GS_time)
+                response = get_full_gold_standard(domain=domain).gold_standard
+                for gs in response:
+                    cursor.execute(web_insert_query, 
+                        (gs['url'], gs['domain'], gs['title'],
+                         gs['html_text'], c_datestamp)
+                                   )
+                    cursor.execute(gold_insert_query, 
+                        (gs['url'], gs['gold_text'],
+                         c_datestamp)
+                                   )
+                    conn.commit()
 
-                try:
-                    parsed = await html_parser_run(gs['html_text'], domain)
-                    parsed_text = parsed.markdown
-                except Exception as e:
-                    print(f"Parsing iniziale fallito per {gs['url']}: {e}")
-                    continue
+                    try:
+                        parsed = await html_parser_run(gs['html_text'], domain, crawler=shared_crawler)
+                        parsed_text = parsed.markdown
+                    except Exception as e:
+                        print(f"Parsing iniziale fallito per {gs['url']}: {e}")
+                        continue
+
  
-                try:
-                    eval_result = evaluate(
-                        EvaluateRequest(
-                            parsed_text=parsed_text,
-                            gold_text=gs['gold_text']
+                    try:
+                        eval_result = evaluate(
+                            EvaluateRequest(
+                                parsed_text=parsed_text,
+                                gold_text=gs['gold_text']
+                            )
                         )
-                    )
-                    cursor.execute(eval_insert_query, (
-                        gs['url'],
-                        eval_result.token_level_eval["precision"],
-                        eval_result.token_level_eval["recall"],
-                        eval_result.token_level_eval["f1"],
-                        c_datestamp
-                    ))
-                    conn.commit()
-                except Exception as e:
-                    print(f"Evaluate iniziale fallito per {gs['url']}: {e}")
- 
-                try:
-                    judge_result = evaluate_judge(
-                        JudgeEvaluateRequest(
-                            parsed_text=parsed_text,
-                            gold_text=gs['gold_text']
+                        cursor.execute(eval_insert_query, (
+                            gs['url'],
+                            eval_result.token_level_eval["precision"],
+                            eval_result.token_level_eval["recall"],
+                            eval_result.token_level_eval["f1"],
+                            c_datestamp
+                        ))
+                        conn.commit()
+                    except Exception as e:
+                        print(f"Evaluate iniziale fallito per {gs['url']}: {e}")
+
+                    try:
+                        judge_result = evaluate_judge(
+                            JudgeEvaluateRequest(
+                                parsed_text=parsed_text,
+                                gold_text=gs['gold_text']
+                            )
                         )
-                    )
-                    cursor.execute(llm_insert_query, (
-                        gs['url'],
-                        judge_result.judge_score,
-                        judge_result.judge_feedback,
-                        c_datestamp
-                    ))
-                    conn.commit()
-                except Exception as e:
-                    print(f"Evaluate_judge iniziale fallito per {gs['url']}: {e}")
+                        cursor.execute(llm_insert_query, (
+                            gs['url'],
+                            judge_result.judge_score,
+                            judge_result.judge_feedback,
+                            c_datestamp
+                        ))
+                        conn.commit()
+                    except Exception as e:
+                        print(f"Evaluate_judge iniziale fallito per {gs['url']}: {e}")
     finally:
         cursor.close()
     
@@ -124,6 +135,12 @@ async def lifespan(app):
 
 @contextmanager
 def get_db_conn():
+
+    '''
+    Funzione ausiliare per poter creare una connessione nei metodi che accedono al database
+    permettendo facilmente di chiudere suddetta connessione alla fine dell'esecuzione del metodo.
+    '''
+
     conn = mariadb.connect(
         host="database",
         port=3306,
@@ -136,6 +153,7 @@ def get_db_conn():
     finally:
         conn.close()
 
+
 OLLAMA_URL = "http://ollama:11434"
 
 app = FastAPI(title="Backend API", lifespan=lifespan)
@@ -147,6 +165,11 @@ All'interno dei singoli metodi è presente una descrizione riassiuntiva delle fu
 '''
 
 def check_stability(conn):
+
+    '''
+    Funzione ausiliare aggiuntiva per testare la stabilità del database dopo la sua creazione.
+    '''
+
     is_stable = False
     try:
         # Ping the server to check connectivity
@@ -169,6 +192,10 @@ def check_stability(conn):
     finally:
         if 'cursor' in locals():
             cursor.close()
+
+'''
+Lista delle query usate in tutto il server di backend, permette l'aggiornamento delle entry.
+'''
 
 web_insert_query = (
     "INSERT INTO "
@@ -290,6 +317,8 @@ class FullGSEvaluateResponse(BaseModel):
 class DBStatsResponse(BaseModel):
     web_resources: Dict[str, int] = {}
     gold_standard: Dict[str, int] = {}
+    evaluations: Dict[str, int] = {}
+    llm_judgments: Dict[str, int] = {}
     avg_eval: Dict[str, Any] = {}
     avg_eval_judge: Dict[str, Any] = {}
 
@@ -346,10 +375,11 @@ def parse(url: str) -> ParseOutput:
 def post_parse(input: ParseInput) -> ParseOutput:
 
     '''
-    * POST /parse: invoca il crawler sull'HTML grezzo passato insieme all'URL associato mediante un oggetto di tipo ParseInput 
-        e restituisce un oggetto di tipo ParseOutput. l'URL è necessario per estrarre il dominio di appartenenza al fine di poter
-        decidere, come per l'endpoint GET /parse una configurazione adatta del parser.
-        Lancia un errore se il dominio non è supportato.
+    * POST /parse: riceve in input un oggetto di classe ParseInput, contenente l'URL il cui HTML è di interesse da parsare. 
+        L'URL è necessario per estrarre il dominio di appartenenza al fine di poter scegliere la giusta configurazione del parser.
+        Se la variabile local contenuta dentro ParseInput è pari a False si fa un parsing live dell'URL andando poi a raffinarlo
+        con il parser dell'HTML, se local è pari a True si recupera l'HTML relativo all'URL e si parsa su di esso.
+        Lancia un errore se il dominio non è supportato o se l'URL non è presente nel database.
     '''
 
     url_list = input.url.split("/")
@@ -442,16 +472,6 @@ def get_gold_standard(url: str) -> GSResponse:
         restituisce un oggetto di tipo GSResponse. Le informazioni vengono caricate dal DB dockerizzato. 
         Se l'URL non ha un entry associata oppure il dominio non è presente viene lanciato un errore.
     '''
-
-    url_list = url.split("/")
-    domain = url_list[2]
-    
-    '''
-    with open(domains_path, 'r', encoding="UTF-8") as dm_file:
-        domains = json.load(dm_file)
-        if domain not in domains['domains']:
-            raise HTTPException(status_code=400, detail="Dominio non supportato.")
-    '''
     
     try:
         with get_db_conn() as conn:
@@ -462,22 +482,26 @@ def get_gold_standard(url: str) -> GSResponse:
             web_select_query = "SELECT title, domain, html_text " \
                             "FROM web_resources " \
                             "WHERE url = ?"
-
+ 
             with conn.cursor() as cursor:
-
+ 
                 cursor.execute(gold_select_query, (url, ))
                 result = cursor.fetchone()
-                if result != None:
-                    gold_result = result[0]
-                
+                if result is None:
+                    raise HTTPException(status_code=400, detail="URL non presente nel GS.")
+                gold_result = result[0]
+ 
                 cursor.execute(web_select_query, (url, ))
                 result = cursor.fetchone()
-                if result != None:
-                    print("title, domain and html_text present")
-                    title_result = result[0]
-                    domain_result = result[1]
-                    html_text_result = result[2]
-
+                if result is None:
+                    raise HTTPException(status_code=400, detail="URL non presente nel GS.")
+                print("title, domain and html_text present")
+                title_result = result[0]
+                domain_result = result[1]
+                html_text_result = result[2]
+ 
+    except HTTPException:
+        raise
     except mariadb.Error as e:
         raise HTTPException(status_code=500, detail=str(e))
     except:
@@ -493,6 +517,13 @@ def get_gold_standard(url: str) -> GSResponse:
 
 @app.get("/gold_standard_urls")
 def get_gold_standard_urls(domain: str) -> GSURLSResponse:
+
+    '''
+    * GET /gold_standard_urls: prende in input un dominio e restituisce la lista degli urls.
+        Vengono recuperati accedendo al database.
+        Se il dominio non è supportato viene lanciato un errore.
+    '''
+
     with open(domains_path, 'r', encoding="UTF-8") as dm_file:
         domains = json.load(dm_file)
         if domain not in domains['domains']:
@@ -548,7 +579,7 @@ def evaluate(request: EvaluateRequest) -> EvaluateResponse:
 
     '''
     * POST /evaluate: preso in input un oggetto di classe EvaluateRequest contenente il testo parsato risultante di uno dei metodi /parse
-        ed il gold text contenuto nel gold standard associato restituisce le metriche di evaluation wrappate in un oggetto di classe EvaluateResponse.
+        ed il gold text contenuto nella tabella gold standard restituisce le metriche di evaluation wrappate in un oggetto di classe EvaluateResponse.
         Se il parsed text o il gold text o entrambi risultano vuoti, verrà restituita una valutazione nulla.
     '''
 
@@ -573,6 +604,12 @@ def evaluate(request: EvaluateRequest) -> EvaluateResponse:
 
 @app.post("/evaluate_judge")
 def evaluate_judge(request: JudgeEvaluateRequest) -> JudgeEvaluateResponse:
+
+    '''
+    * POST /evaluate_judge: preso in input un oggetto di classe JudgeEvaluateRequest contenente il testo parsato risultante di uno dei metodi /parse
+        ed il gold text contenuto nella tabella gold standard restituisce le metriche di evaluation del giudice wrappate in un oggetto di classe JudgeEvaluateResponse.
+        Se il parsed text o il gold text o entrambi risultano vuoti, verrà restituita una valutazione nulla.
+    '''
 
     if not request.parsed_text or not request.gold_text:
         return JudgeEvaluateResponse(
@@ -670,7 +707,10 @@ def get_full_gs_eval(domain: str) -> FullGSEvaluateResponse:
 
     '''
     * GET /full_gs_eval: dato un dominio in input, restituisce la valutazione complessiva del Gold Standard associato a tale dominio
-        calcolando la media delle metriche di valutazione delle singole entry wrappandole in un oggetto di classe EvaluateResponse.
+        calcolando la media delle metriche di valutazione delle singole entry generate dai metodi evaluate ed evaluate_judge 
+        wrappandole in un oggetto di classe EvaluateResponse.
+        Se le valutazioni per un dominio sono già presenti all'interno del database il metodo che calcola le relative metriche non viene
+        chiamato. In tal caso suddette metriche vengono ottenute eseguendo una query sul database.
         Lancia un errore se il dominio in input non è supportato.
     '''
 
@@ -716,6 +756,11 @@ def get_full_gs_eval(domain: str) -> FullGSEvaluateResponse:
                         )
 
                         result_llm = cursor.fetchone()
+
+                        '''
+                        Se le metriche di evaluate nella tabella evaluations sono presenti, 
+                        salta la chiamata ad evaluate e recupera i dati direttamente dal database.
+                        '''
                         
                         if result_evaluations is not None:
 
@@ -744,6 +789,11 @@ def get_full_gs_eval(domain: str) -> FullGSEvaluateResponse:
                                 datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                                 )
                             )
+
+                        '''
+                        Se le metriche di evaluate_judge nella tabella llm_judgments sono presenti, 
+                        salta la chiamata ad evaluate_judge e recupera i dati direttamente dal database.
+                        '''
 
                         if result_llm is not None:
 
@@ -807,6 +857,11 @@ def get_full_gs_eval(domain: str) -> FullGSEvaluateResponse:
 @app.post("/add_web_resource")
 def add_web_resource(input: AddWebInput) -> AddWebOutput:
 
+    '''
+    * POST /add_web_resource: prende in input un oggetto di classe AddWebInput contenente un URL e l'HTML associato estratto da POST /parse e 
+        lo inserisce nel database. Il metodo restituisce un oggetto di classe AddWebOutput che riferisce l'esisto della query. 
+    '''
+
     url_list = input.url.split("/")
     domain = url_list[2]
 
@@ -838,6 +893,11 @@ def add_web_resource(input: AddWebInput) -> AddWebOutput:
 @app.post("/add_gold_standard")
 def add_gold_standard(input: AddGoldInput) -> AddGoldOutput:
 
+    '''
+    * POST /add_gold_standard: prende in input un oggetto di classe AddGoldInput contenente un URL ed il gold_text associato e 
+        lo inserisce nel database. Il metodo restituisce un oggetto di classe AddGoldOutput che riferisce l'esisto della query. 
+    '''
+
     try:
         with get_db_conn() as conn:
             with conn.cursor() as cursor:
@@ -861,6 +921,11 @@ def add_gold_standard(input: AddGoldInput) -> AddGoldOutput:
 
 @app.delete("/web_resource")
 def delete_web_resource(input: DeleteWebInput) -> DeleteWebOutput:
+
+    '''
+    * DELETE /web_resource: prende in input un oggetto di classe DeleteWebInput contenente un URL e lo elimina dalla tabella web_resource.
+        Il metodo restituisce un oggetto di classe DeleteWebOutput che riferisce l'esisto della query. 
+    '''
     
     try:
         with get_db_conn() as conn:
@@ -880,6 +945,11 @@ def delete_web_resource(input: DeleteWebInput) -> DeleteWebOutput:
 
 @app.delete("/gold_standard")
 def delete_gold_standard(input: DeleteGoldInput) -> DeleteGoldOutput:
+
+    '''
+    * DELETE /gold_standard: prende in input un oggetto di classe DeleteGoldInput contenente un URL e lo elimina dalla tabella gold_standard.
+        Il metodo restituisce un oggetto di classe DeleteGoldOutput che riferisce l'esisto della query. 
+    '''
 
     try:
         with get_db_conn() as conn:
@@ -902,6 +972,13 @@ def delete_gold_standard(input: DeleteGoldInput) -> DeleteGoldOutput:
 
 @app.get("/db_stats")
 def get_db_stats() -> DBStatsResponse:
+
+    '''
+    * GET /db_stats: restituisce un oggetto DBStatsResponse, il quale contiene le informazioni relative ai dati salvati nel database.
+        Nello specifico, restituisce le tabelle contenute nel database con i vari domini ed il numero di url in esse contenuti e 
+        due tabelle aggiuntive contenenti i valori medi di evaluate ed evaluate_judge calcolati da full_gs_eval per i domini.
+    '''
+
     web_resources = dict()
     gold_standard = dict()
     evaluations = dict()
@@ -949,7 +1026,7 @@ def get_db_stats() -> DBStatsResponse:
                 result = cursor.fetchall()
                 for elem in result:
                     gold_standard[elem[0]] = elem[1]
-                '''
+                
                 #evaluations
                 cursor.execute(eval_count_query)
                 result = cursor.fetchall()
@@ -971,7 +1048,7 @@ def get_db_stats() -> DBStatsResponse:
                     print("Tabella llm_judgments vuota, " \
                     "esegui una full_gs_eval per generare delle valutazioni " \
                     "o farne un aggiornamento")
-                '''
+                
                 #avg_eval
                 cursor.execute(avg_eval_query)
                 result = cursor.fetchall()
@@ -1003,6 +1080,8 @@ def get_db_stats() -> DBStatsResponse:
     return DBStatsResponse(
         web_resources=web_resources,
         gold_standard=gold_standard,
+        evaluations=evaluations,
+        llm_judgments=llm_judgments,
         avg_eval=avg_eval,
         avg_eval_judge=avg_eval_judge
     )
@@ -1010,6 +1089,12 @@ def get_db_stats() -> DBStatsResponse:
 
 @app.get("/db_schema")
 def get_db_schema() -> DBSchemaResponse:
+
+    '''
+    * GET /db_schema: restituisce un oggetto di tipo DBSchemaResponse contenente lo schema del database, specificando il tipo dei dati,
+        le chiavi primarie con PK e le chiavi esterne con FK.
+    '''
+
     try:
         """
         Legge lo schema reale del DB da information_schema e lo restituisce
@@ -1068,9 +1153,11 @@ def get_db_schema() -> DBSchemaResponse:
 
 @app.get("/status")
 def get_status() -> StatusResponse:
-    """
-    Controlla la raggiungibilità di backend, database e ollama.
-    """
+
+    '''
+    * GET /status: restituisce un oggetto di tipo StatusResponse contenente lo stato dei componenti del sistema.
+        Se raggiungibili, il valore è "ok", altrimenti è "error".
+    '''
 
     try:
         with get_db_conn() as conn:

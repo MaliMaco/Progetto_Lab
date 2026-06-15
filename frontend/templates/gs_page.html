@@ -4,6 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gold Standard Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:      #0d0f14;
+            --surface: #151820;
+            --border:  #252a36;
+            --accent:  #4af0a0;
+            --accent2: #3db8ff;
+            --warn:    #ff6b6b;
+            --ok:      #4af0a0;
+            --text:    #d8dce8;
+            --muted:   #5a6070;
+            --mono:    'IBM Plex Mono', monospace;
+            --sans:    'IBM Plex Sans', sans-serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 14px;
+            min-height: 100vh;
+            padding: 40px 32px;
+        }
+        h1 {
+            font-family: var(--mono);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--accent2);
+            letter-spacing: -.5px;
+            margin-bottom: 12px;
+        }
+        h2 {
+            font-family: var(--mono);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 24px 0 12px;
+        }
+        a {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            text-decoration: none;
+        }
+        a:hover { color: var(--accent2); }
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+        label {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--muted);
+        }
+        label strong { color: var(--text); }
+        select, input[type="text"], textarea {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 13px;
+            padding: 8px 12px;
+            outline: none;
+            transition: border-color .2s;
+        }
+        select:focus, input[type="text"]:focus, textarea:focus { border-color: var(--accent2); }
+        input[type="text"] { width: 500px; }
+        textarea { width: 100%; resize: vertical; }
+        button {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            background: var(--accent2);
+            color: #0d0f14;
+            transition: opacity .2s;
+        }
+        button:hover { opacity: .85; }
+        button.btn-danger {
+            background: rgba(255,107,107,.15);
+            color: var(--warn);
+            border: 1px solid rgba(255,107,107,.3);
+        }
+        button.btn-danger:hover { background: rgba(255,107,107,.25); opacity: 1; }
+        p.error { color: var(--warn); font-family: var(--mono); font-size: 13px; }
+        p.success { color: var(--ok); font-family: var(--mono); font-size: 13px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text);
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            word-break: break-all;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(255,255,255,.02); }
+        p.empty { color: var(--muted); font-family: var(--mono); font-size: 13px; }
+    </style>
 </head>
 <body>
 
@@ -12,21 +130,22 @@
 <hr>
 
 {% if error %}
-    <p style="color:red"><strong>Errore:</strong> {{ error }}</p>
+    <p class="error"><strong>Errore:</strong> {{ error }}</p>
 {% endif %}
 {% if success %}
-    <p style="color:green"><strong>OK:</strong> {{ success }}</p>
+    <p class="success"><strong>OK:</strong> {{ success }}</p>
 {% endif %}
 
 <!-- SELEZIONE DOMINIO -->
 <form action="/gs_select_domain" method="post">
-    <label for="gs_domain"><strong>Seleziona dominio:</strong></label><br>
+    <label for="gs_domain"><strong>Seleziona dominio:</strong></label><br><br>
     <select name="gs_domain" id="gs_domain">
         <option value="">-- Scegli dominio --</option>
         {% for d in domains %}
             <option value="{{ d }}" {% if d == selected_domain %}selected{% endif %}>{{ d }}</option>
         {% endfor %}
     </select>
+    &nbsp;
     <button type="submit">Seleziona</button>
 </form>
 
@@ -36,16 +155,17 @@
 <h2>Aggiungi entry al Gold Standard</h2>
 <form action="/gs_fetch_html" method="post">
     <input type="hidden" name="gs_domain" value="{{ selected_domain or '' }}">
-    <label for="gs_url"><strong>URL da aggiungere:</strong></label><br>
-    <input type="text" id="gs_url" name="gs_url" placeholder="https://..." style="width:500px"
+    <label for="gs_url"><strong>URL da aggiungere:</strong></label><br><br>
+    <input type="text" id="gs_url" name="gs_url" placeholder="https://..."
            value="{{ fetched_url or '' }}">
+    &nbsp;
     <button type="submit">Scarica HTML</button>
 </form>
 
 <!-- STEP 2: MOSTRA HTML E PERMETTE INSERIMENTO GOLD TEXT -->
 {% if html_preview %}
 <br>
-<p>
+<p style="font-family:var(--mono);font-size:13px;color:var(--muted)">
     HTML scaricato. Copia il contenuto qui sotto, aprilo in un browser per identificare
     il testo informativo, poi incollalo nel campo <em>Gold Text</em>.
 </p>
@@ -54,12 +174,13 @@
     <input type="hidden" name="gs_domain" value="{{ selected_domain or '' }}">
     <input type="hidden" name="gs_url" value="{{ fetched_url }}">
 
-    <label><strong>HTML grezzo (da aprire nel browser):</strong></label><br>
-    <textarea name="gs_html" rows="8" style="width:100%;font-family:monospace;font-size:12px">{{ html_preview }}</textarea>
+    <br>
+    <label><strong>HTML grezzo (da aprire nel browser):</strong></label><br><br>
+    <textarea name="gs_html" rows="8" style="font-size:11px">{{ html_preview }}</textarea>
     <br><br>
 
-    <label for="gold_text"><strong>Gold Text (testo informativo copiato manualmente dalla pagina):</strong></label><br>
-    <textarea id="gold_text" name="gold_text" rows="10" style="width:100%"
+    <label for="gold_text"><strong>Gold Text (testo informativo copiato manualmente dalla pagina):</strong></label><br><br>
+    <textarea id="gold_text" name="gold_text" rows="10"
               placeholder="Incolla qui il testo informativo estratto manualmente dalla pagina..."></textarea>
     <br><br>
 
@@ -74,11 +195,11 @@
 <h2>URL presenti nel Gold Standard per {{ selected_domain }}</h2>
 
 {% if gs_urls %}
-<table border="1" cellpadding="6" cellspacing="0">
+<table>
     <thead>
         <tr>
             <th>URL</th>
-            <th>Azione</th>
+            <th style="width:100px">Azione</th>
         </tr>
     </thead>
     <tbody>
@@ -90,7 +211,7 @@
                       onsubmit="return confirm('Eliminare questa entry dal Gold Standard?')">
                     <input type="hidden" name="gs_domain" value="{{ selected_domain }}">
                     <input type="hidden" name="delete_url" value="{{ u }}">
-                    <button type="submit">Elimina</button>
+                    <button class="btn-danger" type="submit">Elimina</button>
                 </form>
             </td>
         </tr>
@@ -98,7 +219,7 @@
     </tbody>
 </table>
 {% else %}
-<p>Nessuna entry nel Gold Standard per questo dominio.</p>
+<p class="empty">Nessuna entry nel Gold Standard per questo dominio.</p>
 {% endif %}
 {% endif %}
 
